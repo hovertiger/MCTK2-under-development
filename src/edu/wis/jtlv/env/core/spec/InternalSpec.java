@@ -53,7 +53,7 @@ public abstract class InternalSpec {
 
 	public abstract boolean hasTemporalOperators();
 
-	public abstract boolean hasEpistmeicOperators();
+	public abstract boolean hasEpistemicOperators();
 
 	public abstract boolean hasRealTimeOperators();
 

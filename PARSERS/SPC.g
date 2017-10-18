@@ -23,6 +23,8 @@ tokens {
 	
 	PURE_CTL_EPISTEMIC_T;
 	CTL_KNOW_T;
+	TOK_CTL_KNOW_T;
+	TOK_AGENT_NAME_T;
 } // an imaginary node
 
 @header {
@@ -425,6 +427,7 @@ ctl_expr					returns[InternalSpec ret]
 								  -> ^(PURE_CTL_EPISTEMIC_T pure_ctl_epistemic_expr)*/
 								;
 
+/*
 pure_ctl_epistemic_expr			returns[InternalSpec ret]	
 @init {boolean append_end = false; String exp_str = ""; }
 @after { if(append_end) $ret.setEndToken($stop); if(!er()) $ret.evalBDDChildrenExp(input); }
@@ -433,7 +436,7 @@ pure_ctl_epistemic_expr			returns[InternalSpec ret]
 		| op=TOK_NOT^ fp=pure_ctl_epistemic_expr
 		{ if (!er()) exp_str = $op.text + " " + $fp.text; if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_not(input, $start, exp_str, $fp.ret); }
 		;
-	
+
 ctl_know						returns[InternalSpec ret]
 @init {boolean append_end = false; String exp_str = ""; }
 @after { if(append_end) $ret.setEndToken($stop); if(!er()) $ret.evalBDDChildrenExp(input); }
@@ -447,6 +450,7 @@ agent_name				returns[InternalSpecAgentIdentifier ret]
 								: agentName=TOK_ATOM //primary_expr_helper1_pointer1
 								{ if(!er()) $ret = new InternalSpecAgentIdentifier($agentName.text, $start); }
 								;				
+*/
 								
 pure_ctl_expr				returns[InternalSpec ret]
 @init {boolean append_end = false; String exp_str = ""; }
@@ -677,6 +681,31 @@ ctl_primary_expr_helper1	returns[InternalSpec ret]
 								//{ if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_ref(input, $start, $TOK_WAWRITE.text + $TOK_LP.text + $f.text + $tc1.text + $m.text + $tc2.text + $s.text + $TOK_RP.text + $primary_expr_select.text); }
 								-> ^(TOK_WAWRITE $f $m $s NOP primary_expr_select)
 								;
+
+ctl_know						returns[InternalSpec ret]
+@init {boolean append_end = false; String exp_str = ""; }
+@after { if(append_end) $ret.setEndToken($stop); if(!er()) $ret.evalBDDChildrenExp(input); }
+								: TOK_LP! agent=agent_name opk=TOK_KNOW^ f=ctl_root_expr TOK_RP!
+								{ if (!er()) exp_str = $agent.text + " " + $opk.text + " " + $f.text; 
+								  if(!er()) append_end = true; 
+								  if(!er()) $ret = InitSpec.mk_ctl_know(input, $start, exp_str, $agent.ret, $f.ret); 
+								} 
+								//-> ^(TOK_CTL_KNOW_T agent_name TOK_KNOW ctl_root_expr)
+								;			
+/*
+agent_name	returns[InternalSpec ret]
+@init {boolean append_end = false; String exp_str = ""; }
+@after { if(append_end) $ret.setEndToken($stop); if(!er()) $ret.evalBDDChildrenExp(input); }
+							: agent=TOK_ATOM
+								{ exp_str += $agent.text; if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_ref(input, $start, $agent.text); }
+								-> ^(TOK_AGENT_NAME_T TOK_ATOM)
+								;
+*/								
+agent_name				returns[InternalSpecAgentIdentifier ret]
+@after { if(!er()) $ret.evalBDDChildrenExp(input); }
+								: agentName=TOK_ATOM //primary_expr_helper1_pointer1
+								{ if(!er()) $ret = new InternalSpecAgentIdentifier($agentName.text, $start); }
+								;				
 
 ///////////////////////////////////////////////////////////////////////////////
 // ROOT OF LTL TEMPORAL EXPRESSIONS ///////////////////////////////////////////

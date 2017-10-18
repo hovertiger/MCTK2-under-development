@@ -32,8 +32,8 @@ public class ModelCheckingTest {
 //		Check_test();
 
 		Env.resetEnv();
-//		rtctlkCheck();
-		ltlCheck();
+		rtctlkCheck();
+//		ltlCheck();
 
 		System.out.println("DONE");
 	}
@@ -390,7 +390,7 @@ public class ModelCheckingTest {
 		main.setFullPrintingMode(true);
 		System.out.println("========= DONE Loading Modules ==========");
 
-		String to_parse = "SPEC v1 & (agent1 KNOW v1) \n";
+		String to_parse = "SPEC !(agent1 KNOW v1) \n";
 //		String to_parse = "SPEC v1 & !! A [ v1 U v2 ]\n";
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);

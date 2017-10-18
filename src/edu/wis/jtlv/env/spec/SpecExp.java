@@ -302,7 +302,7 @@ public class SpecExp implements Spec {
 
 		// epistemic
 		if (op == Operator.KNOW)
-			return "[" + ch[0] + " KNOW " + ch[1] + "]";
+			return "(" + ch[0] + " KNOW " + ch[1] + ")";
 
 		//special cases of RTLTL
 		if (op == Operator.B_FINALLY)

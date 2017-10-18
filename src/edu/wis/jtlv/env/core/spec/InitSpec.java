@@ -20,7 +20,8 @@ public class InitSpec {
 	private static InternalSpec mk_simple_binary_node(TokenStream input, Token start, String exp_str,
 			InternalOp op, InternalSpec l, InternalSpec r) throws SpecParseException {
 		assert op.isProp();
-		if (!l.hasTemporalOperators() & !r.hasTemporalOperators() & !r.hasEpistmeicOperators())
+		if (!l.hasTemporalOperators() & !r.hasTemporalOperators() &
+				!l.hasEpistemicOperators() & !r.hasEpistemicOperators())
 			return new InternalSpecBDD(exp_str, start);
 		// if (!l.hasTemporalOperators())
 		// l = new SpecBDD(exp_str);
@@ -33,7 +34,7 @@ public class InitSpec {
 	private static InternalSpec mk_simple_unary_node(TokenStream input, Token start, String exp_str,
 			InternalOp op, InternalSpec v) throws SpecParseException {
 		assert op.isProp();
-		if (!v.hasTemporalOperators() & !v.hasEpistmeicOperators())
+		if (!v.hasTemporalOperators() & !v.hasEpistemicOperators())
 			return new InternalSpecBDD(exp_str, start);
 		return new InternalSpecExp(exp_str, op, v, start);
 	}
@@ -129,14 +130,10 @@ public class InitSpec {
 
 	// //////////////////
 	// knowledge binary
-	public static InternalSpec mk_ctl_know(TokenStream input, Token start, String exp_str, InternalSpecAgentIdentifier l, InternalSpec r)
+	public static InternalSpec mk_ctl_know(TokenStream input, Token start, String exp_str, InternalSpec l, InternalSpec r)
 			throws SpecParseException {
 
-		if(l.getAgentName().equals(""))
-			throw new SpecParseException("The knowledge formula " + exp_str + " has a NULL agent name.",
-				input, start, null );
-
-		return new InternalSpecExp(exp_str, InternalOp.KNOW, l, r, start);
+		return mk_ltl_know(input, start, exp_str, l, r);
 
 	}
 
@@ -335,10 +332,21 @@ public class InitSpec {
 		}
 	}
 
+	private static void check_no_epistemic_operand(TokenStream input, Token start,
+												  String op_str, InternalSpec l, InternalSpec r) throws SpecParseException {
+		if (l.hasEpistemicOperators() | r.hasEpistemicOperators()) {
+			String el_spec = l.hasEpistemicOperators() ? l.toString() : r
+					.toString();
+			throw new SpecParseException("Cannot evaluate operator '" + op_str
+					+ "' on an EL spec operand:\n" + el_spec, input, start, null);
+		}
+	}
+
 	private static InternalSpec mk_smv_exp(TokenStream input, Token start, String exp_str,
 			String op_str, InternalSpec l, InternalSpec r) throws SpecParseException {
 		// trying to catch errors first
 		check_no_temporal_operand(input, start, op_str, l, r);
+		check_no_epistemic_operand(input, start, op_str, l, r);
 		// then constructing this Spec....
 		// return mk_node(input, start, exp_str, null, l, r);
 		// or, a shortcut:
@@ -456,6 +464,9 @@ public class InitSpec {
 		if (v.hasTemporalOperators())
 			throw new SpecParseException("Cannot evaluate operator '-"
 					+ "' on a TL spec operand:\n" + v.toString(), input, start, null);
+		if (v.hasEpistemicOperators())
+			throw new SpecParseException("Cannot evaluate operator '-"
+					+ "' on an EL spec operand:\n" + v.toString(), input, start, null);
 		return new InternalSpecBDD(exp_str, start);
 	}
 

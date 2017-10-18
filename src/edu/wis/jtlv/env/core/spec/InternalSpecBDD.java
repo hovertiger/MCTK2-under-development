@@ -144,7 +144,7 @@ public class InternalSpecBDD extends InternalSpec {
 	}
 
 	@Override
-	public boolean hasEpistmeicOperators() {
+	public boolean hasEpistemicOperators() {
 		return false;
 	}
 

@@ -172,9 +172,9 @@ public class InternalSpecExp extends InternalSpec {
 	}
 
 	@Override
-	public boolean hasEpistmeicOperators() {
+	public boolean hasEpistemicOperators() {
 		for (InternalSpec s : this.getChildren())
-			if (s.hasEpistmeicOperators())
+			if (s.hasEpistemicOperators())
 				return true;
 		return this.theOp.isEpistemicOp();
 	}
