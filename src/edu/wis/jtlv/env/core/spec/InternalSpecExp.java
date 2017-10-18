@@ -171,11 +171,27 @@ public class InternalSpecExp extends InternalSpec {
 		return this.theOp.isTemporalOp();
 	}
 
-/*	@Override
-	public boolean isIdentifierSpec() {
-		return false;
+	@Override
+	public boolean hasEpistmeicOperators() {
+		for (InternalSpec s : this.getChildren())
+			if (s.hasEpistmeicOperators())
+				return true;
+		return this.theOp.isEpistemicOp();
 	}
-*/
+
+	@Override
+	public boolean hasRealTimeOperators() {
+		for (InternalSpec s : this.getChildren())
+			if (s.hasRealTimeOperators())
+				return true;
+		return this.theOp.isRealTimeCTLOp() | this.theOp.isRealTimeLTLOp();
+	}
+
+	/*	@Override
+        public boolean isIdentifierSpec() {
+            return false;
+        }
+    */
 	@Override
 	public String toString() {
 		InternalOp op = this.getOperator();

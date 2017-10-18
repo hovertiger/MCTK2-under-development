@@ -91,11 +91,21 @@ public class InternalSpecRange extends InternalSpec {
 		return false;
 	}
 
-/*	@Override
-	public boolean isIdentifierSpec() {
+	@Override
+	public boolean hasEpistmeicOperators() {
 		return false;
 	}
-*/
+
+	@Override
+	public boolean hasRealTimeOperators() {
+		return true;
+	}
+
+	/*	@Override
+        public boolean isIdentifierSpec() {
+            return false;
+        }
+    */
 	@Override
 	public String toString() {
 		return "#[" + this.getFrom() + ".." + this.getTo() + "]";

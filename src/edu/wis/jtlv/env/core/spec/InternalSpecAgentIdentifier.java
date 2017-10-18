@@ -61,6 +61,16 @@ public class InternalSpecAgentIdentifier extends InternalSpec {
 	}
 
 	@Override
+	public boolean hasEpistmeicOperators() {
+		return true;
+	}
+
+	@Override
+	public boolean hasRealTimeOperators() {
+		return false;
+	}
+
+	@Override
 	public String toString() {
 		return this.getAgentName();
 	}

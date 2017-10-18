@@ -143,6 +143,16 @@ public class InternalSpecBDD extends InternalSpec {
 		return false;
 	}
 
+	@Override
+	public boolean hasEpistmeicOperators() {
+		return false;
+	}
+
+	@Override
+	public boolean hasRealTimeOperators() {
+		return false;
+	}
+
 /*	@Override
 	public boolean isIdentifierSpec() { // currenttly the identifier is an agent's name
 		if (this.getExprStr().substring(0,9).equals("AGENTNAME:"))

@@ -303,7 +303,7 @@ public class ModelCheckingTest {
 		System.out.println("========= DONE Loading Modules ==========");
 
 //		String to_parse = "LTLSPEC agent1 KNOW v1";
-		String to_parse = "LTLSPEC (v1 KNOW v2)";
+		String to_parse = "LTLSPEC v1 & !(TRUE KNOW v1 KNOW v2)";
 /*		to_parse += "LTLSPEC\n" + "GLOBALLY aa -> FINALLY aa\n";
 		to_parse += "LTLSPEC\n" + "([](aa -> ()aa)) -> (<>aa -> <>[]aa)\n";
 		to_parse += "LTLSPEC\n" + "[] aa -> () aa\n";

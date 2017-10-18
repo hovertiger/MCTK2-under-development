@@ -53,7 +53,11 @@ public abstract class InternalSpec {
 
 	public abstract boolean hasTemporalOperators();
 
-/*	protected boolean isIdentifierSpec() { // agent's name
+	public abstract boolean hasEpistmeicOperators();
+
+	public abstract boolean hasRealTimeOperators();
+
+	/*	protected boolean isIdentifierSpec() { // agent's name
 		if (this.exp_str.substring(0,9).equals("AGENTNAME:"))
 			return true;
 		else

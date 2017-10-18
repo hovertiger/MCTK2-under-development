@@ -20,7 +20,7 @@ public class InitSpec {
 	private static InternalSpec mk_simple_binary_node(TokenStream input, Token start, String exp_str,
 			InternalOp op, InternalSpec l, InternalSpec r) throws SpecParseException {
 		assert op.isProp();
-		if (!l.hasTemporalOperators() & !r.hasTemporalOperators())
+		if (!l.hasTemporalOperators() & !r.hasTemporalOperators() & !r.hasEpistmeicOperators())
 			return new InternalSpecBDD(exp_str, start);
 		// if (!l.hasTemporalOperators())
 		// l = new SpecBDD(exp_str);
@@ -33,7 +33,7 @@ public class InitSpec {
 	private static InternalSpec mk_simple_unary_node(TokenStream input, Token start, String exp_str,
 			InternalOp op, InternalSpec v) throws SpecParseException {
 		assert op.isProp();
-		if (!v.hasTemporalOperators())
+		if (!v.hasTemporalOperators() & !v.hasEpistmeicOperators())
 			return new InternalSpecBDD(exp_str, start);
 		return new InternalSpecExp(exp_str, op, v, start);
 	}
