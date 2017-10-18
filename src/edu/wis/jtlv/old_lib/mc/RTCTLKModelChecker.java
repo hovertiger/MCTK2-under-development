@@ -19,7 +19,12 @@ public class RTCTLKModelChecker extends CTLModelChecker {
 
     public BDD know(String agentName, BDD p) throws ModelCheckAlgException {
         if(agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
-        if(!agentName.substring(0,4).equals("main.")) agentName = "main." + agentName;
+
+        int idx_dot = agentName.indexOf('.');
+        if(idx_dot==-1)
+            agentName = "main." + agentName;
+        else if (!agentName.substring(0, idx_dot).equals("main."))
+            throw new ModelCheckAlgException("The agent's name " + agentName + " is illegal.");
 
         SMVAgentInfo agentInfo = Env.getAll_agent_modules().get(agentName);
         if(agentInfo==null) throw new ModelCheckAlgException("Cannot find the information of agent " + agentName + ".");

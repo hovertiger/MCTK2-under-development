@@ -381,7 +381,7 @@ public class ModelCheckingTest {
 		// System.setProperty("bdd", "buddy");
 		try {
 			//Env.loadModule("testcases/simple_mc.smv");
-			Env.loadModule("testcases/testMAS.smv");
+			Env.loadModule("testcases/dc3.smv");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return;
@@ -390,8 +390,10 @@ public class ModelCheckingTest {
 		main.setFullPrintingMode(true);
 		System.out.println("========= DONE Loading Modules ==========");
 
-		String to_parse = "SPEC !(agent1 KNOW v1) \n";
+//		String to_parse = "SPEC (dc1 KNOW dc2.paid) \n";
 //		String to_parse = "SPEC v1 & !! A [ v1 U v2 ]\n";
+		String to_parse = "SPEC !dc1.paid -> AG( (dc1 KNOW (!dc1.paid & !dc2.paid & !dc3.paid)) | " +
+				"( (dc1 KNOW (dc2.paid | dc3.paid)) & !(dc1 KNOW dc2.paid) & !(dc1 KNOW dc3.paid) ) ) \n";
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");
