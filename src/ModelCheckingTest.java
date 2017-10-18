@@ -302,7 +302,8 @@ public class ModelCheckingTest {
 		main.setFullPrintingMode(true);
 		System.out.println("========= DONE Loading Modules ==========");
 
-		String to_parse = "LTLSPEC agent1 KNOW v1";
+//		String to_parse = "LTLSPEC agent1 KNOW v1";
+		String to_parse = "LTLSPEC (v1 KNOW v2)";
 /*		to_parse += "LTLSPEC\n" + "GLOBALLY aa -> FINALLY aa\n";
 		to_parse += "LTLSPEC\n" + "([](aa -> ()aa)) -> (<>aa -> <>[]aa)\n";
 		to_parse += "LTLSPEC\n" + "[] aa -> () aa\n";
@@ -314,6 +315,31 @@ public class ModelCheckingTest {
 */
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading LTL Specs ============");
+		Spec[] ls = Env.loadSpecString(to_parse);
+		for (Spec s : ls) {
+			System.out.println("=========");
+			System.out.println(s);
+			if (s == null)
+				continue;
+			System.out.print("isPropSpec --------------- ");
+			System.out.println(s.isPropSpec());
+			System.out.print("isCTLSpec ---------------- ");
+			System.out.println(s.isCTLSpec());
+			System.out.print("isRealTimeCTLSpec -------- ");
+			System.out.println(s.isRealTimeCTLSpec());
+			System.out.print("isLTLSpec ---------------- ");
+			System.out.println(s.isLTLSpec());
+			System.out.print("isFutureLTLSpec ---------- ");
+			System.out.println(s.isFutureLTLSpec());
+			System.out.print("isPastLTLSpec ------------ ");
+			System.out.println(s.isPastLTLSpec());
+			System.out.print("isCTLStarSpec ------------ ");
+			System.out.println(s.isCTLStarSpec());
+			System.out.print("isRealTimeLTLKSpec ------------ ");
+			System.out.println(s.isRealTimeLTLKSpec());
+			System.out.print("hasTemporalOperators ----- ");
+			System.out.println(s.hasTemporalOperators());
+		}
 
 		LTLModelChecker checker;
 		// checking valid without a module

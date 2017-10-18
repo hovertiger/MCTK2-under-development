@@ -1,4 +1,4 @@
-// $ANTLR 3.0.1 /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g 2017-10-17 09:10:02
+// $ANTLR 3.0.1 /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g 2017-10-17 22:27:09
 
 package edu.wis.jtlv.env.core.spec;
 import edu.wis.jtlv.env.Env;
@@ -2766,7 +2766,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: TOK_NOT, primary_expr
+                    // elements: primary_expr, TOK_NOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3010,7 +3010,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, constant
+                    // elements: constant, primary_expr_select
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3082,7 +3082,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: simple_root_expr, primary_expr_select
+                    // elements: primary_expr_select, simple_root_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3142,7 +3142,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, TOK_BOOL, simple_root_expr
+                    // elements: TOK_BOOL, primary_expr_select, simple_root_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3202,7 +3202,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: simple_root_expr, TOK_WORD1, primary_expr_select
+                    // elements: TOK_WORD1, simple_root_expr, primary_expr_select
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3262,7 +3262,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, simple_root_expr, TOK_NEXT
+                    // elements: simple_root_expr, primary_expr_select, TOK_NEXT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3387,7 +3387,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: simple_root_expr, simple_root_expr, primary_expr_select, TOK_WAREAD
+                    // elements: simple_root_expr, TOK_WAREAD, primary_expr_select, simple_root_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3466,7 +3466,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: simple_root_expr, TOK_WAWRITE, simple_root_expr, simple_root_expr, primary_expr_select
+                    // elements: simple_root_expr, simple_root_expr, TOK_WAWRITE, primary_expr_select, simple_root_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -7067,7 +7067,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: constant, primary_expr_select
+                    // elements: primary_expr_select, constant
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -7187,7 +7187,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: ctl_root_expr, primary_expr_select
+                    // elements: primary_expr_select, ctl_root_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -7247,7 +7247,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: TOK_BOOL, simple_root_expr, primary_expr_select
+                    // elements: TOK_BOOL, primary_expr_select, simple_root_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -7307,7 +7307,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, simple_root_expr, TOK_WORD1
+                    // elements: simple_root_expr, TOK_WORD1, primary_expr_select
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -7367,7 +7367,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, TOK_NEXT, simple_root_expr
+                    // elements: simple_root_expr, primary_expr_select, TOK_NEXT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -7492,7 +7492,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: s, TOK_WAREAD, f, primary_expr_select
+                    // elements: TOK_WAREAD, primary_expr_select, s, f
                     // token labels: 
                     // rule labels: s, f, retval
                     // token list labels: 
@@ -7573,7 +7573,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: m, f, s, TOK_WAWRITE, primary_expr_select
+                    // elements: m, f, primary_expr_select, TOK_WAWRITE, s
                     // token labels: 
                     // rule labels: s, f, m, retval
                     // token list labels: 
@@ -8271,15 +8271,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 5 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:737:11: op= TOK_KNOW s= ltl_unary_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:738:11: op= TOK_KNOW s= ltl_unary_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_KNOW,FOLLOW_TOK_KNOW_in_ltl_binary_expr6903); if (failed) return retval;
+            	    match(input,TOK_KNOW,FOLLOW_TOK_KNOW_in_ltl_binary_expr6912); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_binary_expr6908);
+            	    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_binary_expr6917);
             	    s=ltl_unary_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -8326,7 +8326,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_unary_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:741:1: ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:742:1: ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr );
     public final ltl_unary_expr_return ltl_unary_expr() throws RecognitionException {
         ltl_unary_expr_return retval = new ltl_unary_expr_return();
         retval.start = input.LT(1);
@@ -8340,7 +8340,7 @@ public class SPCParser extends Parser {
 
         RewriteRuleSubtreeStream stream_ltl_pure_unary_expr=new RewriteRuleSubtreeStream(adaptor,"rule ltl_pure_unary_expr");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:742:9: ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:743:9: ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr )
             int alt44=2;
             int LA44_0 = input.LA(1);
 
@@ -8383,7 +8383,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("741:1: ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr );", 44, 10, input);
+                            new NoViableAltException("742:1: ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr );", 44, 10, input);
 
                         throw nvae;
                     }
@@ -8412,7 +8412,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("741:1: ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr );", 44, 8, input);
+                        new NoViableAltException("742:1: ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr );", 44, 8, input);
 
                     throw nvae;
                 }
@@ -8423,15 +8423,15 @@ public class SPCParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("741:1: ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr );", 44, 0, input);
+                    new NoViableAltException("742:1: ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr -> ^( PURE_LTL_T ltl_pure_unary_expr ) | ltl_relational_expr );", 44, 0, input);
 
                 throw nvae;
             }
             switch (alt44) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:742:11: ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:743:11: ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ltl_pure_unary_expr
                     {
-                    pushFollow(FOLLOW_ltl_pure_unary_expr_in_ltl_unary_expr7060);
+                    pushFollow(FOLLOW_ltl_pure_unary_expr_in_ltl_unary_expr7069);
                     ltl_pure_unary_expr127=ltl_pure_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8451,9 +8451,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 751:9: -> ^( PURE_LTL_T ltl_pure_unary_expr )
+                    // 752:9: -> ^( PURE_LTL_T ltl_pure_unary_expr )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:751:12: ^( PURE_LTL_T ltl_pure_unary_expr )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:752:12: ^( PURE_LTL_T ltl_pure_unary_expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(PURE_LTL_T, "PURE_LTL_T"), root_1);
@@ -8470,11 +8470,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:752:11: ltl_relational_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:753:11: ltl_relational_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ltl_relational_expr_in_ltl_unary_expr7101);
+                    pushFollow(FOLLOW_ltl_relational_expr_in_ltl_unary_expr7110);
                     ltl_relational_expr128=ltl_relational_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8511,7 +8511,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_pure_unary_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:755:1: ltl_pure_unary_expr returns [InternalSpec ret] : (op= TOK_OP_NEXT f= ltl_unary_expr | op= TOK_OP_PREV f= ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ltl_unary_expr | op= TOK_OP_GLOBALLY f= ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ltl_unary_expr | op= TOK_OP_FINALLY f= ltl_unary_expr | op= TOK_OP_ONCE f= ltl_unary_expr | op= TOK_NOT fp= ltl_pure_unary_expr );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:756:1: ltl_pure_unary_expr returns [InternalSpec ret] : (op= TOK_OP_NEXT f= ltl_unary_expr | op= TOK_OP_PREV f= ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ltl_unary_expr | op= TOK_OP_GLOBALLY f= ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ltl_unary_expr | op= TOK_OP_FINALLY f= ltl_unary_expr | op= TOK_OP_ONCE f= ltl_unary_expr | op= TOK_NOT fp= ltl_pure_unary_expr );
     public final ltl_pure_unary_expr_return ltl_pure_unary_expr() throws RecognitionException {
         ltl_pure_unary_expr_return retval = new ltl_pure_unary_expr_return();
         retval.start = input.LT(1);
@@ -8528,7 +8528,7 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:758:9: (op= TOK_OP_NEXT f= ltl_unary_expr | op= TOK_OP_PREV f= ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ltl_unary_expr | op= TOK_OP_GLOBALLY f= ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ltl_unary_expr | op= TOK_OP_FINALLY f= ltl_unary_expr | op= TOK_OP_ONCE f= ltl_unary_expr | op= TOK_NOT fp= ltl_pure_unary_expr )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:759:9: (op= TOK_OP_NEXT f= ltl_unary_expr | op= TOK_OP_PREV f= ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ltl_unary_expr | op= TOK_OP_GLOBALLY f= ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ltl_unary_expr | op= TOK_OP_FINALLY f= ltl_unary_expr | op= TOK_OP_ONCE f= ltl_unary_expr | op= TOK_NOT fp= ltl_pure_unary_expr )
             int alt45=8;
             switch ( input.LA(1) ) {
             case TOK_OP_NEXT:
@@ -8574,24 +8574,24 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("755:1: ltl_pure_unary_expr returns [InternalSpec ret] : (op= TOK_OP_NEXT f= ltl_unary_expr | op= TOK_OP_PREV f= ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ltl_unary_expr | op= TOK_OP_GLOBALLY f= ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ltl_unary_expr | op= TOK_OP_FINALLY f= ltl_unary_expr | op= TOK_OP_ONCE f= ltl_unary_expr | op= TOK_NOT fp= ltl_pure_unary_expr );", 45, 0, input);
+                    new NoViableAltException("756:1: ltl_pure_unary_expr returns [InternalSpec ret] : (op= TOK_OP_NEXT f= ltl_unary_expr | op= TOK_OP_PREV f= ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ltl_unary_expr | op= TOK_OP_GLOBALLY f= ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ltl_unary_expr | op= TOK_OP_FINALLY f= ltl_unary_expr | op= TOK_OP_ONCE f= ltl_unary_expr | op= TOK_NOT fp= ltl_pure_unary_expr );", 45, 0, input);
 
                 throw nvae;
             }
 
             switch (alt45) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:758:11: op= TOK_OP_NEXT f= ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:759:11: op= TOK_OP_NEXT f= ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_NEXT,FOLLOW_TOK_OP_NEXT_in_ltl_pure_unary_expr7153); if (failed) return retval;
+                    match(input,TOK_OP_NEXT,FOLLOW_TOK_OP_NEXT_in_ltl_pure_unary_expr7162); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7158);
+                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7167);
                     f=ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8603,17 +8603,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:760:11: op= TOK_OP_PREV f= ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:761:11: op= TOK_OP_PREV f= ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_PREV,FOLLOW_TOK_OP_PREV_in_ltl_pure_unary_expr7182); if (failed) return retval;
+                    match(input,TOK_OP_PREV,FOLLOW_TOK_OP_PREV_in_ltl_pure_unary_expr7191); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7187);
+                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7196);
                     f=ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8625,17 +8625,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:762:11: op= TOK_OP_NOTPREVNOT f= ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:763:11: op= TOK_OP_NOTPREVNOT f= ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_NOTPREVNOT,FOLLOW_TOK_OP_NOTPREVNOT_in_ltl_pure_unary_expr7211); if (failed) return retval;
+                    match(input,TOK_OP_NOTPREVNOT,FOLLOW_TOK_OP_NOTPREVNOT_in_ltl_pure_unary_expr7220); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7216);
+                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7225);
                     f=ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8647,17 +8647,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:764:11: op= TOK_OP_GLOBALLY f= ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:765:11: op= TOK_OP_GLOBALLY f= ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_GLOBALLY,FOLLOW_TOK_OP_GLOBALLY_in_ltl_pure_unary_expr7240); if (failed) return retval;
+                    match(input,TOK_OP_GLOBALLY,FOLLOW_TOK_OP_GLOBALLY_in_ltl_pure_unary_expr7249); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7245);
+                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7254);
                     f=ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8669,17 +8669,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:766:11: op= TOK_OP_HISTORICALLY f= ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:767:11: op= TOK_OP_HISTORICALLY f= ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_HISTORICALLY,FOLLOW_TOK_OP_HISTORICALLY_in_ltl_pure_unary_expr7269); if (failed) return retval;
+                    match(input,TOK_OP_HISTORICALLY,FOLLOW_TOK_OP_HISTORICALLY_in_ltl_pure_unary_expr7278); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7274);
+                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7283);
                     f=ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8691,17 +8691,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:768:11: op= TOK_OP_FINALLY f= ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:769:11: op= TOK_OP_FINALLY f= ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_FINALLY,FOLLOW_TOK_OP_FINALLY_in_ltl_pure_unary_expr7298); if (failed) return retval;
+                    match(input,TOK_OP_FINALLY,FOLLOW_TOK_OP_FINALLY_in_ltl_pure_unary_expr7307); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7303);
+                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7312);
                     f=ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8713,17 +8713,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:770:11: op= TOK_OP_ONCE f= ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:771:11: op= TOK_OP_ONCE f= ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_ONCE,FOLLOW_TOK_OP_ONCE_in_ltl_pure_unary_expr7327); if (failed) return retval;
+                    match(input,TOK_OP_ONCE,FOLLOW_TOK_OP_ONCE_in_ltl_pure_unary_expr7336); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7332);
+                    pushFollow(FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7341);
                     f=ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8735,17 +8735,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:773:11: op= TOK_NOT fp= ltl_pure_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:774:11: op= TOK_NOT fp= ltl_pure_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ltl_pure_unary_expr7366); if (failed) return retval;
+                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ltl_pure_unary_expr7375); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ltl_pure_unary_expr_in_ltl_pure_unary_expr7371);
+                    pushFollow(FOLLOW_ltl_pure_unary_expr_in_ltl_pure_unary_expr7380);
                     fp=ltl_pure_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -8785,7 +8785,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_relational_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:777:1: ltl_relational_expr returns [InternalSpec ret] : f= ltl_in_expr (op= TOK_EQUAL s= ltl_in_expr | op= TOK_NOTEQUAL s= ltl_in_expr | op= TOK_LT s= ltl_in_expr | op= TOK_GT s= ltl_in_expr | op= TOK_LE s= ltl_in_expr | op= TOK_GE s= ltl_in_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:778:1: ltl_relational_expr returns [InternalSpec ret] : f= ltl_in_expr (op= TOK_EQUAL s= ltl_in_expr | op= TOK_NOTEQUAL s= ltl_in_expr | op= TOK_LT s= ltl_in_expr | op= TOK_GT s= ltl_in_expr | op= TOK_LE s= ltl_in_expr | op= TOK_GE s= ltl_in_expr )* ;
     public final ltl_relational_expr_return ltl_relational_expr() throws RecognitionException {
         ltl_relational_expr_return retval = new ltl_relational_expr_return();
         retval.start = input.LT(1);
@@ -8802,12 +8802,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:780:9: (f= ltl_in_expr (op= TOK_EQUAL s= ltl_in_expr | op= TOK_NOTEQUAL s= ltl_in_expr | op= TOK_LT s= ltl_in_expr | op= TOK_GT s= ltl_in_expr | op= TOK_LE s= ltl_in_expr | op= TOK_GE s= ltl_in_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:780:11: f= ltl_in_expr (op= TOK_EQUAL s= ltl_in_expr | op= TOK_NOTEQUAL s= ltl_in_expr | op= TOK_LT s= ltl_in_expr | op= TOK_GT s= ltl_in_expr | op= TOK_LE s= ltl_in_expr | op= TOK_GE s= ltl_in_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:781:9: (f= ltl_in_expr (op= TOK_EQUAL s= ltl_in_expr | op= TOK_NOTEQUAL s= ltl_in_expr | op= TOK_LT s= ltl_in_expr | op= TOK_GT s= ltl_in_expr | op= TOK_LE s= ltl_in_expr | op= TOK_GE s= ltl_in_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:781:11: f= ltl_in_expr (op= TOK_EQUAL s= ltl_in_expr | op= TOK_NOTEQUAL s= ltl_in_expr | op= TOK_LT s= ltl_in_expr | op= TOK_GT s= ltl_in_expr | op= TOK_LE s= ltl_in_expr | op= TOK_GE s= ltl_in_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7423);
+            pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7432);
             f=ltl_in_expr();
             _fsp--;
             if (failed) return retval;
@@ -8815,7 +8815,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:781:9: (op= TOK_EQUAL s= ltl_in_expr | op= TOK_NOTEQUAL s= ltl_in_expr | op= TOK_LT s= ltl_in_expr | op= TOK_GT s= ltl_in_expr | op= TOK_LE s= ltl_in_expr | op= TOK_GE s= ltl_in_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:782:9: (op= TOK_EQUAL s= ltl_in_expr | op= TOK_NOTEQUAL s= ltl_in_expr | op= TOK_LT s= ltl_in_expr | op= TOK_GT s= ltl_in_expr | op= TOK_LE s= ltl_in_expr | op= TOK_GE s= ltl_in_expr )*
             loop46:
             do {
                 int alt46=7;
@@ -8855,15 +8855,15 @@ public class SPCParser extends Parser {
 
                 switch (alt46) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:781:11: op= TOK_EQUAL s= ltl_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:782:11: op= TOK_EQUAL s= ltl_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_ltl_relational_expr7439); if (failed) return retval;
+            	    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_ltl_relational_expr7448); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7444);
+            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7453);
             	    s=ltl_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -8875,15 +8875,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:783:11: op= TOK_NOTEQUAL s= ltl_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:784:11: op= TOK_NOTEQUAL s= ltl_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_NOTEQUAL,FOLLOW_TOK_NOTEQUAL_in_ltl_relational_expr7469); if (failed) return retval;
+            	    match(input,TOK_NOTEQUAL,FOLLOW_TOK_NOTEQUAL_in_ltl_relational_expr7478); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7474);
+            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7483);
             	    s=ltl_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -8895,15 +8895,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:785:11: op= TOK_LT s= ltl_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:786:11: op= TOK_LT s= ltl_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_LT,FOLLOW_TOK_LT_in_ltl_relational_expr7499); if (failed) return retval;
+            	    match(input,TOK_LT,FOLLOW_TOK_LT_in_ltl_relational_expr7508); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7504);
+            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7513);
             	    s=ltl_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -8915,15 +8915,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 4 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:787:11: op= TOK_GT s= ltl_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:788:11: op= TOK_GT s= ltl_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_GT,FOLLOW_TOK_GT_in_ltl_relational_expr7529); if (failed) return retval;
+            	    match(input,TOK_GT,FOLLOW_TOK_GT_in_ltl_relational_expr7538); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7534);
+            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7543);
             	    s=ltl_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -8935,15 +8935,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 5 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:789:11: op= TOK_LE s= ltl_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:790:11: op= TOK_LE s= ltl_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_LE,FOLLOW_TOK_LE_in_ltl_relational_expr7559); if (failed) return retval;
+            	    match(input,TOK_LE,FOLLOW_TOK_LE_in_ltl_relational_expr7568); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7564);
+            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7573);
             	    s=ltl_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -8955,15 +8955,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 6 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:791:11: op= TOK_GE s= ltl_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:792:11: op= TOK_GE s= ltl_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_GE,FOLLOW_TOK_GE_in_ltl_relational_expr7589); if (failed) return retval;
+            	    match(input,TOK_GE,FOLLOW_TOK_GE_in_ltl_relational_expr7598); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7594);
+            	    pushFollow(FOLLOW_ltl_in_expr_in_ltl_relational_expr7603);
             	    s=ltl_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9010,7 +9010,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_in_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:795:1: ltl_in_expr returns [InternalSpec ret] : f= ltl_union_expr (op= TOK_SETIN s= ltl_union_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:796:1: ltl_in_expr returns [InternalSpec ret] : f= ltl_union_expr (op= TOK_SETIN s= ltl_union_expr )* ;
     public final ltl_in_expr_return ltl_in_expr() throws RecognitionException {
         ltl_in_expr_return retval = new ltl_in_expr_return();
         retval.start = input.LT(1);
@@ -9027,12 +9027,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:798:9: (f= ltl_union_expr (op= TOK_SETIN s= ltl_union_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:798:11: f= ltl_union_expr (op= TOK_SETIN s= ltl_union_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:799:9: (f= ltl_union_expr (op= TOK_SETIN s= ltl_union_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:799:11: f= ltl_union_expr (op= TOK_SETIN s= ltl_union_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ltl_union_expr_in_ltl_in_expr7658);
+            pushFollow(FOLLOW_ltl_union_expr_in_ltl_in_expr7667);
             f=ltl_union_expr();
             _fsp--;
             if (failed) return retval;
@@ -9040,7 +9040,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:799:9: (op= TOK_SETIN s= ltl_union_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:800:9: (op= TOK_SETIN s= ltl_union_expr )*
             loop47:
             do {
                 int alt47=2;
@@ -9053,15 +9053,15 @@ public class SPCParser extends Parser {
 
                 switch (alt47) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:799:11: op= TOK_SETIN s= ltl_union_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:800:11: op= TOK_SETIN s= ltl_union_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_SETIN,FOLLOW_TOK_SETIN_in_ltl_in_expr7674); if (failed) return retval;
+            	    match(input,TOK_SETIN,FOLLOW_TOK_SETIN_in_ltl_in_expr7683); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_union_expr_in_ltl_in_expr7679);
+            	    pushFollow(FOLLOW_ltl_union_expr_in_ltl_in_expr7688);
             	    s=ltl_union_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9108,7 +9108,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_union_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:803:1: ltl_union_expr returns [InternalSpec ret] : f= ltl_set_expr (op= TOK_UNION s= ltl_set_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:804:1: ltl_union_expr returns [InternalSpec ret] : f= ltl_set_expr (op= TOK_UNION s= ltl_set_expr )* ;
     public final ltl_union_expr_return ltl_union_expr() throws RecognitionException {
         ltl_union_expr_return retval = new ltl_union_expr_return();
         retval.start = input.LT(1);
@@ -9125,12 +9125,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:806:9: (f= ltl_set_expr (op= TOK_UNION s= ltl_set_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:806:11: f= ltl_set_expr (op= TOK_UNION s= ltl_set_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:807:9: (f= ltl_set_expr (op= TOK_UNION s= ltl_set_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:807:11: f= ltl_set_expr (op= TOK_UNION s= ltl_set_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ltl_set_expr_in_ltl_union_expr7742);
+            pushFollow(FOLLOW_ltl_set_expr_in_ltl_union_expr7751);
             f=ltl_set_expr();
             _fsp--;
             if (failed) return retval;
@@ -9138,7 +9138,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:807:9: (op= TOK_UNION s= ltl_set_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:808:9: (op= TOK_UNION s= ltl_set_expr )*
             loop48:
             do {
                 int alt48=2;
@@ -9151,15 +9151,15 @@ public class SPCParser extends Parser {
 
                 switch (alt48) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:807:11: op= TOK_UNION s= ltl_set_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:808:11: op= TOK_UNION s= ltl_set_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_UNION,FOLLOW_TOK_UNION_in_ltl_union_expr7758); if (failed) return retval;
+            	    match(input,TOK_UNION,FOLLOW_TOK_UNION_in_ltl_union_expr7767); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_set_expr_in_ltl_union_expr7763);
+            	    pushFollow(FOLLOW_ltl_set_expr_in_ltl_union_expr7772);
             	    s=ltl_set_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9206,7 +9206,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_set_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:811:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:812:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );
     public final ltl_set_expr_return ltl_set_expr() throws RecognitionException {
         ltl_set_expr_return retval = new ltl_set_expr_return();
         retval.start = input.LT(1);
@@ -9229,7 +9229,7 @@ public class SPCParser extends Parser {
         RewriteRuleSubtreeStream stream_ltl_set_list_expr=new RewriteRuleSubtreeStream(adaptor,"rule ltl_set_list_expr");
         boolean append_end = false; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:814:9: ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:815:9: ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) )
             int alt49=3;
             switch ( input.LA(1) ) {
             case TOK_NOT:
@@ -9261,7 +9261,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("811:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 2, input);
+                        new NoViableAltException("812:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 2, input);
 
                     throw nvae;
                 }
@@ -9283,7 +9283,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("811:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 7, input);
+                            new NoViableAltException("812:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 7, input);
 
                         throw nvae;
                     }
@@ -9291,7 +9291,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("811:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 3, input);
+                        new NoViableAltException("812:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 3, input);
 
                     throw nvae;
                 }
@@ -9313,7 +9313,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("811:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 8, input);
+                            new NoViableAltException("812:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 8, input);
 
                         throw nvae;
                     }
@@ -9324,7 +9324,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("811:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 4, input);
+                        new NoViableAltException("812:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 4, input);
 
                     throw nvae;
                 }
@@ -9338,18 +9338,18 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("811:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 0, input);
+                    new NoViableAltException("812:1: ltl_set_expr returns [InternalSpec ret] : ( ltl_shift_expr | subrange | TOK_LCB ltl_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ltl_set_list_expr ) );", 49, 0, input);
 
                 throw nvae;
             }
 
             switch (alt49) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:814:11: ltl_shift_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:815:11: ltl_shift_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ltl_shift_expr_in_ltl_set_expr7824);
+                    pushFollow(FOLLOW_ltl_shift_expr_in_ltl_set_expr7833);
                     ltl_shift_expr129=ltl_shift_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -9361,11 +9361,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:816:11: subrange
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:817:11: subrange
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_subrange_in_ltl_set_expr7846);
+                    pushFollow(FOLLOW_subrange_in_ltl_set_expr7855);
                     subrange130=subrange();
                     _fsp--;
                     if (failed) return retval;
@@ -9377,19 +9377,19 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:818:11: TOK_LCB ltl_set_list_expr TOK_RCB
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:819:11: TOK_LCB ltl_set_list_expr TOK_RCB
                     {
                     TOK_LCB131=(Token)input.LT(1);
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_ltl_set_expr7869); if (failed) return retval;
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_ltl_set_expr7878); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB131);
 
-                    pushFollow(FOLLOW_ltl_set_list_expr_in_ltl_set_expr7871);
+                    pushFollow(FOLLOW_ltl_set_list_expr_in_ltl_set_expr7880);
                     ltl_set_list_expr132=ltl_set_list_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_ltl_set_list_expr.add(ltl_set_list_expr132.getTree());
                     TOK_RCB133=(Token)input.LT(1);
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_ltl_set_expr7873); if (failed) return retval;
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_ltl_set_expr7882); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB133);
 
                     if ( backtracking==0 ) {
@@ -9407,9 +9407,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 820:9: -> ^( SET_LIST_EXP_T ltl_set_list_expr )
+                    // 821:9: -> ^( SET_LIST_EXP_T ltl_set_list_expr )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:820:12: ^( SET_LIST_EXP_T ltl_set_list_expr )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:821:12: ^( SET_LIST_EXP_T ltl_set_list_expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(SET_LIST_EXP_T, "SET_LIST_EXP_T"), root_1);
@@ -9453,7 +9453,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_set_list_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:822:1: ltl_set_list_expr : simple_root_expr ( TOK_COMMA simple_root_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:823:1: ltl_set_list_expr : simple_root_expr ( TOK_COMMA simple_root_expr )* ;
     public final ltl_set_list_expr_return ltl_set_list_expr() throws RecognitionException {
         ltl_set_list_expr_return retval = new ltl_set_list_expr_return();
         retval.start = input.LT(1);
@@ -9469,17 +9469,17 @@ public class SPCParser extends Parser {
         Object TOK_COMMA135_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:823:9: ( simple_root_expr ( TOK_COMMA simple_root_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:823:11: simple_root_expr ( TOK_COMMA simple_root_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:824:9: ( simple_root_expr ( TOK_COMMA simple_root_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:824:11: simple_root_expr ( TOK_COMMA simple_root_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_simple_root_expr_in_ltl_set_list_expr7926);
+            pushFollow(FOLLOW_simple_root_expr_in_ltl_set_list_expr7935);
             simple_root_expr134=simple_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, simple_root_expr134.getTree());
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:823:28: ( TOK_COMMA simple_root_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:824:28: ( TOK_COMMA simple_root_expr )*
             loop50:
             do {
                 int alt50=2;
@@ -9492,11 +9492,11 @@ public class SPCParser extends Parser {
 
                 switch (alt50) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:823:29: TOK_COMMA simple_root_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:824:29: TOK_COMMA simple_root_expr
             	    {
             	    TOK_COMMA135=(Token)input.LT(1);
-            	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ltl_set_list_expr7929); if (failed) return retval;
-            	    pushFollow(FOLLOW_simple_root_expr_in_ltl_set_list_expr7932);
+            	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ltl_set_list_expr7938); if (failed) return retval;
+            	    pushFollow(FOLLOW_simple_root_expr_in_ltl_set_list_expr7941);
             	    simple_root_expr136=simple_root_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9537,7 +9537,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_shift_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:825:1: ltl_shift_expr returns [InternalSpec ret] : f= ltl_remainder_expr (op= TOK_LSHIFT s= ltl_remainder_expr | op= TOK_RSHIFT s= ltl_remainder_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:826:1: ltl_shift_expr returns [InternalSpec ret] : f= ltl_remainder_expr (op= TOK_LSHIFT s= ltl_remainder_expr | op= TOK_RSHIFT s= ltl_remainder_expr )* ;
     public final ltl_shift_expr_return ltl_shift_expr() throws RecognitionException {
         ltl_shift_expr_return retval = new ltl_shift_expr_return();
         retval.start = input.LT(1);
@@ -9554,12 +9554,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:828:9: (f= ltl_remainder_expr (op= TOK_LSHIFT s= ltl_remainder_expr | op= TOK_RSHIFT s= ltl_remainder_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:828:11: f= ltl_remainder_expr (op= TOK_LSHIFT s= ltl_remainder_expr | op= TOK_RSHIFT s= ltl_remainder_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:829:9: (f= ltl_remainder_expr (op= TOK_LSHIFT s= ltl_remainder_expr | op= TOK_RSHIFT s= ltl_remainder_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:829:11: f= ltl_remainder_expr (op= TOK_LSHIFT s= ltl_remainder_expr | op= TOK_RSHIFT s= ltl_remainder_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ltl_remainder_expr_in_ltl_shift_expr7978);
+            pushFollow(FOLLOW_ltl_remainder_expr_in_ltl_shift_expr7987);
             f=ltl_remainder_expr();
             _fsp--;
             if (failed) return retval;
@@ -9567,7 +9567,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:829:9: (op= TOK_LSHIFT s= ltl_remainder_expr | op= TOK_RSHIFT s= ltl_remainder_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:830:9: (op= TOK_LSHIFT s= ltl_remainder_expr | op= TOK_RSHIFT s= ltl_remainder_expr )*
             loop51:
             do {
                 int alt51=3;
@@ -9583,15 +9583,15 @@ public class SPCParser extends Parser {
 
                 switch (alt51) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:829:11: op= TOK_LSHIFT s= ltl_remainder_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:830:11: op= TOK_LSHIFT s= ltl_remainder_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_LSHIFT,FOLLOW_TOK_LSHIFT_in_ltl_shift_expr7994); if (failed) return retval;
+            	    match(input,TOK_LSHIFT,FOLLOW_TOK_LSHIFT_in_ltl_shift_expr8003); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_remainder_expr_in_ltl_shift_expr7999);
+            	    pushFollow(FOLLOW_ltl_remainder_expr_in_ltl_shift_expr8008);
             	    s=ltl_remainder_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9603,15 +9603,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:831:11: op= TOK_RSHIFT s= ltl_remainder_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:832:11: op= TOK_RSHIFT s= ltl_remainder_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_RSHIFT,FOLLOW_TOK_RSHIFT_in_ltl_shift_expr8023); if (failed) return retval;
+            	    match(input,TOK_RSHIFT,FOLLOW_TOK_RSHIFT_in_ltl_shift_expr8032); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_remainder_expr_in_ltl_shift_expr8028);
+            	    pushFollow(FOLLOW_ltl_remainder_expr_in_ltl_shift_expr8037);
             	    s=ltl_remainder_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9658,7 +9658,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_remainder_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:835:1: ltl_remainder_expr returns [InternalSpec ret] : f= ltl_additive_expr (op= TOK_MOD s= ltl_additive_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:836:1: ltl_remainder_expr returns [InternalSpec ret] : f= ltl_additive_expr (op= TOK_MOD s= ltl_additive_expr )* ;
     public final ltl_remainder_expr_return ltl_remainder_expr() throws RecognitionException {
         ltl_remainder_expr_return retval = new ltl_remainder_expr_return();
         retval.start = input.LT(1);
@@ -9675,12 +9675,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:838:9: (f= ltl_additive_expr (op= TOK_MOD s= ltl_additive_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:838:11: f= ltl_additive_expr (op= TOK_MOD s= ltl_additive_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:839:9: (f= ltl_additive_expr (op= TOK_MOD s= ltl_additive_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:839:11: f= ltl_additive_expr (op= TOK_MOD s= ltl_additive_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ltl_additive_expr_in_ltl_remainder_expr8090);
+            pushFollow(FOLLOW_ltl_additive_expr_in_ltl_remainder_expr8099);
             f=ltl_additive_expr();
             _fsp--;
             if (failed) return retval;
@@ -9688,7 +9688,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:839:9: (op= TOK_MOD s= ltl_additive_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:840:9: (op= TOK_MOD s= ltl_additive_expr )*
             loop52:
             do {
                 int alt52=2;
@@ -9701,15 +9701,15 @@ public class SPCParser extends Parser {
 
                 switch (alt52) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:839:11: op= TOK_MOD s= ltl_additive_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:840:11: op= TOK_MOD s= ltl_additive_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_MOD,FOLLOW_TOK_MOD_in_ltl_remainder_expr8106); if (failed) return retval;
+            	    match(input,TOK_MOD,FOLLOW_TOK_MOD_in_ltl_remainder_expr8115); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_additive_expr_in_ltl_remainder_expr8111);
+            	    pushFollow(FOLLOW_ltl_additive_expr_in_ltl_remainder_expr8120);
             	    s=ltl_additive_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9756,7 +9756,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_additive_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:845:1: ltl_additive_expr returns [InternalSpec ret] : f= ltl_multiplicative_expr (op= TOK_PLUS s= ltl_multiplicative_expr | op= TOK_MINUS s= ltl_multiplicative_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:846:1: ltl_additive_expr returns [InternalSpec ret] : f= ltl_multiplicative_expr (op= TOK_PLUS s= ltl_multiplicative_expr | op= TOK_MINUS s= ltl_multiplicative_expr )* ;
     public final ltl_additive_expr_return ltl_additive_expr() throws RecognitionException {
         ltl_additive_expr_return retval = new ltl_additive_expr_return();
         retval.start = input.LT(1);
@@ -9773,12 +9773,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:848:9: (f= ltl_multiplicative_expr (op= TOK_PLUS s= ltl_multiplicative_expr | op= TOK_MINUS s= ltl_multiplicative_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:848:11: f= ltl_multiplicative_expr (op= TOK_PLUS s= ltl_multiplicative_expr | op= TOK_MINUS s= ltl_multiplicative_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:849:9: (f= ltl_multiplicative_expr (op= TOK_PLUS s= ltl_multiplicative_expr | op= TOK_MINUS s= ltl_multiplicative_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:849:11: f= ltl_multiplicative_expr (op= TOK_PLUS s= ltl_multiplicative_expr | op= TOK_MINUS s= ltl_multiplicative_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8175);
+            pushFollow(FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8184);
             f=ltl_multiplicative_expr();
             _fsp--;
             if (failed) return retval;
@@ -9786,7 +9786,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:849:9: (op= TOK_PLUS s= ltl_multiplicative_expr | op= TOK_MINUS s= ltl_multiplicative_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:850:9: (op= TOK_PLUS s= ltl_multiplicative_expr | op= TOK_MINUS s= ltl_multiplicative_expr )*
             loop53:
             do {
                 int alt53=3;
@@ -9802,15 +9802,15 @@ public class SPCParser extends Parser {
 
                 switch (alt53) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:849:11: op= TOK_PLUS s= ltl_multiplicative_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:850:11: op= TOK_PLUS s= ltl_multiplicative_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_PLUS,FOLLOW_TOK_PLUS_in_ltl_additive_expr8191); if (failed) return retval;
+            	    match(input,TOK_PLUS,FOLLOW_TOK_PLUS_in_ltl_additive_expr8200); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8196);
+            	    pushFollow(FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8205);
             	    s=ltl_multiplicative_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9822,15 +9822,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:851:11: op= TOK_MINUS s= ltl_multiplicative_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:852:11: op= TOK_MINUS s= ltl_multiplicative_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_ltl_additive_expr8220); if (failed) return retval;
+            	    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_ltl_additive_expr8229); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8225);
+            	    pushFollow(FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8234);
             	    s=ltl_multiplicative_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9877,7 +9877,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_multiplicative_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:855:1: ltl_multiplicative_expr returns [InternalSpec ret] : f= ltl_concatination_expr (op= TOK_TIMES s= ltl_concatination_expr | op= TOK_DIVIDE s= ltl_concatination_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:856:1: ltl_multiplicative_expr returns [InternalSpec ret] : f= ltl_concatination_expr (op= TOK_TIMES s= ltl_concatination_expr | op= TOK_DIVIDE s= ltl_concatination_expr )* ;
     public final ltl_multiplicative_expr_return ltl_multiplicative_expr() throws RecognitionException {
         ltl_multiplicative_expr_return retval = new ltl_multiplicative_expr_return();
         retval.start = input.LT(1);
@@ -9894,12 +9894,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:858:9: (f= ltl_concatination_expr (op= TOK_TIMES s= ltl_concatination_expr | op= TOK_DIVIDE s= ltl_concatination_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:858:11: f= ltl_concatination_expr (op= TOK_TIMES s= ltl_concatination_expr | op= TOK_DIVIDE s= ltl_concatination_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:859:9: (f= ltl_concatination_expr (op= TOK_TIMES s= ltl_concatination_expr | op= TOK_DIVIDE s= ltl_concatination_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:859:11: f= ltl_concatination_expr (op= TOK_TIMES s= ltl_concatination_expr | op= TOK_DIVIDE s= ltl_concatination_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8286);
+            pushFollow(FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8295);
             f=ltl_concatination_expr();
             _fsp--;
             if (failed) return retval;
@@ -9907,7 +9907,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:859:9: (op= TOK_TIMES s= ltl_concatination_expr | op= TOK_DIVIDE s= ltl_concatination_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:860:9: (op= TOK_TIMES s= ltl_concatination_expr | op= TOK_DIVIDE s= ltl_concatination_expr )*
             loop54:
             do {
                 int alt54=3;
@@ -9923,15 +9923,15 @@ public class SPCParser extends Parser {
 
                 switch (alt54) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:859:11: op= TOK_TIMES s= ltl_concatination_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:860:11: op= TOK_TIMES s= ltl_concatination_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_TIMES,FOLLOW_TOK_TIMES_in_ltl_multiplicative_expr8302); if (failed) return retval;
+            	    match(input,TOK_TIMES,FOLLOW_TOK_TIMES_in_ltl_multiplicative_expr8311); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8307);
+            	    pushFollow(FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8316);
             	    s=ltl_concatination_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9943,15 +9943,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:861:11: op= TOK_DIVIDE s= ltl_concatination_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:862:11: op= TOK_DIVIDE s= ltl_concatination_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_DIVIDE,FOLLOW_TOK_DIVIDE_in_ltl_multiplicative_expr8331); if (failed) return retval;
+            	    match(input,TOK_DIVIDE,FOLLOW_TOK_DIVIDE_in_ltl_multiplicative_expr8340); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8336);
+            	    pushFollow(FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8345);
             	    s=ltl_concatination_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -9998,7 +9998,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_concatination_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:865:1: ltl_concatination_expr returns [InternalSpec ret] : f= ltl_primary_expr (op= TOK_CONCATENATION s= ltl_primary_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:866:1: ltl_concatination_expr returns [InternalSpec ret] : f= ltl_primary_expr (op= TOK_CONCATENATION s= ltl_primary_expr )* ;
     public final ltl_concatination_expr_return ltl_concatination_expr() throws RecognitionException {
         ltl_concatination_expr_return retval = new ltl_concatination_expr_return();
         retval.start = input.LT(1);
@@ -10015,12 +10015,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:868:9: (f= ltl_primary_expr (op= TOK_CONCATENATION s= ltl_primary_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:868:11: f= ltl_primary_expr (op= TOK_CONCATENATION s= ltl_primary_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:869:9: (f= ltl_primary_expr (op= TOK_CONCATENATION s= ltl_primary_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:869:11: f= ltl_primary_expr (op= TOK_CONCATENATION s= ltl_primary_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ltl_primary_expr_in_ltl_concatination_expr8397);
+            pushFollow(FOLLOW_ltl_primary_expr_in_ltl_concatination_expr8406);
             f=ltl_primary_expr();
             _fsp--;
             if (failed) return retval;
@@ -10028,7 +10028,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:869:9: (op= TOK_CONCATENATION s= ltl_primary_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:870:9: (op= TOK_CONCATENATION s= ltl_primary_expr )*
             loop55:
             do {
                 int alt55=2;
@@ -10041,15 +10041,15 @@ public class SPCParser extends Parser {
 
                 switch (alt55) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:869:11: op= TOK_CONCATENATION s= ltl_primary_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:870:11: op= TOK_CONCATENATION s= ltl_primary_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_CONCATENATION,FOLLOW_TOK_CONCATENATION_in_ltl_concatination_expr8413); if (failed) return retval;
+            	    match(input,TOK_CONCATENATION,FOLLOW_TOK_CONCATENATION_in_ltl_concatination_expr8422); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ltl_primary_expr_in_ltl_concatination_expr8418);
+            	    pushFollow(FOLLOW_ltl_primary_expr_in_ltl_concatination_expr8427);
             	    s=ltl_primary_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -10096,7 +10096,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_primary_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:874:1: ltl_primary_expr returns [InternalSpec ret] : ( ltl_primary_expr_helper1 | op= TOK_MINUS v= ltl_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ltl_primary_expr -> ^( TOK_NOT $v) );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:875:1: ltl_primary_expr returns [InternalSpec ret] : ( ltl_primary_expr_helper1 | op= TOK_MINUS v= ltl_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ltl_primary_expr -> ^( TOK_NOT $v) );
     public final ltl_primary_expr_return ltl_primary_expr() throws RecognitionException {
         ltl_primary_expr_return retval = new ltl_primary_expr_return();
         retval.start = input.LT(1);
@@ -10115,7 +10115,7 @@ public class SPCParser extends Parser {
         RewriteRuleSubtreeStream stream_ltl_primary_expr=new RewriteRuleSubtreeStream(adaptor,"rule ltl_primary_expr");
         boolean append_end = false; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:877:9: ( ltl_primary_expr_helper1 | op= TOK_MINUS v= ltl_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ltl_primary_expr -> ^( TOK_NOT $v) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:878:9: ( ltl_primary_expr_helper1 | op= TOK_MINUS v= ltl_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ltl_primary_expr -> ^( TOK_NOT $v) )
             int alt56=3;
             switch ( input.LA(1) ) {
             case TOK_PLUS:
@@ -10148,18 +10148,18 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("874:1: ltl_primary_expr returns [InternalSpec ret] : ( ltl_primary_expr_helper1 | op= TOK_MINUS v= ltl_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ltl_primary_expr -> ^( TOK_NOT $v) );", 56, 0, input);
+                    new NoViableAltException("875:1: ltl_primary_expr returns [InternalSpec ret] : ( ltl_primary_expr_helper1 | op= TOK_MINUS v= ltl_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ltl_primary_expr -> ^( TOK_NOT $v) );", 56, 0, input);
 
                 throw nvae;
             }
 
             switch (alt56) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:877:11: ltl_primary_expr_helper1
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:878:11: ltl_primary_expr_helper1
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ltl_primary_expr_helper1_in_ltl_primary_expr8479);
+                    pushFollow(FOLLOW_ltl_primary_expr_helper1_in_ltl_primary_expr8488);
                     ltl_primary_expr_helper1137=ltl_primary_expr_helper1();
                     _fsp--;
                     if (failed) return retval;
@@ -10171,13 +10171,13 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:879:11: op= TOK_MINUS v= ltl_primary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:880:11: op= TOK_MINUS v= ltl_primary_expr
                     {
                     op=(Token)input.LT(1);
-                    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_ltl_primary_expr8503); if (failed) return retval;
+                    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_ltl_primary_expr8512); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_MINUS.add(op);
 
-                    pushFollow(FOLLOW_ltl_primary_expr_in_ltl_primary_expr8507);
+                    pushFollow(FOLLOW_ltl_primary_expr_in_ltl_primary_expr8516);
                     v=ltl_primary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -10198,9 +10198,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 881:9: -> ^( TOK_UNARY_MINUS_T $v)
+                    // 882:9: -> ^( TOK_UNARY_MINUS_T $v)
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:881:12: ^( TOK_UNARY_MINUS_T $v)
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:882:12: ^( TOK_UNARY_MINUS_T $v)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(TOK_UNARY_MINUS_T, "TOK_UNARY_MINUS_T"), root_1);
@@ -10217,13 +10217,13 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:882:11: op= TOK_NOT v= ltl_primary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:883:11: op= TOK_NOT v= ltl_primary_expr
                     {
                     op=(Token)input.LT(1);
-                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ltl_primary_expr8548); if (failed) return retval;
+                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ltl_primary_expr8557); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_NOT.add(op);
 
-                    pushFollow(FOLLOW_ltl_primary_expr_in_ltl_primary_expr8552);
+                    pushFollow(FOLLOW_ltl_primary_expr_in_ltl_primary_expr8561);
                     v=ltl_primary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -10244,9 +10244,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 884:9: -> ^( TOK_NOT $v)
+                    // 885:9: -> ^( TOK_NOT $v)
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:884:12: ^( TOK_NOT $v)
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:885:12: ^( TOK_NOT $v)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_NOT.next(), root_1);
@@ -10291,7 +10291,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ltl_primary_expr_helper1
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:887:1: ltl_primary_expr_helper1 returns [InternalSpec ret] : ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ltl_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ltl_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:888:1: ltl_primary_expr_helper1 returns [InternalSpec ret] : ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ltl_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ltl_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) );
     public final ltl_primary_expr_helper1_return ltl_primary_expr_helper1() throws RecognitionException {
         ltl_primary_expr_helper1_return retval = new ltl_primary_expr_helper1_return();
         retval.start = input.LT(1);
@@ -10396,7 +10396,7 @@ public class SPCParser extends Parser {
         RewriteRuleSubtreeStream stream_primary_expr_select=new RewriteRuleSubtreeStream(adaptor,"rule primary_expr_select");
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:890:9: ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ltl_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ltl_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:891:9: ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ltl_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ltl_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) )
             int alt57=9;
             switch ( input.LA(1) ) {
             case TOK_PLUS:
@@ -10451,21 +10451,21 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("887:1: ltl_primary_expr_helper1 returns [InternalSpec ret] : ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ltl_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ltl_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) );", 57, 0, input);
+                    new NoViableAltException("888:1: ltl_primary_expr_helper1 returns [InternalSpec ret] : ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ltl_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ltl_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) );", 57, 0, input);
 
                 throw nvae;
             }
 
             switch (alt57) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:890:11: constant primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:891:11: constant primary_expr_select
                     {
-                    pushFollow(FOLLOW_constant_in_ltl_primary_expr_helper18617);
+                    pushFollow(FOLLOW_constant_in_ltl_primary_expr_helper18626);
                     constant138=constant();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_constant.add(constant138.getTree());
-                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18619);
+                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18628);
                     primary_expr_select139=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -10485,9 +10485,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 893:9: -> ^( VALUE_T constant NOP primary_expr_select )
+                    // 894:9: -> ^( VALUE_T constant NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:893:12: ^( VALUE_T constant NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:894:12: ^( VALUE_T constant NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(VALUE_T, "VALUE_T"), root_1);
@@ -10506,11 +10506,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:894:11: primary_expr_helper1_pointer1
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:895:11: primary_expr_helper1_pointer1
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_primary_expr_helper1_pointer1_in_ltl_primary_expr_helper18670);
+                    pushFollow(FOLLOW_primary_expr_helper1_pointer1_in_ltl_primary_expr_helper18679);
                     primary_expr_helper1_pointer1140=primary_expr_helper1_pointer1();
                     _fsp--;
                     if (failed) return retval;
@@ -10522,22 +10522,22 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:903:11: TOK_LP ltl_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:904:11: TOK_LP ltl_root_expr TOK_RP primary_expr_select
                     {
                     TOK_LP141=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper18723); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper18732); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP141);
 
-                    pushFollow(FOLLOW_ltl_root_expr_in_ltl_primary_expr_helper18725);
+                    pushFollow(FOLLOW_ltl_root_expr_in_ltl_primary_expr_helper18734);
                     ltl_root_expr142=ltl_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_ltl_root_expr.add(ltl_root_expr142.getTree());
                     TOK_RP143=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper18727); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper18736); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP143);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18729);
+                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18738);
                     primary_expr_select144=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -10557,9 +10557,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 905:9: -> ^( BLOCK_T ltl_root_expr NOP primary_expr_select )
+                    // 906:9: -> ^( BLOCK_T ltl_root_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:905:12: ^( BLOCK_T ltl_root_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:906:12: ^( BLOCK_T ltl_root_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(BLOCK_T, "BLOCK_T"), root_1);
@@ -10578,26 +10578,26 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:909:11: TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:910:11: TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_BOOL145=(Token)input.LT(1);
-                    match(input,TOK_BOOL,FOLLOW_TOK_BOOL_in_ltl_primary_expr_helper18800); if (failed) return retval;
+                    match(input,TOK_BOOL,FOLLOW_TOK_BOOL_in_ltl_primary_expr_helper18809); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_BOOL.add(TOK_BOOL145);
 
                     TOK_LP146=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper18802); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper18811); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP146);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18804);
+                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18813);
                     simple_root_expr147=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(simple_root_expr147.getTree());
                     TOK_RP148=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper18806); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper18815); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP148);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18808);
+                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18817);
                     primary_expr_select149=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -10607,7 +10607,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, simple_root_expr, TOK_BOOL
+                    // elements: simple_root_expr, TOK_BOOL, primary_expr_select
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -10617,9 +10617,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 912:9: -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select )
+                    // 913:9: -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:912:12: ^( TOK_BOOL simple_root_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:913:12: ^( TOK_BOOL simple_root_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_BOOL.next(), root_1);
@@ -10638,26 +10638,26 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:913:11: TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:914:11: TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_WORD1150=(Token)input.LT(1);
-                    match(input,TOK_WORD1,FOLLOW_TOK_WORD1_in_ltl_primary_expr_helper18859); if (failed) return retval;
+                    match(input,TOK_WORD1,FOLLOW_TOK_WORD1_in_ltl_primary_expr_helper18868); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_WORD1.add(TOK_WORD1150);
 
                     TOK_LP151=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper18861); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper18870); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP151);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18863);
+                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18872);
                     simple_root_expr152=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(simple_root_expr152.getTree());
                     TOK_RP153=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper18865); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper18874); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP153);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18867);
+                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18876);
                     primary_expr_select154=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -10667,7 +10667,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: TOK_WORD1, primary_expr_select, simple_root_expr
+                    // elements: primary_expr_select, TOK_WORD1, simple_root_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -10677,9 +10677,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 916:9: -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select )
+                    // 917:9: -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:916:12: ^( TOK_WORD1 simple_root_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:917:12: ^( TOK_WORD1 simple_root_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_WORD1.next(), root_1);
@@ -10698,26 +10698,26 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:918:11: TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:919:11: TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_NEXT155=(Token)input.LT(1);
-                    match(input,TOK_NEXT,FOLLOW_TOK_NEXT_in_ltl_primary_expr_helper18927); if (failed) return retval;
+                    match(input,TOK_NEXT,FOLLOW_TOK_NEXT_in_ltl_primary_expr_helper18936); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_NEXT.add(TOK_NEXT155);
 
                     TOK_LP156=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper18929); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper18938); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP156);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18931);
+                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18940);
                     simple_root_expr157=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(simple_root_expr157.getTree());
                     TOK_RP158=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper18933); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper18942); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP158);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18935);
+                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18944);
                     primary_expr_select159=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -10727,7 +10727,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: simple_root_expr, primary_expr_select, TOK_NEXT
+                    // elements: simple_root_expr, TOK_NEXT, primary_expr_select
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -10737,9 +10737,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 921:9: -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select )
+                    // 922:9: -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:921:12: ^( TOK_NEXT simple_root_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:922:12: ^( TOK_NEXT simple_root_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_NEXT.next(), root_1);
@@ -10758,22 +10758,22 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:923:11: TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:924:11: TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select
                     {
                     TOK_CASE160=(Token)input.LT(1);
-                    match(input,TOK_CASE,FOLLOW_TOK_CASE_in_ltl_primary_expr_helper18995); if (failed) return retval;
+                    match(input,TOK_CASE,FOLLOW_TOK_CASE_in_ltl_primary_expr_helper19004); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_CASE.add(TOK_CASE160);
 
-                    pushFollow(FOLLOW_case_element_list_expr_in_ltl_primary_expr_helper18997);
+                    pushFollow(FOLLOW_case_element_list_expr_in_ltl_primary_expr_helper19006);
                     case_element_list_expr161=case_element_list_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_case_element_list_expr.add(case_element_list_expr161.getTree());
                     TOK_ESAC162=(Token)input.LT(1);
-                    match(input,TOK_ESAC,FOLLOW_TOK_ESAC_in_ltl_primary_expr_helper18999); if (failed) return retval;
+                    match(input,TOK_ESAC,FOLLOW_TOK_ESAC_in_ltl_primary_expr_helper19008); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ESAC.add(TOK_ESAC162);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19001);
+                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19010);
                     primary_expr_select163=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -10783,7 +10783,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: case_element_list_expr, primary_expr_select
+                    // elements: primary_expr_select, case_element_list_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -10793,9 +10793,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 926:9: -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select )
+                    // 927:9: -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:926:12: ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:927:12: ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(CASE_LIST_EXPR_T, "CASE_LIST_EXPR_T"), root_1);
@@ -10814,35 +10814,35 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:928:11: TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:929:11: TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_WAREAD164=(Token)input.LT(1);
-                    match(input,TOK_WAREAD,FOLLOW_TOK_WAREAD_in_ltl_primary_expr_helper19061); if (failed) return retval;
+                    match(input,TOK_WAREAD,FOLLOW_TOK_WAREAD_in_ltl_primary_expr_helper19070); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_WAREAD.add(TOK_WAREAD164);
 
                     TOK_LP165=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper19063); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper19072); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP165);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19067);
+                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19076);
                     f=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(f.getTree());
                     TOK_COMMA166=(Token)input.LT(1);
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19069); if (failed) return retval;
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19078); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_COMMA.add(TOK_COMMA166);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19073);
+                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19082);
                     s=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(s.getTree());
                     TOK_RP167=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper19075); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper19084); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP167);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19077);
+                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19086);
                     primary_expr_select168=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -10852,7 +10852,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, s, TOK_WAREAD, f
+                    // elements: f, primary_expr_select, s, TOK_WAREAD
                     // token labels: 
                     // rule labels: s, f, retval
                     // token list labels: 
@@ -10864,9 +10864,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 931:9: -> ^( TOK_WAREAD $f $s NOP primary_expr_select )
+                    // 932:9: -> ^( TOK_WAREAD $f $s NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:931:12: ^( TOK_WAREAD $f $s NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:932:12: ^( TOK_WAREAD $f $s NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_WAREAD.next(), root_1);
@@ -10886,44 +10886,44 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:933:11: TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:934:11: TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_WAWRITE169=(Token)input.LT(1);
-                    match(input,TOK_WAWRITE,FOLLOW_TOK_WAWRITE_in_ltl_primary_expr_helper19141); if (failed) return retval;
+                    match(input,TOK_WAWRITE,FOLLOW_TOK_WAWRITE_in_ltl_primary_expr_helper19150); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_WAWRITE.add(TOK_WAWRITE169);
 
                     TOK_LP170=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper19143); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ltl_primary_expr_helper19152); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP170);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19147);
+                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19156);
                     f=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(f.getTree());
                     tc1=(Token)input.LT(1);
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19151); if (failed) return retval;
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19160); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_COMMA.add(tc1);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19155);
+                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19164);
                     m=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(m.getTree());
                     tc2=(Token)input.LT(1);
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19159); if (failed) return retval;
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19168); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_COMMA.add(tc2);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19163);
+                    pushFollow(FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19172);
                     s=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(s.getTree());
                     TOK_RP171=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper19165); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ltl_primary_expr_helper19174); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP171);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19167);
+                    pushFollow(FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19176);
                     primary_expr_select172=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -10933,7 +10933,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, f, TOK_WAWRITE, m, s
+                    // elements: f, m, primary_expr_select, s, TOK_WAWRITE
                     // token labels: 
                     // rule labels: s, f, m, retval
                     // token list labels: 
@@ -10946,9 +10946,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 936:9: -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select )
+                    // 937:9: -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:936:12: ^( TOK_WAWRITE $f $m $s NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:937:12: ^( TOK_WAWRITE $f $m $s NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_WAWRITE.next(), root_1);
@@ -10997,7 +10997,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_root_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:943:1: ctls_root_expr returns [InternalSpec ret] : ctls_implies_expr ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:944:1: ctls_root_expr returns [InternalSpec ret] : ctls_implies_expr ;
     public final ctls_root_expr_return ctls_root_expr() throws RecognitionException {
         ctls_root_expr_return retval = new ctls_root_expr_return();
         retval.start = input.LT(1);
@@ -11009,12 +11009,12 @@ public class SPCParser extends Parser {
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:944:9: ( ctls_implies_expr )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:944:11: ctls_implies_expr
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:945:9: ( ctls_implies_expr )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:945:11: ctls_implies_expr
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_implies_expr_in_ctls_root_expr9248);
+            pushFollow(FOLLOW_ctls_implies_expr_in_ctls_root_expr9257);
             ctls_implies_expr173=ctls_implies_expr();
             _fsp--;
             if (failed) return retval;
@@ -11049,7 +11049,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_implies_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:946:1: ctls_implies_expr returns [InternalSpec ret] : f= ctls_iff_expr (op= TOK_IMPLIES s= ctls_implies_expr )? ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:947:1: ctls_implies_expr returns [InternalSpec ret] : f= ctls_iff_expr (op= TOK_IMPLIES s= ctls_implies_expr )? ;
     public final ctls_implies_expr_return ctls_implies_expr() throws RecognitionException {
         ctls_implies_expr_return retval = new ctls_implies_expr_return();
         retval.start = input.LT(1);
@@ -11066,12 +11066,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:949:9: (f= ctls_iff_expr (op= TOK_IMPLIES s= ctls_implies_expr )? )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:949:11: f= ctls_iff_expr (op= TOK_IMPLIES s= ctls_implies_expr )?
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:950:9: (f= ctls_iff_expr (op= TOK_IMPLIES s= ctls_implies_expr )? )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:950:11: f= ctls_iff_expr (op= TOK_IMPLIES s= ctls_implies_expr )?
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_iff_expr_in_ctls_implies_expr9291);
+            pushFollow(FOLLOW_ctls_iff_expr_in_ctls_implies_expr9300);
             f=ctls_iff_expr();
             _fsp--;
             if (failed) return retval;
@@ -11079,7 +11079,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:950:9: (op= TOK_IMPLIES s= ctls_implies_expr )?
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:951:9: (op= TOK_IMPLIES s= ctls_implies_expr )?
             int alt58=2;
             int LA58_0 = input.LA(1);
 
@@ -11088,15 +11088,15 @@ public class SPCParser extends Parser {
             }
             switch (alt58) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:950:11: op= TOK_IMPLIES s= ctls_implies_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:951:11: op= TOK_IMPLIES s= ctls_implies_expr
                     {
                     op=(Token)input.LT(1);
-                    match(input,TOK_IMPLIES,FOLLOW_TOK_IMPLIES_in_ctls_implies_expr9307); if (failed) return retval;
+                    match(input,TOK_IMPLIES,FOLLOW_TOK_IMPLIES_in_ctls_implies_expr9316); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_implies_expr_in_ctls_implies_expr9312);
+                    pushFollow(FOLLOW_ctls_implies_expr_in_ctls_implies_expr9321);
                     s=ctls_implies_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -11140,7 +11140,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_iff_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:954:1: ctls_iff_expr returns [InternalSpec ret] : f= ctls_or_expr (op= TOK_IFF s= ctls_or_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:955:1: ctls_iff_expr returns [InternalSpec ret] : f= ctls_or_expr (op= TOK_IFF s= ctls_or_expr )* ;
     public final ctls_iff_expr_return ctls_iff_expr() throws RecognitionException {
         ctls_iff_expr_return retval = new ctls_iff_expr_return();
         retval.start = input.LT(1);
@@ -11157,12 +11157,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:957:9: (f= ctls_or_expr (op= TOK_IFF s= ctls_or_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:957:11: f= ctls_or_expr (op= TOK_IFF s= ctls_or_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:958:9: (f= ctls_or_expr (op= TOK_IFF s= ctls_or_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:958:11: f= ctls_or_expr (op= TOK_IFF s= ctls_or_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_or_expr_in_ctls_iff_expr9377);
+            pushFollow(FOLLOW_ctls_or_expr_in_ctls_iff_expr9386);
             f=ctls_or_expr();
             _fsp--;
             if (failed) return retval;
@@ -11170,7 +11170,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:958:9: (op= TOK_IFF s= ctls_or_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:959:9: (op= TOK_IFF s= ctls_or_expr )*
             loop59:
             do {
                 int alt59=2;
@@ -11183,15 +11183,15 @@ public class SPCParser extends Parser {
 
                 switch (alt59) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:958:11: op= TOK_IFF s= ctls_or_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:959:11: op= TOK_IFF s= ctls_or_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_IFF,FOLLOW_TOK_IFF_in_ctls_iff_expr9393); if (failed) return retval;
+            	    match(input,TOK_IFF,FOLLOW_TOK_IFF_in_ctls_iff_expr9402); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_or_expr_in_ctls_iff_expr9398);
+            	    pushFollow(FOLLOW_ctls_or_expr_in_ctls_iff_expr9407);
             	    s=ctls_or_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -11238,7 +11238,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_or_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:962:1: ctls_or_expr returns [InternalSpec ret] : f= ctls_and_expr (op= TOK_OR s= ctls_and_expr | op= TOK_XOR s= ctls_and_expr | op= TOK_XNOR s= ctls_and_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:963:1: ctls_or_expr returns [InternalSpec ret] : f= ctls_and_expr (op= TOK_OR s= ctls_and_expr | op= TOK_XOR s= ctls_and_expr | op= TOK_XNOR s= ctls_and_expr )* ;
     public final ctls_or_expr_return ctls_or_expr() throws RecognitionException {
         ctls_or_expr_return retval = new ctls_or_expr_return();
         retval.start = input.LT(1);
@@ -11255,12 +11255,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:965:9: (f= ctls_and_expr (op= TOK_OR s= ctls_and_expr | op= TOK_XOR s= ctls_and_expr | op= TOK_XNOR s= ctls_and_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:965:11: f= ctls_and_expr (op= TOK_OR s= ctls_and_expr | op= TOK_XOR s= ctls_and_expr | op= TOK_XNOR s= ctls_and_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:966:9: (f= ctls_and_expr (op= TOK_OR s= ctls_and_expr | op= TOK_XOR s= ctls_and_expr | op= TOK_XNOR s= ctls_and_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:966:11: f= ctls_and_expr (op= TOK_OR s= ctls_and_expr | op= TOK_XOR s= ctls_and_expr | op= TOK_XNOR s= ctls_and_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_and_expr_in_ctls_or_expr9461);
+            pushFollow(FOLLOW_ctls_and_expr_in_ctls_or_expr9470);
             f=ctls_and_expr();
             _fsp--;
             if (failed) return retval;
@@ -11268,7 +11268,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:966:9: (op= TOK_OR s= ctls_and_expr | op= TOK_XOR s= ctls_and_expr | op= TOK_XNOR s= ctls_and_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:967:9: (op= TOK_OR s= ctls_and_expr | op= TOK_XOR s= ctls_and_expr | op= TOK_XNOR s= ctls_and_expr )*
             loop60:
             do {
                 int alt60=4;
@@ -11293,15 +11293,15 @@ public class SPCParser extends Parser {
 
                 switch (alt60) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:966:11: op= TOK_OR s= ctls_and_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:967:11: op= TOK_OR s= ctls_and_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_OR,FOLLOW_TOK_OR_in_ctls_or_expr9477); if (failed) return retval;
+            	    match(input,TOK_OR,FOLLOW_TOK_OR_in_ctls_or_expr9486); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_and_expr_in_ctls_or_expr9482);
+            	    pushFollow(FOLLOW_ctls_and_expr_in_ctls_or_expr9491);
             	    s=ctls_and_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -11313,15 +11313,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:968:11: op= TOK_XOR s= ctls_and_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:969:11: op= TOK_XOR s= ctls_and_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_XOR,FOLLOW_TOK_XOR_in_ctls_or_expr9506); if (failed) return retval;
+            	    match(input,TOK_XOR,FOLLOW_TOK_XOR_in_ctls_or_expr9515); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_and_expr_in_ctls_or_expr9511);
+            	    pushFollow(FOLLOW_ctls_and_expr_in_ctls_or_expr9520);
             	    s=ctls_and_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -11333,15 +11333,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:970:11: op= TOK_XNOR s= ctls_and_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:971:11: op= TOK_XNOR s= ctls_and_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_XNOR,FOLLOW_TOK_XNOR_in_ctls_or_expr9535); if (failed) return retval;
+            	    match(input,TOK_XNOR,FOLLOW_TOK_XNOR_in_ctls_or_expr9544); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_and_expr_in_ctls_or_expr9540);
+            	    pushFollow(FOLLOW_ctls_and_expr_in_ctls_or_expr9549);
             	    s=ctls_and_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -11388,7 +11388,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_and_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:974:1: ctls_and_expr returns [InternalSpec ret] : f= ctls_ltl_binary_expr (op= TOK_AND s= ctls_ltl_binary_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:975:1: ctls_and_expr returns [InternalSpec ret] : f= ctls_ltl_binary_expr (op= TOK_AND s= ctls_ltl_binary_expr )* ;
     public final ctls_and_expr_return ctls_and_expr() throws RecognitionException {
         ctls_and_expr_return retval = new ctls_and_expr_return();
         retval.start = input.LT(1);
@@ -11405,12 +11405,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:977:9: (f= ctls_ltl_binary_expr (op= TOK_AND s= ctls_ltl_binary_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:977:11: f= ctls_ltl_binary_expr (op= TOK_AND s= ctls_ltl_binary_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:978:9: (f= ctls_ltl_binary_expr (op= TOK_AND s= ctls_ltl_binary_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:978:11: f= ctls_ltl_binary_expr (op= TOK_AND s= ctls_ltl_binary_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_ltl_binary_expr_in_ctls_and_expr9603);
+            pushFollow(FOLLOW_ctls_ltl_binary_expr_in_ctls_and_expr9612);
             f=ctls_ltl_binary_expr();
             _fsp--;
             if (failed) return retval;
@@ -11418,7 +11418,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:978:9: (op= TOK_AND s= ctls_ltl_binary_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:979:9: (op= TOK_AND s= ctls_ltl_binary_expr )*
             loop61:
             do {
                 int alt61=2;
@@ -11431,15 +11431,15 @@ public class SPCParser extends Parser {
 
                 switch (alt61) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:978:11: op= TOK_AND s= ctls_ltl_binary_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:979:11: op= TOK_AND s= ctls_ltl_binary_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_AND,FOLLOW_TOK_AND_in_ctls_and_expr9619); if (failed) return retval;
+            	    match(input,TOK_AND,FOLLOW_TOK_AND_in_ctls_and_expr9628); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_ltl_binary_expr_in_ctls_and_expr9624);
+            	    pushFollow(FOLLOW_ctls_ltl_binary_expr_in_ctls_and_expr9633);
             	    s=ctls_ltl_binary_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -11486,7 +11486,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_ltl_binary_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:984:1: ctls_ltl_binary_expr returns [InternalSpec ret] : f= ctls_ltl_unary_expr (op= TOK_UNTIL s= ctls_ltl_unary_expr | op= TOK_SINCE s= ctls_ltl_unary_expr | op= TOK_RELEASES s= ctls_ltl_unary_expr | op= TOK_TRIGGERED s= ctls_ltl_unary_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:985:1: ctls_ltl_binary_expr returns [InternalSpec ret] : f= ctls_ltl_unary_expr (op= TOK_UNTIL s= ctls_ltl_unary_expr | op= TOK_SINCE s= ctls_ltl_unary_expr | op= TOK_RELEASES s= ctls_ltl_unary_expr | op= TOK_TRIGGERED s= ctls_ltl_unary_expr )* ;
     public final ctls_ltl_binary_expr_return ctls_ltl_binary_expr() throws RecognitionException {
         ctls_ltl_binary_expr_return retval = new ctls_ltl_binary_expr_return();
         retval.start = input.LT(1);
@@ -11503,12 +11503,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:987:9: (f= ctls_ltl_unary_expr (op= TOK_UNTIL s= ctls_ltl_unary_expr | op= TOK_SINCE s= ctls_ltl_unary_expr | op= TOK_RELEASES s= ctls_ltl_unary_expr | op= TOK_TRIGGERED s= ctls_ltl_unary_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:987:11: f= ctls_ltl_unary_expr (op= TOK_UNTIL s= ctls_ltl_unary_expr | op= TOK_SINCE s= ctls_ltl_unary_expr | op= TOK_RELEASES s= ctls_ltl_unary_expr | op= TOK_TRIGGERED s= ctls_ltl_unary_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:988:9: (f= ctls_ltl_unary_expr (op= TOK_UNTIL s= ctls_ltl_unary_expr | op= TOK_SINCE s= ctls_ltl_unary_expr | op= TOK_RELEASES s= ctls_ltl_unary_expr | op= TOK_TRIGGERED s= ctls_ltl_unary_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:988:11: f= ctls_ltl_unary_expr (op= TOK_UNTIL s= ctls_ltl_unary_expr | op= TOK_SINCE s= ctls_ltl_unary_expr | op= TOK_RELEASES s= ctls_ltl_unary_expr | op= TOK_TRIGGERED s= ctls_ltl_unary_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9688);
+            pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9697);
             f=ctls_ltl_unary_expr();
             _fsp--;
             if (failed) return retval;
@@ -11516,7 +11516,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:988:9: (op= TOK_UNTIL s= ctls_ltl_unary_expr | op= TOK_SINCE s= ctls_ltl_unary_expr | op= TOK_RELEASES s= ctls_ltl_unary_expr | op= TOK_TRIGGERED s= ctls_ltl_unary_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:989:9: (op= TOK_UNTIL s= ctls_ltl_unary_expr | op= TOK_SINCE s= ctls_ltl_unary_expr | op= TOK_RELEASES s= ctls_ltl_unary_expr | op= TOK_TRIGGERED s= ctls_ltl_unary_expr )*
             loop62:
             do {
                 int alt62=5;
@@ -11546,15 +11546,15 @@ public class SPCParser extends Parser {
 
                 switch (alt62) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:988:11: op= TOK_UNTIL s= ctls_ltl_unary_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:989:11: op= TOK_UNTIL s= ctls_ltl_unary_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_UNTIL,FOLLOW_TOK_UNTIL_in_ctls_ltl_binary_expr9704); if (failed) return retval;
+            	    match(input,TOK_UNTIL,FOLLOW_TOK_UNTIL_in_ctls_ltl_binary_expr9713); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9709);
+            	    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9718);
             	    s=ctls_ltl_unary_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -11566,15 +11566,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:990:11: op= TOK_SINCE s= ctls_ltl_unary_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:991:11: op= TOK_SINCE s= ctls_ltl_unary_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_SINCE,FOLLOW_TOK_SINCE_in_ctls_ltl_binary_expr9734); if (failed) return retval;
+            	    match(input,TOK_SINCE,FOLLOW_TOK_SINCE_in_ctls_ltl_binary_expr9743); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9739);
+            	    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9748);
             	    s=ctls_ltl_unary_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -11586,15 +11586,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:992:11: op= TOK_RELEASES s= ctls_ltl_unary_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:993:11: op= TOK_RELEASES s= ctls_ltl_unary_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_RELEASES,FOLLOW_TOK_RELEASES_in_ctls_ltl_binary_expr9764); if (failed) return retval;
+            	    match(input,TOK_RELEASES,FOLLOW_TOK_RELEASES_in_ctls_ltl_binary_expr9773); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9769);
+            	    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9778);
             	    s=ctls_ltl_unary_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -11606,15 +11606,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 4 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:994:11: op= TOK_TRIGGERED s= ctls_ltl_unary_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:995:11: op= TOK_TRIGGERED s= ctls_ltl_unary_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_TRIGGERED,FOLLOW_TOK_TRIGGERED_in_ctls_ltl_binary_expr9794); if (failed) return retval;
+            	    match(input,TOK_TRIGGERED,FOLLOW_TOK_TRIGGERED_in_ctls_ltl_binary_expr9803); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9799);
+            	    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9808);
             	    s=ctls_ltl_unary_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -11661,7 +11661,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_ltl_unary_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:998:1: ctls_ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:999:1: ctls_ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr );
     public final ctls_ltl_unary_expr_return ctls_ltl_unary_expr() throws RecognitionException {
         ctls_ltl_unary_expr_return retval = new ctls_ltl_unary_expr_return();
         retval.start = input.LT(1);
@@ -11675,7 +11675,7 @@ public class SPCParser extends Parser {
 
         RewriteRuleSubtreeStream stream_ctls_ltl_pure_unary_expr=new RewriteRuleSubtreeStream(adaptor,"rule ctls_ltl_pure_unary_expr");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:999:9: ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1000:9: ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr )
             int alt63=2;
             int LA63_0 = input.LA(1);
 
@@ -11736,7 +11736,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("998:1: ctls_ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr );", 63, 17, input);
+                            new NoViableAltException("999:1: ctls_ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr );", 63, 17, input);
 
                         throw nvae;
                     }
@@ -11747,7 +11747,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("998:1: ctls_ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr );", 63, 8, input);
+                        new NoViableAltException("999:1: ctls_ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr );", 63, 8, input);
 
                     throw nvae;
                 }
@@ -11758,15 +11758,15 @@ public class SPCParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("998:1: ctls_ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr );", 63, 0, input);
+                    new NoViableAltException("999:1: ctls_ltl_unary_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr ) | ctls_ctl_expr );", 63, 0, input);
 
                 throw nvae;
             }
             switch (alt63) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:999:11: ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1000:11: ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )=> ctls_ltl_pure_unary_expr
                     {
-                    pushFollow(FOLLOW_ctls_ltl_pure_unary_expr_in_ctls_ltl_unary_expr9950);
+                    pushFollow(FOLLOW_ctls_ltl_pure_unary_expr_in_ctls_ltl_unary_expr9959);
                     ctls_ltl_pure_unary_expr174=ctls_ltl_pure_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -11786,9 +11786,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1008:9: -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr )
+                    // 1009:9: -> ^( PURE_LTL_T ctls_ltl_pure_unary_expr )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1008:12: ^( PURE_LTL_T ctls_ltl_pure_unary_expr )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1009:12: ^( PURE_LTL_T ctls_ltl_pure_unary_expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(PURE_LTL_T, "PURE_LTL_T"), root_1);
@@ -11805,11 +11805,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1009:11: ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1010:11: ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_ltl_unary_expr9991);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_ltl_unary_expr10000);
                     ctls_ctl_expr175=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -11846,7 +11846,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_ltl_pure_unary_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1012:1: ctls_ltl_pure_unary_expr returns [InternalSpec ret] : (op= TOK_OP_NEXT f= ctls_ltl_unary_expr | op= TOK_OP_PREV f= ctls_ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ctls_ltl_unary_expr | op= TOK_OP_GLOBALLY f= ctls_ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ctls_ltl_unary_expr | op= TOK_OP_FINALLY f= ctls_ltl_unary_expr | op= TOK_OP_ONCE f= ctls_ltl_unary_expr | op= TOK_NOT fp= ctls_ltl_pure_unary_expr );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1013:1: ctls_ltl_pure_unary_expr returns [InternalSpec ret] : (op= TOK_OP_NEXT f= ctls_ltl_unary_expr | op= TOK_OP_PREV f= ctls_ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ctls_ltl_unary_expr | op= TOK_OP_GLOBALLY f= ctls_ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ctls_ltl_unary_expr | op= TOK_OP_FINALLY f= ctls_ltl_unary_expr | op= TOK_OP_ONCE f= ctls_ltl_unary_expr | op= TOK_NOT fp= ctls_ltl_pure_unary_expr );
     public final ctls_ltl_pure_unary_expr_return ctls_ltl_pure_unary_expr() throws RecognitionException {
         ctls_ltl_pure_unary_expr_return retval = new ctls_ltl_pure_unary_expr_return();
         retval.start = input.LT(1);
@@ -11863,7 +11863,7 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1015:9: (op= TOK_OP_NEXT f= ctls_ltl_unary_expr | op= TOK_OP_PREV f= ctls_ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ctls_ltl_unary_expr | op= TOK_OP_GLOBALLY f= ctls_ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ctls_ltl_unary_expr | op= TOK_OP_FINALLY f= ctls_ltl_unary_expr | op= TOK_OP_ONCE f= ctls_ltl_unary_expr | op= TOK_NOT fp= ctls_ltl_pure_unary_expr )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1016:9: (op= TOK_OP_NEXT f= ctls_ltl_unary_expr | op= TOK_OP_PREV f= ctls_ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ctls_ltl_unary_expr | op= TOK_OP_GLOBALLY f= ctls_ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ctls_ltl_unary_expr | op= TOK_OP_FINALLY f= ctls_ltl_unary_expr | op= TOK_OP_ONCE f= ctls_ltl_unary_expr | op= TOK_NOT fp= ctls_ltl_pure_unary_expr )
             int alt64=8;
             switch ( input.LA(1) ) {
             case TOK_OP_NEXT:
@@ -11909,24 +11909,24 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1012:1: ctls_ltl_pure_unary_expr returns [InternalSpec ret] : (op= TOK_OP_NEXT f= ctls_ltl_unary_expr | op= TOK_OP_PREV f= ctls_ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ctls_ltl_unary_expr | op= TOK_OP_GLOBALLY f= ctls_ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ctls_ltl_unary_expr | op= TOK_OP_FINALLY f= ctls_ltl_unary_expr | op= TOK_OP_ONCE f= ctls_ltl_unary_expr | op= TOK_NOT fp= ctls_ltl_pure_unary_expr );", 64, 0, input);
+                    new NoViableAltException("1013:1: ctls_ltl_pure_unary_expr returns [InternalSpec ret] : (op= TOK_OP_NEXT f= ctls_ltl_unary_expr | op= TOK_OP_PREV f= ctls_ltl_unary_expr | op= TOK_OP_NOTPREVNOT f= ctls_ltl_unary_expr | op= TOK_OP_GLOBALLY f= ctls_ltl_unary_expr | op= TOK_OP_HISTORICALLY f= ctls_ltl_unary_expr | op= TOK_OP_FINALLY f= ctls_ltl_unary_expr | op= TOK_OP_ONCE f= ctls_ltl_unary_expr | op= TOK_NOT fp= ctls_ltl_pure_unary_expr );", 64, 0, input);
 
                 throw nvae;
             }
 
             switch (alt64) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1015:11: op= TOK_OP_NEXT f= ctls_ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1016:11: op= TOK_OP_NEXT f= ctls_ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_NEXT,FOLLOW_TOK_OP_NEXT_in_ctls_ltl_pure_unary_expr10041); if (failed) return retval;
+                    match(input,TOK_OP_NEXT,FOLLOW_TOK_OP_NEXT_in_ctls_ltl_pure_unary_expr10050); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10046);
+                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10055);
                     f=ctls_ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -11938,17 +11938,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1017:11: op= TOK_OP_PREV f= ctls_ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1018:11: op= TOK_OP_PREV f= ctls_ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_PREV,FOLLOW_TOK_OP_PREV_in_ctls_ltl_pure_unary_expr10070); if (failed) return retval;
+                    match(input,TOK_OP_PREV,FOLLOW_TOK_OP_PREV_in_ctls_ltl_pure_unary_expr10079); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10075);
+                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10084);
                     f=ctls_ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -11960,17 +11960,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1019:11: op= TOK_OP_NOTPREVNOT f= ctls_ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1020:11: op= TOK_OP_NOTPREVNOT f= ctls_ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_NOTPREVNOT,FOLLOW_TOK_OP_NOTPREVNOT_in_ctls_ltl_pure_unary_expr10099); if (failed) return retval;
+                    match(input,TOK_OP_NOTPREVNOT,FOLLOW_TOK_OP_NOTPREVNOT_in_ctls_ltl_pure_unary_expr10108); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10104);
+                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10113);
                     f=ctls_ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -11982,17 +11982,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1021:11: op= TOK_OP_GLOBALLY f= ctls_ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1022:11: op= TOK_OP_GLOBALLY f= ctls_ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_GLOBALLY,FOLLOW_TOK_OP_GLOBALLY_in_ctls_ltl_pure_unary_expr10128); if (failed) return retval;
+                    match(input,TOK_OP_GLOBALLY,FOLLOW_TOK_OP_GLOBALLY_in_ctls_ltl_pure_unary_expr10137); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10133);
+                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10142);
                     f=ctls_ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12004,17 +12004,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1023:11: op= TOK_OP_HISTORICALLY f= ctls_ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1024:11: op= TOK_OP_HISTORICALLY f= ctls_ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_HISTORICALLY,FOLLOW_TOK_OP_HISTORICALLY_in_ctls_ltl_pure_unary_expr10157); if (failed) return retval;
+                    match(input,TOK_OP_HISTORICALLY,FOLLOW_TOK_OP_HISTORICALLY_in_ctls_ltl_pure_unary_expr10166); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10162);
+                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10171);
                     f=ctls_ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12026,17 +12026,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1025:11: op= TOK_OP_FINALLY f= ctls_ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1026:11: op= TOK_OP_FINALLY f= ctls_ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_FINALLY,FOLLOW_TOK_OP_FINALLY_in_ctls_ltl_pure_unary_expr10186); if (failed) return retval;
+                    match(input,TOK_OP_FINALLY,FOLLOW_TOK_OP_FINALLY_in_ctls_ltl_pure_unary_expr10195); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10191);
+                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10200);
                     f=ctls_ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12048,17 +12048,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1027:11: op= TOK_OP_ONCE f= ctls_ltl_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1028:11: op= TOK_OP_ONCE f= ctls_ltl_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_OP_ONCE,FOLLOW_TOK_OP_ONCE_in_ctls_ltl_pure_unary_expr10215); if (failed) return retval;
+                    match(input,TOK_OP_ONCE,FOLLOW_TOK_OP_ONCE_in_ctls_ltl_pure_unary_expr10224); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10220);
+                    pushFollow(FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10229);
                     f=ctls_ltl_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12070,17 +12070,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1030:11: op= TOK_NOT fp= ctls_ltl_pure_unary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1031:11: op= TOK_NOT fp= ctls_ltl_pure_unary_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ctls_ltl_pure_unary_expr10254); if (failed) return retval;
+                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ctls_ltl_pure_unary_expr10263); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ltl_pure_unary_expr_in_ctls_ltl_pure_unary_expr10259);
+                    pushFollow(FOLLOW_ctls_ltl_pure_unary_expr_in_ctls_ltl_pure_unary_expr10268);
                     fp=ctls_ltl_pure_unary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12120,7 +12120,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_ctl_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1035:1: ctls_ctl_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1036:1: ctls_ctl_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr );
     public final ctls_ctl_expr_return ctls_ctl_expr() throws RecognitionException {
         ctls_ctl_expr_return retval = new ctls_ctl_expr_return();
         retval.start = input.LT(1);
@@ -12134,7 +12134,7 @@ public class SPCParser extends Parser {
 
         RewriteRuleSubtreeStream stream_ctls_pure_ctl_expr=new RewriteRuleSubtreeStream(adaptor,"rule ctls_pure_ctl_expr");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1036:9: ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1037:9: ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr )
             int alt65=2;
             int LA65_0 = input.LA(1);
 
@@ -12192,7 +12192,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1035:1: ctls_ctl_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr );", 65, 15, input);
+                            new NoViableAltException("1036:1: ctls_ctl_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr );", 65, 15, input);
 
                         throw nvae;
                     }
@@ -12236,7 +12236,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1035:1: ctls_ctl_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr );", 65, 13, input);
+                        new NoViableAltException("1036:1: ctls_ctl_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr );", 65, 13, input);
 
                     throw nvae;
                 }
@@ -12247,15 +12247,15 @@ public class SPCParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1035:1: ctls_ctl_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr );", 65, 0, input);
+                    new NoViableAltException("1036:1: ctls_ctl_expr returns [InternalSpec ret] : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr -> ^( PURE_CTL_T ctls_pure_ctl_expr ) | ctls_relational_expr );", 65, 0, input);
 
                 throw nvae;
             }
             switch (alt65) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1036:11: ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1037:11: ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> ctls_pure_ctl_expr
                     {
-                    pushFollow(FOLLOW_ctls_pure_ctl_expr_in_ctls_ctl_expr10478);
+                    pushFollow(FOLLOW_ctls_pure_ctl_expr_in_ctls_ctl_expr10487);
                     ctls_pure_ctl_expr176=ctls_pure_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12275,9 +12275,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1050:9: -> ^( PURE_CTL_T ctls_pure_ctl_expr )
+                    // 1051:9: -> ^( PURE_CTL_T ctls_pure_ctl_expr )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1050:12: ^( PURE_CTL_T ctls_pure_ctl_expr )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1051:12: ^( PURE_CTL_T ctls_pure_ctl_expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(PURE_CTL_T, "PURE_CTL_T"), root_1);
@@ -12294,11 +12294,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1051:11: ctls_relational_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1052:11: ctls_relational_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_relational_expr_in_ctls_ctl_expr10516);
+                    pushFollow(FOLLOW_ctls_relational_expr_in_ctls_ctl_expr10525);
                     ctls_relational_expr177=ctls_relational_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12335,7 +12335,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_pure_ctl_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1054:1: ctls_pure_ctl_expr returns [InternalSpec ret] : (op= TOK_EX f= ctls_ctl_expr | op= TOK_AX f= ctls_ctl_expr | op= TOK_EF f= ctls_ctl_expr | op= TOK_AF f= ctls_ctl_expr | op= TOK_EG f= ctls_ctl_expr | op= TOK_AG f= ctls_ctl_expr | ( TOK_AA )=> ctls_aa | ( TOK_EE )=> ctls_ee | op= TOK_EBF fsr= subrange s= ctls_ctl_expr | op= TOK_ABF fsr= subrange s= ctls_ctl_expr | op= TOK_EBG fsr= subrange s= ctls_ctl_expr | op= TOK_ABG fsr= subrange s= ctls_ctl_expr | op= TOK_NOT fp= ctls_pure_ctl_expr );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1055:1: ctls_pure_ctl_expr returns [InternalSpec ret] : (op= TOK_EX f= ctls_ctl_expr | op= TOK_AX f= ctls_ctl_expr | op= TOK_EF f= ctls_ctl_expr | op= TOK_AF f= ctls_ctl_expr | op= TOK_EG f= ctls_ctl_expr | op= TOK_AG f= ctls_ctl_expr | ( TOK_AA )=> ctls_aa | ( TOK_EE )=> ctls_ee | op= TOK_EBF fsr= subrange s= ctls_ctl_expr | op= TOK_ABF fsr= subrange s= ctls_ctl_expr | op= TOK_EBG fsr= subrange s= ctls_ctl_expr | op= TOK_ABG fsr= subrange s= ctls_ctl_expr | op= TOK_NOT fp= ctls_pure_ctl_expr );
     public final ctls_pure_ctl_expr_return ctls_pure_ctl_expr() throws RecognitionException {
         ctls_pure_ctl_expr_return retval = new ctls_pure_ctl_expr_return();
         retval.start = input.LT(1);
@@ -12360,7 +12360,7 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1057:9: (op= TOK_EX f= ctls_ctl_expr | op= TOK_AX f= ctls_ctl_expr | op= TOK_EF f= ctls_ctl_expr | op= TOK_AF f= ctls_ctl_expr | op= TOK_EG f= ctls_ctl_expr | op= TOK_AG f= ctls_ctl_expr | ( TOK_AA )=> ctls_aa | ( TOK_EE )=> ctls_ee | op= TOK_EBF fsr= subrange s= ctls_ctl_expr | op= TOK_ABF fsr= subrange s= ctls_ctl_expr | op= TOK_EBG fsr= subrange s= ctls_ctl_expr | op= TOK_ABG fsr= subrange s= ctls_ctl_expr | op= TOK_NOT fp= ctls_pure_ctl_expr )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1058:9: (op= TOK_EX f= ctls_ctl_expr | op= TOK_AX f= ctls_ctl_expr | op= TOK_EF f= ctls_ctl_expr | op= TOK_AF f= ctls_ctl_expr | op= TOK_EG f= ctls_ctl_expr | op= TOK_AG f= ctls_ctl_expr | ( TOK_AA )=> ctls_aa | ( TOK_EE )=> ctls_ee | op= TOK_EBF fsr= subrange s= ctls_ctl_expr | op= TOK_ABF fsr= subrange s= ctls_ctl_expr | op= TOK_EBG fsr= subrange s= ctls_ctl_expr | op= TOK_ABG fsr= subrange s= ctls_ctl_expr | op= TOK_NOT fp= ctls_pure_ctl_expr )
             int alt66=13;
             int LA66_0 = input.LA(1);
 
@@ -12406,23 +12406,23 @@ public class SPCParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1054:1: ctls_pure_ctl_expr returns [InternalSpec ret] : (op= TOK_EX f= ctls_ctl_expr | op= TOK_AX f= ctls_ctl_expr | op= TOK_EF f= ctls_ctl_expr | op= TOK_AF f= ctls_ctl_expr | op= TOK_EG f= ctls_ctl_expr | op= TOK_AG f= ctls_ctl_expr | ( TOK_AA )=> ctls_aa | ( TOK_EE )=> ctls_ee | op= TOK_EBF fsr= subrange s= ctls_ctl_expr | op= TOK_ABF fsr= subrange s= ctls_ctl_expr | op= TOK_EBG fsr= subrange s= ctls_ctl_expr | op= TOK_ABG fsr= subrange s= ctls_ctl_expr | op= TOK_NOT fp= ctls_pure_ctl_expr );", 66, 0, input);
+                    new NoViableAltException("1055:1: ctls_pure_ctl_expr returns [InternalSpec ret] : (op= TOK_EX f= ctls_ctl_expr | op= TOK_AX f= ctls_ctl_expr | op= TOK_EF f= ctls_ctl_expr | op= TOK_AF f= ctls_ctl_expr | op= TOK_EG f= ctls_ctl_expr | op= TOK_AG f= ctls_ctl_expr | ( TOK_AA )=> ctls_aa | ( TOK_EE )=> ctls_ee | op= TOK_EBF fsr= subrange s= ctls_ctl_expr | op= TOK_ABF fsr= subrange s= ctls_ctl_expr | op= TOK_EBG fsr= subrange s= ctls_ctl_expr | op= TOK_ABG fsr= subrange s= ctls_ctl_expr | op= TOK_NOT fp= ctls_pure_ctl_expr );", 66, 0, input);
 
                 throw nvae;
             }
             switch (alt66) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1057:11: op= TOK_EX f= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1058:11: op= TOK_EX f= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_EX,FOLLOW_TOK_EX_in_ctls_pure_ctl_expr10567); if (failed) return retval;
+                    match(input,TOK_EX,FOLLOW_TOK_EX_in_ctls_pure_ctl_expr10576); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10572);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10581);
                     f=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12434,17 +12434,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1059:11: op= TOK_AX f= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1060:11: op= TOK_AX f= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_AX,FOLLOW_TOK_AX_in_ctls_pure_ctl_expr10596); if (failed) return retval;
+                    match(input,TOK_AX,FOLLOW_TOK_AX_in_ctls_pure_ctl_expr10605); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10601);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10610);
                     f=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12456,17 +12456,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1061:11: op= TOK_EF f= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1062:11: op= TOK_EF f= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_EF,FOLLOW_TOK_EF_in_ctls_pure_ctl_expr10625); if (failed) return retval;
+                    match(input,TOK_EF,FOLLOW_TOK_EF_in_ctls_pure_ctl_expr10634); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10630);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10639);
                     f=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12478,17 +12478,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1063:11: op= TOK_AF f= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1064:11: op= TOK_AF f= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_AF,FOLLOW_TOK_AF_in_ctls_pure_ctl_expr10654); if (failed) return retval;
+                    match(input,TOK_AF,FOLLOW_TOK_AF_in_ctls_pure_ctl_expr10663); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10659);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10668);
                     f=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12500,17 +12500,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1065:11: op= TOK_EG f= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1066:11: op= TOK_EG f= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_EG,FOLLOW_TOK_EG_in_ctls_pure_ctl_expr10683); if (failed) return retval;
+                    match(input,TOK_EG,FOLLOW_TOK_EG_in_ctls_pure_ctl_expr10692); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10688);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10697);
                     f=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12522,17 +12522,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1067:11: op= TOK_AG f= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1068:11: op= TOK_AG f= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_AG,FOLLOW_TOK_AG_in_ctls_pure_ctl_expr10712); if (failed) return retval;
+                    match(input,TOK_AG,FOLLOW_TOK_AG_in_ctls_pure_ctl_expr10721); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10717);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10726);
                     f=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12544,11 +12544,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1070:11: ( TOK_AA )=> ctls_aa
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1071:11: ( TOK_AA )=> ctls_aa
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_aa_in_ctls_pure_ctl_expr10746);
+                    pushFollow(FOLLOW_ctls_aa_in_ctls_pure_ctl_expr10755);
                     ctls_aa178=ctls_aa();
                     _fsp--;
                     if (failed) return retval;
@@ -12560,11 +12560,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1071:11: ( TOK_EE )=> ctls_ee
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1072:11: ( TOK_EE )=> ctls_ee
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_ee_in_ctls_pure_ctl_expr10766);
+                    pushFollow(FOLLOW_ctls_ee_in_ctls_pure_ctl_expr10775);
                     ctls_ee179=ctls_ee();
                     _fsp--;
                     if (failed) return retval;
@@ -12576,22 +12576,22 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1073:11: op= TOK_EBF fsr= subrange s= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1074:11: op= TOK_EBF fsr= subrange s= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_EBF,FOLLOW_TOK_EBF_in_ctls_pure_ctl_expr10783); if (failed) return retval;
+                    match(input,TOK_EBF,FOLLOW_TOK_EBF_in_ctls_pure_ctl_expr10792); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_subrange_in_ctls_pure_ctl_expr10788);
+                    pushFollow(FOLLOW_subrange_in_ctls_pure_ctl_expr10797);
                     fsr=subrange();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) adaptor.addChild(root_0, fsr.getTree());
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10792);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10801);
                     s=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12603,22 +12603,22 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1075:11: op= TOK_ABF fsr= subrange s= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1076:11: op= TOK_ABF fsr= subrange s= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_ABF,FOLLOW_TOK_ABF_in_ctls_pure_ctl_expr10816); if (failed) return retval;
+                    match(input,TOK_ABF,FOLLOW_TOK_ABF_in_ctls_pure_ctl_expr10825); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_subrange_in_ctls_pure_ctl_expr10821);
+                    pushFollow(FOLLOW_subrange_in_ctls_pure_ctl_expr10830);
                     fsr=subrange();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) adaptor.addChild(root_0, fsr.getTree());
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10825);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10834);
                     s=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12630,22 +12630,22 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 11 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1077:11: op= TOK_EBG fsr= subrange s= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1078:11: op= TOK_EBG fsr= subrange s= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_EBG,FOLLOW_TOK_EBG_in_ctls_pure_ctl_expr10849); if (failed) return retval;
+                    match(input,TOK_EBG,FOLLOW_TOK_EBG_in_ctls_pure_ctl_expr10858); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_subrange_in_ctls_pure_ctl_expr10854);
+                    pushFollow(FOLLOW_subrange_in_ctls_pure_ctl_expr10863);
                     fsr=subrange();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) adaptor.addChild(root_0, fsr.getTree());
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10858);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10867);
                     s=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12657,22 +12657,22 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 12 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1079:11: op= TOK_ABG fsr= subrange s= ctls_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1080:11: op= TOK_ABG fsr= subrange s= ctls_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_ABG,FOLLOW_TOK_ABG_in_ctls_pure_ctl_expr10882); if (failed) return retval;
+                    match(input,TOK_ABG,FOLLOW_TOK_ABG_in_ctls_pure_ctl_expr10891); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_subrange_in_ctls_pure_ctl_expr10887);
+                    pushFollow(FOLLOW_subrange_in_ctls_pure_ctl_expr10896);
                     fsr=subrange();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) adaptor.addChild(root_0, fsr.getTree());
-                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10891);
+                    pushFollow(FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10900);
                     s=ctls_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12684,17 +12684,17 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 13 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1082:11: op= TOK_NOT fp= ctls_pure_ctl_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1083:11: op= TOK_NOT fp= ctls_pure_ctl_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
                     op=(Token)input.LT(1);
-                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ctls_pure_ctl_expr10925); if (failed) return retval;
+                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ctls_pure_ctl_expr10934); if (failed) return retval;
                     if ( backtracking==0 ) {
                     op_tree = (Object)adaptor.create(op);
                     root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ctls_pure_ctl_expr_in_ctls_pure_ctl_expr10930);
+                    pushFollow(FOLLOW_ctls_pure_ctl_expr_in_ctls_pure_ctl_expr10939);
                     fp=ctls_pure_ctl_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -12734,7 +12734,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_aa
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1085:1: ctls_aa returns [InternalSpec ret] : ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1086:1: ctls_aa returns [InternalSpec ret] : ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au );
     public final ctls_aa_return ctls_aa() throws RecognitionException {
         ctls_aa_return retval = new ctls_aa_return();
         retval.start = input.LT(1);
@@ -12748,7 +12748,7 @@ public class SPCParser extends Parser {
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1087:9: ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1088:9: ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au )
             int alt67=2;
             int LA67_0 = input.LA(1);
 
@@ -12767,7 +12767,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1085:1: ctls_aa returns [InternalSpec ret] : ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au );", 67, 2, input);
+                            new NoViableAltException("1086:1: ctls_aa returns [InternalSpec ret] : ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au );", 67, 2, input);
 
                         throw nvae;
                     }
@@ -12775,7 +12775,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1085:1: ctls_aa returns [InternalSpec ret] : ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au );", 67, 1, input);
+                        new NoViableAltException("1086:1: ctls_aa returns [InternalSpec ret] : ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au );", 67, 1, input);
 
                     throw nvae;
                 }
@@ -12783,17 +12783,17 @@ public class SPCParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1085:1: ctls_aa returns [InternalSpec ret] : ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au );", 67, 0, input);
+                    new NoViableAltException("1086:1: ctls_aa returns [InternalSpec ret] : ( ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu | ( TOK_AA TOK_LB )=> ctls_au );", 67, 0, input);
 
                 throw nvae;
             }
             switch (alt67) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1087:11: ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1088:11: ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_abu
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_abu_in_ctls_aa10989);
+                    pushFollow(FOLLOW_ctls_abu_in_ctls_aa10998);
                     ctls_abu180=ctls_abu();
                     _fsp--;
                     if (failed) return retval;
@@ -12805,11 +12805,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1089:11: ( TOK_AA TOK_LB )=> ctls_au
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1090:11: ( TOK_AA TOK_LB )=> ctls_au
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_au_in_ctls_aa11020);
+                    pushFollow(FOLLOW_ctls_au_in_ctls_aa11029);
                     ctls_au181=ctls_au();
                     _fsp--;
                     if (failed) return retval;
@@ -12849,7 +12849,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_ee
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1093:1: ctls_ee returns [InternalSpec ret] : ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1094:1: ctls_ee returns [InternalSpec ret] : ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu );
     public final ctls_ee_return ctls_ee() throws RecognitionException {
         ctls_ee_return retval = new ctls_ee_return();
         retval.start = input.LT(1);
@@ -12863,7 +12863,7 @@ public class SPCParser extends Parser {
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1095:9: ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1096:9: ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu )
             int alt68=2;
             int LA68_0 = input.LA(1);
 
@@ -12882,7 +12882,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1093:1: ctls_ee returns [InternalSpec ret] : ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu );", 68, 2, input);
+                            new NoViableAltException("1094:1: ctls_ee returns [InternalSpec ret] : ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu );", 68, 2, input);
 
                         throw nvae;
                     }
@@ -12890,7 +12890,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1093:1: ctls_ee returns [InternalSpec ret] : ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu );", 68, 1, input);
+                        new NoViableAltException("1094:1: ctls_ee returns [InternalSpec ret] : ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu );", 68, 1, input);
 
                     throw nvae;
                 }
@@ -12898,17 +12898,17 @@ public class SPCParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1093:1: ctls_ee returns [InternalSpec ret] : ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu );", 68, 0, input);
+                    new NoViableAltException("1094:1: ctls_ee returns [InternalSpec ret] : ( ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu | ( TOK_EE TOK_LB )=> ctls_eu );", 68, 0, input);
 
                 throw nvae;
             }
             switch (alt68) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1095:11: ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1096:11: ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )=> ctls_ebu
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_ebu_in_ctls_ee11089);
+                    pushFollow(FOLLOW_ctls_ebu_in_ctls_ee11098);
                     ctls_ebu182=ctls_ebu();
                     _fsp--;
                     if (failed) return retval;
@@ -12920,11 +12920,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1097:11: ( TOK_EE TOK_LB )=> ctls_eu
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1098:11: ( TOK_EE TOK_LB )=> ctls_eu
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_eu_in_ctls_ee11120);
+                    pushFollow(FOLLOW_ctls_eu_in_ctls_ee11129);
                     ctls_eu183=ctls_eu();
                     _fsp--;
                     if (failed) return retval;
@@ -12964,7 +12964,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_au
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1102:1: ctls_au returns [InternalSpec ret] : op= TOK_AA lb= TOK_LB fre= ctls_root_expr rb= TOK_RB ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1103:1: ctls_au returns [InternalSpec ret] : op= TOK_AA lb= TOK_LB fre= ctls_root_expr rb= TOK_RB ;
     public final ctls_au_return ctls_au() throws RecognitionException {
         ctls_au_return retval = new ctls_au_return();
         retval.start = input.LT(1);
@@ -12983,26 +12983,26 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1105:9: (op= TOK_AA lb= TOK_LB fre= ctls_root_expr rb= TOK_RB )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1105:11: op= TOK_AA lb= TOK_LB fre= ctls_root_expr rb= TOK_RB
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1106:9: (op= TOK_AA lb= TOK_LB fre= ctls_root_expr rb= TOK_RB )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1106:11: op= TOK_AA lb= TOK_LB fre= ctls_root_expr rb= TOK_RB
             {
             root_0 = (Object)adaptor.nil();
 
             op=(Token)input.LT(1);
-            match(input,TOK_AA,FOLLOW_TOK_AA_in_ctls_au11185); if (failed) return retval;
+            match(input,TOK_AA,FOLLOW_TOK_AA_in_ctls_au11194); if (failed) return retval;
             if ( backtracking==0 ) {
             op_tree = (Object)adaptor.create(op);
             root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             }
             lb=(Token)input.LT(1);
-            match(input,TOK_LB,FOLLOW_TOK_LB_in_ctls_au11190); if (failed) return retval;
-            pushFollow(FOLLOW_ctls_root_expr_in_ctls_au11195);
+            match(input,TOK_LB,FOLLOW_TOK_LB_in_ctls_au11199); if (failed) return retval;
+            pushFollow(FOLLOW_ctls_root_expr_in_ctls_au11204);
             fre=ctls_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, fre.getTree());
             rb=(Token)input.LT(1);
-            match(input,TOK_RB,FOLLOW_TOK_RB_in_ctls_au11199); if (failed) return retval;
+            match(input,TOK_RB,FOLLOW_TOK_RB_in_ctls_au11208); if (failed) return retval;
             if ( backtracking==0 ) {
                if (!er()) exp_str = op.getText() + lb.getText() + input.toString(fre.start,fre.stop) + rb.getText(); if(!er()) append_end = true; if(!er()) retval.ret = InitSpec.mk_AU(input, ((Token)retval.start), exp_str, fre.ret); 
             }
@@ -13036,7 +13036,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_eu
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1108:1: ctls_eu returns [InternalSpec ret] : op= TOK_EE lb= TOK_LB fre= ctls_root_expr rb= TOK_RB ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1109:1: ctls_eu returns [InternalSpec ret] : op= TOK_EE lb= TOK_LB fre= ctls_root_expr rb= TOK_RB ;
     public final ctls_eu_return ctls_eu() throws RecognitionException {
         ctls_eu_return retval = new ctls_eu_return();
         retval.start = input.LT(1);
@@ -13055,26 +13055,26 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1111:9: (op= TOK_EE lb= TOK_LB fre= ctls_root_expr rb= TOK_RB )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1111:11: op= TOK_EE lb= TOK_LB fre= ctls_root_expr rb= TOK_RB
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1112:9: (op= TOK_EE lb= TOK_LB fre= ctls_root_expr rb= TOK_RB )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1112:11: op= TOK_EE lb= TOK_LB fre= ctls_root_expr rb= TOK_RB
             {
             root_0 = (Object)adaptor.nil();
 
             op=(Token)input.LT(1);
-            match(input,TOK_EE,FOLLOW_TOK_EE_in_ctls_eu11254); if (failed) return retval;
+            match(input,TOK_EE,FOLLOW_TOK_EE_in_ctls_eu11263); if (failed) return retval;
             if ( backtracking==0 ) {
             op_tree = (Object)adaptor.create(op);
             root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             }
             lb=(Token)input.LT(1);
-            match(input,TOK_LB,FOLLOW_TOK_LB_in_ctls_eu11259); if (failed) return retval;
-            pushFollow(FOLLOW_ctls_root_expr_in_ctls_eu11264);
+            match(input,TOK_LB,FOLLOW_TOK_LB_in_ctls_eu11268); if (failed) return retval;
+            pushFollow(FOLLOW_ctls_root_expr_in_ctls_eu11273);
             fre=ctls_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, fre.getTree());
             rb=(Token)input.LT(1);
-            match(input,TOK_RB,FOLLOW_TOK_RB_in_ctls_eu11268); if (failed) return retval;
+            match(input,TOK_RB,FOLLOW_TOK_RB_in_ctls_eu11277); if (failed) return retval;
             if ( backtracking==0 ) {
                if (!er()) exp_str = op.getText() + lb.getText() + input.toString(fre.start,fre.stop) + rb.getText(); if(!er()) append_end = true; if(!er()) retval.ret = InitSpec.mk_EU(input, ((Token)retval.start), exp_str, fre.ret); 
             }
@@ -13108,7 +13108,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_abu
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1114:1: ctls_abu returns [InternalSpec ret] : op= TOK_AA lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1115:1: ctls_abu returns [InternalSpec ret] : op= TOK_AA lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB ;
     public final ctls_abu_return ctls_abu() throws RecognitionException {
         ctls_abu_return retval = new ctls_abu_return();
         retval.start = input.LT(1);
@@ -13133,42 +13133,42 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1117:9: (op= TOK_AA lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1117:11: op= TOK_AA lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1118:9: (op= TOK_AA lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1118:11: op= TOK_AA lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB
             {
             root_0 = (Object)adaptor.nil();
 
             op=(Token)input.LT(1);
-            match(input,TOK_AA,FOLLOW_TOK_AA_in_ctls_abu11322); if (failed) return retval;
+            match(input,TOK_AA,FOLLOW_TOK_AA_in_ctls_abu11331); if (failed) return retval;
             if ( backtracking==0 ) {
             op_tree = (Object)adaptor.create(op);
             root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             }
             lb=(Token)input.LT(1);
-            match(input,TOK_LB,FOLLOW_TOK_LB_in_ctls_abu11327); if (failed) return retval;
-            pushFollow(FOLLOW_ctls_root_expr_in_ctls_abu11332);
+            match(input,TOK_LB,FOLLOW_TOK_LB_in_ctls_abu11336); if (failed) return retval;
+            pushFollow(FOLLOW_ctls_root_expr_in_ctls_abu11341);
             fre=ctls_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, fre.getTree());
             opu=(Token)input.LT(1);
-            match(input,TOK_BUNTIL,FOLLOW_TOK_BUNTIL_in_ctls_abu11336); if (failed) return retval;
+            match(input,TOK_BUNTIL,FOLLOW_TOK_BUNTIL_in_ctls_abu11345); if (failed) return retval;
             if ( backtracking==0 ) {
             opu_tree = (Object)adaptor.create(opu);
             adaptor.addChild(root_0, opu_tree);
             }
-            pushFollow(FOLLOW_subrange_in_ctls_abu11340);
+            pushFollow(FOLLOW_subrange_in_ctls_abu11349);
             msr=subrange();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, msr.getTree());
-            pushFollow(FOLLOW_ctls_root_expr_in_ctls_abu11344);
+            pushFollow(FOLLOW_ctls_root_expr_in_ctls_abu11353);
             sre=ctls_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, sre.getTree());
             rb=(Token)input.LT(1);
-            match(input,TOK_RB,FOLLOW_TOK_RB_in_ctls_abu11348); if (failed) return retval;
+            match(input,TOK_RB,FOLLOW_TOK_RB_in_ctls_abu11357); if (failed) return retval;
             if ( backtracking==0 ) {
                if (!er()) exp_str = op.getText() + lb.getText() + input.toString(fre.start,fre.stop) + " " + opu.getText() + " " + input.toString(msr.start,msr.stop) + " " + input.toString(sre.start,sre.stop) + rb.getText(); if(!er()) append_end = true; if(!er()) retval.ret = InitSpec.mk_ABU(input, ((Token)retval.start), exp_str, fre.ret, msr.ret, sre.ret); 
             }
@@ -13202,7 +13202,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_ebu
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1120:1: ctls_ebu returns [InternalSpec ret] : op= TOK_EE lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1121:1: ctls_ebu returns [InternalSpec ret] : op= TOK_EE lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB ;
     public final ctls_ebu_return ctls_ebu() throws RecognitionException {
         ctls_ebu_return retval = new ctls_ebu_return();
         retval.start = input.LT(1);
@@ -13227,42 +13227,42 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1123:9: (op= TOK_EE lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1123:11: op= TOK_EE lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1124:9: (op= TOK_EE lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1124:11: op= TOK_EE lb= TOK_LB fre= ctls_root_expr opu= TOK_BUNTIL msr= subrange sre= ctls_root_expr rb= TOK_RB
             {
             root_0 = (Object)adaptor.nil();
 
             op=(Token)input.LT(1);
-            match(input,TOK_EE,FOLLOW_TOK_EE_in_ctls_ebu11402); if (failed) return retval;
+            match(input,TOK_EE,FOLLOW_TOK_EE_in_ctls_ebu11411); if (failed) return retval;
             if ( backtracking==0 ) {
             op_tree = (Object)adaptor.create(op);
             root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             }
             lb=(Token)input.LT(1);
-            match(input,TOK_LB,FOLLOW_TOK_LB_in_ctls_ebu11407); if (failed) return retval;
-            pushFollow(FOLLOW_ctls_root_expr_in_ctls_ebu11412);
+            match(input,TOK_LB,FOLLOW_TOK_LB_in_ctls_ebu11416); if (failed) return retval;
+            pushFollow(FOLLOW_ctls_root_expr_in_ctls_ebu11421);
             fre=ctls_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, fre.getTree());
             opu=(Token)input.LT(1);
-            match(input,TOK_BUNTIL,FOLLOW_TOK_BUNTIL_in_ctls_ebu11416); if (failed) return retval;
+            match(input,TOK_BUNTIL,FOLLOW_TOK_BUNTIL_in_ctls_ebu11425); if (failed) return retval;
             if ( backtracking==0 ) {
             opu_tree = (Object)adaptor.create(opu);
             adaptor.addChild(root_0, opu_tree);
             }
-            pushFollow(FOLLOW_subrange_in_ctls_ebu11420);
+            pushFollow(FOLLOW_subrange_in_ctls_ebu11429);
             msr=subrange();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, msr.getTree());
-            pushFollow(FOLLOW_ctls_root_expr_in_ctls_ebu11424);
+            pushFollow(FOLLOW_ctls_root_expr_in_ctls_ebu11433);
             sre=ctls_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, sre.getTree());
             rb=(Token)input.LT(1);
-            match(input,TOK_RB,FOLLOW_TOK_RB_in_ctls_ebu11428); if (failed) return retval;
+            match(input,TOK_RB,FOLLOW_TOK_RB_in_ctls_ebu11437); if (failed) return retval;
             if ( backtracking==0 ) {
                if (!er()) exp_str = op.getText() + lb.getText() + input.toString(fre.start,fre.stop) + " " + opu.getText() + " " + input.toString(msr.start,msr.stop) + " " + input.toString(sre.start,sre.stop) + rb.getText(); if(!er()) append_end = true; if(!er()) retval.ret = InitSpec.mk_EBU(input, ((Token)retval.start), exp_str, fre.ret, msr.ret, sre.ret); 
             }
@@ -13296,7 +13296,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_relational_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1127:1: ctls_relational_expr returns [InternalSpec ret] : f= ctls_in_expr (op= TOK_EQUAL s= ctls_in_expr | op= TOK_NOTEQUAL s= ctls_in_expr | op= TOK_LT s= ctls_in_expr | op= TOK_GT s= ctls_in_expr | op= TOK_LE s= ctls_in_expr | op= TOK_GE s= ctls_in_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1128:1: ctls_relational_expr returns [InternalSpec ret] : f= ctls_in_expr (op= TOK_EQUAL s= ctls_in_expr | op= TOK_NOTEQUAL s= ctls_in_expr | op= TOK_LT s= ctls_in_expr | op= TOK_GT s= ctls_in_expr | op= TOK_LE s= ctls_in_expr | op= TOK_GE s= ctls_in_expr )* ;
     public final ctls_relational_expr_return ctls_relational_expr() throws RecognitionException {
         ctls_relational_expr_return retval = new ctls_relational_expr_return();
         retval.start = input.LT(1);
@@ -13313,12 +13313,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1130:9: (f= ctls_in_expr (op= TOK_EQUAL s= ctls_in_expr | op= TOK_NOTEQUAL s= ctls_in_expr | op= TOK_LT s= ctls_in_expr | op= TOK_GT s= ctls_in_expr | op= TOK_LE s= ctls_in_expr | op= TOK_GE s= ctls_in_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1130:11: f= ctls_in_expr (op= TOK_EQUAL s= ctls_in_expr | op= TOK_NOTEQUAL s= ctls_in_expr | op= TOK_LT s= ctls_in_expr | op= TOK_GT s= ctls_in_expr | op= TOK_LE s= ctls_in_expr | op= TOK_GE s= ctls_in_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1131:9: (f= ctls_in_expr (op= TOK_EQUAL s= ctls_in_expr | op= TOK_NOTEQUAL s= ctls_in_expr | op= TOK_LT s= ctls_in_expr | op= TOK_GT s= ctls_in_expr | op= TOK_LE s= ctls_in_expr | op= TOK_GE s= ctls_in_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1131:11: f= ctls_in_expr (op= TOK_EQUAL s= ctls_in_expr | op= TOK_NOTEQUAL s= ctls_in_expr | op= TOK_LT s= ctls_in_expr | op= TOK_GT s= ctls_in_expr | op= TOK_LE s= ctls_in_expr | op= TOK_GE s= ctls_in_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11480);
+            pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11489);
             f=ctls_in_expr();
             _fsp--;
             if (failed) return retval;
@@ -13326,7 +13326,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1131:9: (op= TOK_EQUAL s= ctls_in_expr | op= TOK_NOTEQUAL s= ctls_in_expr | op= TOK_LT s= ctls_in_expr | op= TOK_GT s= ctls_in_expr | op= TOK_LE s= ctls_in_expr | op= TOK_GE s= ctls_in_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1132:9: (op= TOK_EQUAL s= ctls_in_expr | op= TOK_NOTEQUAL s= ctls_in_expr | op= TOK_LT s= ctls_in_expr | op= TOK_GT s= ctls_in_expr | op= TOK_LE s= ctls_in_expr | op= TOK_GE s= ctls_in_expr )*
             loop69:
             do {
                 int alt69=7;
@@ -13366,15 +13366,15 @@ public class SPCParser extends Parser {
 
                 switch (alt69) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1131:11: op= TOK_EQUAL s= ctls_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1132:11: op= TOK_EQUAL s= ctls_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_ctls_relational_expr11496); if (failed) return retval;
+            	    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_ctls_relational_expr11505); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11501);
+            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11510);
             	    s=ctls_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -13386,15 +13386,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1133:11: op= TOK_NOTEQUAL s= ctls_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1134:11: op= TOK_NOTEQUAL s= ctls_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_NOTEQUAL,FOLLOW_TOK_NOTEQUAL_in_ctls_relational_expr11526); if (failed) return retval;
+            	    match(input,TOK_NOTEQUAL,FOLLOW_TOK_NOTEQUAL_in_ctls_relational_expr11535); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11531);
+            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11540);
             	    s=ctls_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -13406,15 +13406,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1135:11: op= TOK_LT s= ctls_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1136:11: op= TOK_LT s= ctls_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_LT,FOLLOW_TOK_LT_in_ctls_relational_expr11556); if (failed) return retval;
+            	    match(input,TOK_LT,FOLLOW_TOK_LT_in_ctls_relational_expr11565); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11561);
+            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11570);
             	    s=ctls_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -13426,15 +13426,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 4 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1137:11: op= TOK_GT s= ctls_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1138:11: op= TOK_GT s= ctls_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_GT,FOLLOW_TOK_GT_in_ctls_relational_expr11586); if (failed) return retval;
+            	    match(input,TOK_GT,FOLLOW_TOK_GT_in_ctls_relational_expr11595); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11591);
+            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11600);
             	    s=ctls_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -13446,15 +13446,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 5 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1139:11: op= TOK_LE s= ctls_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1140:11: op= TOK_LE s= ctls_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_LE,FOLLOW_TOK_LE_in_ctls_relational_expr11616); if (failed) return retval;
+            	    match(input,TOK_LE,FOLLOW_TOK_LE_in_ctls_relational_expr11625); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11621);
+            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11630);
             	    s=ctls_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -13466,15 +13466,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 6 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1141:11: op= TOK_GE s= ctls_in_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1142:11: op= TOK_GE s= ctls_in_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_GE,FOLLOW_TOK_GE_in_ctls_relational_expr11646); if (failed) return retval;
+            	    match(input,TOK_GE,FOLLOW_TOK_GE_in_ctls_relational_expr11655); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11651);
+            	    pushFollow(FOLLOW_ctls_in_expr_in_ctls_relational_expr11660);
             	    s=ctls_in_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -13521,7 +13521,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_in_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1145:1: ctls_in_expr returns [InternalSpec ret] : f= ctls_union_expr (op= TOK_SETIN s= ctls_union_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1146:1: ctls_in_expr returns [InternalSpec ret] : f= ctls_union_expr (op= TOK_SETIN s= ctls_union_expr )* ;
     public final ctls_in_expr_return ctls_in_expr() throws RecognitionException {
         ctls_in_expr_return retval = new ctls_in_expr_return();
         retval.start = input.LT(1);
@@ -13538,12 +13538,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1148:9: (f= ctls_union_expr (op= TOK_SETIN s= ctls_union_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1148:11: f= ctls_union_expr (op= TOK_SETIN s= ctls_union_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1149:9: (f= ctls_union_expr (op= TOK_SETIN s= ctls_union_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1149:11: f= ctls_union_expr (op= TOK_SETIN s= ctls_union_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_union_expr_in_ctls_in_expr11714);
+            pushFollow(FOLLOW_ctls_union_expr_in_ctls_in_expr11723);
             f=ctls_union_expr();
             _fsp--;
             if (failed) return retval;
@@ -13551,7 +13551,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1149:9: (op= TOK_SETIN s= ctls_union_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1150:9: (op= TOK_SETIN s= ctls_union_expr )*
             loop70:
             do {
                 int alt70=2;
@@ -13564,15 +13564,15 @@ public class SPCParser extends Parser {
 
                 switch (alt70) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1149:11: op= TOK_SETIN s= ctls_union_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1150:11: op= TOK_SETIN s= ctls_union_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_SETIN,FOLLOW_TOK_SETIN_in_ctls_in_expr11730); if (failed) return retval;
+            	    match(input,TOK_SETIN,FOLLOW_TOK_SETIN_in_ctls_in_expr11739); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_union_expr_in_ctls_in_expr11735);
+            	    pushFollow(FOLLOW_ctls_union_expr_in_ctls_in_expr11744);
             	    s=ctls_union_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -13619,7 +13619,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_union_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1153:1: ctls_union_expr returns [InternalSpec ret] : f= ctls_set_expr (op= TOK_UNION s= ctls_set_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1154:1: ctls_union_expr returns [InternalSpec ret] : f= ctls_set_expr (op= TOK_UNION s= ctls_set_expr )* ;
     public final ctls_union_expr_return ctls_union_expr() throws RecognitionException {
         ctls_union_expr_return retval = new ctls_union_expr_return();
         retval.start = input.LT(1);
@@ -13636,12 +13636,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1156:9: (f= ctls_set_expr (op= TOK_UNION s= ctls_set_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1156:11: f= ctls_set_expr (op= TOK_UNION s= ctls_set_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1157:9: (f= ctls_set_expr (op= TOK_UNION s= ctls_set_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1157:11: f= ctls_set_expr (op= TOK_UNION s= ctls_set_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_set_expr_in_ctls_union_expr11798);
+            pushFollow(FOLLOW_ctls_set_expr_in_ctls_union_expr11807);
             f=ctls_set_expr();
             _fsp--;
             if (failed) return retval;
@@ -13649,7 +13649,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1157:9: (op= TOK_UNION s= ctls_set_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1158:9: (op= TOK_UNION s= ctls_set_expr )*
             loop71:
             do {
                 int alt71=2;
@@ -13662,15 +13662,15 @@ public class SPCParser extends Parser {
 
                 switch (alt71) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1157:11: op= TOK_UNION s= ctls_set_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1158:11: op= TOK_UNION s= ctls_set_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_UNION,FOLLOW_TOK_UNION_in_ctls_union_expr11814); if (failed) return retval;
+            	    match(input,TOK_UNION,FOLLOW_TOK_UNION_in_ctls_union_expr11823); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_set_expr_in_ctls_union_expr11819);
+            	    pushFollow(FOLLOW_ctls_set_expr_in_ctls_union_expr11828);
             	    s=ctls_set_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -13717,7 +13717,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_set_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1162:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1163:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );
     public final ctls_set_expr_return ctls_set_expr() throws RecognitionException {
         ctls_set_expr_return retval = new ctls_set_expr_return();
         retval.start = input.LT(1);
@@ -13740,7 +13740,7 @@ public class SPCParser extends Parser {
         RewriteRuleSubtreeStream stream_ctls_set_list_expr=new RewriteRuleSubtreeStream(adaptor,"rule ctls_set_list_expr");
         boolean append_end = false; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1165:9: ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1166:9: ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) )
             int alt72=3;
             switch ( input.LA(1) ) {
             case TOK_NOT:
@@ -13772,7 +13772,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1162:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 2, input);
+                        new NoViableAltException("1163:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 2, input);
 
                     throw nvae;
                 }
@@ -13794,7 +13794,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1162:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 7, input);
+                            new NoViableAltException("1163:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 7, input);
 
                         throw nvae;
                     }
@@ -13802,7 +13802,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1162:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 3, input);
+                        new NoViableAltException("1163:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 3, input);
 
                     throw nvae;
                 }
@@ -13824,7 +13824,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1162:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 8, input);
+                            new NoViableAltException("1163:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 8, input);
 
                         throw nvae;
                     }
@@ -13835,7 +13835,7 @@ public class SPCParser extends Parser {
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1162:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 4, input);
+                        new NoViableAltException("1163:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 4, input);
 
                     throw nvae;
                 }
@@ -13849,18 +13849,18 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1162:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 0, input);
+                    new NoViableAltException("1163:1: ctls_set_expr returns [InternalSpec ret] : ( ctls_shift_expr | subrange | TOK_LCB ctls_set_list_expr TOK_RCB -> ^( SET_LIST_EXP_T ctls_set_list_expr ) );", 72, 0, input);
 
                 throw nvae;
             }
 
             switch (alt72) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1165:11: ctls_shift_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1166:11: ctls_shift_expr
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_shift_expr_in_ctls_set_expr11881);
+                    pushFollow(FOLLOW_ctls_shift_expr_in_ctls_set_expr11890);
                     ctls_shift_expr184=ctls_shift_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -13872,11 +13872,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1167:11: subrange
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1168:11: subrange
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_subrange_in_ctls_set_expr11903);
+                    pushFollow(FOLLOW_subrange_in_ctls_set_expr11912);
                     subrange185=subrange();
                     _fsp--;
                     if (failed) return retval;
@@ -13888,19 +13888,19 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1169:11: TOK_LCB ctls_set_list_expr TOK_RCB
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1170:11: TOK_LCB ctls_set_list_expr TOK_RCB
                     {
                     TOK_LCB186=(Token)input.LT(1);
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_ctls_set_expr11926); if (failed) return retval;
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_ctls_set_expr11935); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB186);
 
-                    pushFollow(FOLLOW_ctls_set_list_expr_in_ctls_set_expr11928);
+                    pushFollow(FOLLOW_ctls_set_list_expr_in_ctls_set_expr11937);
                     ctls_set_list_expr187=ctls_set_list_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_ctls_set_list_expr.add(ctls_set_list_expr187.getTree());
                     TOK_RCB188=(Token)input.LT(1);
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_ctls_set_expr11930); if (failed) return retval;
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_ctls_set_expr11939); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB188);
 
                     if ( backtracking==0 ) {
@@ -13918,9 +13918,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1171:9: -> ^( SET_LIST_EXP_T ctls_set_list_expr )
+                    // 1172:9: -> ^( SET_LIST_EXP_T ctls_set_list_expr )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1171:12: ^( SET_LIST_EXP_T ctls_set_list_expr )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1172:12: ^( SET_LIST_EXP_T ctls_set_list_expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(SET_LIST_EXP_T, "SET_LIST_EXP_T"), root_1);
@@ -13964,7 +13964,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_set_list_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1173:1: ctls_set_list_expr : simple_root_expr ( TOK_COMMA simple_root_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1174:1: ctls_set_list_expr : simple_root_expr ( TOK_COMMA simple_root_expr )* ;
     public final ctls_set_list_expr_return ctls_set_list_expr() throws RecognitionException {
         ctls_set_list_expr_return retval = new ctls_set_list_expr_return();
         retval.start = input.LT(1);
@@ -13980,17 +13980,17 @@ public class SPCParser extends Parser {
         Object TOK_COMMA190_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1174:9: ( simple_root_expr ( TOK_COMMA simple_root_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1174:11: simple_root_expr ( TOK_COMMA simple_root_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1175:9: ( simple_root_expr ( TOK_COMMA simple_root_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1175:11: simple_root_expr ( TOK_COMMA simple_root_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_simple_root_expr_in_ctls_set_list_expr11983);
+            pushFollow(FOLLOW_simple_root_expr_in_ctls_set_list_expr11992);
             simple_root_expr189=simple_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, simple_root_expr189.getTree());
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1174:28: ( TOK_COMMA simple_root_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1175:28: ( TOK_COMMA simple_root_expr )*
             loop73:
             do {
                 int alt73=2;
@@ -14003,11 +14003,11 @@ public class SPCParser extends Parser {
 
                 switch (alt73) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1174:29: TOK_COMMA simple_root_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1175:29: TOK_COMMA simple_root_expr
             	    {
             	    TOK_COMMA190=(Token)input.LT(1);
-            	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ctls_set_list_expr11986); if (failed) return retval;
-            	    pushFollow(FOLLOW_simple_root_expr_in_ctls_set_list_expr11989);
+            	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ctls_set_list_expr11995); if (failed) return retval;
+            	    pushFollow(FOLLOW_simple_root_expr_in_ctls_set_list_expr11998);
             	    simple_root_expr191=simple_root_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -14048,7 +14048,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_shift_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1176:1: ctls_shift_expr returns [InternalSpec ret] : f= ctls_remainder_expr (op= TOK_LSHIFT s= ctls_remainder_expr | op= TOK_RSHIFT s= ctls_remainder_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1177:1: ctls_shift_expr returns [InternalSpec ret] : f= ctls_remainder_expr (op= TOK_LSHIFT s= ctls_remainder_expr | op= TOK_RSHIFT s= ctls_remainder_expr )* ;
     public final ctls_shift_expr_return ctls_shift_expr() throws RecognitionException {
         ctls_shift_expr_return retval = new ctls_shift_expr_return();
         retval.start = input.LT(1);
@@ -14065,12 +14065,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1179:9: (f= ctls_remainder_expr (op= TOK_LSHIFT s= ctls_remainder_expr | op= TOK_RSHIFT s= ctls_remainder_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1179:11: f= ctls_remainder_expr (op= TOK_LSHIFT s= ctls_remainder_expr | op= TOK_RSHIFT s= ctls_remainder_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1180:9: (f= ctls_remainder_expr (op= TOK_LSHIFT s= ctls_remainder_expr | op= TOK_RSHIFT s= ctls_remainder_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1180:11: f= ctls_remainder_expr (op= TOK_LSHIFT s= ctls_remainder_expr | op= TOK_RSHIFT s= ctls_remainder_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12035);
+            pushFollow(FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12044);
             f=ctls_remainder_expr();
             _fsp--;
             if (failed) return retval;
@@ -14078,7 +14078,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1180:9: (op= TOK_LSHIFT s= ctls_remainder_expr | op= TOK_RSHIFT s= ctls_remainder_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1181:9: (op= TOK_LSHIFT s= ctls_remainder_expr | op= TOK_RSHIFT s= ctls_remainder_expr )*
             loop74:
             do {
                 int alt74=3;
@@ -14094,15 +14094,15 @@ public class SPCParser extends Parser {
 
                 switch (alt74) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1180:11: op= TOK_LSHIFT s= ctls_remainder_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1181:11: op= TOK_LSHIFT s= ctls_remainder_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_LSHIFT,FOLLOW_TOK_LSHIFT_in_ctls_shift_expr12051); if (failed) return retval;
+            	    match(input,TOK_LSHIFT,FOLLOW_TOK_LSHIFT_in_ctls_shift_expr12060); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12056);
+            	    pushFollow(FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12065);
             	    s=ctls_remainder_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -14114,15 +14114,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1182:11: op= TOK_RSHIFT s= ctls_remainder_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1183:11: op= TOK_RSHIFT s= ctls_remainder_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_RSHIFT,FOLLOW_TOK_RSHIFT_in_ctls_shift_expr12080); if (failed) return retval;
+            	    match(input,TOK_RSHIFT,FOLLOW_TOK_RSHIFT_in_ctls_shift_expr12089); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12085);
+            	    pushFollow(FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12094);
             	    s=ctls_remainder_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -14169,7 +14169,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_remainder_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1186:1: ctls_remainder_expr returns [InternalSpec ret] : f= ctls_additive_expr (op= TOK_MOD s= ctls_additive_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1187:1: ctls_remainder_expr returns [InternalSpec ret] : f= ctls_additive_expr (op= TOK_MOD s= ctls_additive_expr )* ;
     public final ctls_remainder_expr_return ctls_remainder_expr() throws RecognitionException {
         ctls_remainder_expr_return retval = new ctls_remainder_expr_return();
         retval.start = input.LT(1);
@@ -14186,12 +14186,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1189:9: (f= ctls_additive_expr (op= TOK_MOD s= ctls_additive_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1189:11: f= ctls_additive_expr (op= TOK_MOD s= ctls_additive_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1190:9: (f= ctls_additive_expr (op= TOK_MOD s= ctls_additive_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1190:11: f= ctls_additive_expr (op= TOK_MOD s= ctls_additive_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_additive_expr_in_ctls_remainder_expr12147);
+            pushFollow(FOLLOW_ctls_additive_expr_in_ctls_remainder_expr12156);
             f=ctls_additive_expr();
             _fsp--;
             if (failed) return retval;
@@ -14199,7 +14199,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1190:9: (op= TOK_MOD s= ctls_additive_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1191:9: (op= TOK_MOD s= ctls_additive_expr )*
             loop75:
             do {
                 int alt75=2;
@@ -14212,15 +14212,15 @@ public class SPCParser extends Parser {
 
                 switch (alt75) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1190:11: op= TOK_MOD s= ctls_additive_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1191:11: op= TOK_MOD s= ctls_additive_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_MOD,FOLLOW_TOK_MOD_in_ctls_remainder_expr12163); if (failed) return retval;
+            	    match(input,TOK_MOD,FOLLOW_TOK_MOD_in_ctls_remainder_expr12172); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_additive_expr_in_ctls_remainder_expr12168);
+            	    pushFollow(FOLLOW_ctls_additive_expr_in_ctls_remainder_expr12177);
             	    s=ctls_additive_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -14267,7 +14267,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_additive_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1197:1: ctls_additive_expr returns [InternalSpec ret] : f= ctls_multiplicative_expr (op= TOK_PLUS s= ctls_multiplicative_expr | op= TOK_MINUS s= ctls_multiplicative_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1198:1: ctls_additive_expr returns [InternalSpec ret] : f= ctls_multiplicative_expr (op= TOK_PLUS s= ctls_multiplicative_expr | op= TOK_MINUS s= ctls_multiplicative_expr )* ;
     public final ctls_additive_expr_return ctls_additive_expr() throws RecognitionException {
         ctls_additive_expr_return retval = new ctls_additive_expr_return();
         retval.start = input.LT(1);
@@ -14284,12 +14284,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1200:9: (f= ctls_multiplicative_expr (op= TOK_PLUS s= ctls_multiplicative_expr | op= TOK_MINUS s= ctls_multiplicative_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1200:11: f= ctls_multiplicative_expr (op= TOK_PLUS s= ctls_multiplicative_expr | op= TOK_MINUS s= ctls_multiplicative_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1201:9: (f= ctls_multiplicative_expr (op= TOK_PLUS s= ctls_multiplicative_expr | op= TOK_MINUS s= ctls_multiplicative_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1201:11: f= ctls_multiplicative_expr (op= TOK_PLUS s= ctls_multiplicative_expr | op= TOK_MINUS s= ctls_multiplicative_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12233);
+            pushFollow(FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12242);
             f=ctls_multiplicative_expr();
             _fsp--;
             if (failed) return retval;
@@ -14297,7 +14297,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1201:9: (op= TOK_PLUS s= ctls_multiplicative_expr | op= TOK_MINUS s= ctls_multiplicative_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1202:9: (op= TOK_PLUS s= ctls_multiplicative_expr | op= TOK_MINUS s= ctls_multiplicative_expr )*
             loop76:
             do {
                 int alt76=3;
@@ -14313,15 +14313,15 @@ public class SPCParser extends Parser {
 
                 switch (alt76) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1201:11: op= TOK_PLUS s= ctls_multiplicative_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1202:11: op= TOK_PLUS s= ctls_multiplicative_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_PLUS,FOLLOW_TOK_PLUS_in_ctls_additive_expr12249); if (failed) return retval;
+            	    match(input,TOK_PLUS,FOLLOW_TOK_PLUS_in_ctls_additive_expr12258); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12254);
+            	    pushFollow(FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12263);
             	    s=ctls_multiplicative_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -14333,15 +14333,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1203:11: op= TOK_MINUS s= ctls_multiplicative_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1204:11: op= TOK_MINUS s= ctls_multiplicative_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_ctls_additive_expr12278); if (failed) return retval;
+            	    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_ctls_additive_expr12287); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12283);
+            	    pushFollow(FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12292);
             	    s=ctls_multiplicative_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -14388,7 +14388,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_multiplicative_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1207:1: ctls_multiplicative_expr returns [InternalSpec ret] : f= ctls_concatination_expr (op= TOK_TIMES s= ctls_concatination_expr | op= TOK_DIVIDE s= ctls_concatination_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1208:1: ctls_multiplicative_expr returns [InternalSpec ret] : f= ctls_concatination_expr (op= TOK_TIMES s= ctls_concatination_expr | op= TOK_DIVIDE s= ctls_concatination_expr )* ;
     public final ctls_multiplicative_expr_return ctls_multiplicative_expr() throws RecognitionException {
         ctls_multiplicative_expr_return retval = new ctls_multiplicative_expr_return();
         retval.start = input.LT(1);
@@ -14405,12 +14405,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1210:9: (f= ctls_concatination_expr (op= TOK_TIMES s= ctls_concatination_expr | op= TOK_DIVIDE s= ctls_concatination_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1210:11: f= ctls_concatination_expr (op= TOK_TIMES s= ctls_concatination_expr | op= TOK_DIVIDE s= ctls_concatination_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1211:9: (f= ctls_concatination_expr (op= TOK_TIMES s= ctls_concatination_expr | op= TOK_DIVIDE s= ctls_concatination_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1211:11: f= ctls_concatination_expr (op= TOK_TIMES s= ctls_concatination_expr | op= TOK_DIVIDE s= ctls_concatination_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12343);
+            pushFollow(FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12352);
             f=ctls_concatination_expr();
             _fsp--;
             if (failed) return retval;
@@ -14418,7 +14418,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1211:9: (op= TOK_TIMES s= ctls_concatination_expr | op= TOK_DIVIDE s= ctls_concatination_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1212:9: (op= TOK_TIMES s= ctls_concatination_expr | op= TOK_DIVIDE s= ctls_concatination_expr )*
             loop77:
             do {
                 int alt77=3;
@@ -14434,15 +14434,15 @@ public class SPCParser extends Parser {
 
                 switch (alt77) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1211:11: op= TOK_TIMES s= ctls_concatination_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1212:11: op= TOK_TIMES s= ctls_concatination_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_TIMES,FOLLOW_TOK_TIMES_in_ctls_multiplicative_expr12359); if (failed) return retval;
+            	    match(input,TOK_TIMES,FOLLOW_TOK_TIMES_in_ctls_multiplicative_expr12368); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12364);
+            	    pushFollow(FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12373);
             	    s=ctls_concatination_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -14454,15 +14454,15 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1213:11: op= TOK_DIVIDE s= ctls_concatination_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1214:11: op= TOK_DIVIDE s= ctls_concatination_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_DIVIDE,FOLLOW_TOK_DIVIDE_in_ctls_multiplicative_expr12388); if (failed) return retval;
+            	    match(input,TOK_DIVIDE,FOLLOW_TOK_DIVIDE_in_ctls_multiplicative_expr12397); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12393);
+            	    pushFollow(FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12402);
             	    s=ctls_concatination_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -14509,7 +14509,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_concatination_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1217:1: ctls_concatination_expr returns [InternalSpec ret] : f= ctls_primary_expr (op= TOK_CONCATENATION s= ctls_primary_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1218:1: ctls_concatination_expr returns [InternalSpec ret] : f= ctls_primary_expr (op= TOK_CONCATENATION s= ctls_primary_expr )* ;
     public final ctls_concatination_expr_return ctls_concatination_expr() throws RecognitionException {
         ctls_concatination_expr_return retval = new ctls_concatination_expr_return();
         retval.start = input.LT(1);
@@ -14526,12 +14526,12 @@ public class SPCParser extends Parser {
 
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1220:9: (f= ctls_primary_expr (op= TOK_CONCATENATION s= ctls_primary_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1220:11: f= ctls_primary_expr (op= TOK_CONCATENATION s= ctls_primary_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1221:9: (f= ctls_primary_expr (op= TOK_CONCATENATION s= ctls_primary_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1221:11: f= ctls_primary_expr (op= TOK_CONCATENATION s= ctls_primary_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ctls_primary_expr_in_ctls_concatination_expr12454);
+            pushFollow(FOLLOW_ctls_primary_expr_in_ctls_concatination_expr12463);
             f=ctls_primary_expr();
             _fsp--;
             if (failed) return retval;
@@ -14539,7 +14539,7 @@ public class SPCParser extends Parser {
             if ( backtracking==0 ) {
                if (!er()) exp_str += input.toString(f.start,f.stop); if(!er()) retval.ret = f.ret; 
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1221:9: (op= TOK_CONCATENATION s= ctls_primary_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1222:9: (op= TOK_CONCATENATION s= ctls_primary_expr )*
             loop78:
             do {
                 int alt78=2;
@@ -14552,15 +14552,15 @@ public class SPCParser extends Parser {
 
                 switch (alt78) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1221:11: op= TOK_CONCATENATION s= ctls_primary_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1222:11: op= TOK_CONCATENATION s= ctls_primary_expr
             	    {
             	    op=(Token)input.LT(1);
-            	    match(input,TOK_CONCATENATION,FOLLOW_TOK_CONCATENATION_in_ctls_concatination_expr12470); if (failed) return retval;
+            	    match(input,TOK_CONCATENATION,FOLLOW_TOK_CONCATENATION_in_ctls_concatination_expr12479); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    op_tree = (Object)adaptor.create(op);
             	    root_0 = (Object)adaptor.becomeRoot(op_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_ctls_primary_expr_in_ctls_concatination_expr12475);
+            	    pushFollow(FOLLOW_ctls_primary_expr_in_ctls_concatination_expr12484);
             	    s=ctls_primary_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -14607,7 +14607,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_primary_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1226:1: ctls_primary_expr returns [InternalSpec ret] : ( ctls_primary_expr_helper1 | op= TOK_MINUS v= ctls_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ctls_primary_expr -> ^( TOK_NOT $v) );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1227:1: ctls_primary_expr returns [InternalSpec ret] : ( ctls_primary_expr_helper1 | op= TOK_MINUS v= ctls_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ctls_primary_expr -> ^( TOK_NOT $v) );
     public final ctls_primary_expr_return ctls_primary_expr() throws RecognitionException {
         ctls_primary_expr_return retval = new ctls_primary_expr_return();
         retval.start = input.LT(1);
@@ -14626,7 +14626,7 @@ public class SPCParser extends Parser {
         RewriteRuleSubtreeStream stream_ctls_primary_expr=new RewriteRuleSubtreeStream(adaptor,"rule ctls_primary_expr");
         boolean append_end = false; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1229:9: ( ctls_primary_expr_helper1 | op= TOK_MINUS v= ctls_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ctls_primary_expr -> ^( TOK_NOT $v) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1230:9: ( ctls_primary_expr_helper1 | op= TOK_MINUS v= ctls_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ctls_primary_expr -> ^( TOK_NOT $v) )
             int alt79=3;
             switch ( input.LA(1) ) {
             case TOK_PLUS:
@@ -14659,18 +14659,18 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1226:1: ctls_primary_expr returns [InternalSpec ret] : ( ctls_primary_expr_helper1 | op= TOK_MINUS v= ctls_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ctls_primary_expr -> ^( TOK_NOT $v) );", 79, 0, input);
+                    new NoViableAltException("1227:1: ctls_primary_expr returns [InternalSpec ret] : ( ctls_primary_expr_helper1 | op= TOK_MINUS v= ctls_primary_expr -> ^( TOK_UNARY_MINUS_T $v) | op= TOK_NOT v= ctls_primary_expr -> ^( TOK_NOT $v) );", 79, 0, input);
 
                 throw nvae;
             }
 
             switch (alt79) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1229:11: ctls_primary_expr_helper1
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1230:11: ctls_primary_expr_helper1
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctls_primary_expr_helper1_in_ctls_primary_expr12544);
+                    pushFollow(FOLLOW_ctls_primary_expr_helper1_in_ctls_primary_expr12553);
                     ctls_primary_expr_helper1192=ctls_primary_expr_helper1();
                     _fsp--;
                     if (failed) return retval;
@@ -14682,13 +14682,13 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1231:11: op= TOK_MINUS v= ctls_primary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1232:11: op= TOK_MINUS v= ctls_primary_expr
                     {
                     op=(Token)input.LT(1);
-                    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_ctls_primary_expr12568); if (failed) return retval;
+                    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_ctls_primary_expr12577); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_MINUS.add(op);
 
-                    pushFollow(FOLLOW_ctls_primary_expr_in_ctls_primary_expr12572);
+                    pushFollow(FOLLOW_ctls_primary_expr_in_ctls_primary_expr12581);
                     v=ctls_primary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -14709,9 +14709,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1233:9: -> ^( TOK_UNARY_MINUS_T $v)
+                    // 1234:9: -> ^( TOK_UNARY_MINUS_T $v)
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1233:12: ^( TOK_UNARY_MINUS_T $v)
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1234:12: ^( TOK_UNARY_MINUS_T $v)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(TOK_UNARY_MINUS_T, "TOK_UNARY_MINUS_T"), root_1);
@@ -14728,13 +14728,13 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1234:11: op= TOK_NOT v= ctls_primary_expr
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1235:11: op= TOK_NOT v= ctls_primary_expr
                     {
                     op=(Token)input.LT(1);
-                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ctls_primary_expr12613); if (failed) return retval;
+                    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_ctls_primary_expr12622); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_NOT.add(op);
 
-                    pushFollow(FOLLOW_ctls_primary_expr_in_ctls_primary_expr12617);
+                    pushFollow(FOLLOW_ctls_primary_expr_in_ctls_primary_expr12626);
                     v=ctls_primary_expr();
                     _fsp--;
                     if (failed) return retval;
@@ -14755,9 +14755,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1236:9: -> ^( TOK_NOT $v)
+                    // 1237:9: -> ^( TOK_NOT $v)
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1236:12: ^( TOK_NOT $v)
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1237:12: ^( TOK_NOT $v)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_NOT.next(), root_1);
@@ -14802,7 +14802,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start ctls_primary_expr_helper1
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1239:1: ctls_primary_expr_helper1 returns [InternalSpec ret] : ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ctls_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ctls_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1240:1: ctls_primary_expr_helper1 returns [InternalSpec ret] : ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ctls_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ctls_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) );
     public final ctls_primary_expr_helper1_return ctls_primary_expr_helper1() throws RecognitionException {
         ctls_primary_expr_helper1_return retval = new ctls_primary_expr_helper1_return();
         retval.start = input.LT(1);
@@ -14907,7 +14907,7 @@ public class SPCParser extends Parser {
         RewriteRuleSubtreeStream stream_primary_expr_select=new RewriteRuleSubtreeStream(adaptor,"rule primary_expr_select");
         boolean append_end = false; String exp_str = ""; 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1242:9: ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ctls_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ctls_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1243:9: ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ctls_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ctls_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) )
             int alt80=9;
             switch ( input.LA(1) ) {
             case TOK_PLUS:
@@ -14962,21 +14962,21 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1239:1: ctls_primary_expr_helper1 returns [InternalSpec ret] : ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ctls_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ctls_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) );", 80, 0, input);
+                    new NoViableAltException("1240:1: ctls_primary_expr_helper1 returns [InternalSpec ret] : ( constant primary_expr_select -> ^( VALUE_T constant NOP primary_expr_select ) | primary_expr_helper1_pointer1 | TOK_LP ctls_root_expr TOK_RP primary_expr_select -> ^( BLOCK_T ctls_root_expr NOP primary_expr_select ) | TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select ) | TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select ) | TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select ) | TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select ) | TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAREAD $f $s NOP primary_expr_select ) | TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select ) );", 80, 0, input);
 
                 throw nvae;
             }
 
             switch (alt80) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1242:11: constant primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1243:11: constant primary_expr_select
                     {
-                    pushFollow(FOLLOW_constant_in_ctls_primary_expr_helper112682);
+                    pushFollow(FOLLOW_constant_in_ctls_primary_expr_helper112691);
                     constant193=constant();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_constant.add(constant193.getTree());
-                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112684);
+                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112693);
                     primary_expr_select194=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -14986,7 +14986,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, constant
+                    // elements: constant, primary_expr_select
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -14996,9 +14996,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1245:9: -> ^( VALUE_T constant NOP primary_expr_select )
+                    // 1246:9: -> ^( VALUE_T constant NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1245:12: ^( VALUE_T constant NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1246:12: ^( VALUE_T constant NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(VALUE_T, "VALUE_T"), root_1);
@@ -15017,11 +15017,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1246:11: primary_expr_helper1_pointer1
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1247:11: primary_expr_helper1_pointer1
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_primary_expr_helper1_pointer1_in_ctls_primary_expr_helper112735);
+                    pushFollow(FOLLOW_primary_expr_helper1_pointer1_in_ctls_primary_expr_helper112744);
                     primary_expr_helper1_pointer1195=primary_expr_helper1_pointer1();
                     _fsp--;
                     if (failed) return retval;
@@ -15033,22 +15033,22 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1255:11: TOK_LP ctls_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1256:11: TOK_LP ctls_root_expr TOK_RP primary_expr_select
                     {
                     TOK_LP196=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper112788); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper112797); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP196);
 
-                    pushFollow(FOLLOW_ctls_root_expr_in_ctls_primary_expr_helper112790);
+                    pushFollow(FOLLOW_ctls_root_expr_in_ctls_primary_expr_helper112799);
                     ctls_root_expr197=ctls_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_ctls_root_expr.add(ctls_root_expr197.getTree());
                     TOK_RP198=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper112792); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper112801); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP198);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112794);
+                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112803);
                     primary_expr_select199=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -15068,9 +15068,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1257:9: -> ^( BLOCK_T ctls_root_expr NOP primary_expr_select )
+                    // 1258:9: -> ^( BLOCK_T ctls_root_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1257:12: ^( BLOCK_T ctls_root_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1258:12: ^( BLOCK_T ctls_root_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(BLOCK_T, "BLOCK_T"), root_1);
@@ -15089,26 +15089,26 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1261:11: TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1262:11: TOK_BOOL TOK_LP simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_BOOL200=(Token)input.LT(1);
-                    match(input,TOK_BOOL,FOLLOW_TOK_BOOL_in_ctls_primary_expr_helper112865); if (failed) return retval;
+                    match(input,TOK_BOOL,FOLLOW_TOK_BOOL_in_ctls_primary_expr_helper112874); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_BOOL.add(TOK_BOOL200);
 
                     TOK_LP201=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper112867); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper112876); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP201);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112869);
+                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112878);
                     simple_root_expr202=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(simple_root_expr202.getTree());
                     TOK_RP203=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper112871); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper112880); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP203);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112873);
+                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112882);
                     primary_expr_select204=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -15118,7 +15118,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: TOK_BOOL, simple_root_expr, primary_expr_select
+                    // elements: primary_expr_select, simple_root_expr, TOK_BOOL
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -15128,9 +15128,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1264:9: -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select )
+                    // 1265:9: -> ^( TOK_BOOL simple_root_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1264:12: ^( TOK_BOOL simple_root_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1265:12: ^( TOK_BOOL simple_root_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_BOOL.next(), root_1);
@@ -15149,26 +15149,26 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1265:11: TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1266:11: TOK_WORD1 TOK_LP simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_WORD1205=(Token)input.LT(1);
-                    match(input,TOK_WORD1,FOLLOW_TOK_WORD1_in_ctls_primary_expr_helper112924); if (failed) return retval;
+                    match(input,TOK_WORD1,FOLLOW_TOK_WORD1_in_ctls_primary_expr_helper112933); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_WORD1.add(TOK_WORD1205);
 
                     TOK_LP206=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper112926); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper112935); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP206);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112928);
+                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112937);
                     simple_root_expr207=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(simple_root_expr207.getTree());
                     TOK_RP208=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper112930); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper112939); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP208);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112932);
+                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112941);
                     primary_expr_select209=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -15178,7 +15178,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, simple_root_expr, TOK_WORD1
+                    // elements: TOK_WORD1, primary_expr_select, simple_root_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -15188,9 +15188,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1268:9: -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select )
+                    // 1269:9: -> ^( TOK_WORD1 simple_root_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1268:12: ^( TOK_WORD1 simple_root_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1269:12: ^( TOK_WORD1 simple_root_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_WORD1.next(), root_1);
@@ -15209,26 +15209,26 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1270:11: TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1271:11: TOK_NEXT TOK_LP simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_NEXT210=(Token)input.LT(1);
-                    match(input,TOK_NEXT,FOLLOW_TOK_NEXT_in_ctls_primary_expr_helper112992); if (failed) return retval;
+                    match(input,TOK_NEXT,FOLLOW_TOK_NEXT_in_ctls_primary_expr_helper113001); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_NEXT.add(TOK_NEXT210);
 
                     TOK_LP211=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper112994); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper113003); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP211);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112996);
+                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113005);
                     simple_root_expr212=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(simple_root_expr212.getTree());
                     TOK_RP213=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper112998); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper113007); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP213);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113000);
+                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113009);
                     primary_expr_select214=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -15238,7 +15238,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: simple_root_expr, TOK_NEXT, primary_expr_select
+                    // elements: primary_expr_select, TOK_NEXT, simple_root_expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -15248,9 +15248,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1273:9: -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select )
+                    // 1274:9: -> ^( TOK_NEXT simple_root_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1273:12: ^( TOK_NEXT simple_root_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1274:12: ^( TOK_NEXT simple_root_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_NEXT.next(), root_1);
@@ -15269,22 +15269,22 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1275:11: TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1276:11: TOK_CASE case_element_list_expr TOK_ESAC primary_expr_select
                     {
                     TOK_CASE215=(Token)input.LT(1);
-                    match(input,TOK_CASE,FOLLOW_TOK_CASE_in_ctls_primary_expr_helper113060); if (failed) return retval;
+                    match(input,TOK_CASE,FOLLOW_TOK_CASE_in_ctls_primary_expr_helper113069); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_CASE.add(TOK_CASE215);
 
-                    pushFollow(FOLLOW_case_element_list_expr_in_ctls_primary_expr_helper113062);
+                    pushFollow(FOLLOW_case_element_list_expr_in_ctls_primary_expr_helper113071);
                     case_element_list_expr216=case_element_list_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_case_element_list_expr.add(case_element_list_expr216.getTree());
                     TOK_ESAC217=(Token)input.LT(1);
-                    match(input,TOK_ESAC,FOLLOW_TOK_ESAC_in_ctls_primary_expr_helper113064); if (failed) return retval;
+                    match(input,TOK_ESAC,FOLLOW_TOK_ESAC_in_ctls_primary_expr_helper113073); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ESAC.add(TOK_ESAC217);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113066);
+                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113075);
                     primary_expr_select218=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -15304,9 +15304,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1278:9: -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select )
+                    // 1279:9: -> ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1278:12: ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1279:12: ^( CASE_LIST_EXPR_T case_element_list_expr NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(CASE_LIST_EXPR_T, "CASE_LIST_EXPR_T"), root_1);
@@ -15325,35 +15325,35 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1280:11: TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1281:11: TOK_WAREAD TOK_LP f= simple_root_expr TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_WAREAD219=(Token)input.LT(1);
-                    match(input,TOK_WAREAD,FOLLOW_TOK_WAREAD_in_ctls_primary_expr_helper113126); if (failed) return retval;
+                    match(input,TOK_WAREAD,FOLLOW_TOK_WAREAD_in_ctls_primary_expr_helper113135); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_WAREAD.add(TOK_WAREAD219);
 
                     TOK_LP220=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper113128); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper113137); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP220);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113132);
+                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113141);
                     f=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(f.getTree());
                     TOK_COMMA221=(Token)input.LT(1);
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113134); if (failed) return retval;
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113143); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_COMMA.add(TOK_COMMA221);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113138);
+                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113147);
                     s=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(s.getTree());
                     TOK_RP222=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper113140); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper113149); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP222);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113142);
+                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113151);
                     primary_expr_select223=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -15363,7 +15363,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: primary_expr_select, s, f, TOK_WAREAD
+                    // elements: s, TOK_WAREAD, f, primary_expr_select
                     // token labels: 
                     // rule labels: s, f, retval
                     // token list labels: 
@@ -15375,9 +15375,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1283:9: -> ^( TOK_WAREAD $f $s NOP primary_expr_select )
+                    // 1284:9: -> ^( TOK_WAREAD $f $s NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1283:12: ^( TOK_WAREAD $f $s NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1284:12: ^( TOK_WAREAD $f $s NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_WAREAD.next(), root_1);
@@ -15397,44 +15397,44 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1285:11: TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1286:11: TOK_WAWRITE TOK_LP f= simple_root_expr tc1= TOK_COMMA m= simple_root_expr tc2= TOK_COMMA s= simple_root_expr TOK_RP primary_expr_select
                     {
                     TOK_WAWRITE224=(Token)input.LT(1);
-                    match(input,TOK_WAWRITE,FOLLOW_TOK_WAWRITE_in_ctls_primary_expr_helper113206); if (failed) return retval;
+                    match(input,TOK_WAWRITE,FOLLOW_TOK_WAWRITE_in_ctls_primary_expr_helper113215); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_WAWRITE.add(TOK_WAWRITE224);
 
                     TOK_LP225=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper113208); if (failed) return retval;
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ctls_primary_expr_helper113217); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP225);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113212);
+                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113221);
                     f=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(f.getTree());
                     tc1=(Token)input.LT(1);
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113216); if (failed) return retval;
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113225); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_COMMA.add(tc1);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113220);
+                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113229);
                     m=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(m.getTree());
                     tc2=(Token)input.LT(1);
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113224); if (failed) return retval;
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113233); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_COMMA.add(tc2);
 
-                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113228);
+                    pushFollow(FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113237);
                     s=simple_root_expr();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_root_expr.add(s.getTree());
                     TOK_RP226=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper113230); if (failed) return retval;
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ctls_primary_expr_helper113239); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP226);
 
-                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113232);
+                    pushFollow(FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113241);
                     primary_expr_select227=primary_expr_select();
                     _fsp--;
                     if (failed) return retval;
@@ -15444,7 +15444,7 @@ public class SPCParser extends Parser {
                     }
 
                     // AST REWRITE
-                    // elements: f, primary_expr_select, m, TOK_WAWRITE, s
+                    // elements: TOK_WAWRITE, f, m, primary_expr_select, s
                     // token labels: 
                     // rule labels: s, f, m, retval
                     // token list labels: 
@@ -15457,9 +15457,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1288:9: -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select )
+                    // 1289:9: -> ^( TOK_WAWRITE $f $m $s NOP primary_expr_select )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1288:12: ^( TOK_WAWRITE $f $m $s NOP primary_expr_select )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1289:12: ^( TOK_WAWRITE $f $m $s NOP primary_expr_select )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_WAWRITE.next(), root_1);
@@ -15507,7 +15507,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start primary_expr_helper1_pointer1
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1298:1: primary_expr_helper1_pointer1 : TOK_ATOM primary_expr_select -> ^( VALUE_T TOK_ATOM NOP primary_expr_select ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1299:1: primary_expr_helper1_pointer1 : TOK_ATOM primary_expr_select -> ^( VALUE_T TOK_ATOM NOP primary_expr_select ) ;
     public final primary_expr_helper1_pointer1_return primary_expr_helper1_pointer1() throws RecognitionException {
         primary_expr_helper1_pointer1_return retval = new primary_expr_helper1_pointer1_return();
         retval.start = input.LT(1);
@@ -15522,14 +15522,14 @@ public class SPCParser extends Parser {
         RewriteRuleTokenStream stream_TOK_ATOM=new RewriteRuleTokenStream(adaptor,"token TOK_ATOM");
         RewriteRuleSubtreeStream stream_primary_expr_select=new RewriteRuleSubtreeStream(adaptor,"rule primary_expr_select");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1298:31: ( TOK_ATOM primary_expr_select -> ^( VALUE_T TOK_ATOM NOP primary_expr_select ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1298:33: TOK_ATOM primary_expr_select
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1299:31: ( TOK_ATOM primary_expr_select -> ^( VALUE_T TOK_ATOM NOP primary_expr_select ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1299:33: TOK_ATOM primary_expr_select
             {
             TOK_ATOM228=(Token)input.LT(1);
-            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_primary_expr_helper1_pointer113303); if (failed) return retval;
+            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_primary_expr_helper1_pointer113312); if (failed) return retval;
             if ( backtracking==0 ) stream_TOK_ATOM.add(TOK_ATOM228);
 
-            pushFollow(FOLLOW_primary_expr_select_in_primary_expr_helper1_pointer113305);
+            pushFollow(FOLLOW_primary_expr_select_in_primary_expr_helper1_pointer113314);
             primary_expr_select229=primary_expr_select();
             _fsp--;
             if (failed) return retval;
@@ -15546,9 +15546,9 @@ public class SPCParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 1299:9: -> ^( VALUE_T TOK_ATOM NOP primary_expr_select )
+            // 1300:9: -> ^( VALUE_T TOK_ATOM NOP primary_expr_select )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1299:12: ^( VALUE_T TOK_ATOM NOP primary_expr_select )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1300:12: ^( VALUE_T TOK_ATOM NOP primary_expr_select )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(adaptor.create(VALUE_T, "VALUE_T"), root_1);
@@ -15589,7 +15589,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start primary_expr_select
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1304:1: primary_expr_select : ( primary_expr_select_helper | primary_expr_ref )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1305:1: primary_expr_select : ( primary_expr_select_helper | primary_expr_ref )* ;
     public final primary_expr_select_return primary_expr_select() throws RecognitionException {
         primary_expr_select_return retval = new primary_expr_select_return();
         retval.start = input.LT(1);
@@ -15603,12 +15603,12 @@ public class SPCParser extends Parser {
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1304:24: ( ( primary_expr_select_helper | primary_expr_ref )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1304:26: ( primary_expr_select_helper | primary_expr_ref )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1305:24: ( ( primary_expr_select_helper | primary_expr_ref )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1305:26: ( primary_expr_select_helper | primary_expr_ref )*
             {
             root_0 = (Object)adaptor.nil();
 
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1304:26: ( primary_expr_select_helper | primary_expr_ref )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1305:26: ( primary_expr_select_helper | primary_expr_ref )*
             loop81:
             do {
                 int alt81=3;
@@ -15624,9 +15624,9 @@ public class SPCParser extends Parser {
 
                 switch (alt81) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1304:27: primary_expr_select_helper
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1305:27: primary_expr_select_helper
             	    {
-            	    pushFollow(FOLLOW_primary_expr_select_helper_in_primary_expr_select13348);
+            	    pushFollow(FOLLOW_primary_expr_select_helper_in_primary_expr_select13357);
             	    primary_expr_select_helper230=primary_expr_select_helper();
             	    _fsp--;
             	    if (failed) return retval;
@@ -15635,9 +15635,9 @@ public class SPCParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1304:56: primary_expr_ref
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1305:56: primary_expr_ref
             	    {
-            	    pushFollow(FOLLOW_primary_expr_ref_in_primary_expr_select13352);
+            	    pushFollow(FOLLOW_primary_expr_ref_in_primary_expr_select13361);
             	    primary_expr_ref231=primary_expr_ref();
             	    _fsp--;
             	    if (failed) return retval;
@@ -15677,7 +15677,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start primary_expr_ref
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1306:1: primary_expr_ref : ( TOK_DOT ( TOK_ATOM | TOK_NUMBER ) ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1307:1: primary_expr_ref : ( TOK_DOT ( TOK_ATOM | TOK_NUMBER ) ) ;
     public final primary_expr_ref_return primary_expr_ref() throws RecognitionException {
         primary_expr_ref_return retval = new primary_expr_ref_return();
         retval.start = input.LT(1);
@@ -15691,16 +15691,16 @@ public class SPCParser extends Parser {
         Object set233_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1306:21: ( ( TOK_DOT ( TOK_ATOM | TOK_NUMBER ) ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1306:23: ( TOK_DOT ( TOK_ATOM | TOK_NUMBER ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1307:21: ( ( TOK_DOT ( TOK_ATOM | TOK_NUMBER ) ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1307:23: ( TOK_DOT ( TOK_ATOM | TOK_NUMBER ) )
             {
             root_0 = (Object)adaptor.nil();
 
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1306:23: ( TOK_DOT ( TOK_ATOM | TOK_NUMBER ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1306:24: TOK_DOT ( TOK_ATOM | TOK_NUMBER )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1307:23: ( TOK_DOT ( TOK_ATOM | TOK_NUMBER ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1307:24: TOK_DOT ( TOK_ATOM | TOK_NUMBER )
             {
             TOK_DOT232=(Token)input.LT(1);
-            match(input,TOK_DOT,FOLLOW_TOK_DOT_in_primary_expr_ref13375); if (failed) return retval;
+            match(input,TOK_DOT,FOLLOW_TOK_DOT_in_primary_expr_ref13384); if (failed) return retval;
             set233=(Token)input.LT(1);
             if ( input.LA(1)==TOK_ATOM||input.LA(1)==TOK_NUMBER ) {
                 input.consume();
@@ -15711,7 +15711,7 @@ public class SPCParser extends Parser {
                 if (backtracking>0) {failed=true; return retval;}
                 MismatchedSetException mse =
                     new MismatchedSetException(null,input);
-                recoverFromMismatchedSet(input,mse,FOLLOW_set_in_primary_expr_ref13378);    throw mse;
+                recoverFromMismatchedSet(input,mse,FOLLOW_set_in_primary_expr_ref13387);    throw mse;
             }
 
 
@@ -15743,7 +15743,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start primary_expr_select_helper
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );
     public final primary_expr_select_helper_return primary_expr_select_helper() throws RecognitionException {
         primary_expr_select_helper_return retval = new primary_expr_select_helper_return();
         retval.start = input.LT(1);
@@ -15757,7 +15757,7 @@ public class SPCParser extends Parser {
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1308:29: ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1309:29: ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix )
             int alt82=2;
             int LA82_0 = input.LA(1);
 
@@ -15776,7 +15776,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 2, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 2, input);
 
                         throw nvae;
                     }
@@ -15795,7 +15795,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 3, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 3, input);
 
                         throw nvae;
                     }
@@ -15814,7 +15814,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 4, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 4, input);
 
                         throw nvae;
                     }
@@ -15836,7 +15836,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 23, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 23, input);
 
                             throw nvae;
                         }
@@ -15844,7 +15844,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 5, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 5, input);
 
                         throw nvae;
                     }
@@ -15863,7 +15863,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 6, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 6, input);
 
                         throw nvae;
                     }
@@ -15882,7 +15882,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 7, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 7, input);
 
                         throw nvae;
                     }
@@ -15901,7 +15901,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 8, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 8, input);
 
                         throw nvae;
                     }
@@ -15923,7 +15923,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 29, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 29, input);
 
                             throw nvae;
                         }
@@ -15931,7 +15931,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 9, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 9, input);
 
                         throw nvae;
                     }
@@ -15953,7 +15953,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 30, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 30, input);
 
                             throw nvae;
                         }
@@ -15961,7 +15961,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 10, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 10, input);
 
                         throw nvae;
                     }
@@ -15983,7 +15983,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 31, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 31, input);
 
                             throw nvae;
                         }
@@ -15991,7 +15991,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 11, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 11, input);
 
                         throw nvae;
                     }
@@ -16010,7 +16010,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 12, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 12, input);
 
                         throw nvae;
                     }
@@ -16032,7 +16032,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 34, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 34, input);
 
                             throw nvae;
                         }
@@ -16040,7 +16040,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 13, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 13, input);
 
                         throw nvae;
                     }
@@ -16062,7 +16062,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 35, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 35, input);
 
                             throw nvae;
                         }
@@ -16070,7 +16070,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 14, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 14, input);
 
                         throw nvae;
                     }
@@ -16092,7 +16092,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 36, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 36, input);
 
                             throw nvae;
                         }
@@ -16111,7 +16111,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 37, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 37, input);
 
                             throw nvae;
                         }
@@ -16130,7 +16130,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 38, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 38, input);
 
                             throw nvae;
                         }
@@ -16152,7 +16152,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 83, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 83, input);
 
                                 throw nvae;
                             }
@@ -16160,7 +16160,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 39, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 39, input);
 
                             throw nvae;
                         }
@@ -16179,7 +16179,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 40, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 40, input);
 
                             throw nvae;
                         }
@@ -16198,7 +16198,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 41, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 41, input);
 
                             throw nvae;
                         }
@@ -16217,7 +16217,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 42, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 42, input);
 
                             throw nvae;
                         }
@@ -16239,7 +16239,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 89, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 89, input);
 
                                 throw nvae;
                             }
@@ -16247,7 +16247,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 43, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 43, input);
 
                             throw nvae;
                         }
@@ -16269,7 +16269,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 90, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 90, input);
 
                                 throw nvae;
                             }
@@ -16277,7 +16277,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 44, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 44, input);
 
                             throw nvae;
                         }
@@ -16299,7 +16299,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 91, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 91, input);
 
                                 throw nvae;
                             }
@@ -16307,7 +16307,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 45, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 45, input);
 
                             throw nvae;
                         }
@@ -16326,7 +16326,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 46, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 46, input);
 
                             throw nvae;
                         }
@@ -16348,7 +16348,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 94, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 94, input);
 
                                 throw nvae;
                             }
@@ -16356,7 +16356,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 47, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 47, input);
 
                             throw nvae;
                         }
@@ -16378,7 +16378,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 95, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 95, input);
 
                                 throw nvae;
                             }
@@ -16386,7 +16386,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 48, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 48, input);
 
                             throw nvae;
                         }
@@ -16405,7 +16405,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 49, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 49, input);
 
                             throw nvae;
                         }
@@ -16427,7 +16427,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 98, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 98, input);
 
                                 throw nvae;
                             }
@@ -16446,7 +16446,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 99, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 99, input);
 
                                 throw nvae;
                             }
@@ -16465,7 +16465,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 100, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 100, input);
 
                                 throw nvae;
                             }
@@ -16487,7 +16487,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 166, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 166, input);
 
                                     throw nvae;
                                 }
@@ -16495,7 +16495,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 101, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 101, input);
 
                                 throw nvae;
                             }
@@ -16514,7 +16514,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 102, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 102, input);
 
                                 throw nvae;
                             }
@@ -16533,7 +16533,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 103, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 103, input);
 
                                 throw nvae;
                             }
@@ -16552,7 +16552,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 104, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 104, input);
 
                                 throw nvae;
                             }
@@ -16574,7 +16574,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 173, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 173, input);
 
                                     throw nvae;
                                 }
@@ -16582,7 +16582,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 105, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 105, input);
 
                                 throw nvae;
                             }
@@ -16604,7 +16604,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 174, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 174, input);
 
                                     throw nvae;
                                 }
@@ -16612,7 +16612,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 106, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 106, input);
 
                                 throw nvae;
                             }
@@ -16634,7 +16634,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 175, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 175, input);
 
                                     throw nvae;
                                 }
@@ -16642,7 +16642,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 107, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 107, input);
 
                                 throw nvae;
                             }
@@ -16661,7 +16661,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 108, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 108, input);
 
                                 throw nvae;
                             }
@@ -16683,7 +16683,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 178, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 178, input);
 
                                     throw nvae;
                                 }
@@ -16691,7 +16691,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 109, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 109, input);
 
                                 throw nvae;
                             }
@@ -16713,7 +16713,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 179, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 179, input);
 
                                     throw nvae;
                                 }
@@ -16721,7 +16721,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 110, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 110, input);
 
                                 throw nvae;
                             }
@@ -16740,7 +16740,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 111, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 111, input);
 
                                 throw nvae;
                             }
@@ -16759,7 +16759,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 112, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 112, input);
 
                                 throw nvae;
                             }
@@ -16768,7 +16768,7 @@ public class SPCParser extends Parser {
                         default:
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 50, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 50, input);
 
                             throw nvae;
                         }
@@ -16778,7 +16778,7 @@ public class SPCParser extends Parser {
                     default:
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 15, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 15, input);
 
                         throw nvae;
                     }
@@ -16801,7 +16801,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 51, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 51, input);
 
                             throw nvae;
                         }
@@ -16820,7 +16820,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 52, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 52, input);
 
                             throw nvae;
                         }
@@ -16839,7 +16839,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 53, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 53, input);
 
                             throw nvae;
                         }
@@ -16861,7 +16861,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 118, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 118, input);
 
                                 throw nvae;
                             }
@@ -16869,7 +16869,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 54, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 54, input);
 
                             throw nvae;
                         }
@@ -16888,7 +16888,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 55, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 55, input);
 
                             throw nvae;
                         }
@@ -16907,7 +16907,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 56, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 56, input);
 
                             throw nvae;
                         }
@@ -16926,7 +16926,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 57, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 57, input);
 
                             throw nvae;
                         }
@@ -16948,7 +16948,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 125, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 125, input);
 
                                 throw nvae;
                             }
@@ -16956,7 +16956,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 58, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 58, input);
 
                             throw nvae;
                         }
@@ -16978,7 +16978,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 126, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 126, input);
 
                                 throw nvae;
                             }
@@ -16986,7 +16986,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 59, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 59, input);
 
                             throw nvae;
                         }
@@ -17008,7 +17008,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 127, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 127, input);
 
                                 throw nvae;
                             }
@@ -17016,7 +17016,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 60, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 60, input);
 
                             throw nvae;
                         }
@@ -17035,7 +17035,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 61, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 61, input);
 
                             throw nvae;
                         }
@@ -17057,7 +17057,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 130, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 130, input);
 
                                 throw nvae;
                             }
@@ -17065,7 +17065,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 62, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 62, input);
 
                             throw nvae;
                         }
@@ -17087,7 +17087,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 131, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 131, input);
 
                                 throw nvae;
                             }
@@ -17095,7 +17095,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 63, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 63, input);
 
                             throw nvae;
                         }
@@ -17117,7 +17117,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 132, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 132, input);
 
                                 throw nvae;
                             }
@@ -17136,7 +17136,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 133, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 133, input);
 
                                 throw nvae;
                             }
@@ -17155,7 +17155,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 134, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 134, input);
 
                                 throw nvae;
                             }
@@ -17177,7 +17177,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 201, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 201, input);
 
                                     throw nvae;
                                 }
@@ -17185,7 +17185,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 135, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 135, input);
 
                                 throw nvae;
                             }
@@ -17204,7 +17204,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 136, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 136, input);
 
                                 throw nvae;
                             }
@@ -17223,7 +17223,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 137, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 137, input);
 
                                 throw nvae;
                             }
@@ -17242,7 +17242,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 138, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 138, input);
 
                                 throw nvae;
                             }
@@ -17264,7 +17264,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 208, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 208, input);
 
                                     throw nvae;
                                 }
@@ -17272,7 +17272,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 139, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 139, input);
 
                                 throw nvae;
                             }
@@ -17294,7 +17294,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 209, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 209, input);
 
                                     throw nvae;
                                 }
@@ -17302,7 +17302,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 140, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 140, input);
 
                                 throw nvae;
                             }
@@ -17324,7 +17324,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 210, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 210, input);
 
                                     throw nvae;
                                 }
@@ -17332,7 +17332,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 141, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 141, input);
 
                                 throw nvae;
                             }
@@ -17351,7 +17351,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 142, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 142, input);
 
                                 throw nvae;
                             }
@@ -17373,7 +17373,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 213, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 213, input);
 
                                     throw nvae;
                                 }
@@ -17381,7 +17381,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 143, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 143, input);
 
                                 throw nvae;
                             }
@@ -17403,7 +17403,7 @@ public class SPCParser extends Parser {
                                 else {
                                     if (backtracking>0) {failed=true; return retval;}
                                     NoViableAltException nvae =
-                                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 214, input);
+                                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 214, input);
 
                                     throw nvae;
                                 }
@@ -17411,7 +17411,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 144, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 144, input);
 
                                 throw nvae;
                             }
@@ -17430,7 +17430,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 145, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 145, input);
 
                                 throw nvae;
                             }
@@ -17449,7 +17449,7 @@ public class SPCParser extends Parser {
                             else {
                                 if (backtracking>0) {failed=true; return retval;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 146, input);
+                                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 146, input);
 
                                 throw nvae;
                             }
@@ -17458,7 +17458,7 @@ public class SPCParser extends Parser {
                         default:
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 64, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 64, input);
 
                             throw nvae;
                         }
@@ -17478,7 +17478,7 @@ public class SPCParser extends Parser {
                         else {
                             if (backtracking>0) {failed=true; return retval;}
                             NoViableAltException nvae =
-                                new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 65, input);
+                                new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 65, input);
 
                             throw nvae;
                         }
@@ -17487,7 +17487,7 @@ public class SPCParser extends Parser {
                     default:
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 16, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 16, input);
 
                         throw nvae;
                     }
@@ -17507,7 +17507,7 @@ public class SPCParser extends Parser {
                     else {
                         if (backtracking>0) {failed=true; return retval;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 17, input);
+                            new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 17, input);
 
                         throw nvae;
                     }
@@ -17516,7 +17516,7 @@ public class SPCParser extends Parser {
                 default:
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 1, input);
+                        new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 1, input);
 
                     throw nvae;
                 }
@@ -17525,17 +17525,17 @@ public class SPCParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1308:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 0, input);
+                    new NoViableAltException("1309:1: primary_expr_select_helper : ( ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix | primary_expr_select_helper_bit_suffix );", 82, 0, input);
 
                 throw nvae;
             }
             switch (alt82) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1308:31: ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1309:31: ( TOK_LB simple_root_expr TOK_RB )=> primary_expr_select_helper_arr_suffix
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_primary_expr_select_helper_arr_suffix_in_primary_expr_select_helper13412);
+                    pushFollow(FOLLOW_primary_expr_select_helper_arr_suffix_in_primary_expr_select_helper13421);
                     primary_expr_select_helper_arr_suffix234=primary_expr_select_helper_arr_suffix();
                     _fsp--;
                     if (failed) return retval;
@@ -17544,11 +17544,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1309:11: primary_expr_select_helper_bit_suffix
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1310:11: primary_expr_select_helper_bit_suffix
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_primary_expr_select_helper_bit_suffix_in_primary_expr_select_helper13424);
+                    pushFollow(FOLLOW_primary_expr_select_helper_bit_suffix_in_primary_expr_select_helper13433);
                     primary_expr_select_helper_bit_suffix235=primary_expr_select_helper_bit_suffix();
                     _fsp--;
                     if (failed) return retval;
@@ -17581,7 +17581,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start primary_expr_select_helper_arr_suffix
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1311:1: primary_expr_select_helper_arr_suffix : TOK_LB simple_root_expr TOK_RB -> ^( ARRAY_INDEX_T simple_root_expr ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1312:1: primary_expr_select_helper_arr_suffix : TOK_LB simple_root_expr TOK_RB -> ^( ARRAY_INDEX_T simple_root_expr ) ;
     public final primary_expr_select_helper_arr_suffix_return primary_expr_select_helper_arr_suffix() throws RecognitionException {
         primary_expr_select_helper_arr_suffix_return retval = new primary_expr_select_helper_arr_suffix_return();
         retval.start = input.LT(1);
@@ -17599,20 +17599,20 @@ public class SPCParser extends Parser {
         RewriteRuleTokenStream stream_TOK_RB=new RewriteRuleTokenStream(adaptor,"token TOK_RB");
         RewriteRuleSubtreeStream stream_simple_root_expr=new RewriteRuleSubtreeStream(adaptor,"rule simple_root_expr");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1312:9: ( TOK_LB simple_root_expr TOK_RB -> ^( ARRAY_INDEX_T simple_root_expr ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1312:11: TOK_LB simple_root_expr TOK_RB
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1313:9: ( TOK_LB simple_root_expr TOK_RB -> ^( ARRAY_INDEX_T simple_root_expr ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1313:11: TOK_LB simple_root_expr TOK_RB
             {
             TOK_LB236=(Token)input.LT(1);
-            match(input,TOK_LB,FOLLOW_TOK_LB_in_primary_expr_select_helper_arr_suffix13448); if (failed) return retval;
+            match(input,TOK_LB,FOLLOW_TOK_LB_in_primary_expr_select_helper_arr_suffix13457); if (failed) return retval;
             if ( backtracking==0 ) stream_TOK_LB.add(TOK_LB236);
 
-            pushFollow(FOLLOW_simple_root_expr_in_primary_expr_select_helper_arr_suffix13450);
+            pushFollow(FOLLOW_simple_root_expr_in_primary_expr_select_helper_arr_suffix13459);
             simple_root_expr237=simple_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) stream_simple_root_expr.add(simple_root_expr237.getTree());
             TOK_RB238=(Token)input.LT(1);
-            match(input,TOK_RB,FOLLOW_TOK_RB_in_primary_expr_select_helper_arr_suffix13452); if (failed) return retval;
+            match(input,TOK_RB,FOLLOW_TOK_RB_in_primary_expr_select_helper_arr_suffix13461); if (failed) return retval;
             if ( backtracking==0 ) stream_TOK_RB.add(TOK_RB238);
 
 
@@ -17627,9 +17627,9 @@ public class SPCParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 1313:9: -> ^( ARRAY_INDEX_T simple_root_expr )
+            // 1314:9: -> ^( ARRAY_INDEX_T simple_root_expr )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1313:12: ^( ARRAY_INDEX_T simple_root_expr )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1314:12: ^( ARRAY_INDEX_T simple_root_expr )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(adaptor.create(ARRAY_INDEX_T, "ARRAY_INDEX_T"), root_1);
@@ -17668,7 +17668,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start primary_expr_select_helper_bit_suffix
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1315:1: primary_expr_select_helper_bit_suffix : TOK_LB f= simple_root_expr TOK_COLON s= simple_root_expr TOK_RB -> ^( BIT_SELECT_T $f $s) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1316:1: primary_expr_select_helper_bit_suffix : TOK_LB f= simple_root_expr TOK_COLON s= simple_root_expr TOK_RB -> ^( BIT_SELECT_T $f $s) ;
     public final primary_expr_select_helper_bit_suffix_return primary_expr_select_helper_bit_suffix() throws RecognitionException {
         primary_expr_select_helper_bit_suffix_return retval = new primary_expr_select_helper_bit_suffix_return();
         retval.start = input.LT(1);
@@ -17691,29 +17691,29 @@ public class SPCParser extends Parser {
         RewriteRuleTokenStream stream_TOK_RB=new RewriteRuleTokenStream(adaptor,"token TOK_RB");
         RewriteRuleSubtreeStream stream_simple_root_expr=new RewriteRuleSubtreeStream(adaptor,"rule simple_root_expr");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1316:9: ( TOK_LB f= simple_root_expr TOK_COLON s= simple_root_expr TOK_RB -> ^( BIT_SELECT_T $f $s) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1316:11: TOK_LB f= simple_root_expr TOK_COLON s= simple_root_expr TOK_RB
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1317:9: ( TOK_LB f= simple_root_expr TOK_COLON s= simple_root_expr TOK_RB -> ^( BIT_SELECT_T $f $s) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1317:11: TOK_LB f= simple_root_expr TOK_COLON s= simple_root_expr TOK_RB
             {
             TOK_LB239=(Token)input.LT(1);
-            match(input,TOK_LB,FOLLOW_TOK_LB_in_primary_expr_select_helper_bit_suffix13492); if (failed) return retval;
+            match(input,TOK_LB,FOLLOW_TOK_LB_in_primary_expr_select_helper_bit_suffix13501); if (failed) return retval;
             if ( backtracking==0 ) stream_TOK_LB.add(TOK_LB239);
 
-            pushFollow(FOLLOW_simple_root_expr_in_primary_expr_select_helper_bit_suffix13496);
+            pushFollow(FOLLOW_simple_root_expr_in_primary_expr_select_helper_bit_suffix13505);
             f=simple_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) stream_simple_root_expr.add(f.getTree());
             TOK_COLON240=(Token)input.LT(1);
-            match(input,TOK_COLON,FOLLOW_TOK_COLON_in_primary_expr_select_helper_bit_suffix13498); if (failed) return retval;
+            match(input,TOK_COLON,FOLLOW_TOK_COLON_in_primary_expr_select_helper_bit_suffix13507); if (failed) return retval;
             if ( backtracking==0 ) stream_TOK_COLON.add(TOK_COLON240);
 
-            pushFollow(FOLLOW_simple_root_expr_in_primary_expr_select_helper_bit_suffix13502);
+            pushFollow(FOLLOW_simple_root_expr_in_primary_expr_select_helper_bit_suffix13511);
             s=simple_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) stream_simple_root_expr.add(s.getTree());
             TOK_RB241=(Token)input.LT(1);
-            match(input,TOK_RB,FOLLOW_TOK_RB_in_primary_expr_select_helper_bit_suffix13504); if (failed) return retval;
+            match(input,TOK_RB,FOLLOW_TOK_RB_in_primary_expr_select_helper_bit_suffix13513); if (failed) return retval;
             if ( backtracking==0 ) stream_TOK_RB.add(TOK_RB241);
 
 
@@ -17730,9 +17730,9 @@ public class SPCParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 1317:9: -> ^( BIT_SELECT_T $f $s)
+            // 1318:9: -> ^( BIT_SELECT_T $f $s)
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1317:12: ^( BIT_SELECT_T $f $s)
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1318:12: ^( BIT_SELECT_T $f $s)
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(adaptor.create(BIT_SELECT_T, "BIT_SELECT_T"), root_1);
@@ -17772,7 +17772,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start case_element_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1320:1: case_element_expr : simple_root_expr TOK_COLON simple_root_expr TOK_SEMI -> ^( CASE_ELEMENT_EXPR_T simple_root_expr simple_root_expr ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1321:1: case_element_expr : simple_root_expr TOK_COLON simple_root_expr TOK_SEMI -> ^( CASE_ELEMENT_EXPR_T simple_root_expr simple_root_expr ) ;
     public final case_element_expr_return case_element_expr() throws RecognitionException {
         case_element_expr_return retval = new case_element_expr_return();
         retval.start = input.LT(1);
@@ -17792,25 +17792,25 @@ public class SPCParser extends Parser {
         RewriteRuleTokenStream stream_TOK_SEMI=new RewriteRuleTokenStream(adaptor,"token TOK_SEMI");
         RewriteRuleSubtreeStream stream_simple_root_expr=new RewriteRuleSubtreeStream(adaptor,"rule simple_root_expr");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1320:22: ( simple_root_expr TOK_COLON simple_root_expr TOK_SEMI -> ^( CASE_ELEMENT_EXPR_T simple_root_expr simple_root_expr ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1320:24: simple_root_expr TOK_COLON simple_root_expr TOK_SEMI
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1321:22: ( simple_root_expr TOK_COLON simple_root_expr TOK_SEMI -> ^( CASE_ELEMENT_EXPR_T simple_root_expr simple_root_expr ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1321:24: simple_root_expr TOK_COLON simple_root_expr TOK_SEMI
             {
-            pushFollow(FOLLOW_simple_root_expr_in_case_element_expr13552);
+            pushFollow(FOLLOW_simple_root_expr_in_case_element_expr13561);
             simple_root_expr242=simple_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) stream_simple_root_expr.add(simple_root_expr242.getTree());
             TOK_COLON243=(Token)input.LT(1);
-            match(input,TOK_COLON,FOLLOW_TOK_COLON_in_case_element_expr13554); if (failed) return retval;
+            match(input,TOK_COLON,FOLLOW_TOK_COLON_in_case_element_expr13563); if (failed) return retval;
             if ( backtracking==0 ) stream_TOK_COLON.add(TOK_COLON243);
 
-            pushFollow(FOLLOW_simple_root_expr_in_case_element_expr13556);
+            pushFollow(FOLLOW_simple_root_expr_in_case_element_expr13565);
             simple_root_expr244=simple_root_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) stream_simple_root_expr.add(simple_root_expr244.getTree());
             TOK_SEMI245=(Token)input.LT(1);
-            match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_case_element_expr13558); if (failed) return retval;
+            match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_case_element_expr13567); if (failed) return retval;
             if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI245);
 
 
@@ -17825,9 +17825,9 @@ public class SPCParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 1321:9: -> ^( CASE_ELEMENT_EXPR_T simple_root_expr simple_root_expr )
+            // 1322:9: -> ^( CASE_ELEMENT_EXPR_T simple_root_expr simple_root_expr )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1321:12: ^( CASE_ELEMENT_EXPR_T simple_root_expr simple_root_expr )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1322:12: ^( CASE_ELEMENT_EXPR_T simple_root_expr simple_root_expr )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(adaptor.create(CASE_ELEMENT_EXPR_T, "CASE_ELEMENT_EXPR_T"), root_1);
@@ -17867,7 +17867,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start case_element_list_expr
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1323:1: case_element_list_expr : case_element_expr ( case_element_expr )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1324:1: case_element_list_expr : case_element_expr ( case_element_expr )* ;
     public final case_element_list_expr_return case_element_list_expr() throws RecognitionException {
         case_element_list_expr_return retval = new case_element_list_expr_return();
         retval.start = input.LT(1);
@@ -17881,17 +17881,17 @@ public class SPCParser extends Parser {
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1323:26: ( case_element_expr ( case_element_expr )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1323:28: case_element_expr ( case_element_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1324:26: ( case_element_expr ( case_element_expr )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1324:28: case_element_expr ( case_element_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_case_element_expr_in_case_element_list_expr13594);
+            pushFollow(FOLLOW_case_element_expr_in_case_element_list_expr13603);
             case_element_expr246=case_element_expr();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) adaptor.addChild(root_0, case_element_expr246.getTree());
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1323:46: ( case_element_expr )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1324:46: ( case_element_expr )*
             loop83:
             do {
                 int alt83=2;
@@ -17904,9 +17904,9 @@ public class SPCParser extends Parser {
 
                 switch (alt83) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1323:47: case_element_expr
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1324:47: case_element_expr
             	    {
-            	    pushFollow(FOLLOW_case_element_expr_in_case_element_list_expr13597);
+            	    pushFollow(FOLLOW_case_element_expr_in_case_element_list_expr13606);
             	    case_element_expr247=case_element_expr();
             	    _fsp--;
             	    if (failed) return retval;
@@ -17946,7 +17946,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start number
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1326:1: number : ( TOK_NUMBER | TOK_PLUS TOK_NUMBER );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1327:1: number : ( TOK_NUMBER | TOK_PLUS TOK_NUMBER );
     public final number_return number() throws RecognitionException {
         number_return retval = new number_return();
         retval.start = input.LT(1);
@@ -17962,7 +17962,7 @@ public class SPCParser extends Parser {
         Object TOK_NUMBER250_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1326:14: ( TOK_NUMBER | TOK_PLUS TOK_NUMBER )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1327:14: ( TOK_NUMBER | TOK_PLUS TOK_NUMBER )
             int alt84=2;
             int LA84_0 = input.LA(1);
 
@@ -17975,18 +17975,18 @@ public class SPCParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1326:1: number : ( TOK_NUMBER | TOK_PLUS TOK_NUMBER );", 84, 0, input);
+                    new NoViableAltException("1327:1: number : ( TOK_NUMBER | TOK_PLUS TOK_NUMBER );", 84, 0, input);
 
                 throw nvae;
             }
             switch (alt84) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1326:16: TOK_NUMBER
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1327:16: TOK_NUMBER
                     {
                     root_0 = (Object)adaptor.nil();
 
                     TOK_NUMBER248=(Token)input.LT(1);
-                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_number13622); if (failed) return retval;
+                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_number13631); if (failed) return retval;
                     if ( backtracking==0 ) {
                     TOK_NUMBER248_tree = (Object)adaptor.create(TOK_NUMBER248);
                     adaptor.addChild(root_0, TOK_NUMBER248_tree);
@@ -17995,14 +17995,14 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1327:11: TOK_PLUS TOK_NUMBER
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1328:11: TOK_PLUS TOK_NUMBER
                     {
                     root_0 = (Object)adaptor.nil();
 
                     TOK_PLUS249=(Token)input.LT(1);
-                    match(input,TOK_PLUS,FOLLOW_TOK_PLUS_in_number13634); if (failed) return retval;
+                    match(input,TOK_PLUS,FOLLOW_TOK_PLUS_in_number13643); if (failed) return retval;
                     TOK_NUMBER250=(Token)input.LT(1);
-                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_number13637); if (failed) return retval;
+                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_number13646); if (failed) return retval;
                     if ( backtracking==0 ) {
                     TOK_NUMBER250_tree = (Object)adaptor.create(TOK_NUMBER250);
                     adaptor.addChild(root_0, TOK_NUMBER250_tree);
@@ -18035,7 +18035,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start integer
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1328:1: integer : ( TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_PLUS TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_MINUS TOK_NUMBER -> ^( TOK_MINUS TOK_NUMBER ) );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1329:1: integer : ( TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_PLUS TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_MINUS TOK_NUMBER -> ^( TOK_MINUS TOK_NUMBER ) );
     public final integer_return integer() throws RecognitionException {
         integer_return retval = new integer_return();
         retval.start = input.LT(1);
@@ -18058,7 +18058,7 @@ public class SPCParser extends Parser {
         RewriteRuleTokenStream stream_TOK_PLUS=new RewriteRuleTokenStream(adaptor,"token TOK_PLUS");
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1328:15: ( TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_PLUS TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_MINUS TOK_NUMBER -> ^( TOK_MINUS TOK_NUMBER ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1329:15: ( TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_PLUS TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_MINUS TOK_NUMBER -> ^( TOK_MINUS TOK_NUMBER ) )
             int alt85=3;
             switch ( input.LA(1) ) {
             case TOK_NUMBER:
@@ -18079,17 +18079,17 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1328:1: integer : ( TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_PLUS TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_MINUS TOK_NUMBER -> ^( TOK_MINUS TOK_NUMBER ) );", 85, 0, input);
+                    new NoViableAltException("1329:1: integer : ( TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_PLUS TOK_NUMBER -> ^( TOK_PLUS TOK_NUMBER ) | TOK_MINUS TOK_NUMBER -> ^( TOK_MINUS TOK_NUMBER ) );", 85, 0, input);
 
                 throw nvae;
             }
 
             switch (alt85) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1328:17: TOK_NUMBER
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1329:17: TOK_NUMBER
                     {
                     TOK_NUMBER251=(Token)input.LT(1);
-                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_integer13650); if (failed) return retval;
+                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_integer13659); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_NUMBER.add(TOK_NUMBER251);
 
 
@@ -18104,9 +18104,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1329:9: -> ^( TOK_PLUS TOK_NUMBER )
+                    // 1330:9: -> ^( TOK_PLUS TOK_NUMBER )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1329:12: ^( TOK_PLUS TOK_NUMBER )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1330:12: ^( TOK_PLUS TOK_NUMBER )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(adaptor.create(TOK_PLUS, "TOK_PLUS"), root_1);
@@ -18123,14 +18123,14 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1330:11: TOK_PLUS TOK_NUMBER
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1331:11: TOK_PLUS TOK_NUMBER
                     {
                     TOK_PLUS252=(Token)input.LT(1);
-                    match(input,TOK_PLUS,FOLLOW_TOK_PLUS_in_integer13678); if (failed) return retval;
+                    match(input,TOK_PLUS,FOLLOW_TOK_PLUS_in_integer13687); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_PLUS.add(TOK_PLUS252);
 
                     TOK_NUMBER253=(Token)input.LT(1);
-                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_integer13680); if (failed) return retval;
+                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_integer13689); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_NUMBER.add(TOK_NUMBER253);
 
 
@@ -18145,9 +18145,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1331:9: -> ^( TOK_PLUS TOK_NUMBER )
+                    // 1332:9: -> ^( TOK_PLUS TOK_NUMBER )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1331:12: ^( TOK_PLUS TOK_NUMBER )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1332:12: ^( TOK_PLUS TOK_NUMBER )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_PLUS.next(), root_1);
@@ -18164,14 +18164,14 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1332:11: TOK_MINUS TOK_NUMBER
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1333:11: TOK_MINUS TOK_NUMBER
                     {
                     TOK_MINUS254=(Token)input.LT(1);
-                    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_integer13708); if (failed) return retval;
+                    match(input,TOK_MINUS,FOLLOW_TOK_MINUS_in_integer13717); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_MINUS.add(TOK_MINUS254);
 
                     TOK_NUMBER255=(Token)input.LT(1);
-                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_integer13710); if (failed) return retval;
+                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_integer13719); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_NUMBER.add(TOK_NUMBER255);
 
 
@@ -18186,9 +18186,9 @@ public class SPCParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 1333:9: -> ^( TOK_MINUS TOK_NUMBER )
+                    // 1334:9: -> ^( TOK_MINUS TOK_NUMBER )
                     {
-                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1333:12: ^( TOK_MINUS TOK_NUMBER )
+                        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1334:12: ^( TOK_MINUS TOK_NUMBER )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_TOK_MINUS.next(), root_1);
@@ -18229,7 +18229,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start number_word
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1335:1: number_word : TOK_NUMBER_WORD ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1336:1: number_word : TOK_NUMBER_WORD ;
     public final number_word_return number_word() throws RecognitionException {
         number_word_return retval = new number_word_return();
         retval.start = input.LT(1);
@@ -18241,13 +18241,13 @@ public class SPCParser extends Parser {
         Object TOK_NUMBER_WORD256_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1335:18: ( TOK_NUMBER_WORD )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1335:20: TOK_NUMBER_WORD
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1336:18: ( TOK_NUMBER_WORD )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1336:20: TOK_NUMBER_WORD
             {
             root_0 = (Object)adaptor.nil();
 
             TOK_NUMBER_WORD256=(Token)input.LT(1);
-            match(input,TOK_NUMBER_WORD,FOLLOW_TOK_NUMBER_WORD_in_number_word13747); if (failed) return retval;
+            match(input,TOK_NUMBER_WORD,FOLLOW_TOK_NUMBER_WORD_in_number_word13756); if (failed) return retval;
             if ( backtracking==0 ) {
             TOK_NUMBER_WORD256_tree = (Object)adaptor.create(TOK_NUMBER_WORD256);
             adaptor.addChild(root_0, TOK_NUMBER_WORD256_tree);
@@ -18279,7 +18279,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start subrange
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1338:1: subrange returns [InternalSpecRange ret] : f= integer TOK_TWODOTS s= integer -> ^( SUBRANGE_T integer integer ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1339:1: subrange returns [InternalSpecRange ret] : f= integer TOK_TWODOTS s= integer -> ^( SUBRANGE_T integer integer ) ;
     public final subrange_return subrange() throws RecognitionException {
         subrange_return retval = new subrange_return();
         retval.start = input.LT(1);
@@ -18296,19 +18296,19 @@ public class SPCParser extends Parser {
         RewriteRuleTokenStream stream_TOK_TWODOTS=new RewriteRuleTokenStream(adaptor,"token TOK_TWODOTS");
         RewriteRuleSubtreeStream stream_integer=new RewriteRuleSubtreeStream(adaptor,"rule integer");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1340:9: (f= integer TOK_TWODOTS s= integer -> ^( SUBRANGE_T integer integer ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1340:11: f= integer TOK_TWODOTS s= integer
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1341:9: (f= integer TOK_TWODOTS s= integer -> ^( SUBRANGE_T integer integer ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1341:11: f= integer TOK_TWODOTS s= integer
             {
-            pushFollow(FOLLOW_integer_in_subrange13786);
+            pushFollow(FOLLOW_integer_in_subrange13795);
             f=integer();
             _fsp--;
             if (failed) return retval;
             if ( backtracking==0 ) stream_integer.add(f.getTree());
             TOK_TWODOTS257=(Token)input.LT(1);
-            match(input,TOK_TWODOTS,FOLLOW_TOK_TWODOTS_in_subrange13788); if (failed) return retval;
+            match(input,TOK_TWODOTS,FOLLOW_TOK_TWODOTS_in_subrange13797); if (failed) return retval;
             if ( backtracking==0 ) stream_TOK_TWODOTS.add(TOK_TWODOTS257);
 
-            pushFollow(FOLLOW_integer_in_subrange13792);
+            pushFollow(FOLLOW_integer_in_subrange13801);
             s=integer();
             _fsp--;
             if (failed) return retval;
@@ -18328,9 +18328,9 @@ public class SPCParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 1342:9: -> ^( SUBRANGE_T integer integer )
+            // 1343:9: -> ^( SUBRANGE_T integer integer )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1342:12: ^( SUBRANGE_T integer integer )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1343:12: ^( SUBRANGE_T integer integer )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(adaptor.create(SUBRANGE_T, "SUBRANGE_T"), root_1);
@@ -18373,7 +18373,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start constant
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1344:1: constant : ( TOK_FALSEEXP | TOK_TRUEEXP | number | number_word );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1345:1: constant : ( TOK_FALSEEXP | TOK_TRUEEXP | number | number_word );
     public final constant_return constant() throws RecognitionException {
         constant_return retval = new constant_return();
         retval.start = input.LT(1);
@@ -18391,7 +18391,7 @@ public class SPCParser extends Parser {
         Object TOK_TRUEEXP259_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1344:15: ( TOK_FALSEEXP | TOK_TRUEEXP | number | number_word )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1345:15: ( TOK_FALSEEXP | TOK_TRUEEXP | number | number_word )
             int alt86=4;
             switch ( input.LA(1) ) {
             case TOK_FALSEEXP:
@@ -18418,19 +18418,19 @@ public class SPCParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1344:1: constant : ( TOK_FALSEEXP | TOK_TRUEEXP | number | number_word );", 86, 0, input);
+                    new NoViableAltException("1345:1: constant : ( TOK_FALSEEXP | TOK_TRUEEXP | number | number_word );", 86, 0, input);
 
                 throw nvae;
             }
 
             switch (alt86) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1344:17: TOK_FALSEEXP
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1345:17: TOK_FALSEEXP
                     {
                     root_0 = (Object)adaptor.nil();
 
                     TOK_FALSEEXP258=(Token)input.LT(1);
-                    match(input,TOK_FALSEEXP,FOLLOW_TOK_FALSEEXP_in_constant13841); if (failed) return retval;
+                    match(input,TOK_FALSEEXP,FOLLOW_TOK_FALSEEXP_in_constant13850); if (failed) return retval;
                     if ( backtracking==0 ) {
                     TOK_FALSEEXP258_tree = (Object)adaptor.create(TOK_FALSEEXP258);
                     adaptor.addChild(root_0, TOK_FALSEEXP258_tree);
@@ -18439,12 +18439,12 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1345:11: TOK_TRUEEXP
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1346:11: TOK_TRUEEXP
                     {
                     root_0 = (Object)adaptor.nil();
 
                     TOK_TRUEEXP259=(Token)input.LT(1);
-                    match(input,TOK_TRUEEXP,FOLLOW_TOK_TRUEEXP_in_constant13853); if (failed) return retval;
+                    match(input,TOK_TRUEEXP,FOLLOW_TOK_TRUEEXP_in_constant13862); if (failed) return retval;
                     if ( backtracking==0 ) {
                     TOK_TRUEEXP259_tree = (Object)adaptor.create(TOK_TRUEEXP259);
                     adaptor.addChild(root_0, TOK_TRUEEXP259_tree);
@@ -18453,11 +18453,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1346:11: number
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1347:11: number
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_number_in_constant13865);
+                    pushFollow(FOLLOW_number_in_constant13874);
                     number260=number();
                     _fsp--;
                     if (failed) return retval;
@@ -18466,11 +18466,11 @@ public class SPCParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1347:11: number_word
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1348:11: number_word
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_number_word_in_constant13877);
+                    pushFollow(FOLLOW_number_word_in_constant13886);
                     number_word261=number_word();
                     _fsp--;
                     if (failed) return retval;
@@ -18503,7 +18503,7 @@ public class SPCParser extends Parser {
     };
 
     // $ANTLR start optsemi
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1351:1: optsemi : ( TOK_SEMI )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1352:1: optsemi : ( TOK_SEMI )* ;
     public final optsemi_return optsemi() throws RecognitionException {
         optsemi_return retval = new optsemi_return();
         retval.start = input.LT(1);
@@ -18515,12 +18515,12 @@ public class SPCParser extends Parser {
         Object TOK_SEMI262_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1351:15: ( ( TOK_SEMI )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1351:17: ( TOK_SEMI )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1352:15: ( ( TOK_SEMI )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1352:17: ( TOK_SEMI )*
             {
             root_0 = (Object)adaptor.nil();
 
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1351:17: ( TOK_SEMI )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1352:17: ( TOK_SEMI )*
             loop87:
             do {
                 int alt87=2;
@@ -18533,10 +18533,10 @@ public class SPCParser extends Parser {
 
                 switch (alt87) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1351:17: TOK_SEMI
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1352:17: TOK_SEMI
             	    {
             	    TOK_SEMI262=(Token)input.LT(1);
-            	    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_optsemi13902); if (failed) return retval;
+            	    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_optsemi13911); if (failed) return retval;
             	    if ( backtracking==0 ) {
             	    TOK_SEMI262_tree = (Object)adaptor.create(TOK_SEMI262);
             	    adaptor.addChild(root_0, TOK_SEMI262_tree);
@@ -18707,10 +18707,10 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred7
     public final void synpred7_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:742:11: ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:742:12: ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:743:11: ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:743:12: ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE )
         {
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:742:12: ( TOK_NOT )*
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:743:12: ( TOK_NOT )*
         loop89:
         do {
             int alt89=2;
@@ -18723,9 +18723,9 @@ public class SPCParser extends Parser {
 
             switch (alt89) {
         	case 1 :
-        	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:742:12: TOK_NOT
+        	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:743:12: TOK_NOT
         	    {
-        	    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_synpred76960); if (failed) return ;
+        	    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_synpred76969); if (failed) return ;
 
         	    }
         	    break;
@@ -18743,7 +18743,7 @@ public class SPCParser extends Parser {
             if (backtracking>0) {failed=true; return ;}
             MismatchedSetException mse =
                 new MismatchedSetException(null,input);
-            recoverFromMismatchedSet(input,mse,FOLLOW_set_in_synpred76973);    throw mse;
+            recoverFromMismatchedSet(input,mse,FOLLOW_set_in_synpred76982);    throw mse;
         }
 
 
@@ -18753,10 +18753,10 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred8
     public final void synpred8_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:999:11: ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:999:12: ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1000:11: ( ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE ) )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1000:12: ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREV | TOK_OP_NOTPREVNOT | TOK_OP_GLOBALLY | TOK_OP_HISTORICALLY | TOK_OP_FINALLY | TOK_OP_ONCE )
         {
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:999:12: ( TOK_NOT )*
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1000:12: ( TOK_NOT )*
         loop90:
         do {
             int alt90=2;
@@ -18769,9 +18769,9 @@ public class SPCParser extends Parser {
 
             switch (alt90) {
         	case 1 :
-        	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:999:12: TOK_NOT
+        	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1000:12: TOK_NOT
         	    {
-        	    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_synpred89850); if (failed) return ;
+        	    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_synpred89859); if (failed) return ;
 
         	    }
         	    break;
@@ -18789,7 +18789,7 @@ public class SPCParser extends Parser {
             if (backtracking>0) {failed=true; return ;}
             MismatchedSetException mse =
                 new MismatchedSetException(null,input);
-            recoverFromMismatchedSet(input,mse,FOLLOW_set_in_synpred89863);    throw mse;
+            recoverFromMismatchedSet(input,mse,FOLLOW_set_in_synpred89872);    throw mse;
         }
 
 
@@ -18799,10 +18799,10 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred9
     public final void synpred9_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1036:11: ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1036:12: ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1037:11: ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1037:12: ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG )
         {
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1036:12: ( TOK_NOT )*
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1037:12: ( TOK_NOT )*
         loop91:
         do {
             int alt91=2;
@@ -18815,9 +18815,9 @@ public class SPCParser extends Parser {
 
             switch (alt91) {
         	case 1 :
-        	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1036:12: TOK_NOT
+        	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1037:12: TOK_NOT
         	    {
-        	    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_synpred910303); if (failed) return ;
+        	    match(input,TOK_NOT,FOLLOW_TOK_NOT_in_synpred910312); if (failed) return ;
 
         	    }
         	    break;
@@ -18835,7 +18835,7 @@ public class SPCParser extends Parser {
             if (backtracking>0) {failed=true; return ;}
             MismatchedSetException mse =
                 new MismatchedSetException(null,input);
-            recoverFromMismatchedSet(input,mse,FOLLOW_set_in_synpred910316);    throw mse;
+            recoverFromMismatchedSet(input,mse,FOLLOW_set_in_synpred910325);    throw mse;
         }
 
 
@@ -18845,10 +18845,10 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred10
     public final void synpred10_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1070:11: ( TOK_AA )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1070:12: TOK_AA
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1071:11: ( TOK_AA )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1071:12: TOK_AA
         {
-        match(input,TOK_AA,FOLLOW_TOK_AA_in_synpred1010741); if (failed) return ;
+        match(input,TOK_AA,FOLLOW_TOK_AA_in_synpred1010750); if (failed) return ;
 
         }
     }
@@ -18856,10 +18856,10 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred11
     public final void synpred11_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1071:11: ( TOK_EE )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1071:12: TOK_EE
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1072:11: ( TOK_EE )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1072:12: TOK_EE
         {
-        match(input,TOK_EE,FOLLOW_TOK_EE_in_synpred1110761); if (failed) return ;
+        match(input,TOK_EE,FOLLOW_TOK_EE_in_synpred1110770); if (failed) return ;
 
         }
     }
@@ -18867,16 +18867,16 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred12
     public final void synpred12_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1087:11: ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1087:12: TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1088:11: ( TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1088:12: TOK_AA TOK_LB ctls_root_expr TOK_BUNTIL
         {
-        match(input,TOK_AA,FOLLOW_TOK_AA_in_synpred1210978); if (failed) return ;
-        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1210980); if (failed) return ;
-        pushFollow(FOLLOW_ctls_root_expr_in_synpred1210982);
+        match(input,TOK_AA,FOLLOW_TOK_AA_in_synpred1210987); if (failed) return ;
+        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1210989); if (failed) return ;
+        pushFollow(FOLLOW_ctls_root_expr_in_synpred1210991);
         ctls_root_expr();
         _fsp--;
         if (failed) return ;
-        match(input,TOK_BUNTIL,FOLLOW_TOK_BUNTIL_in_synpred1210984); if (failed) return ;
+        match(input,TOK_BUNTIL,FOLLOW_TOK_BUNTIL_in_synpred1210993); if (failed) return ;
 
         }
     }
@@ -18884,11 +18884,11 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred13
     public final void synpred13_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1089:11: ( TOK_AA TOK_LB )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1089:12: TOK_AA TOK_LB
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1090:11: ( TOK_AA TOK_LB )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1090:12: TOK_AA TOK_LB
         {
-        match(input,TOK_AA,FOLLOW_TOK_AA_in_synpred1311013); if (failed) return ;
-        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1311015); if (failed) return ;
+        match(input,TOK_AA,FOLLOW_TOK_AA_in_synpred1311022); if (failed) return ;
+        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1311024); if (failed) return ;
 
         }
     }
@@ -18896,16 +18896,16 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred14
     public final void synpred14_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1095:11: ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1095:12: TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1096:11: ( TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1096:12: TOK_EE TOK_LB ctls_root_expr TOK_BUNTIL
         {
-        match(input,TOK_EE,FOLLOW_TOK_EE_in_synpred1411078); if (failed) return ;
-        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1411080); if (failed) return ;
-        pushFollow(FOLLOW_ctls_root_expr_in_synpred1411082);
+        match(input,TOK_EE,FOLLOW_TOK_EE_in_synpred1411087); if (failed) return ;
+        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1411089); if (failed) return ;
+        pushFollow(FOLLOW_ctls_root_expr_in_synpred1411091);
         ctls_root_expr();
         _fsp--;
         if (failed) return ;
-        match(input,TOK_BUNTIL,FOLLOW_TOK_BUNTIL_in_synpred1411084); if (failed) return ;
+        match(input,TOK_BUNTIL,FOLLOW_TOK_BUNTIL_in_synpred1411093); if (failed) return ;
 
         }
     }
@@ -18913,11 +18913,11 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred15
     public final void synpred15_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1097:11: ( TOK_EE TOK_LB )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1097:12: TOK_EE TOK_LB
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1098:11: ( TOK_EE TOK_LB )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1098:12: TOK_EE TOK_LB
         {
-        match(input,TOK_EE,FOLLOW_TOK_EE_in_synpred1511113); if (failed) return ;
-        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1511115); if (failed) return ;
+        match(input,TOK_EE,FOLLOW_TOK_EE_in_synpred1511122); if (failed) return ;
+        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1511124); if (failed) return ;
 
         }
     }
@@ -18925,15 +18925,15 @@ public class SPCParser extends Parser {
 
     // $ANTLR start synpred16
     public final void synpred16_fragment() throws RecognitionException {   
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1308:31: ( TOK_LB simple_root_expr TOK_RB )
-        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1308:32: TOK_LB simple_root_expr TOK_RB
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1309:31: ( TOK_LB simple_root_expr TOK_RB )
+        // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SPC.g:1309:32: TOK_LB simple_root_expr TOK_RB
         {
-        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1613403); if (failed) return ;
-        pushFollow(FOLLOW_simple_root_expr_in_synpred1613405);
+        match(input,TOK_LB,FOLLOW_TOK_LB_in_synpred1613412); if (failed) return ;
+        pushFollow(FOLLOW_simple_root_expr_in_synpred1613414);
         simple_root_expr();
         _fsp--;
         if (failed) return ;
-        match(input,TOK_RB,FOLLOW_TOK_RB_in_synpred1613407); if (failed) return ;
+        match(input,TOK_RB,FOLLOW_TOK_RB_in_synpred1613416); if (failed) return ;
 
         }
     }
@@ -19507,355 +19507,355 @@ public class SPCParser extends Parser {
     public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_binary_expr6849 = new BitSet(new long[]{0x0400000000000002L,0x0000000000007100L});
     public static final BitSet FOLLOW_TOK_TRIGGERED_in_ltl_binary_expr6874 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
     public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_binary_expr6879 = new BitSet(new long[]{0x0400000000000002L,0x0000000000007100L});
-    public static final BitSet FOLLOW_TOK_KNOW_in_ltl_binary_expr6903 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
-    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_binary_expr6908 = new BitSet(new long[]{0x0400000000000002L,0x0000000000007100L});
-    public static final BitSet FOLLOW_ltl_pure_unary_expr_in_ltl_unary_expr7060 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ltl_relational_expr_in_ltl_unary_expr7101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_NEXT_in_ltl_pure_unary_expr7153 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
-    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7158 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_PREV_in_ltl_pure_unary_expr7182 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
-    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7187 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_NOTPREVNOT_in_ltl_pure_unary_expr7211 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
-    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_GLOBALLY_in_ltl_pure_unary_expr7240 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
-    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7245 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_HISTORICALLY_in_ltl_pure_unary_expr7269 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
-    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7274 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_FINALLY_in_ltl_pure_unary_expr7298 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
-    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7303 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_ONCE_in_ltl_pure_unary_expr7327 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
-    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NOT_in_ltl_pure_unary_expr7366 = new BitSet(new long[]{0x0001000000000000L,0x00000000003F8000L});
-    public static final BitSet FOLLOW_ltl_pure_unary_expr_in_ltl_pure_unary_expr7371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7423 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_ltl_relational_expr7439 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7444 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_NOTEQUAL_in_ltl_relational_expr7469 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7474 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_LT_in_ltl_relational_expr7499 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7504 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_GT_in_ltl_relational_expr7529 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7534 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_LE_in_ltl_relational_expr7559 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7564 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_GE_in_ltl_relational_expr7589 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7594 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_ltl_union_expr_in_ltl_in_expr7658 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_TOK_SETIN_in_ltl_in_expr7674 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_union_expr_in_ltl_in_expr7679 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_ltl_set_expr_in_ltl_union_expr7742 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_TOK_UNION_in_ltl_union_expr7758 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_set_expr_in_ltl_union_expr7763 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_ltl_shift_expr_in_ltl_set_expr7824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_subrange_in_ltl_set_expr7846 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LCB_in_ltl_set_expr7869 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_set_list_expr_in_ltl_set_expr7871 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_TOK_RCB_in_ltl_set_expr7873 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_set_list_expr7926 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_ltl_set_list_expr7929 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_set_list_expr7932 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_ltl_remainder_expr_in_ltl_shift_expr7978 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_TOK_LSHIFT_in_ltl_shift_expr7994 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_remainder_expr_in_ltl_shift_expr7999 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_TOK_RSHIFT_in_ltl_shift_expr8023 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_remainder_expr_in_ltl_shift_expr8028 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_ltl_additive_expr_in_ltl_remainder_expr8090 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_TOK_MOD_in_ltl_remainder_expr8106 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_additive_expr_in_ltl_remainder_expr8111 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8175 = new BitSet(new long[]{0x0000180000000002L});
-    public static final BitSet FOLLOW_TOK_PLUS_in_ltl_additive_expr8191 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8196 = new BitSet(new long[]{0x0000180000000002L});
-    public static final BitSet FOLLOW_TOK_MINUS_in_ltl_additive_expr8220 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8225 = new BitSet(new long[]{0x0000180000000002L});
-    public static final BitSet FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8286 = new BitSet(new long[]{0x0000600000000002L});
-    public static final BitSet FOLLOW_TOK_TIMES_in_ltl_multiplicative_expr8302 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8307 = new BitSet(new long[]{0x0000600000000002L});
-    public static final BitSet FOLLOW_TOK_DIVIDE_in_ltl_multiplicative_expr8331 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8336 = new BitSet(new long[]{0x0000600000000002L});
-    public static final BitSet FOLLOW_ltl_primary_expr_in_ltl_concatination_expr8397 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_TOK_CONCATENATION_in_ltl_concatination_expr8413 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_primary_expr_in_ltl_concatination_expr8418 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_ltl_primary_expr_helper1_in_ltl_primary_expr8479 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_MINUS_in_ltl_primary_expr8503 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_primary_expr_in_ltl_primary_expr8507 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NOT_in_ltl_primary_expr8548 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ltl_primary_expr_in_ltl_primary_expr8552 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_constant_in_ltl_primary_expr_helper18617 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18619 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primary_expr_helper1_pointer1_in_ltl_primary_expr_helper18670 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper18723 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
-    public static final BitSet FOLLOW_ltl_root_expr_in_ltl_primary_expr_helper18725 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper18727 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18729 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_BOOL_in_ltl_primary_expr_helper18800 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper18802 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18804 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper18806 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18808 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_WORD1_in_ltl_primary_expr_helper18859 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper18861 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18863 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper18865 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18867 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NEXT_in_ltl_primary_expr_helper18927 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper18929 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18931 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper18933 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18935 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_CASE_in_ltl_primary_expr_helper18995 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_case_element_list_expr_in_ltl_primary_expr_helper18997 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_TOK_ESAC_in_ltl_primary_expr_helper18999 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_WAREAD_in_ltl_primary_expr_helper19061 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper19063 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19067 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19069 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19073 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper19075 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_WAWRITE_in_ltl_primary_expr_helper19141 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper19143 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19147 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19151 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19155 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19159 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19163 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper19165 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19167 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_implies_expr_in_ctls_root_expr9248 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_iff_expr_in_ctls_implies_expr9291 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_TOK_IMPLIES_in_ctls_implies_expr9307 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_implies_expr_in_ctls_implies_expr9312 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_or_expr_in_ctls_iff_expr9377 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_TOK_IFF_in_ctls_iff_expr9393 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_or_expr_in_ctls_iff_expr9398 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_ctls_and_expr_in_ctls_or_expr9461 = new BitSet(new long[]{0x000000000E000002L});
-    public static final BitSet FOLLOW_TOK_OR_in_ctls_or_expr9477 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_and_expr_in_ctls_or_expr9482 = new BitSet(new long[]{0x000000000E000002L});
-    public static final BitSet FOLLOW_TOK_XOR_in_ctls_or_expr9506 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_and_expr_in_ctls_or_expr9511 = new BitSet(new long[]{0x000000000E000002L});
-    public static final BitSet FOLLOW_TOK_XNOR_in_ctls_or_expr9535 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_and_expr_in_ctls_or_expr9540 = new BitSet(new long[]{0x000000000E000002L});
-    public static final BitSet FOLLOW_ctls_ltl_binary_expr_in_ctls_and_expr9603 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_TOK_AND_in_ctls_and_expr9619 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_binary_expr_in_ctls_and_expr9624 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9688 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
-    public static final BitSet FOLLOW_TOK_UNTIL_in_ctls_ltl_binary_expr9704 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9709 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
-    public static final BitSet FOLLOW_TOK_SINCE_in_ctls_ltl_binary_expr9734 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9739 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
-    public static final BitSet FOLLOW_TOK_RELEASES_in_ctls_ltl_binary_expr9764 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9769 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
-    public static final BitSet FOLLOW_TOK_TRIGGERED_in_ctls_ltl_binary_expr9794 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9799 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
-    public static final BitSet FOLLOW_ctls_ltl_pure_unary_expr_in_ctls_ltl_unary_expr9950 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_ltl_unary_expr9991 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_NEXT_in_ctls_ltl_pure_unary_expr10041 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_PREV_in_ctls_ltl_pure_unary_expr10070 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10075 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_NOTPREVNOT_in_ctls_ltl_pure_unary_expr10099 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_GLOBALLY_in_ctls_ltl_pure_unary_expr10128 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10133 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_HISTORICALLY_in_ctls_ltl_pure_unary_expr10157 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_FINALLY_in_ctls_ltl_pure_unary_expr10186 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10191 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_OP_ONCE_in_ctls_ltl_pure_unary_expr10215 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10220 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NOT_in_ctls_ltl_pure_unary_expr10254 = new BitSet(new long[]{0x0001000000000000L,0x00000000003F8000L});
-    public static final BitSet FOLLOW_ctls_ltl_pure_unary_expr_in_ctls_ltl_pure_unary_expr10259 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_pure_ctl_expr_in_ctls_ctl_expr10478 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_relational_expr_in_ctls_ctl_expr10516 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EX_in_ctls_pure_ctl_expr10567 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AX_in_ctls_pure_ctl_expr10596 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10601 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EF_in_ctls_pure_ctl_expr10625 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10630 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AF_in_ctls_pure_ctl_expr10654 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10659 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EG_in_ctls_pure_ctl_expr10683 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10688 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AG_in_ctls_pure_ctl_expr10712 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_aa_in_ctls_pure_ctl_expr10746 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_ee_in_ctls_pure_ctl_expr10766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EBF_in_ctls_pure_ctl_expr10783 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_subrange_in_ctls_pure_ctl_expr10788 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ABF_in_ctls_pure_ctl_expr10816 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_subrange_in_ctls_pure_ctl_expr10821 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EBG_in_ctls_pure_ctl_expr10849 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_subrange_in_ctls_pure_ctl_expr10854 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10858 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ABG_in_ctls_pure_ctl_expr10882 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_subrange_in_ctls_pure_ctl_expr10887 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
-    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10891 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NOT_in_ctls_pure_ctl_expr10925 = new BitSet(new long[]{0xF001000000000000L,0x000000000000047FL});
-    public static final BitSet FOLLOW_ctls_pure_ctl_expr_in_ctls_pure_ctl_expr10930 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_abu_in_ctls_aa10989 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_au_in_ctls_aa11020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_ebu_in_ctls_ee11089 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_eu_in_ctls_ee11120 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AA_in_ctls_au11185 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_TOK_LB_in_ctls_au11190 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_au11195 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_TOK_RB_in_ctls_au11199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EE_in_ctls_eu11254 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_TOK_LB_in_ctls_eu11259 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_eu11264 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_TOK_RB_in_ctls_eu11268 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AA_in_ctls_abu11322 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_TOK_LB_in_ctls_abu11327 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_abu11332 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_TOK_BUNTIL_in_ctls_abu11336 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_subrange_in_ctls_abu11340 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_abu11344 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_TOK_RB_in_ctls_abu11348 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EE_in_ctls_ebu11402 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_TOK_LB_in_ctls_ebu11407 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_ebu11412 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_TOK_BUNTIL_in_ctls_ebu11416 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_subrange_in_ctls_ebu11420 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_ebu11424 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_TOK_RB_in_ctls_ebu11428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11480 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_ctls_relational_expr11496 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11501 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_NOTEQUAL_in_ctls_relational_expr11526 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11531 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_LT_in_ctls_relational_expr11556 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11561 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_GT_in_ctls_relational_expr11586 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11591 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_LE_in_ctls_relational_expr11616 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11621 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_TOK_GE_in_ctls_relational_expr11646 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11651 = new BitSet(new long[]{0x00000007E0000002L});
-    public static final BitSet FOLLOW_ctls_union_expr_in_ctls_in_expr11714 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_TOK_SETIN_in_ctls_in_expr11730 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_union_expr_in_ctls_in_expr11735 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_ctls_set_expr_in_ctls_union_expr11798 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_TOK_UNION_in_ctls_union_expr11814 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_set_expr_in_ctls_union_expr11819 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_ctls_shift_expr_in_ctls_set_expr11881 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_subrange_in_ctls_set_expr11903 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LCB_in_ctls_set_expr11926 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_set_list_expr_in_ctls_set_expr11928 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_TOK_RCB_in_ctls_set_expr11930 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_set_list_expr11983 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_ctls_set_list_expr11986 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_set_list_expr11989 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12035 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_TOK_LSHIFT_in_ctls_shift_expr12051 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12056 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_TOK_RSHIFT_in_ctls_shift_expr12080 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12085 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_ctls_additive_expr_in_ctls_remainder_expr12147 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_TOK_MOD_in_ctls_remainder_expr12163 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_additive_expr_in_ctls_remainder_expr12168 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12233 = new BitSet(new long[]{0x0000180000000002L});
-    public static final BitSet FOLLOW_TOK_PLUS_in_ctls_additive_expr12249 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12254 = new BitSet(new long[]{0x0000180000000002L});
-    public static final BitSet FOLLOW_TOK_MINUS_in_ctls_additive_expr12278 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12283 = new BitSet(new long[]{0x0000180000000002L});
-    public static final BitSet FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12343 = new BitSet(new long[]{0x0000600000000002L});
-    public static final BitSet FOLLOW_TOK_TIMES_in_ctls_multiplicative_expr12359 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12364 = new BitSet(new long[]{0x0000600000000002L});
-    public static final BitSet FOLLOW_TOK_DIVIDE_in_ctls_multiplicative_expr12388 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12393 = new BitSet(new long[]{0x0000600000000002L});
-    public static final BitSet FOLLOW_ctls_primary_expr_in_ctls_concatination_expr12454 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_TOK_CONCATENATION_in_ctls_concatination_expr12470 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_primary_expr_in_ctls_concatination_expr12475 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_ctls_primary_expr_helper1_in_ctls_primary_expr12544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_MINUS_in_ctls_primary_expr12568 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_primary_expr_in_ctls_primary_expr12572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NOT_in_ctls_primary_expr12613 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_ctls_primary_expr_in_ctls_primary_expr12617 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_constant_in_ctls_primary_expr_helper112682 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primary_expr_helper1_pointer1_in_ctls_primary_expr_helper112735 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper112788 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_primary_expr_helper112790 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper112792 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112794 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_BOOL_in_ctls_primary_expr_helper112865 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper112867 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112869 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper112871 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112873 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_WORD1_in_ctls_primary_expr_helper112924 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper112926 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112928 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper112930 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112932 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NEXT_in_ctls_primary_expr_helper112992 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper112994 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112996 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper112998 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113000 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_CASE_in_ctls_primary_expr_helper113060 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_case_element_list_expr_in_ctls_primary_expr_helper113062 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_TOK_ESAC_in_ctls_primary_expr_helper113064 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_WAREAD_in_ctls_primary_expr_helper113126 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper113128 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113132 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113134 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113138 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper113140 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_WAWRITE_in_ctls_primary_expr_helper113206 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper113208 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113212 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113216 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113220 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113224 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113228 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper113230 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113232 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_primary_expr_helper1_pointer113303 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_select_in_primary_expr_helper1_pointer113305 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primary_expr_select_helper_in_primary_expr_select13348 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_primary_expr_ref_in_primary_expr_select13352 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
-    public static final BitSet FOLLOW_TOK_DOT_in_primary_expr_ref13375 = new BitSet(new long[]{0x0800000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_set_in_primary_expr_ref13378 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primary_expr_select_helper_arr_suffix_in_primary_expr_select_helper13412 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primary_expr_select_helper_bit_suffix_in_primary_expr_select_helper13424 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LB_in_primary_expr_select_helper_arr_suffix13448 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_primary_expr_select_helper_arr_suffix13450 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_TOK_RB_in_primary_expr_select_helper_arr_suffix13452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LB_in_primary_expr_select_helper_bit_suffix13492 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_primary_expr_select_helper_bit_suffix13496 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_TOK_COLON_in_primary_expr_select_helper_bit_suffix13498 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_primary_expr_select_helper_bit_suffix13502 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_TOK_RB_in_primary_expr_select_helper_bit_suffix13504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_simple_root_expr_in_case_element_expr13552 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_TOK_COLON_in_case_element_expr13554 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_case_element_expr13556 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_case_element_expr13558 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_case_element_expr_in_case_element_list_expr13594 = new BitSet(new long[]{0x0B7B182000000002L,0x0000000034800000L});
-    public static final BitSet FOLLOW_case_element_expr_in_case_element_list_expr13597 = new BitSet(new long[]{0x0B7B182000000002L,0x0000000034800000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_number13622 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PLUS_in_number13634 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_number13637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_integer13650 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PLUS_in_integer13678 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_integer13680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_MINUS_in_integer13708 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_integer13710 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NUMBER_WORD_in_number_word13747 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integer_in_subrange13786 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
-    public static final BitSet FOLLOW_TOK_TWODOTS_in_subrange13788 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_integer_in_subrange13792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_FALSEEXP_in_constant13841 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_TRUEEXP_in_constant13853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_number_in_constant13865 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_number_word_in_constant13877 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_optsemi13902 = new BitSet(new long[]{0x0000000000000002L,0x0000000002000000L});
+    public static final BitSet FOLLOW_TOK_KNOW_in_ltl_binary_expr6912 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
+    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_binary_expr6917 = new BitSet(new long[]{0x0400000000000002L,0x0000000000007100L});
+    public static final BitSet FOLLOW_ltl_pure_unary_expr_in_ltl_unary_expr7069 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ltl_relational_expr_in_ltl_unary_expr7110 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_NEXT_in_ltl_pure_unary_expr7162 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
+    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7167 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_PREV_in_ltl_pure_unary_expr7191 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
+    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7196 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_NOTPREVNOT_in_ltl_pure_unary_expr7220 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
+    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_GLOBALLY_in_ltl_pure_unary_expr7249 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
+    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7254 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_HISTORICALLY_in_ltl_pure_unary_expr7278 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
+    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7283 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_FINALLY_in_ltl_pure_unary_expr7307 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
+    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7312 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_ONCE_in_ltl_pure_unary_expr7336 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
+    public static final BitSet FOLLOW_ltl_unary_expr_in_ltl_pure_unary_expr7341 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NOT_in_ltl_pure_unary_expr7375 = new BitSet(new long[]{0x0001000000000000L,0x00000000003F8000L});
+    public static final BitSet FOLLOW_ltl_pure_unary_expr_in_ltl_pure_unary_expr7380 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7432 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_ltl_relational_expr7448 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7453 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_NOTEQUAL_in_ltl_relational_expr7478 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7483 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_LT_in_ltl_relational_expr7508 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7513 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_GT_in_ltl_relational_expr7538 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7543 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_LE_in_ltl_relational_expr7568 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7573 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_GE_in_ltl_relational_expr7598 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_in_expr_in_ltl_relational_expr7603 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_ltl_union_expr_in_ltl_in_expr7667 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_TOK_SETIN_in_ltl_in_expr7683 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_union_expr_in_ltl_in_expr7688 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_ltl_set_expr_in_ltl_union_expr7751 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_TOK_UNION_in_ltl_union_expr7767 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_set_expr_in_ltl_union_expr7772 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_ltl_shift_expr_in_ltl_set_expr7833 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_subrange_in_ltl_set_expr7855 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_LCB_in_ltl_set_expr7878 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_set_list_expr_in_ltl_set_expr7880 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_TOK_RCB_in_ltl_set_expr7882 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_set_list_expr7935 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_ltl_set_list_expr7938 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_set_list_expr7941 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_ltl_remainder_expr_in_ltl_shift_expr7987 = new BitSet(new long[]{0x0000030000000002L});
+    public static final BitSet FOLLOW_TOK_LSHIFT_in_ltl_shift_expr8003 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_remainder_expr_in_ltl_shift_expr8008 = new BitSet(new long[]{0x0000030000000002L});
+    public static final BitSet FOLLOW_TOK_RSHIFT_in_ltl_shift_expr8032 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_remainder_expr_in_ltl_shift_expr8037 = new BitSet(new long[]{0x0000030000000002L});
+    public static final BitSet FOLLOW_ltl_additive_expr_in_ltl_remainder_expr8099 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_TOK_MOD_in_ltl_remainder_expr8115 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_additive_expr_in_ltl_remainder_expr8120 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8184 = new BitSet(new long[]{0x0000180000000002L});
+    public static final BitSet FOLLOW_TOK_PLUS_in_ltl_additive_expr8200 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8205 = new BitSet(new long[]{0x0000180000000002L});
+    public static final BitSet FOLLOW_TOK_MINUS_in_ltl_additive_expr8229 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_multiplicative_expr_in_ltl_additive_expr8234 = new BitSet(new long[]{0x0000180000000002L});
+    public static final BitSet FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8295 = new BitSet(new long[]{0x0000600000000002L});
+    public static final BitSet FOLLOW_TOK_TIMES_in_ltl_multiplicative_expr8311 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8316 = new BitSet(new long[]{0x0000600000000002L});
+    public static final BitSet FOLLOW_TOK_DIVIDE_in_ltl_multiplicative_expr8340 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_concatination_expr_in_ltl_multiplicative_expr8345 = new BitSet(new long[]{0x0000600000000002L});
+    public static final BitSet FOLLOW_ltl_primary_expr_in_ltl_concatination_expr8406 = new BitSet(new long[]{0x0000800000000002L});
+    public static final BitSet FOLLOW_TOK_CONCATENATION_in_ltl_concatination_expr8422 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_primary_expr_in_ltl_concatination_expr8427 = new BitSet(new long[]{0x0000800000000002L});
+    public static final BitSet FOLLOW_ltl_primary_expr_helper1_in_ltl_primary_expr8488 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_MINUS_in_ltl_primary_expr8512 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_primary_expr_in_ltl_primary_expr8516 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NOT_in_ltl_primary_expr8557 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ltl_primary_expr_in_ltl_primary_expr8561 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_constant_in_ltl_primary_expr_helper18626 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18628 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primary_expr_helper1_pointer1_in_ltl_primary_expr_helper18679 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper18732 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034BF8000L});
+    public static final BitSet FOLLOW_ltl_root_expr_in_ltl_primary_expr_helper18734 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper18736 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_BOOL_in_ltl_primary_expr_helper18809 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper18811 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18813 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper18815 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18817 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_WORD1_in_ltl_primary_expr_helper18868 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper18870 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18872 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper18874 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18876 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NEXT_in_ltl_primary_expr_helper18936 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper18938 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper18940 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper18942 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper18944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_CASE_in_ltl_primary_expr_helper19004 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_case_element_list_expr_in_ltl_primary_expr_helper19006 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_TOK_ESAC_in_ltl_primary_expr_helper19008 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19010 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_WAREAD_in_ltl_primary_expr_helper19070 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper19072 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19076 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19078 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19082 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper19084 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19086 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_WAWRITE_in_ltl_primary_expr_helper19150 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ltl_primary_expr_helper19152 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19156 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19160 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19164 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_ltl_primary_expr_helper19168 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ltl_primary_expr_helper19172 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ltl_primary_expr_helper19174 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ltl_primary_expr_helper19176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_implies_expr_in_ctls_root_expr9257 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_iff_expr_in_ctls_implies_expr9300 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_TOK_IMPLIES_in_ctls_implies_expr9316 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_implies_expr_in_ctls_implies_expr9321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_or_expr_in_ctls_iff_expr9386 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_TOK_IFF_in_ctls_iff_expr9402 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_or_expr_in_ctls_iff_expr9407 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_ctls_and_expr_in_ctls_or_expr9470 = new BitSet(new long[]{0x000000000E000002L});
+    public static final BitSet FOLLOW_TOK_OR_in_ctls_or_expr9486 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_and_expr_in_ctls_or_expr9491 = new BitSet(new long[]{0x000000000E000002L});
+    public static final BitSet FOLLOW_TOK_XOR_in_ctls_or_expr9515 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_and_expr_in_ctls_or_expr9520 = new BitSet(new long[]{0x000000000E000002L});
+    public static final BitSet FOLLOW_TOK_XNOR_in_ctls_or_expr9544 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_and_expr_in_ctls_or_expr9549 = new BitSet(new long[]{0x000000000E000002L});
+    public static final BitSet FOLLOW_ctls_ltl_binary_expr_in_ctls_and_expr9612 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_TOK_AND_in_ctls_and_expr9628 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_binary_expr_in_ctls_and_expr9633 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9697 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
+    public static final BitSet FOLLOW_TOK_UNTIL_in_ctls_ltl_binary_expr9713 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9718 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
+    public static final BitSet FOLLOW_TOK_SINCE_in_ctls_ltl_binary_expr9743 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9748 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
+    public static final BitSet FOLLOW_TOK_RELEASES_in_ctls_ltl_binary_expr9773 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9778 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
+    public static final BitSet FOLLOW_TOK_TRIGGERED_in_ctls_ltl_binary_expr9803 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_binary_expr9808 = new BitSet(new long[]{0x0000000000000002L,0x0000000000007100L});
+    public static final BitSet FOLLOW_ctls_ltl_pure_unary_expr_in_ctls_ltl_unary_expr9959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_ltl_unary_expr10000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_NEXT_in_ctls_ltl_pure_unary_expr10050 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_PREV_in_ctls_ltl_pure_unary_expr10079 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10084 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_NOTPREVNOT_in_ctls_ltl_pure_unary_expr10108 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10113 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_GLOBALLY_in_ctls_ltl_pure_unary_expr10137 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_HISTORICALLY_in_ctls_ltl_pure_unary_expr10166 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_FINALLY_in_ctls_ltl_pure_unary_expr10195 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10200 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_OP_ONCE_in_ctls_ltl_pure_unary_expr10224 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_ltl_unary_expr_in_ctls_ltl_pure_unary_expr10229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NOT_in_ctls_ltl_pure_unary_expr10263 = new BitSet(new long[]{0x0001000000000000L,0x00000000003F8000L});
+    public static final BitSet FOLLOW_ctls_ltl_pure_unary_expr_in_ctls_ltl_pure_unary_expr10268 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_pure_ctl_expr_in_ctls_ctl_expr10487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_relational_expr_in_ctls_ctl_expr10525 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EX_in_ctls_pure_ctl_expr10576 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10581 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AX_in_ctls_pure_ctl_expr10605 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10610 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EF_in_ctls_pure_ctl_expr10634 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AF_in_ctls_pure_ctl_expr10663 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10668 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EG_in_ctls_pure_ctl_expr10692 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AG_in_ctls_pure_ctl_expr10721 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10726 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_aa_in_ctls_pure_ctl_expr10755 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_ee_in_ctls_pure_ctl_expr10775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EBF_in_ctls_pure_ctl_expr10792 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_subrange_in_ctls_pure_ctl_expr10797 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10801 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ABF_in_ctls_pure_ctl_expr10825 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_subrange_in_ctls_pure_ctl_expr10830 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EBG_in_ctls_pure_ctl_expr10858 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_subrange_in_ctls_pure_ctl_expr10863 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10867 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ABG_in_ctls_pure_ctl_expr10891 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_subrange_in_ctls_pure_ctl_expr10896 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
+    public static final BitSet FOLLOW_ctls_ctl_expr_in_ctls_pure_ctl_expr10900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NOT_in_ctls_pure_ctl_expr10934 = new BitSet(new long[]{0xF001000000000000L,0x000000000000047FL});
+    public static final BitSet FOLLOW_ctls_pure_ctl_expr_in_ctls_pure_ctl_expr10939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_abu_in_ctls_aa10998 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_au_in_ctls_aa11029 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_ebu_in_ctls_ee11098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_eu_in_ctls_ee11129 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AA_in_ctls_au11194 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_TOK_LB_in_ctls_au11199 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_au11204 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_TOK_RB_in_ctls_au11208 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EE_in_ctls_eu11263 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_TOK_LB_in_ctls_eu11268 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_eu11273 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_TOK_RB_in_ctls_eu11277 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AA_in_ctls_abu11331 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_TOK_LB_in_ctls_abu11336 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_abu11341 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_TOK_BUNTIL_in_ctls_abu11345 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_subrange_in_ctls_abu11349 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_abu11353 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_TOK_RB_in_ctls_abu11357 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EE_in_ctls_ebu11411 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_TOK_LB_in_ctls_ebu11416 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_ebu11421 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_TOK_BUNTIL_in_ctls_ebu11425 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_subrange_in_ctls_ebu11429 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_ebu11433 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_TOK_RB_in_ctls_ebu11437 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11489 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_ctls_relational_expr11505 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11510 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_NOTEQUAL_in_ctls_relational_expr11535 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11540 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_LT_in_ctls_relational_expr11565 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11570 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_GT_in_ctls_relational_expr11595 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11600 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_LE_in_ctls_relational_expr11625 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11630 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_TOK_GE_in_ctls_relational_expr11655 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_in_expr_in_ctls_relational_expr11660 = new BitSet(new long[]{0x00000007E0000002L});
+    public static final BitSet FOLLOW_ctls_union_expr_in_ctls_in_expr11723 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_TOK_SETIN_in_ctls_in_expr11739 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_union_expr_in_ctls_in_expr11744 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_ctls_set_expr_in_ctls_union_expr11807 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_TOK_UNION_in_ctls_union_expr11823 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_set_expr_in_ctls_union_expr11828 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_ctls_shift_expr_in_ctls_set_expr11890 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_subrange_in_ctls_set_expr11912 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_LCB_in_ctls_set_expr11935 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_set_list_expr_in_ctls_set_expr11937 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_TOK_RCB_in_ctls_set_expr11939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_set_list_expr11992 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_ctls_set_list_expr11995 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_set_list_expr11998 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12044 = new BitSet(new long[]{0x0000030000000002L});
+    public static final BitSet FOLLOW_TOK_LSHIFT_in_ctls_shift_expr12060 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12065 = new BitSet(new long[]{0x0000030000000002L});
+    public static final BitSet FOLLOW_TOK_RSHIFT_in_ctls_shift_expr12089 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_remainder_expr_in_ctls_shift_expr12094 = new BitSet(new long[]{0x0000030000000002L});
+    public static final BitSet FOLLOW_ctls_additive_expr_in_ctls_remainder_expr12156 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_TOK_MOD_in_ctls_remainder_expr12172 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_additive_expr_in_ctls_remainder_expr12177 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12242 = new BitSet(new long[]{0x0000180000000002L});
+    public static final BitSet FOLLOW_TOK_PLUS_in_ctls_additive_expr12258 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12263 = new BitSet(new long[]{0x0000180000000002L});
+    public static final BitSet FOLLOW_TOK_MINUS_in_ctls_additive_expr12287 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_multiplicative_expr_in_ctls_additive_expr12292 = new BitSet(new long[]{0x0000180000000002L});
+    public static final BitSet FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12352 = new BitSet(new long[]{0x0000600000000002L});
+    public static final BitSet FOLLOW_TOK_TIMES_in_ctls_multiplicative_expr12368 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12373 = new BitSet(new long[]{0x0000600000000002L});
+    public static final BitSet FOLLOW_TOK_DIVIDE_in_ctls_multiplicative_expr12397 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_concatination_expr_in_ctls_multiplicative_expr12402 = new BitSet(new long[]{0x0000600000000002L});
+    public static final BitSet FOLLOW_ctls_primary_expr_in_ctls_concatination_expr12463 = new BitSet(new long[]{0x0000800000000002L});
+    public static final BitSet FOLLOW_TOK_CONCATENATION_in_ctls_concatination_expr12479 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_primary_expr_in_ctls_concatination_expr12484 = new BitSet(new long[]{0x0000800000000002L});
+    public static final BitSet FOLLOW_ctls_primary_expr_helper1_in_ctls_primary_expr12553 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_MINUS_in_ctls_primary_expr12577 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_primary_expr_in_ctls_primary_expr12581 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NOT_in_ctls_primary_expr12622 = new BitSet(new long[]{0x0B7B180000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_ctls_primary_expr_in_ctls_primary_expr12626 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_constant_in_ctls_primary_expr_helper112691 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112693 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primary_expr_helper1_pointer1_in_ctls_primary_expr_helper112744 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper112797 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_root_expr_in_ctls_primary_expr_helper112799 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper112801 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_BOOL_in_ctls_primary_expr_helper112874 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper112876 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112878 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper112880 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112882 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_WORD1_in_ctls_primary_expr_helper112933 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper112935 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper112937 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper112939 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper112941 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NEXT_in_ctls_primary_expr_helper113001 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper113003 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113005 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper113007 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113009 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_CASE_in_ctls_primary_expr_helper113069 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_case_element_list_expr_in_ctls_primary_expr_helper113071 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_TOK_ESAC_in_ctls_primary_expr_helper113073 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_WAREAD_in_ctls_primary_expr_helper113135 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper113137 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113141 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113143 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113147 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper113149 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_WAWRITE_in_ctls_primary_expr_helper113215 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ctls_primary_expr_helper113217 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113221 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113225 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113229 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_ctls_primary_expr_helper113233 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_ctls_primary_expr_helper113237 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ctls_primary_expr_helper113239 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_ctls_primary_expr_helper113241 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_primary_expr_helper1_pointer113312 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_select_in_primary_expr_helper1_pointer113314 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primary_expr_select_helper_in_primary_expr_select13357 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_primary_expr_ref_in_primary_expr_select13361 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400080L});
+    public static final BitSet FOLLOW_TOK_DOT_in_primary_expr_ref13384 = new BitSet(new long[]{0x0800000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_set_in_primary_expr_ref13387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primary_expr_select_helper_arr_suffix_in_primary_expr_select_helper13421 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primary_expr_select_helper_bit_suffix_in_primary_expr_select_helper13433 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_LB_in_primary_expr_select_helper_arr_suffix13457 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_primary_expr_select_helper_arr_suffix13459 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_TOK_RB_in_primary_expr_select_helper_arr_suffix13461 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_LB_in_primary_expr_select_helper_bit_suffix13501 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_primary_expr_select_helper_bit_suffix13505 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_TOK_COLON_in_primary_expr_select_helper_bit_suffix13507 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_primary_expr_select_helper_bit_suffix13511 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_TOK_RB_in_primary_expr_select_helper_bit_suffix13513 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_simple_root_expr_in_case_element_expr13561 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_TOK_COLON_in_case_element_expr13563 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_case_element_expr13565 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_case_element_expr13567 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_case_element_expr_in_case_element_list_expr13603 = new BitSet(new long[]{0x0B7B182000000002L,0x0000000034800000L});
+    public static final BitSet FOLLOW_case_element_expr_in_case_element_list_expr13606 = new BitSet(new long[]{0x0B7B182000000002L,0x0000000034800000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_number13631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_PLUS_in_number13643 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_number13646 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_integer13659 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_PLUS_in_integer13687 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_integer13689 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_MINUS_in_integer13717 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_integer13719 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NUMBER_WORD_in_number_word13756 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integer_in_subrange13795 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
+    public static final BitSet FOLLOW_TOK_TWODOTS_in_subrange13797 = new BitSet(new long[]{0x0000180000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_integer_in_subrange13801 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_FALSEEXP_in_constant13850 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_TRUEEXP_in_constant13862 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_number_in_constant13874 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_number_word_in_constant13886 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_optsemi13911 = new BitSet(new long[]{0x0000000000000002L,0x0000000002000000L});
     public static final BitSet FOLLOW_TOK_NOT_in_synpred13114 = new BitSet(new long[]{0xF001000000000000L,0x000000000000047FL});
     public static final BitSet FOLLOW_set_in_synpred13127 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TOK_LP_in_synpred23377 = new BitSet(new long[]{0x0800000000000000L});
@@ -19879,28 +19879,28 @@ public class SPCParser extends Parser {
     public static final BitSet FOLLOW_TOK_LB_in_synpred63900 = new BitSet(new long[]{0xFB7B182000000000L,0x000000003480047FL});
     public static final BitSet FOLLOW_ctl_root_expr_in_synpred63902 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
     public static final BitSet FOLLOW_TOK_BUNTIL_in_synpred63904 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NOT_in_synpred76960 = new BitSet(new long[]{0x0001000000000000L,0x00000000003F8000L});
-    public static final BitSet FOLLOW_set_in_synpred76973 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NOT_in_synpred89850 = new BitSet(new long[]{0x0001000000000000L,0x00000000003F8000L});
-    public static final BitSet FOLLOW_set_in_synpred89863 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NOT_in_synpred910303 = new BitSet(new long[]{0xF001000000000000L,0x000000000000047FL});
-    public static final BitSet FOLLOW_set_in_synpred910316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AA_in_synpred1010741 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EE_in_synpred1110761 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AA_in_synpred1210978 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_TOK_LB_in_synpred1210980 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_root_expr_in_synpred1210982 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_TOK_BUNTIL_in_synpred1210984 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AA_in_synpred1311013 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_TOK_LB_in_synpred1311015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EE_in_synpred1411078 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_TOK_LB_in_synpred1411080 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
-    public static final BitSet FOLLOW_ctls_root_expr_in_synpred1411082 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_TOK_BUNTIL_in_synpred1411084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_EE_in_synpred1511113 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_TOK_LB_in_synpred1511115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LB_in_synpred1613403 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
-    public static final BitSet FOLLOW_simple_root_expr_in_synpred1613405 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-    public static final BitSet FOLLOW_TOK_RB_in_synpred1613407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NOT_in_synpred76969 = new BitSet(new long[]{0x0001000000000000L,0x00000000003F8000L});
+    public static final BitSet FOLLOW_set_in_synpred76982 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NOT_in_synpred89859 = new BitSet(new long[]{0x0001000000000000L,0x00000000003F8000L});
+    public static final BitSet FOLLOW_set_in_synpred89872 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NOT_in_synpred910312 = new BitSet(new long[]{0xF001000000000000L,0x000000000000047FL});
+    public static final BitSet FOLLOW_set_in_synpred910325 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AA_in_synpred1010750 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EE_in_synpred1110770 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AA_in_synpred1210987 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_TOK_LB_in_synpred1210989 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_root_expr_in_synpred1210991 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_TOK_BUNTIL_in_synpred1210993 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AA_in_synpred1311022 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_TOK_LB_in_synpred1311024 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EE_in_synpred1411087 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_TOK_LB_in_synpred1411089 = new BitSet(new long[]{0xFB7B182000000000L,0x0000000034BF847FL});
+    public static final BitSet FOLLOW_ctls_root_expr_in_synpred1411091 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_TOK_BUNTIL_in_synpred1411093 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_EE_in_synpred1511122 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_TOK_LB_in_synpred1511124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_LB_in_synpred1613412 = new BitSet(new long[]{0x0B7B182000000000L,0x0000000034800000L});
+    public static final BitSet FOLLOW_simple_root_expr_in_synpred1613414 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_TOK_RB_in_synpred1613416 = new BitSet(new long[]{0x0000000000000002L});
 
 }
