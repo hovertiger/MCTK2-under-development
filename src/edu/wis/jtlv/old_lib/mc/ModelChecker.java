@@ -12,7 +12,7 @@ public abstract class ModelChecker {
 
 	public ModelChecker(SMVModule design, boolean removeRunningVar) throws ModelCheckException {
 		if (design == null)
-			throw new ModelCheckException("Cannot instatiate an LTL Model "
+			throw new ModelCheckException("Cannot instatiate a Model "
 					+ "Checker with a null module.");
 		this.design = design;
 		if (removeRunningVar)

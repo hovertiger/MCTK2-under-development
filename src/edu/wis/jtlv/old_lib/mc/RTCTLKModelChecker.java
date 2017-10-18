@@ -18,6 +18,7 @@ public class RTCTLKModelChecker extends CTLModelChecker {
     }
 
     // agentName KNOW p
+    // forall(system_global_variables - agentName's visible_variables).((global_reachable_states & fair_states) -> p)
     public BDD know(String agentName, BDD p) throws ModelCheckAlgException {
         if(agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
 
@@ -34,9 +35,14 @@ public class RTCTLKModelChecker extends CTLModelChecker {
         // X - agentName's visible variables
         BDDVarSet allInvisVars = Env.globalUnprimeVarsMinus(visVars);
 
-        if(getCtlFair()==null) setCtlFair(ce_fair_g(Env.TRUE())); // take the set of fair global states as the set of fair reachable states
+        if(getFeasibleStates() == null) setFeasibleStates(getDesign().feasible());
+        BDD feasibleStates = getFeasibleStates();
+//        if(getCtlFair() == null) setCtlFair(ce_fair_g(Env.TRUE())); // take the set of fair global states as the set of fair reachable states
+//        BDD fs = getCtlFair();
 
-        BDD res = getCtlFair().imp(p).forAll(allInvisVars);
+//        BDD reachable_fair_states = rs.and(fs);
+
+        BDD res = feasibleStates.imp(p).forAll(allInvisVars);
 
         return res;
     }

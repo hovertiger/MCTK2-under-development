@@ -38,15 +38,16 @@ import edu.wis.jtlv.lib.FixPoint;
  * 
  */
 public class CTLModelChecker extends ModelChecker {
-	public BDD getCtlFair() {
-		return ctlFair;
-	}
+	private BDD ctlFair = null;
+	private BDD feasibleStates = null;
 
+	public BDD getCtlFair() { return ctlFair; }
 	public void setCtlFair(BDD ctlFair) {
 		this.ctlFair = ctlFair;
 	}
 
-	private BDD ctlFair = null;
+	public BDD getFeasibleStates() { return feasibleStates; }
+	public void setFeasibleStates(BDD feasibleStates) {	this.feasibleStates = feasibleStates; }
 
 	public CTLModelChecker(SMVModule design) throws ModelCheckException {
 		this(design, false);
