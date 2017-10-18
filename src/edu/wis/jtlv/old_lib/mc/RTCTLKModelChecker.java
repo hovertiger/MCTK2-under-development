@@ -17,6 +17,7 @@ public class RTCTLKModelChecker extends CTLModelChecker {
         super(design);
     }
 
+    // agentName KNOW p
     public BDD know(String agentName, BDD p) throws ModelCheckAlgException {
         if(agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
 
@@ -38,6 +39,42 @@ public class RTCTLKModelChecker extends CTLModelChecker {
         BDD res = getCtlFair().imp(p).forAll(allInvisVars);
 
         return res;
+    }
+
+    // E[p BU from..to q] under fairness
+    public BDD EfBU(int from, int to, BDD p, BDD q) {
+        //TODO
+        return null;
+    }
+
+    // A[p BU from..to q] under fairness
+    public BDD AfBU(int from, int to, BDD p, BDD q) {
+        //TODO
+        return null;
+    }
+
+    // EBF from..to p under fairness
+    public BDD EfBF(int from, int to, BDD p) {
+        //TODO
+        return null;
+    }
+
+    // ABF from..to p under fairness
+    public BDD AfBF(int from, int to, BDD p) {
+        //TODO
+        return null;
+    }
+
+    // EBG from..to p under fairness
+    public BDD EfBG(int from, int to, BDD p) {
+        //TODO
+        return null;
+    }
+
+    // ABG from..to p under fairness
+    public BDD AfBG(int from, int to, BDD p) {
+        //TODO
+        return null;
     }
 
     public BDD RTCTLKAux(Spec property) throws ModelCheckAlgException {
