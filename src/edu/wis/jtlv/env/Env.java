@@ -1559,8 +1559,7 @@ public final class Env {
 	 */
 	public static ModuleBDDField newVar(String preface, String name,
 			int values_size) throws ModuleVariableException {
-		ModuleBDDField res = bdd_namer[0]
-				.new_var(0, preface, name, values_size);
+		ModuleBDDField res = bdd_namer[0].new_var(0, preface, name, values_size);
 		for (int i = 1; i < bdd_namer.length; i++) {
 			bdd_namer[i].new_var(i, preface, name, values_size);
 		}

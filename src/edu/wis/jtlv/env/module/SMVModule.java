@@ -1006,8 +1006,7 @@ public class SMVModule extends ModuleWithStrongFairness {
 	private ModuleBDDField addVar(String new_var, int values_size,
 			String[] val_names, int range_start) throws ModuleException {
 		if (new_var == null || new_var.equals(""))
-			throw new ModuleException("Couldn't declare a variable with no "
-					+ "name.");
+			throw new ModuleException("Couldn't declare a variable with no name.");
 
 		// 1. if it was found since it is a param, then defining this define at
 		// the above holder...
@@ -1017,15 +1016,13 @@ public class SMVModule extends ModuleWithStrongFairness {
 				SMVModule holder = par.getForInstance().getHolder();
 				return holder.addVar(par.getInitString());
 			}
-			throw new ModuleException("Variable " + new_var
-					+ " already declared.");
+			throw new ModuleException("Variable " + new_var	+ " already declared.");
 		}
 
 		// 2. if it is a simple define...
 		int idx = new_var.lastIndexOf('.');
 		if (idx != -1) {
-			throw new ModuleException("Couldn't declare a variable with "
-					+ "dot product.");
+			throw new ModuleException("Couldn't declare a variable with dot product.");
 		}
 
 		// if it is a pointer, then just assigning the reference.
@@ -1034,8 +1031,7 @@ public class SMVModule extends ModuleWithStrongFairness {
 		// register value names
 		if (val_names != null) {
 			if (values_size != val_names.length)
-				throw new ModuleException("Internal error: values list do "
-						+ "not match the size");
+				throw new ModuleException("Internal error: values list do not match the size");
 			Env.stringer.register_domain_module_values(this, bdd_var
 					.getDomain(), val_names);
 			Env.stringer.register_domain_module_values(this, bdd_var
