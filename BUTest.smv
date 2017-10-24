@@ -1,0 +1,17 @@
+MODULE main
+VAR
+	rangeValue :0..15;
+
+DEFINE
+	a:= case rangeValue<=5:1;
+		rangeValue<=10:2;
+		rangeValue<15:3;
+		TRUE : 4;
+	esac;
+
+ASSIGN
+	init(rangeValue):=0;
+	next(rangeValue):=case rangeValue<=14:rangeValue+1;
+		rangeValue=15:rangeValue;
+	esac;
+
