@@ -92,7 +92,7 @@ public class SpecRange implements Spec {
 
 	@Override
 	public boolean isRealTimeCTLKSpec() {
-		return false;
+		return true;
 	}
 
 	/* (non-Javadoc)
