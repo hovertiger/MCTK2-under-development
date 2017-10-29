@@ -1,4 +1,4 @@
-package edu.wis.jtlv.lib.mc.tl;
+package edu.wis.jtlv.lib.mc.CTL;
 
 import java.util.Vector;
 
@@ -42,8 +42,16 @@ import edu.wis.jtlv.lib.mc.ModelCheckAlgI;
  * 
  */
 public class CTLModelCheckAlg extends ModelCheckAlgI {
-	private BDD ctlFair = null;
 	private Spec property;
+	public Spec getProperty() {
+		return property;
+	}
+
+	public void setProperty(Spec property) {
+		this.property = property;
+	}
+
+	private BDD ctlFair = null;
 
 	public CTLModelCheckAlg(ModuleWithStrongFairness design, Spec property) {
 		super(design);
@@ -51,6 +59,7 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 			throw new RuntimeException("Cannot model check a null"
 					+ " specification.");
 		this.property = property;
+		this.ctlFair = null;
 	}
 
 	/* (non-Javadoc)

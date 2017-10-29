@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import edu.wis.jtlv.lib.mc.RTCTLK.RTCTLKModelCheckAlg;
 import net.sf.javabdd.BDD;
 
 import edu.wis.jtlv.env.Env;
@@ -10,9 +11,9 @@ import edu.wis.jtlv.lib.AlgRunnerThread;
 import edu.wis.jtlv.lib.mc.SimpleDeadlockAlg;
 import edu.wis.jtlv.lib.mc.SimpleInvarianceAlg;
 import edu.wis.jtlv.lib.mc.SimpleTempEntailAlg;
-import edu.wis.jtlv.lib.mc.tl.CTLModelCheckAlg;
-import edu.wis.jtlv.lib.mc.tl.LTLModelCheckAlg;
-import edu.wis.jtlv.lib.mc.tl.LTLValidAlg;
+import edu.wis.jtlv.lib.mc.CTL.CTLModelCheckAlg;
+import edu.wis.jtlv.lib.mc.LTL.LTLModelCheckAlg;
+import edu.wis.jtlv.lib.mc.LTL.LTLValidAlg;
 
 /**
  * @version {@value edu.wis.jtlv.env.Env#version}
@@ -22,7 +23,7 @@ import edu.wis.jtlv.lib.mc.tl.LTLValidAlg;
 public class AlgorithmRunnerMain {
 	
 	public static void main(String[] args) throws IOException {
-		simpleCheckDeadlock();
+/*		simpleCheckDeadlock();
 		Env.resetEnv();
 		simpleCheckInvariance();
 		Env.resetEnv();
@@ -33,8 +34,13 @@ public class AlgorithmRunnerMain {
 		ltlCheck();
 		Env.resetEnv();
 		ctlCheck();
+*/
+		Env.resetEnv();
+		rtctlkCheck();
+
 		System.out.println("DONE");
 	}
+
 
 	public static void simpleCheckDeadlock() throws IOException {
 		// System.setProperty("bdd", "buddy");
@@ -287,6 +293,36 @@ public class AlgorithmRunnerMain {
 		for (int i = 0; i < all_specs.length; i++) {
 			// 17, 18, 19, 20, and 21 fails.
 			runner = new AlgRunnerThread(new CTLModelCheckAlg(main,
+					all_specs[i]));
+			runner.runSequential();
+			if (runner.getDoResult() != null)
+				System.out.println(runner.getDoResult().resultString());
+			if (runner.getDoException() != null)
+				System.err.println(runner.getDoException().getMessage());
+
+		}
+		// ///////////////////////////////////////
+	}
+
+	public static void rtctlkCheck() throws IOException {
+		// System.setProperty("bdd", "buddy");
+		Env.loadModule("testcases/dc3.smv");
+		SMVModule main = (SMVModule) Env.getModule("main");
+		main.setFullPrintingMode(true);
+		System.out.println("========= DONE Loading Modules ==========");
+
+		String to_parse = "SPEC !dc1.paid -> AG( (dc1 KNOW (!dc1.paid & !dc2.paid & !dc3.paid)) | " +
+				"( (dc1 KNOW (dc2.paid | dc3.paid)) & !(dc1 KNOW dc2.paid) & !(dc1 KNOW dc3.paid) ) ) \n";
+
+		Spec[] all_specs = Env.loadSpecString(to_parse);
+		System.out.println("========= DONE Loading Specs ============");
+
+		AlgRunnerThread runner;
+		// ///////////////////////////////////////
+		// model checking a module
+		for (int i = 0; i < all_specs.length; i++) {
+			// 17, 18, 19, 20, and 21 fails.
+			runner = new AlgRunnerThread(new RTCTLKModelCheckAlg(main,
 					all_specs[i]));
 			runner.runSequential();
 			if (runner.getDoResult() != null)

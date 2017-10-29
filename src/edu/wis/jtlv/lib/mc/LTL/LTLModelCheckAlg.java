@@ -1,4 +1,4 @@
-package edu.wis.jtlv.lib.mc.tl;
+package edu.wis.jtlv.lib.mc.LTL;
 
 import java.util.Vector;
 

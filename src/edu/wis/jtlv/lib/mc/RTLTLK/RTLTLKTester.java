@@ -1,6 +1,7 @@
-package edu.wis.jtlv.lib.mc.tl;
+package edu.wis.jtlv.lib.mc.RTLTLK;
 
 import edu.wis.jtlv.env.spec.Spec;
+import edu.wis.jtlv.lib.mc.LTL.LTLTester;
 import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
 
 public class RTLTLKTester extends LTLTester {
@@ -17,6 +18,5 @@ public class RTLTLKTester extends LTLTester {
     public RTLTLKTester(Spec root_spec, boolean isWeak) throws ModelCheckAlgException {
         super(root_spec, isWeak);
     }
-
 
 }
