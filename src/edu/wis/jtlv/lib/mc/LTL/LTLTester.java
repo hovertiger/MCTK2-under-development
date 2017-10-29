@@ -165,17 +165,17 @@ public class LTLTester {
                 switch (op) {
                     case NEXT:
                         p_c1 = Env.prime(c1);
-                        tester.conjunctTrans(aux.biimp(p_c1));
+                        tester.conjunctTrans(aux.biimp(p_c1)); // aux <-> c1'
                         break;
                     case FINALLY:
                         p_aux = Env.prime(aux);
-                        tester.conjunctTrans(aux.biimp(c1.or(p_aux)));
-                        tester.addJustice(c1.or(aux.not()));
+                        tester.conjunctTrans(aux.biimp(c1.or(p_aux))); // aux <-> (c1 \/ aux')
+                        tester.addJustice(c1.or(aux.not()));  // aux -> c1
                         break;
                     case GLOBALLY:
                         p_aux = Env.prime(aux);
-                        tester.conjunctTrans(aux.biimp(c1.and(p_aux)));
-                        tester.addJustice(c1.not().or(aux));
+                        tester.conjunctTrans(aux.biimp(c1.and(p_aux))); // aux <-> (c1 /\ aux')
+                        tester.addJustice(c1.not().or(aux)); // c1 -> aux
                         break;
                     case PREV:
                         p_aux = Env.prime(aux);
@@ -197,8 +197,8 @@ public class LTLTester {
                         break;
                     case UNTIL:
                         p_aux = Env.prime(aux);
-                        tester.conjunctTrans(aux.biimp(c2.or(c1.and(p_aux))));
-                        tester.addJustice(aux.not());
+                        tester.conjunctTrans(aux.biimp(c2.or(c1.and(p_aux)))); // aux <-> (c2 \/ (c1 /\ aux'))
+                        tester.addJustice(aux.not()); // !aux
                         break;
                     case RELEASES:
                         p_aux = Env.prime(aux);
