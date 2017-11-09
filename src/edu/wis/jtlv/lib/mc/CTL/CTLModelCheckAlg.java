@@ -289,7 +289,7 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 		ModuleWithStrongFairness design = getDesign();
 		// saving the previous restriction state.
 		Vector<BDD> trans_restriction = design.getAllTransRestrictions();
-		BDD res = design.allSucc(design.initial()).and(p);
+		BDD res = design.allSucc(design.initial()).and(p);  // Line 2
 
 		// Line 3
 		design.restrictTrans(res.id().and(Env.prime(res.id())));
@@ -299,7 +299,7 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 			// original TLV implementation.
 			for (int i = design.justiceNum() - 1; i >= 0; i--) {
 				res = res.id().and(design.justiceAt(i));
-				res = design.allPred(res.id()).and(design.allSucc(res.id()));
+				res = design.allPred(res.id()).and(design.allSucc(res.id())); // res is the set of states in the SCC, in which each circle path must past Justice i
 				if (printable)
 					System.out.println("justice No. " + i);
 				design.restrictTrans(res.id().and(Env.prime(res.id())));
