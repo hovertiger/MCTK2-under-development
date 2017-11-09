@@ -51,7 +51,19 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 		this.property = property;
 	}
 
-	private BDD ctlFair = null;
+	private BDD FairStates = null;
+
+	public BDD getReachableStates() {
+		if(this.ReachableStates == null)
+			this.ReachableStates = this.getDesign().reachable();
+		return ReachableStates;
+	}
+
+	public void setReachableStates(BDD reachableStates) {
+		ReachableStates = reachableStates;
+	}
+
+	private BDD ReachableStates = null;
 
 	public CTLModelCheckAlg(ModuleWithStrongFairness design, Spec property) {
 		super(design);
@@ -59,7 +71,7 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 			throw new RuntimeException("Cannot model check a null"
 					+ " specification.");
 		this.property = property;
-		this.ctlFair = null;
+		this.FairStates = null;
 	}
 
 	/* (non-Javadoc)
@@ -107,15 +119,17 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 	@Override
 	public AlgResultI doAlgorithm() throws AlgExceptionI {
 		System.out.println("model checking: " + property);
-		ctlFair = null;
+		//setFairStates(Env.TRUE());
 
 		// could throw an exception...
-		BDD calculateStates = CTLAux(property);
-		if (!getDesign().initial().imp(calculateStates).not().isZero()) {
+		BDD calculateStates = satCTL(property);
+		BDD FairInitStates = getDesign().initial().and(getFairStates());
+//		if (!getDesign().initial().imp(calculateStates).not().isZero()) {
+		if(FairInitStates.imp(calculateStates).isOne()){
+			return new AlgResultString(true, "*** Property is VALID ***");
+		}else{
 			return new AlgResultString(false, "*** Property is NOT VALID ***");
 		}
-		// else - everything is OK.
-		return new AlgResultString(true, "*** Property is VALID ***");
 	}
 
 	/**
@@ -135,7 +149,7 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 		return null;
 	}
 
-	public BDD CTLAux(Spec property) throws ModelCheckAlgException {
+	public BDD satCTL(Spec property) throws ModelCheckAlgException {
 		if (property instanceof SpecBDD)
 			return ((SpecBDD) property).getVal();
 		// else it is SpecExp since this cannot be a Real Time CTL.
@@ -143,8 +157,8 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 		SpecExp propExp = (SpecExp) property;
 		Operator op = propExp.getOperator();
 		Spec[] child = propExp.getChildren();
-		BDD left = CTLAux(child[0]);
-		BDD right = (op.isBinary()) ? CTLAux(child[1]) : null;
+		BDD left = satCTL(child[0]);
+		BDD right = (op.isBinary()) ? satCTL(child[1]) : null;
 
 		// propositional
 		if (op == Operator.NOT)
@@ -188,25 +202,25 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 
 	public BDD AfX(BDD p) {
 		return EfX(p.not()).not();
-	}
+	}  	// AX p = !EX(!p)
 
 	public BDD AfF(BDD p) {
 		return EfG(p.not()).not();
-	}
+	}	// AF p = !EG !p
 
 	public BDD AfG(BDD p) {
 		return EfF(p.not()).not();
-	}
+	}	// AG p = !EF !p
 
-	public BDD AfU(BDD p, BDD q) {
+	public BDD AfU(BDD p, BDD q) {	// AU(p,q) = !EU(!q, !p & !q) & !EG !q
 		return EfU(q.id().not(), p.id().not().and(q.id().not())).not().and(
 				EfG(q.id().not()).not());
 	}
 
 	public BDD EfX(BDD p) {
-		if (this.ctlFair == null)
-			ctlFair = ce_fair_g(Env.TRUE());
-		return getDesign().pred(p.and(ctlFair));
+//		if (this.FairStates == null)
+//			FairStates = ce_fair_g(Env.TRUE());
+		return getDesign().pred(p.and(getFairStates()));
 	}
 
 	public BDD EfF(BDD p) {
@@ -235,9 +249,9 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 	}
 
 	public BDD EfU(BDD p, BDD q) {
-		if (this.ctlFair == null)
-			ctlFair = ce_fair_g(Env.TRUE());
-		return allPredsIn(p, q.id().and(ctlFair));
+//		if (this.FairStates == null)
+//			FairStates = ce_fair_g(Env.TRUE());
+		return allPredsIn(p, q.id().and(getFairStates()));
 	}
 
 	public BDD allPredsIn(BDD p, BDD q) {
@@ -247,13 +261,15 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 		return q;
 	}
 
-	public void setCtlFair(BDD ctlFair) {
-		this.ctlFair = ctlFair;
+	public void setFairStates(BDD fairStates) {
+		this.FairStates = fairStates;
 	}
 
 	// Fair states will be recalculated if it currently is null
-	public BDD getCtlFair() {
-		return this.ctlFair;
+	public BDD getFairStates() {
+		if(this.FairStates == null)
+			this.FairStates = ce_fair_g(Env.TRUE());
+		return this.FairStates;
 	}
 
 	public static boolean printable = false;

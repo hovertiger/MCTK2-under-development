@@ -15,8 +15,7 @@ import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 
-public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
-
+public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     public RTCTLKModelCheckAlg(ModuleWithStrongFairness design, Spec property) {
         super(design, property);
     }
@@ -39,9 +38,9 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
         // X - agentName's visible variables
         BDDVarSet allInvisVars = Env.globalUnprimeVarsMinus(visVars);
 
-        if(getCtlFair() == null) setCtlFair(ce_fair_g(Env.TRUE())); // take the set of fair global states as the set of fair reachable states
+        BDD FairReachStates = getFairStates().and(getReachableStates());
 
-        BDD res = this.getCtlFair().imp(p).forAll(allInvisVars);
+        BDD res = FairReachStates.imp(p).forAll(allInvisVars);
 
         return res;
     }
@@ -82,7 +81,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
         return null;
     }
 
-    public BDD RTCTLKAux(Spec property) throws ModelCheckAlgException {
+    public BDD satRTCTLK(Spec property) throws ModelCheckAlgException {
         if (property instanceof SpecBDD)
             return ((SpecBDD) property).getVal();
         // else it is SpecExp since this cannot be a Real Time CTL.
@@ -93,10 +92,10 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
         BDD left, right;
         if(op == Operator.KNOW) {
             left = null;
-            right = RTCTLKAux(child[1]);
+            right = satRTCTLK(child[1]);
         }else {
-            left = RTCTLKAux(child[0]);
-            right = (op.isBinary()) ? RTCTLKAux(child[1]) : null;
+            left = satRTCTLK(child[0]);
+            right = (op.isBinary()) ? satRTCTLK(child[1]) : null;
         }
 
         // propositional
@@ -137,7 +136,8 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
 
         // epistemic
         if (op == Operator.KNOW) {
-            String agentName = child[0].toString();
+            String agentName;
+            agentName = child[0].toString();
             return know(agentName, right);
         }
 
@@ -146,24 +146,43 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
                 "Cannot identify root operator for sub specification: " + property);
     }
 
-    @Override
-    public AlgResultI preAlgorithm() throws AlgExceptionI {
-        if (!getProperty().isRealTimeCTLKSpec())
-            throw new ModelCheckAlgException("Cannot model check non RTCTLK specification: " + getProperty());
-        return null;
+/*    @Override
+    public void modelCheck(Spec property) throws ModelCheckException, CounterExampleException, ModelCheckAlgException {
+        if (property == null)
+            throw new ModelCheckException("Cannot model check a null specification.");
+        if (!property.isRealTimeCTLKSpec())
+            throw new ModelCheckException("Cannot model check non RTCTLK specification: " + property);
+        setFairStates(null);
+
+        BDD calculateStates = satRTCTLK(property);
+        if (!getDesign().initial().imp(calculateStates).not().isZero()) {
+            throw new CounterExampleException(
+                    "\n*** Property is NOT VALID ***", null);
+        }
     }
+*/
 
     @Override
     public AlgResultI doAlgorithm() throws AlgExceptionI {
         System.out.println("model checking RTCTLK: " + getProperty());
+        if (getProperty() == null)
+            return new AlgResultString(false, "Cannot model check a null specification.");
+        if (!getProperty().isRealTimeCTLKSpec())
+            return new AlgResultString("Cannot model check non RTCTLK specification: " + getProperty());
+
+        //setFairStates(Env.TRUE());
+
 
         // could throw an exception...
-        BDD calculateStates = RTCTLKAux(getProperty());
-        if (!getDesign().initial().imp(calculateStates).not().isZero()) {
-            return new AlgResultString(false, "*** RTCTLK property is NOT VALID ***");
+        BDD calculateStates = satRTCTLK(getProperty());
+        BDD FairInitStates = getDesign().initial().and(getFairStates());
+//		if (!getDesign().initial().imp(calculateStates).not().isZero()) {
+        if(FairInitStates.imp(calculateStates).isOne()){
+            return new AlgResultString(true, "*** Property is VALID ***");
+        }else{
+            return new AlgResultString(false, "*** Property is NOT VALID ***");
         }
-        // else - everything is OK.
-        return new AlgResultString(true, "*** RTCTLK property is VALID ***");
+
     }
 
 }

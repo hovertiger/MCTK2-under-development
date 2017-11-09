@@ -255,13 +255,14 @@ public class AlgorithmRunnerMain {
 
 	public static void ctlCheck() throws IOException {
 		// System.setProperty("bdd", "buddy");
-		Env.loadModule("testcases/simple_mc.smv");
+//		Env.loadModule("testcases/simple_mc.smv");
+		Env.loadModule("testcases/dc3.smv");
 		SMVModule main = (SMVModule) Env.getModule("main");
 		main.setFullPrintingMode(true);
 		System.out.println("========= DONE Loading Modules ==========");
 
 		String to_parse = "";
-		to_parse += "SPEC\n" + "AF aa -> EF aa\n"; // 0
+/*		to_parse += "SPEC\n" + "AF aa -> EF aa\n"; // 0
 		to_parse += "SPEC\n" + "(AF (EG aa)) -> EG aa\n"; // 1
 		to_parse += "SPEC\n" + "EG aa -> (EX aa & EF aa)\n"; // 2
 		to_parse += "SPEC\n" + "EF aa\n"; // 3
@@ -283,6 +284,8 @@ public class AlgorithmRunnerMain {
 		to_parse += "SPEC\n" + "(AF (EG bb)) -> EG bb\n"; // 19 fails
 		to_parse += "SPEC\n" + "EF AG !bb\n"; // 20 fails
 		to_parse += "SPEC\n" + "EF AG bb\n"; // 21 fails
+*/
+		to_parse += "SPEC EX(coin1)";
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");
@@ -313,6 +316,7 @@ public class AlgorithmRunnerMain {
 
 		String to_parse = "SPEC !dc1.paid -> AG( (dc1 KNOW (!dc1.paid & !dc2.paid & !dc3.paid)) | " +
 				"( (dc1 KNOW (dc2.paid | dc3.paid)) & !(dc1 KNOW dc2.paid) & !(dc1 KNOW dc3.paid) ) ) \n";
+//		String to_parse = "SPEC\n EX(coin1)\n";
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");

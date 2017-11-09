@@ -1,6 +1,5 @@
 import java.io.IOException;
 
-import edu.wis.jtlv.old_lib.mc.RTCTLKModelChecker;
 import net.sf.javabdd.BDD;
 
 import edu.wis.jtlv.env.Env;
@@ -397,12 +396,12 @@ public class ModelCheckingTest {
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");
-
+/*
 		RTCTLKModelChecker checker;
 		checker = new RTCTLKModelChecker(main);
 		// model checking a module
 		checker.modelCheckStandardOutput(all_specs[0]);
-	}
+*/	}
 
 	public static void Check_test() {
 		// System.setProperty("bdd", "buddy");
