@@ -634,23 +634,11 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                 .satOne(getDesign().moduleUnprimeVars(), false);
         if(nextState.isZero()) return false;
 
-        String nextStateId;
-        Edge e;
         createdPathNumber++;
-//        if(createdPathNumber == 1) { // in this case we firstly encounter a path quantifier,
-                                            // do NOT need to construct a new path
-
-            nextStateId = createdPathNumber + "." + (stateNo + 1);
-            G.addStateNode(createdPathNumber, stateNo+1, nextState, child[0].toString());
-            e = G.addEdge("Path #" + createdPathNumber + " |= X " + child[0].toString(), stateID, nextStateId, true);
-            e.addAttribute("ui.label", e.getId());
- /*       }else{ // need to construct a new path with no. pathNo+1
-            nextStateId = (++pathNo) + "." + (stateNo+1);
-            G.addStateNode(pathNo, stateNo, nextState, child[0].toString());
-            e = G.addEdge("Path #" + pathNo + " |= X " + child[0].toString(), stateID, nextStateId, true);
-            e.addAttribute("ui.label", e.getId());
-        }
-*/
+        String nextStateId = createdPathNumber + "." + (stateNo + 1);
+        G.addStateNode(createdPathNumber, stateNo+1, nextState, child[0].toString());
+        Edge e = G.addEdge("Path #" + createdPathNumber + " |= X " + child[0].toString(), stateID, nextStateId, true);
+        e.addAttribute("ui.label", e.getId());
 
         return true;
     }
