@@ -4104,6 +4104,12 @@ public final class Env {
 
 	}
 
+	// LXY: return the state information of the BDD "state" that represents ONE state
+	public static String getOneBDDStateDetails(BDD state, String startIndent) {
+		String stateInfo = Env.toNiceString(state,startIndent);
+		if (stateInfo.substring(0,1).equals("\n")) stateInfo = stateInfo.substring(1);
+		return stateInfo;
+	}
 
 
 }

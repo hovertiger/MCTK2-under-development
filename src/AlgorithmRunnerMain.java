@@ -316,7 +316,7 @@ public class AlgorithmRunnerMain {
 
 		String to_parse = "SPEC !dc1.paid -> AG( (dc1 KNOW (!dc1.paid & !dc2.paid & !dc3.paid)) | " +
 				"( (dc1 KNOW (dc2.paid | dc3.paid)) & !(dc1 KNOW dc2.paid) & !(dc1 KNOW dc3.paid) ) ) \n";
-//		String to_parse = "SPEC\n EX(coin1)\n";
+		to_parse = "SPEC (AX coin1) | (AX coin2) | (AX coin3)\n";
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");

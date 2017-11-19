@@ -46,24 +46,51 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 	public Spec getProperty() {
 		return property;
 	}
-
 	public void setProperty(Spec property) {
 		this.property = property;
 	}
 
 	private BDD FairStates = null;
+	public void setFairStates(BDD fairStates) {
+		this.FairStates = fairStates;
+	}
+	public BDD getFairStates() {
+		if(this.FairStates == null)
+			this.FairStates = ce_fair_g(Env.TRUE());
+		return this.FairStates;
+	}
 
+	private BDD ReachableStates = null;
 	public BDD getReachableStates() {
 		if(this.ReachableStates == null)
 			this.ReachableStates = this.getDesign().reachable();
 		return ReachableStates;
 	}
-
 	public void setReachableStates(BDD reachableStates) {
 		ReachableStates = reachableStates;
 	}
 
-	private BDD ReachableStates = null;
+	public boolean isUsingReachableStates() {
+		return UsingReachableStates;
+	}
+
+	public void setUsingReachableStates(boolean usingReachableStates) {
+		UsingReachableStates = usingReachableStates;
+	}
+
+	private boolean UsingReachableStates=false;
+
+	public BDD getFairReachableStates() {
+		if(FairReachableStates == null)
+			FairReachableStates = getFairStates().and(getReachableStates());
+		return FairReachableStates;
+	}
+
+	public void setFairReachableStates(BDD fairReachableStates) {
+		FairReachableStates = fairReachableStates;
+	}
+
+	private BDD FairReachableStates = null;
 
 	public CTLModelCheckAlg(ModuleWithStrongFairness design, Spec property) {
 		super(design);
@@ -200,34 +227,47 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 						+ property);
 	}
 
-	public BDD AfX(BDD p) {
-		return EfX(p.not()).not();
-	}  	// AX p = !EX(!p)
-
-	public BDD AfF(BDD p) {
-		return EfG(p.not()).not();
-	}	// AF p = !EG !p
-
-	public BDD AfG(BDD p) {
-		return EfF(p.not()).not();
-	}	// AG p = !EF !p
-
-	public BDD AfU(BDD p, BDD q) {	// AU(p,q) = !EU(!q, !p & !q) & !EG !q
-		return EfU(q.id().not(), p.id().not().and(q.id().not())).not().and(
-				EfG(q.id().not()).not());
+	public BDD EX(BDD f) {
+		return getDesign().pred(f);
 	}
 
-	public BDD EfX(BDD p) {
-//		if (this.FairStates == null)
-//			FairStates = ce_fair_g(Env.TRUE());
-		return getDesign().pred(p.and(getFairStates()));
+	public BDD AX(BDD f) {
+		return EX(f.not()).not();
+	}  	// AX f = !EX(!f)
+
+	public BDD AfX(BDD f) {
+		return EfX(f.not()).not();
+	}  	// AX f = !EX(!f) under fairness
+
+	public BDD AfF(BDD f) {
+		return EfG(f.not()).not();
+	}	// AF f = !EG !f
+
+	public BDD AfG(BDD f) {
+		return EfF(f.not()).not();
+	}	// AG f = !EF !f
+
+	public BDD AfU(BDD f, BDD g) {	// AU(f,g) = !EU(!g, !f & !g) & !EG !g
+		return EfU(g.id().not(), f.id().not().and(g.id().not())).not().and(
+				EfG(g.id().not()).not());
 	}
 
-	public BDD EfF(BDD p) {
-		return EfU(Env.TRUE(), p);
+	public BDD EfX(BDD f) {
+		BDD fs;
+		if(isUsingReachableStates()) {
+			fs = getFairStates().and(getReachableStates());
+			return getDesign().pred(f.and(fs)).and(getReachableStates());
+		} else {
+			fs = getFairStates();
+			return getDesign().pred(f.and(fs));
+		}
 	}
 
-	public BDD EfG(BDD p) {
+	public BDD EfF(BDD f) {
+		return EfU(Env.TRUE(), f);
+	}
+
+	public BDD EfG_JTLV(BDD f) {
 		/*
 		 * Dealing with FAIRNESS
 		 * 
@@ -239,19 +279,43 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 
 		for (FixPoint<BDD> ires = new FixPoint<BDD>(); ires.advance(z);) {
 			old_z = z.id();
-			z = p.id();
+			z = f.id();
 			for (int i = design.justiceNum() - 1; i >= 0; i--) {
 				BDD oldAndJust = design.justiceAt(i).and(old_z);
-				z = z.id().and(design.pred(allPredsIn(p, oldAndJust)));
+				z = z.id().and(design.pred(allPredsIn(f, oldAndJust)));
 			}
 		}
 		return z;
 	}
 
-	public BDD EfU(BDD p, BDD q) {
-//		if (this.FairStates == null)
-//			FairStates = ce_fair_g(Env.TRUE());
-		return allPredsIn(p, q.id().and(getFairStates()));
+	public BDD EfG(BDD f) {
+		ModuleWithStrongFairness design = getDesign();
+		if(f.isOne()) {
+			if (isUsingReachableStates()) return getFairStates().and(getReachableStates());
+			else return getFairStates();
+		}
+		// f is not TRUE
+		if(isUsingReachableStates()) f = f.id().and(getReachableStates());
+
+		if(design.compassionNum()>0) return ce_fair_g(f);
+
+		// compassion is empty
+		BDD oldZ, Z = Env.TRUE();
+		for (FixPoint<BDD> ires = new FixPoint<BDD>(); ires.advance(Z);) {
+			oldZ = Z.id();
+			Z = f.id();
+			for (int i = design.justiceNum() - 1; i >= 0; i--) {
+				BDD oldAndJust = design.justiceAt(i).and(oldZ);
+				Z = Z.id().and(design.pred(allPredsIn(f, oldAndJust)));
+			}
+		}
+		return Z;
+	}
+
+	public BDD EfU(BDD f, BDD g) {
+		BDD fs;
+		if(isUsingReachableStates()) fs = getFairStates().and(getReachableStates()); else fs = getFairStates();
+		return allPredsIn(f, g.id().and(fs));
 	}
 
 	public BDD allPredsIn(BDD p, BDD q) {
@@ -261,22 +325,12 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 		return q;
 	}
 
-	public void setFairStates(BDD fairStates) {
-		this.FairStates = fairStates;
-	}
-
-	// Fair states will be recalculated if it currently is null
-	public BDD getFairStates() {
-		if(this.FairStates == null)
-			this.FairStates = ce_fair_g(Env.TRUE());
-		return this.FairStates;
-	}
 
 	public static boolean printable = false;
 
 	/**
 	 * <p>
-	 * Li-on's ce_lfair_g package <br>
+	 * Li-on's ce_fair_g package <br>
 	 * Compute all accessible states satisfying e_fair_g p
 	 * </p>
 	 * Handles both justice and compassion using Lions algorithm.
