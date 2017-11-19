@@ -488,8 +488,8 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                                     // getWitness=false and pathNo.stateNo=/=spec: get counterexample of spec
             Spec spec,              // the spec. under checked
             GraphExplainRTCTLK G,   // the graph that explains spec
-            int pathNo,             //
-            int stateNo             // pathNo is the No. of the current path, stateNo is
+            int pathNo,             // pathNo is the No. of the current path
+            int stateNo             // stateNo is the No. of the current state
     ) throws ModelCheckAlgException {
         String stateID = pathNo+"."+stateNo;
         BDD fromState = G.getNodeBDD(stateID);
@@ -615,8 +615,8 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     public boolean witnessEX(
             Spec spec,              // the spec. under checked
             GraphExplainRTCTLK G,   // the graph that explains spec
-            int pathNo,             //
-            int stateNo             // pathNo is the No. of the current path, stateNo is
+            int pathNo,             // pathNo is the No. of the current path
+            int stateNo             // stateNo is the No. of the current state
     ) throws ModelCheckAlgException {
         String stateID = pathNo+"."+stateNo;
         BDD fromState = G.getNodeBDD(stateID);
