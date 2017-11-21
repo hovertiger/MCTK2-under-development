@@ -17,6 +17,7 @@ import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
 /**
  * <p>
  * Construct a tester for a given LTL specification.
+ * test commit
  * </p>
  *
  * @author yaniv sa'ar
