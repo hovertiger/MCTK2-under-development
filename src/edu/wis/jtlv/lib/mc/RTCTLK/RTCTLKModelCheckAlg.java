@@ -568,6 +568,16 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             if(op==Operator.EX) {
                 return witnessEX(spec, G, pathNo, stateNo);
             }
+            if(op==Operator.EU) {
+                witnessEU(spec, G, pathNo, stateNo);
+            }
+            if(op==Operator.EF) {
+                SpecBDD trueSpec = new SpecBDD(Env.TRUE());
+                witnessEU(new SpecExp(Operator.EU, trueSpec, child[0]), G, pathNo, stateNo);
+            }
+            if(op==Operator.EG) {
+                witnessEG(spec, G, pathNo, stateNo);
+            }
 
         }else{ // getWitness=false: generating a counterexample of spec
             if (op == Operator.NOT) {
@@ -607,6 +617,21 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                         new SpecExp(Operator.NOT, child[0]));
                 return witnessEX(neg_spec, G, pathNo, stateNo);
             }
+            if(op==Operator.AU) { // CE(s, A[f U g]) = WIT(s, E[!g U (!f & !g)] \/ EG(!g))
+                SpecExp EGng = new SpecExp(Operator.EG,
+                        new SpecExp(Operator.NOT, child[1]));
+                SpecExp EUspec = new SpecExp(Operator.EU,
+                        new SpecExp(Operator.NOT,child[1]),
+                        new SpecExp(Operator.NOT,
+                                new SpecExp(Operator.OR, child[0], child[1])));
+                return explainRTCTLK(!getWitness, new SpecExp(Operator.OR, EGng, EUspec), G, pathNo, stateNo);
+            }
+            if(op==Operator.AF) {
+                return explainRTCTLK(!getWitness, new SpecExp(Operator.EG, new SpecExp(Operator.NOT, child[0])), G, pathNo, stateNo);
+            }
+            if(op==Operator.AG) {
+                return explainRTCTLK(!getWitness, new SpecExp(Operator.EF, new SpecExp(Operator.NOT, child[0])), G, pathNo, stateNo);
+            }
         }
         return true;
     }
@@ -639,6 +664,352 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         G.addStateNode(createdPathNumber, stateNo+1, nextState, child[0].toString());
         Edge e = G.addEdge("Path #" + createdPathNumber + " |= X " + child[0].toString(), stateID, nextStateId, true);
         e.addAttribute("ui.label", e.getId());
+
+        return true;
+    }
+
+    // generating a witness of pathNo.stateNo |= spec, where spec = E[ child[0] U child[1]]
+    public boolean witnessEU(
+            Spec spec,              // the spec. under checked
+            GraphExplainRTCTLK G,   // the graph that explains spec
+            int pathNo,             // pathNo is the No. of the current path
+            int stateNo             // stateNo is the No. of the current state
+    ) throws ModelCheckAlgException {
+        String stateID = pathNo + "." + stateNo;
+        BDD fromState = G.getNodeBDD(stateID);
+        if (fromState == null || fromState.isZero()) return false;
+
+        SpecExp origPropExp = (SpecExp) spec;
+        Operator op = origPropExp.getOperator();
+        Spec[] child = origPropExp.getChildren();
+        ModuleWithStrongFairness design = getDesign();
+
+        if (spec instanceof SpecBDD) return false;
+        if (op != Operator.EU) return false;
+
+        BDD f = satRTCTLK(child[0]);
+        BDD g = satRTCTLK(child[1]);
+
+        Vector<BDD> Z = new Vector<BDD>();
+        Z.add(g.id().and(getFairStates()));
+        if (Z.get(0).isZero()) return false;
+        if (fromState.imp(Z.get(0)).isOne()) { // fromState |= g & fair, in this case don't need construct path
+            G.addNodeNoteSatSpec(stateID, child[1].toString());
+            return true;
+        }
+
+        // the path has at least 2 states, including fromState
+        int i = 0, n = -1;
+        while (true)
+        {
+            BDD predZ = f.and(design.pred(Z.get(i))); // predZ is the frontier of Z[i]
+            if(fromState.imp(predZ).isOne()) { // fromState in predZ
+                n = i;  // n is the nextZ of fromState
+                break;
+            }
+            // fromState not in predZ
+            Z.add(predZ);
+            i++;
+        }
+
+        BDD[] path = new BDD[n+2];
+        path[0] = fromState;
+        G.addNodeNoteSatSpec(stateID, child[0].toString());
+
+        createdPathNumber++;
+
+        String nid1, nid2;
+        Edge e;
+        for(i=1; i<=n+1; i++) {
+            path[i] = design.succ(path[i - 1]).and(Z.get(n + 1 - i)).satOne(getDesign().moduleUnprimeVars(), false);
+
+            if(i<=n) G.addStateNode(createdPathNumber, i, path[i], child[0].toString());
+            else G.addStateNode(createdPathNumber, i, path[i], child[1].toString());
+
+            if(i==1) {
+                nid1=stateID; nid2=createdPathNumber+".1";
+                e = G.addEdge("Path #" + createdPathNumber + " |= " + child[0].toString() + " U " + child[1].toString(), nid1, nid2, true);
+                e.addAttribute("ui.label", e.getId());
+            }else{
+                nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                //e.addAttribute("ui.label", e.getId());
+            }
+
+        }
+
+
+        return true;
+    }
+
+    /**
+     * <p>
+     * This is essentially a variant of the algorithm "Witness", from the article: Yonit Ketsen,
+     * Amir Pnueli, Li-on Raviv, Elad Shahar, "Model checking with strong
+     * fairness".<br>
+     * The line numbers are the line numbers of that algorithm. Read the article
+     * for further details.
+     * </p>
+     *
+     */
+    public boolean witnessEG(
+            Spec spec,              // the spec. under checked
+            GraphExplainRTCTLK G,   // the graph that explains spec
+            int pathNo,             // pathNo is the No. of the current path
+            int stateNo             // stateNo is the No. of the current state
+    ) throws ModelCheckAlgException {
+        String stateID = pathNo + "." + stateNo;
+        BDD fromState = G.getNodeBDD(stateID);
+        if (fromState == null || fromState.isZero()) return false;
+
+        SpecExp origPropExp = (SpecExp) spec;
+        Operator op = origPropExp.getOperator();
+        Spec[] child = origPropExp.getChildren();
+        ModuleWithStrongFairness design = getDesign();
+
+        if (spec instanceof SpecBDD) return false;
+        if (op != Operator.EG) return false;
+
+        BDD f = satRTCTLK(child[0]); // spec = EG f
+        if(f==null) return false;
+        BDD feasible = ce_fair_g(f).and(getReachableStates()); // feasible is the set of states satisfying f & fair
+        if(fromState.and(feasible).isZero()) // fromState not in feasible
+            return false;
+
+
+        BDD temp, fulfill;
+        // saving to the previous restriction state
+        Vector<BDD> trans_restrictions = design.getAllTransRestrictions();
+
+        // Lines 1-2 are handled by the caller. ("verify")
+
+        // Line 3
+        design.restrictTrans(feasible.and(Env.prime(feasible)));
+
+        // Line 4
+        // BDD s = feasible.satOne(design.moduleUnprimeVars(), false); // commented by LXY
+        BDD s = fromState; // LXY: compute feas as the set of states in MSCS's from fromState
+        // BDD s = feasible.satOne();
+
+        // Lines 5-6
+        while (true) {
+            temp = design.allSucc(s).and(
+                    design.allPred(s).not());
+            if (!temp.isZero())
+                s = temp.satOne(design.moduleUnprimeVars(), false);
+                // s = temp.satOne();
+            else
+                break;
+        }
+        // Lines 5-6 : better version.
+        // temp = tester.allSucc(s).and(tester.allPred(s).not());
+        // while (!temp.isZero()){
+        // s = temp.satOne(tester.moduleUnprimeVars(), false);
+        // temp = tester.allSucc(s).and(tester.allPred(s).not());
+        // }
+
+        // Line 7: Compute MSCS containing s.
+        BDD feas = design.allSucc(s); // LXY: feas is the set of states in MSCS's
+
+        // Line 9
+        // Find prefix - shortest path from initial state to subgraph feas.
+        // design.removeAllTransRestrictions();  // LXY: keep each transition is restricted by feasible*feasible'
+        Vector<BDD> prefix = new Vector<BDD>();
+        BDD[] path = design.shortestPath(fromState, feas);
+        String prefix_last_nodeId;
+        String pred_nid, cur_nid;
+
+        createdPathNumber++;
+        if (path.length >= 1) prefix.add(path[0]);
+        if(path.length<=1) { // only include one state: fromState
+            G.addNodeNoteSatSpec(stateID, child[0].toString());
+            prefix_last_nodeId=stateID;
+        }else { //path.length > 1
+            pred_nid = stateID;
+            G.addNodeNoteSatSpec(stateID, child[0].toString());
+            for (int i = 1; i < path.length; i++) {
+                cur_nid = createdPathNumber + "." + i;
+                G.addStateNode(createdPathNumber, i, path[i], child[0].toString());
+
+                Edge e;
+                if (i == 1) {
+                    e = G.addEdge("Path #" + createdPathNumber + " |= G " + child[0].toString(), pred_nid, cur_nid, true);
+                    e.addAttribute("ui.label", e.getId());
+                } else {
+                    e = G.addEdge(pred_nid + "->" + cur_nid, pred_nid, cur_nid, true);
+                }
+
+                pred_nid = cur_nid;
+
+                prefix.add(path[i]);
+            }
+            prefix_last_nodeId = pred_nid; // prefix_last_nodeId is the first state in period
+        }
+
+        // //// Calculate "_period".
+
+        // Line 8: This has to come after line 9, because the way TS.tlv
+        // implements restriction.
+        design.restrictTrans(feas.and(Env.prime(feas)));
+
+        // Line 10
+        Vector<BDD> period = new Vector<BDD>();
+        period.add(prefix.lastElement());
+
+        // Since the last item of the prefix is the first item of
+        // the period we don't need to print the last item of the prefix.
+        temp = prefix.remove(prefix.size() - 1);
+
+        // Lines 11-13
+        if (design instanceof ModuleWithWeakFairness) {
+            ModuleWithWeakFairness weakDes = (ModuleWithWeakFairness) design;
+            for (int i = 0; i < weakDes.justiceNum(); i++) {
+                // Line 12, check if j[i] already satisfied
+                fulfill = Env.FALSE();
+                for (int j = 0; j < period.size(); j++) {
+                    fulfill = period.elementAt(j).and(weakDes.justiceAt(i))
+                            .satOne(weakDes.moduleUnprimeVars(), false);
+                    // fulfill =
+                    // period.elementAt(j).and(design.justiceAt(i)).satOne();
+                    if (!fulfill.isZero())
+                        break;
+                }
+                // Line 13
+                if (fulfill.isZero()) {
+                    BDD from = period.lastElement();
+                    BDD to = feas.and(weakDes.justiceAt(i));
+                    path = weakDes.shortestPath(from, to);
+                    // eliminate the edge since from is already in period
+                    for (int j = 1; j < path.length; j++)
+                        period.add(path[j]);
+                }
+            }
+        }
+        // Lines 14-16
+        if (design instanceof ModuleWithStrongFairness) {
+            ModuleWithStrongFairness strongDes = (ModuleWithStrongFairness) design;
+            for (int i = 0; i < strongDes.compassionNum(); i++) {
+                if (!feas.and(strongDes.pCompassionAt(i)).isZero()) {
+                    // check if C requirement i is already satisfied
+                    fulfill = Env.FALSE();
+                    for (int j = 0; j < period.size(); j++) {
+                        fulfill = period.elementAt(j).and(
+                                strongDes.qCompassionAt(i)).satOne(
+                                strongDes.moduleUnprimeVars(), false);
+                        // fulfill =
+                        // period.elementAt(j).and(design.qCompassionAt(i)).satOne();
+                        if (!fulfill.isZero())
+                            break;
+                    }
+
+                    if (fulfill.isZero()) {
+                        BDD from = period.lastElement();
+                        BDD to = feas.and(strongDes.qCompassionAt(i));
+                        path = strongDes.shortestPath(from, to);
+                        // eliminate the edge since from is already in period
+                        for (int j = 1; j < path.length; j++)
+                            period.add(path[j]);
+                    }
+                }
+            }
+        }
+
+        //
+        // Close cycle
+        //
+
+        // A period of length 1 may be fair, but it might be the case that
+        // period[1] is not a successor of itself. The routine path
+        // will add nothing. To solve this
+        // case we add another state to _period, now it will be OK since
+        // period[1] and period[n] will not be equal.
+
+        // Line 17, but modified
+        if (!period.firstElement().and(period.lastElement()).isZero()) {
+            // The first and last states are already equal, so we do not
+            // need to extend them to complete a cycle, unless period is
+            // a degenerate case of length = 1, which is not a successor of
+            // self.
+            if (period.size() == 1) {
+                // Check if _period[1] is a successor of itself.
+                if (period.firstElement().and(
+                        design.succ(period.firstElement())).isZero()) {
+                    // period[1] is not a successor of itself: Add state to
+                    // period.
+                    period
+                            .add(design
+                                    .succ(period.firstElement())
+                                    .satOne(
+                                            design
+                                                    .moduleUnprimeVars(), false));
+                    // period.add(design.succ(period.firstElement()).satOne());
+
+                    // Close cycle.
+                    BDD from = period.lastElement();
+                    BDD to = period.firstElement();
+                    path = design.shortestPath(from, to);
+                    // eliminate the edges since from and to are already in
+                    // period
+                    for (int i = 1; i < path.length - 1; i++)
+                        period.add(path[i]);
+                }
+            }
+        } else {
+            BDD from = period.lastElement();
+            BDD to = period.firstElement();
+            path = design.shortestPath(from, to);
+            // eliminate the edges since from and to are already in period
+            for (int i = 1; i < path.length - 1; i++)
+                period.add(path[i]);
+        }
+
+        // LXY: Now period = { period[0]=prefix_last_node, ..., period[length-1]}, and
+        // there is a transition from period[length-1] to period[0]
+        pred_nid=prefix_last_nodeId;
+        int state_idx = G.getNodeStateNo(prefix_last_nodeId)+1;
+        for (int i=1; i<=period.size()-1; i++) {
+            cur_nid=createdPathNumber+"."+state_idx;
+            G.addStateNode(createdPathNumber,  state_idx, period.get(i), child[0].toString());
+
+            G.addEdge(pred_nid+"->"+cur_nid, pred_nid, cur_nid, true);
+
+            state_idx++;
+            pred_nid=cur_nid;
+        }
+        G.addEdge(pred_nid+"->"+prefix_last_nodeId, pred_nid, prefix_last_nodeId, true); // close period
+
+
+        // Yaniv - the last one is for closing the cycle. He won't be printed.
+        period.add(period.firstElement());
+
+        // There is no need to have the last state of the period
+        // in the counterexample since it already appears in _period[1]
+        // if (period.size() > 1)
+        // temp = period.remove(period.size() -1);
+
+        // Copy prefix and period.
+        prefix.addAll(period);
+        BDD[] returned_path = new BDD[prefix.size()];
+        prefix.toArray(returned_path);
+
+/*
+        // Strip auxiliary variables introduced by tester.
+        if (relevantVars != null) {
+            BDDVarSet extraVars = Env.globalVarsMinus(relevantVars);
+            // BDDVarSet extraVars = Env.globalVarsMinus(relevantVars);
+            for (int i = 0; i < returned_path.length; i++) {
+                returned_path[i] = returned_path[i].satOne(relevantVars, false)
+                        .exist(extraVars);
+            }
+        }
+*/
+
+        // returning to the previous restriction state
+        design.setAllTransRestrictions(trans_restrictions);
+
+        // the construction of path done
+        //return returned_path;
+
 
         return true;
     }
@@ -680,13 +1051,13 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             case AX:
                 return LS_witnessEX(s, left.not());
             case AG:
-                return witnessEU(s,Env.TRUE(),left.not());
+                return LS_witnessEU(s,Env.TRUE(),left.not());
             case AF:
-                return witnessEG(s,left.not());
+                return LS_witnessEG(s,left.not());
             case AU:
-                BDD[] EU= witnessEU(s,right.not(),left.not().and(right.not()));
+                BDD[] EU= LS_witnessEU(s,right.not(),left.not().and(right.not()));
                 if (EU==null){
-                    BDD[] EG= witnessEG(s,right.not());
+                    BDD[] EG= LS_witnessEG(s,right.not());
                     return EG;}
                 return EU;
             case ABF:
@@ -731,7 +1102,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         return   returned_path;
     }
 
-    public BDD[] witnessEU(BDD s, BDD f, BDD g) {
+    public BDD[] LS_witnessEU(BDD s, BDD f, BDD g) {
         BDD[] Z=new BDD[100];
         Z[0]=g.id().and(getDesign().feasible());
         if (Z[0].equals(Env.FALSE())) return null;
@@ -755,7 +1126,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             returned_path[i]=getDesign().succ(returned_path[i-1]).and(Z[n-i]).satOne(getDesign().moduleUnprimeVars(),false);
         return returned_path;
     }
-    public BDD[] witnessEG(BDD s, BDD f) {
+    public BDD[] LS_witnessEG(BDD s, BDD f) {
         BDD feasible=getDesign().feasible().and(f);
         BDD temp, fulfill;
         // saving to the previous restriction state
@@ -936,6 +1307,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         getDesign().setAllTransRestrictions(trans_restrictions);
         return returned_path;
     }
+
     public BDD[] witnessEBU(BDD s, int from, int to, BDD f, BDD g){
         BDD[] Z = new BDD[100];
         int m=0,n=from;

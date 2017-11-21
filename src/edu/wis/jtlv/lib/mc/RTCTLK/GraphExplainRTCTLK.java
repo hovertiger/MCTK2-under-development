@@ -50,6 +50,16 @@ public class GraphExplainRTCTLK extends MultiGraph {
         return true;
     }
 
+    public int getNodePathNo(String nodeID) {
+        Node n = getNode(nodeID); if(n==null) return -1;
+        return n.getAttribute("pathNo");
+    }
+
+    public int getNodeStateNo(String nodeID) {
+        Node n = getNode(nodeID); if(n==null) return -1;
+        return n.getAttribute("stateNo");
+    }
+
     public BDD getNodeBDD(String nodeID) {
         Node n = getNode(nodeID); if(n==null) return null;
         return n.getAttribute("BDD");

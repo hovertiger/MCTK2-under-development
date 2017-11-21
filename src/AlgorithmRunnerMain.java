@@ -309,14 +309,18 @@ public class AlgorithmRunnerMain {
 
 	public static void rtctlkCheck() throws IOException {
 		// System.setProperty("bdd", "buddy");
-		Env.loadModule("testcases/dc3.smv");
+		Env.loadModule("testcases/mwOven.smv");
 		SMVModule main = (SMVModule) Env.getModule("main");
 		main.setFullPrintingMode(true);
 		System.out.println("========= DONE Loading Modules ==========");
 
 		String to_parse = "SPEC !dc1.paid -> AG( (dc1 KNOW (!dc1.paid & !dc2.paid & !dc3.paid)) | " +
 				"( (dc1 KNOW (dc2.paid | dc3.paid)) & !(dc1 KNOW dc2.paid) & !(dc1 KNOW dc3.paid) ) ) \n";
-		to_parse = "SPEC (AX coin1) | (AX coin2) | (AX coin3)\n";
+//		to_parse = "SPEC (AX coin1) | (AX coin2) | (AX coin3)\n";
+//		to_parse = "SPEC !E[TRUE U coin1]";
+//		to_parse = "SPEC !E[TRUE U (start & close & heat & !error)]";
+//		to_parse = "SPEC !EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )";
+		to_parse = "SPEC !EG !heat";
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");

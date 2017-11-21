@@ -255,7 +255,7 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 	public BDD EfX(BDD f) {
 		BDD fs;
 		if(isUsingReachableStates()) {
-			fs = getFairStates().and(getReachableStates());
+			fs = getFairReachableStates();
 			return getDesign().pred(f.and(fs)).and(getReachableStates());
 		} else {
 			fs = getFairStates();
@@ -291,7 +291,7 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 	public BDD EfG(BDD f) {
 		ModuleWithStrongFairness design = getDesign();
 		if(f.isOne()) {
-			if (isUsingReachableStates()) return getFairStates().and(getReachableStates());
+			if (isUsingReachableStates()) return getFairReachableStates();
 			else return getFairStates();
 		}
 		// f is not TRUE
@@ -314,7 +314,7 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 
 	public BDD EfU(BDD f, BDD g) {
 		BDD fs;
-		if(isUsingReachableStates()) fs = getFairStates().and(getReachableStates()); else fs = getFairStates();
+		if(isUsingReachableStates()) fs = getFairReachableStates(); else fs = getFairStates();
 		return allPredsIn(f, g.id().and(fs));
 	}
 
