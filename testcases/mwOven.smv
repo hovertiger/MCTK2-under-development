@@ -29,3 +29,5 @@ TRANS
     (s6 & next(s7)) |
     (s7 & next(s4))
     ;
+
+--JUSTICE start & close & !error;

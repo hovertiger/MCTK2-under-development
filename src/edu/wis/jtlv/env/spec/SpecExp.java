@@ -273,6 +273,15 @@ public class SpecExp implements Spec {
 		return this.theOp.isTemporalOp();
 	}
 
+	public boolean hasEpistemicOperators() {
+		// if one of my elements is epistemic.
+		for (Spec s : this.getChildren())
+			if (s.hasEpistemicOperators())
+				return true;
+		// or I'm epistemic.
+		return this.theOp.isEpistemicOp();
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 

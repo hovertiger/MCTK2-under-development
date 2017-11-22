@@ -1,52 +1,88 @@
 package edu.wis.jtlv.lib.mc.RTCTLK;
 
+import com.sun.deploy.util.OrderedHashSet;
 import edu.wis.jtlv.env.Env;
+import edu.wis.jtlv.env.spec.Spec;
+import edu.wis.jtlv.env.spec.SpecBDD;
 import net.sf.javabdd.BDD;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
+import sun.security.util.Cache;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Vector;
 
 public class GraphExplainRTCTLK extends MultiGraph {
 
-    public GraphExplainRTCTLK(String id, boolean strictChecking, boolean autoCreate, int initialNodeCapacity, int initialEdgeCapacity) {
+    public RTCTLKModelCheckAlg getChecker() {
+        return checker;
+    }
+
+    public void setChecker(RTCTLKModelCheckAlg checker) {
+        this.checker = checker;
+    }
+
+    private RTCTLKModelCheckAlg checker;
+
+    public GraphExplainRTCTLK(String id, boolean strictChecking, boolean autoCreate, int initialNodeCapacity, int initialEdgeCapacity, RTCTLKModelCheckAlg checker) {
         super(id, strictChecking, autoCreate, initialNodeCapacity, initialEdgeCapacity);
+        this.checker = checker;
     }
 
-    public GraphExplainRTCTLK(String id) {
+    public GraphExplainRTCTLK(String id, RTCTLKModelCheckAlg checker) {
         super(id);
+        this.checker = checker;
     }
 
-    public Node addStateNode(int pathNo, int stateNo, BDD stateBDD, String satSpec) {
+    public Node addStateNode(int pathNo, int stateNo, BDD stateBDD, Spec satSpec) {
         String stateId = pathNo+"."+stateNo;
         if(stateId==null || stateId.equals("")) return null;
         Node n = addNode(stateId);
         if(n==null) return null;
+        n.addAttribute("ui.label", n.getId());
 
         n.setAttribute("pathNo", pathNo);
         n.setAttribute("stateNo", stateNo);
         n.setAttribute("BDD", stateBDD);
         n.setAttribute("note_stateDetails", Env.getOneBDDStateDetails(stateBDD,"\n"));
-        n.setAttribute("note_satSpec", satSpec);
+
+        Queue<Spec> Q = new LinkedList<Spec>();
+        if(satSpec!=null) {
+            if(satSpec.hasTemporalOperators() || satSpec.hasEpistemicOperators())
+                Q.offer(satSpec);
+            n.setAttribute("note_satSpec", satSpec.toString());
+        }else
+            n.setAttribute("note_satSpec", "");
+
+        n.setAttribute("queue_satSpec", Q);
+
         return n;
     }
 
-    public boolean setNodeBDD(String nodeID, BDD stateBDD) {
-        Node n = getNode(nodeID); if(n==null) return false;
+    public boolean setNodeBDD(String nodeId, BDD stateBDD) {
+        Node n = getNode(nodeId); if(n==null) return false;
         n.setAttribute("BDD", stateBDD);
         n.setAttribute("note_stateDetails", Env.getOneBDDStateDetails(stateBDD,"\n"));
         return true;
     }
 
-    public boolean setNodeNoteSatSpec(String nodeID, String satSpec) {
-        Node n = getNode(nodeID); if(n==null) return false;
-        n.setAttribute("note_satSpec", satSpec);
-        return true;
-    }
+    public boolean addNodeSatSpec(String nodeId, Spec satSpec) {
+        if(nodeId.equals("")) return false;
+        Node n = getNode(nodeId); if(n==null) return false;
 
-    public boolean addNodeNoteSatSpec(String nodeID, String satSpec) {
-        Node n = getNode(nodeID); if(n==null) return false;
-        String oldSatSpec = getNodeSatSpec(nodeID);
-        n.setAttribute("note_satSpec",  oldSatSpec.equals("") ? satSpec : oldSatSpec + ", \n"+satSpec);
+        Queue<Spec> Q = n.getAttribute("queue_satSpec");
+        if(satSpec!=null) {
+            if(satSpec.hasTemporalOperators() || satSpec.hasEpistemicOperators())
+                Q.offer(satSpec);
+
+            String oldSatSpec = getNodeSatSpec(nodeId);
+            n.setAttribute("note_satSpec",  oldSatSpec.equals("") ? satSpec.toString() : oldSatSpec + ", \n"+satSpec.toString());
+        }
+
+        n.setAttribute("queue_satSpec", Q);
         return true;
     }
 

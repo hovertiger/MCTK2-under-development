@@ -115,6 +115,8 @@ public interface Spec {
 	 */
 	public abstract boolean hasTemporalOperators();
 
+	public abstract boolean hasEpistemicOperators();
+
 	/**
 	 * <p>
 	 * Get the domain of this specification.

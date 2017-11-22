@@ -1,5 +1,6 @@
 package edu.wis.jtlv.lib.mc.RTCTLK;
 
+import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
@@ -126,6 +127,12 @@ public class ViewerExplainRTCTLK implements ViewerListener {
         System.out.println("-------- State "+id+" --------");
         System.out.println("[satisfies " + graph.getNodeSatSpec(id) + "]");
         System.out.println( graph.getNodeStateDetails(id));
+
+        try {
+            graph.getChecker().explainOneGraphNode(graph, id);
+        } catch (ModelCheckAlgException e) {
+            e.printStackTrace();
+        }
     }
 
     public void buttonReleased(String id) {

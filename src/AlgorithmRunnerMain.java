@@ -320,7 +320,9 @@ public class AlgorithmRunnerMain {
 //		to_parse = "SPEC !E[TRUE U coin1]";
 //		to_parse = "SPEC !E[TRUE U (start & close & heat & !error)]";
 //		to_parse = "SPEC !EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )";
-		to_parse = "SPEC !EG !heat";
+//		to_parse = "SPEC !EG !heat";
+//		to_parse = "SPEC (!EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )) | !EG !heat";
+		to_parse = "SPEC AG(start -> AF heat)";
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");

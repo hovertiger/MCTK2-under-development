@@ -94,6 +94,10 @@ public class SpecAgentIdentifier implements Spec {
 		return false;
 	}
 
+	public boolean hasEpistemicOperators() {
+		return false;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

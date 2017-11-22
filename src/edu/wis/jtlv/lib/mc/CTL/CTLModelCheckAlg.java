@@ -306,8 +306,9 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 			Z = f.id();
 			for (int i = design.justiceNum() - 1; i >= 0; i--) {
 				BDD oldAndJust = design.justiceAt(i).and(oldZ);
-				Z = Z.id().and(design.pred(allPredsIn(f, oldAndJust)));
+				Z = Z.id().and(allPredsIn(f, oldAndJust));
 			}
+			Z = design.pred(Z.id());
 		}
 		return Z;
 	}

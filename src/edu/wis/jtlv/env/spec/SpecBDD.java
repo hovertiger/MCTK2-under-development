@@ -154,6 +154,10 @@ public class SpecBDD implements Spec {
 		return false;
 	}
 
+	public boolean hasEpistemicOperators() {
+		return false;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
