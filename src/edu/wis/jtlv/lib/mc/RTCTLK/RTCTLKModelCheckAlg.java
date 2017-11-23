@@ -26,6 +26,8 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                                 // 2: trunk and the branch at level 2
                                 // i: trunk and all branches at the levels not larger than i
 
+    private static int createdEpistemicEdgeNumber=0;
+
     @Override
     public AlgResultI preAlgorithm() throws AlgExceptionI {
         if (!getProperty().isRealTimeCTLKSpec())
@@ -57,10 +59,33 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         if(agentInfo==null) throw new ModelCheckAlgException("Cannot find the information of agent " + agentName + ".");
 
         BDDVarSet visVars = agentInfo.getVisVars_BDDVarSet();
-        // X - agentName's visible variables
+        // V - agentName's visible variables
         BDDVarSet allInvisVars = Env.globalUnprimeVarsMinus(visVars);
 
         BDD res = getFairReachableStates().imp(p).forAll(allInvisVars);
+
+        return res;
+    }
+
+    // s |= agentName NKNOW p : agentName consider that it is possible that p holds on s
+    // forall(system_global_variables - agentName's visible_variables).((global_reachable_states & fair_states) -> p)
+    public BDD nknow(String agentName, BDD p) throws ModelCheckAlgException {
+        if(agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
+
+        int idx_dot = agentName.indexOf('.');
+        if(idx_dot==-1)
+            agentName = "main." + agentName;
+        else if (!agentName.substring(0, idx_dot).equals("main."))
+            throw new ModelCheckAlgException("The agent's name " + agentName + " is illegal.");
+
+        SMVAgentInfo agentInfo = Env.getAll_agent_modules().get(agentName);
+        if(agentInfo==null) throw new ModelCheckAlgException("Cannot find the information of agent " + agentName + ".");
+
+        BDDVarSet visVars = agentInfo.getVisVars_BDDVarSet();
+        // V - agentName's visible variables
+        BDDVarSet allInvisVars = Env.globalUnprimeVarsMinus(visVars);
+
+        BDD res = getFairReachableStates().and(p).exist(allInvisVars);
 
         return res;
     }
@@ -541,7 +566,15 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
         if(getWitness) { // getWitness=true: generating a witness of spec
             if (op == Operator.NOT) {
-               return explainRTCTLK(!getWitness, child[0], G, pathNo, stateNo);
+                if(!(child[0] instanceof SpecBDD)) {
+                    SpecExp leftExp = (SpecExp) child[0];
+                    if(leftExp.getOperator() == Operator.KNOW) {
+                        Spec knowChild[] = leftExp.getChildren();
+                        SpecAgentIdentifier agentId = (SpecAgentIdentifier) knowChild[0];
+                        return witnessNKnow(agentId.toString(), new SpecExp(Operator.NOT, knowChild[1]), G, pathNo, stateNo);
+                    }
+                }
+                return explainRTCTLK(!getWitness, child[0], G, pathNo, stateNo);
             }
             if (op == Operator.AND) {
                 boolean ret1=true, ret2=true;
@@ -638,6 +671,9 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             }
             if(op==Operator.AG) {
                 return explainRTCTLK(!getWitness, new SpecExp(Operator.EF, new SpecExp(Operator.NOT, child[0])), G, pathNo, stateNo);
+            }
+            if(op==Operator.KNOW) {
+                return explainRTCTLK(!getWitness, new SpecExp(Operator.NOT, spec), G, pathNo, stateNo);
             }
         }
         return true;
@@ -1035,6 +1071,96 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
         return true;
     }
+
+    // generating a witness for pathNo.stateNo |= agentId NKnow spec
+    public boolean witnessNKnow(
+            String agentId,         // the name of the agent
+            Spec spec,              // the spec. under checked
+            GraphExplainRTCTLK G,   // the graph that explains spec
+            int pathNo,             // pathNo is the No. of the current path
+            int stateNo             // stateNo is the No. of the current state
+    ) throws ModelCheckAlgException {
+        String stateId = pathNo+"."+stateNo;
+        BDD fromState = G.getNodeBDD(stateId);
+        if(fromState==null || fromState.isZero()) return false;
+
+        BDD specStates = satRTCTLK(spec).and(getFairReachableStates());
+        if(specStates==null || specStates.isZero()) return false;
+
+        if(fromState.imp(specStates).isOne()) { // fromState in specStates, don't need to extend the witness
+            G.addNodeSatSpec(stateId, spec);
+            return true;
+        }
+
+        // there exists another state s', agentId consider possible from fromState, satisfies spec
+        // (1) generating a path to s', the starting state is one of the states in INIT or the current states within G
+        // (2) create an epistemic edge between stateId and s'
+        BDD nknowStates = nknow(agentId, specStates);
+
+        BDD nknowSpecStates_neg_s0 = nknowStates.and(fromState.not()).and(getFairReachableStates());
+        if(nknowSpecStates_neg_s0.isZero()) return false;
+
+        //(1)
+        //(1.1) collect all states within G into startStates
+        BDD startStates = Env.FALSE();
+        for (Node n : G) {
+            BDD state = n.getAttribute("BDD");
+            startStates = specStates.id().or(state);
+        }
+        startStates = startStates.id().or(getDesign().initial()).and(getFairReachableStates());
+        if(startStates==null || startStates.isZero()) return false;
+
+        //(1.2) generating the path
+        BDD[] path = getDesign().shortestPath(startStates, nknowSpecStates_neg_s0);
+        if(path.length<=0) return false;
+        String fromNodeId = null;
+        for (Node n : G) {
+            BDD bdd = n.getAttribute("BDD");
+            if(path[0].equals(bdd)) {
+                fromNodeId=n.getId();
+                break;
+            }
+        }
+
+        createdPathNumber++;
+        if(fromNodeId==null) { // the starting state path[0] is not in G and must be another initial state
+            G.addStateNode(createdPathNumber, 0, path[0], null);
+            fromNodeId = createdPathNumber + ".0";
+        }
+        // generating the path: fromNodeId(in G) -> path[1] -> ... -> path[length-1]
+        String pred_nodeId = fromNodeId, cur_nodeId;
+        for(int i=1; i<path.length; i++) {
+            if(i==path.length-1)
+                G.addStateNode(createdPathNumber, i, path[i], spec);
+            else
+                G.addStateNode(createdPathNumber, i, path[i], null);
+
+            cur_nodeId = createdPathNumber+"."+i;
+            G.addEdge(pred_nodeId+"->"+cur_nodeId, pred_nodeId, cur_nodeId, true);
+
+            pred_nodeId = cur_nodeId;
+        }
+
+        //(2)
+        Edge e = G.addEdge("Agent " + agentId + " [" + (++createdEpistemicEdgeNumber) + "]", stateId, pred_nodeId, false);
+        e.addAttribute("ui.label", "Agent " + agentId);
+
+        /*
+
+
+        BDD nextState = getDesign().succ(fromState).and(satLeft).and(getFairReachableStates())
+                .satOne(getDesign().moduleUnprimeVars(), false);
+        if(nextState.isZero()) return false;
+
+        createdPathNumber++;
+        String nextStateId = createdPathNumber + "." + (stateNo + 1);
+        G.addStateNode(createdPathNumber, stateNo+1, nextState, child[0]);
+        Edge e = G.addEdge("Path #" + createdPathNumber + " |= X " + child[0], stateId, nextStateId, true);
+        e.addAttribute("ui.label", e.getId());
+*/
+        return true;
+    }
+
 
     public boolean explainOneGraphNode(GraphExplainRTCTLK G, String nodeId) throws ModelCheckAlgException {
         Node n = G.getNode(nodeId); if(n==null) return false;
