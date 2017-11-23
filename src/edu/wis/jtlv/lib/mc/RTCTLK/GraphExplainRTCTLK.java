@@ -69,13 +69,13 @@ public class GraphExplainRTCTLK extends MultiGraph {
         return true;
     }
 
-    public boolean addNodeSatSpec(String nodeId, Spec satSpec) {
+    public boolean addNodeSatSpec(String nodeId, Spec satSpec, boolean explainSatSpec) {
         if(nodeId.equals("")) return false;
         Node n = getNode(nodeId); if(n==null) return false;
 
         Queue<Spec> Q = n.getAttribute("queue_satSpec");
         if(satSpec!=null) {
-            if(satSpec.hasTemporalOperators() || satSpec.hasEpistemicOperators())
+            if((satSpec.hasTemporalOperators() || satSpec.hasEpistemicOperators()) && explainSatSpec)
                 Q.offer(satSpec);
 
             String oldSatSpec = getNodeSatSpec(nodeId);

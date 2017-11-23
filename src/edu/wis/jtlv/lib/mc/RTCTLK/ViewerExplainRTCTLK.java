@@ -72,18 +72,22 @@ public class ViewerExplainRTCTLK implements ViewerListener {
                 "shape: circle; " +
                 "\tsize: 40px;\n" +
 //                "size-mode: fit;" +
-                "\tfill-color: green;\n" +
+                "\tfill-color: greenyellow;\n" +
                 "\tz-index: 10;\n" +
                 "text-size: 11;" +
                 "}\n" +
+                "node.initialState {fill-color: green;} " +
+                "node.epistemicState {fill-color: gold;} " +
                 "\n" +
                 "edge {\n" +
                 "size: 2px; " +
                 "\tshape: line;\n" +
-                "\tfill-color: blue;\n" +
+                "\tfill-color: limegreen;\n" +
                 "\tarrow-size: 8px, 6px;\n" +
                 "\tarrow-shape: arrow;\n" +
-                "}");
+                "}" +
+                "edge.epistemicEdge { fill-color: gold; shape: cubic-curve;}"
+        );
 
         Viewer viewer = graph.display();
 
