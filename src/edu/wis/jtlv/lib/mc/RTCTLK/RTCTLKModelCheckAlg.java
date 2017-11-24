@@ -1169,8 +1169,8 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         }
 
         //(2)
-        Edge e = G.addEdge("Agent " + agentId + " [" + (++createdEpistemicEdgeNumber) + "]", stateId, pred_nodeId, false);
-        e.addAttribute("ui.label", "Agent " + agentId);
+        Edge e = G.addEdge("Agent " + simplifySpecString(agentId,true) + " [" + (++createdEpistemicEdgeNumber) + "]", stateId, pred_nodeId, false);
+        e.addAttribute("ui.label", "Agent " + simplifySpecString(agentId,true));
         e.setAttribute("ui.class", "epistemicEdge");
 
         /*
