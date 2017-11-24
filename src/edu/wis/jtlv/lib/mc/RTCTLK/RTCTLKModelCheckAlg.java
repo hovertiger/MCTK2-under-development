@@ -15,6 +15,7 @@ import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
+import org.graphstream.ui.spriteManager.SpriteManager;
 
 import java.util.*;
 
@@ -444,7 +445,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         if(fairInit_unSat.isZero()){
             return new AlgResultString(true, "*** Property is VALID ***");
         }else{
-            GraphExplainRTCTLK G = new GraphExplainRTCTLK("A counterexample of " + origSpec.toString(), this);
+            GraphExplainRTCTLK G = new GraphExplainRTCTLK("A counterexample of " + simplifySpecString(origSpec.toString(),false), this);
             G.addAttribute("ui.label",G.getId());
 
             boolean ok = mainExplainRTCTLK(origSpec, fairInit_unSat, G);
@@ -497,6 +498,14 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         return vars;
     }
 
+    public String simplifySpecString(String spec, boolean delTrue) {
+        String res = spec.replaceAll("main.", "");
+        if(delTrue){
+            res = res.replace("#[TRUE], \n", "");
+            res = res.replace("#[TRUE]", "");
+        }
+        return res;
+    }
 
     public boolean mainExplainRTCTLK(
         Spec spec,                          // the spec. under checked
@@ -773,7 +782,8 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
             if(i==1) {
                 nid1=stateID; nid2=createdPathNumber+".1";
-                e = G.addEdge("Path #" + createdPathNumber + " |= " + child[0].toString() + " U " + child[1].toString(), nid1, nid2, true);
+                e = G.addEdge("Path #" + createdPathNumber + " |= " + simplifySpecString(child[0].toString(),true) + " U " +
+                        simplifySpecString(child[1].toString(),true), nid1, nid2, true);
                 e.addAttribute("ui.label", e.getId());
             }else{
                 nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
@@ -881,7 +891,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                 G.addStateNode(createdPathNumber, i, path[i], child[0]);
 
                 if (NotYetCreateEdge) {
-                    e = G.addEdge("Path #" + createdPathNumber + " |= G " + child[0].toString(), pred_nid, cur_nid, true);
+                    e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),true), pred_nid, cur_nid, true);
                     e.addAttribute("ui.label", e.getId());
                     NotYetCreateEdge = false;
                 } else {
@@ -1021,7 +1031,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             G.addStateNode(createdPathNumber,  state_idx, period.get(i), child[0]);
 
             if (NotYetCreateEdge) {
-                e = G.addEdge("Path #" + createdPathNumber + " |= G " + child[0].toString(), pred_nid, cur_nid, true);
+                e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),true), pred_nid, cur_nid, true);
                 e.addAttribute("ui.label", e.getId());
                 NotYetCreateEdge=false;
             } else {
@@ -1032,7 +1042,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             pred_nid=cur_nid;
         }
         if(NotYetCreateEdge) { // period only has period[0], i.e., prefix_last_node
-            e = G.addEdge("Path #" + createdPathNumber + " |= G " + child[0].toString(), pred_nid, prefix_last_nodeId, true);
+            e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),true), pred_nid, prefix_last_nodeId, true);
             e.addAttribute("ui.label", e.getId());
             NotYetCreateEdge=false;
         }else

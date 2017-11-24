@@ -67,26 +67,13 @@ public class ViewerExplainRTCTLK implements ViewerListener {
 //        }
 
 
-        graph.addAttribute("ui.stylesheet", "node {\n" +
-                "stroke-mode: plain;" +
-                "shape: circle; " +
-                "\tsize: 40px;\n" +
-//                "size-mode: fit;" +
-                "\tfill-color: greenyellow;\n" +
-                "\tz-index: 10;\n" +
-                "text-size: 11;" +
-                "}\n" +
-                "node.initialState {fill-color: green;} " +
+        graph.addAttribute("ui.stylesheet",
+                "node { stroke-mode: plain; shape: circle; size: 40px; fill-color: green; z-index: 10; text-size: 11; }" +
+                "node.initialState {fill-color: pink;} " +
                 "node.epistemicState {fill-color: gold;} " +
-                "\n" +
-                "edge {\n" +
-                "size: 2px; " +
-                "\tshape: line;\n" +
-                "\tfill-color: limegreen;\n" +
-                "\tarrow-size: 8px, 6px;\n" +
-                "\tarrow-shape: arrow;\n" +
-                "}" +
-                "edge.epistemicEdge { fill-color: gold; shape: cubic-curve;}"
+                "edge { size: 2px; shape: line; fill-color: green; arrow-size: 8px, 6px; arrow-shape: arrow; }" +
+                "edge.epistemicEdge { fill-color: gold; shape: cubic-curve;} " +
+                        "sprite {size: 0px;}"
         );
 
         Viewer viewer = graph.display();
@@ -129,7 +116,9 @@ public class ViewerExplainRTCTLK implements ViewerListener {
     public void buttonPushed(String id) {
         //Node n = graph.getNode(id);
         System.out.println("-------- State "+id+" --------");
-        System.out.println("[satisfies " + graph.getNodeSatSpec(id) + "]");
+        String str = graph.getNodeSatSpec(id);
+        if(str!=null && !str.equals(""))
+            System.out.println("[satisfies " + str + "]");
         System.out.println( graph.getNodeStateDetails(id));
 
         try {

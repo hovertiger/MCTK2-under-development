@@ -8,6 +8,9 @@ import net.sf.javabdd.BDD;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
+import org.graphstream.ui.graphicGraph.stylesheet.StyleConstants;
+import org.graphstream.ui.spriteManager.Sprite;
+import org.graphstream.ui.spriteManager.SpriteManager;
 import sun.security.util.Cache;
 
 import java.util.HashMap;
@@ -16,6 +19,7 @@ import java.util.Queue;
 import java.util.Vector;
 
 public class GraphExplainRTCTLK extends MultiGraph {
+    private SpriteManager sman;
 
     public RTCTLKModelCheckAlg getChecker() {
         return checker;
@@ -30,11 +34,13 @@ public class GraphExplainRTCTLK extends MultiGraph {
     public GraphExplainRTCTLK(String id, boolean strictChecking, boolean autoCreate, int initialNodeCapacity, int initialEdgeCapacity, RTCTLKModelCheckAlg checker) {
         super(id, strictChecking, autoCreate, initialNodeCapacity, initialEdgeCapacity);
         this.checker = checker;
+        sman = new SpriteManager(this);
     }
 
     public GraphExplainRTCTLK(String id, RTCTLKModelCheckAlg checker) {
         super(id);
         this.checker = checker;
+        sman = new SpriteManager(this);
     }
 
     public Node addStateNode(int pathNo, int stateNo, BDD stateBDD, Spec satSpec) {
@@ -49,18 +55,26 @@ public class GraphExplainRTCTLK extends MultiGraph {
         n.setAttribute("BDD", stateBDD);
         n.setAttribute("note_stateDetails", Env.getOneBDDStateDetails(stateBDD,"\n"));
 
+        //attach a sprite at this node
+        Sprite s = sman.addSprite("nodeSprite-"+pathNo+"-"+stateNo);
+        s.setPosition(StyleConstants.Units.PX,30,30,-90);
+        s.attachToNode(stateId);
+        n.setAttribute("sprite", s);
+
         Queue<Spec> Q = new LinkedList<Spec>();
         if(satSpec!=null) {
             if(satSpec.hasTemporalOperators() || satSpec.hasEpistemicOperators())
                 Q.offer(satSpec);
-            n.setAttribute("note_satSpec", satSpec.toString());
+            s.setAttribute("ui.label", checker.simplifySpecString(satSpec.toString(),true));
         }else
-            n.setAttribute("note_satSpec", "");
+            s.setAttribute("ui.label", "");
 
         n.setAttribute("queue_satSpec", Q);
 
         return n;
     }
+
+
 
     public boolean setNodeBDD(String nodeId, BDD stateBDD) {
         Node n = getNode(nodeId); if(n==null) return false;
@@ -72,14 +86,16 @@ public class GraphExplainRTCTLK extends MultiGraph {
     public boolean addNodeSatSpec(String nodeId, Spec satSpec, boolean explainSatSpec) {
         if(nodeId.equals("")) return false;
         Node n = getNode(nodeId); if(n==null) return false;
+        Sprite s = n.getAttribute("sprite");
 
         Queue<Spec> Q = n.getAttribute("queue_satSpec");
         if(satSpec!=null) {
             if((satSpec.hasTemporalOperators() || satSpec.hasEpistemicOperators()) && explainSatSpec)
                 Q.offer(satSpec);
 
-            String oldSatSpec = getNodeSatSpec(nodeId);
-            n.setAttribute("note_satSpec",  oldSatSpec.equals("") ? satSpec.toString() : oldSatSpec + ", \n"+satSpec.toString());
+            String oldSatSpec = checker.simplifySpecString(getNodeSatSpec(nodeId),true);
+            s.setAttribute("ui.label",  oldSatSpec.equals("") ? checker.simplifySpecString(satSpec.toString(),true) : oldSatSpec + ", \n"+
+                    checker.simplifySpecString(satSpec.toString(),true));
         }
 
         n.setAttribute("queue_satSpec", Q);
@@ -103,7 +119,8 @@ public class GraphExplainRTCTLK extends MultiGraph {
 
     public String getNodeSatSpec(String nodeID) {
         Node n = getNode(nodeID); if(n==null) return "";
-        return n.getAttribute("note_satSpec");
+        Sprite s = n.getAttribute("sprite");
+        return s.getAttribute("ui.label");
     }
 
     public String getNodeStateDetails(String nodeID) {
