@@ -6,6 +6,9 @@ VAR
 
 JUSTICE Act=SR;
 
+SPEC abcdef;
+
+
 AGENT Sender(envAct, recAct)
 VAR
     bit : {0,1};

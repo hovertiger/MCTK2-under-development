@@ -1163,7 +1163,12 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                 G.addStateNode(createdPathNumber, i, path[i], null);
 
             cur_nodeId = createdPathNumber+"."+i;
-            G.addEdge(pred_nodeId+"->"+cur_nodeId, pred_nodeId, cur_nodeId, true);
+            Edge e = G.addEdge(pred_nodeId+"->"+cur_nodeId, pred_nodeId, cur_nodeId, true);
+            if(i==1) {
+                e.addAttribute("ui.label", "goes to state " +
+                        createdPathNumber+"."+(path.length-1)+" where "+simplifySpecString(agentId,true)
+                        +" consider "+simplifySpecString(spec.toString(),true)+" holds" );
+            }
 
             pred_nodeId = cur_nodeId;
         }
