@@ -31,3 +31,11 @@ TRANS
     ;
 
 --JUSTICE start & close & !error;
+
+SPECIFICATIONS
+//		to_parse = "SPEC !E[TRUE U (start & close & heat & !error)]";
+//		to_parse = "SPEC !EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )";
+//		to_parse = "SPEC !EG !heat";
+//		to_parse = "SPEC (!EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )) | !EG !heat";
+//		to_parse = "SPEC AG(start -> AF heat)";
+END

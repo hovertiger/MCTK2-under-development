@@ -4,9 +4,14 @@ VAR
     sender : Sender(Act, receiver.Act);
     receiver : Receiver(Act, sender.Act);
 
-JUSTICE Act=SR;
+SPECIFICATIONS
+--		SPEC AG((receiver.state=r0 | receiver.state=r1) -> AF sender.ack);
+--		SPEC EF(EG((receiver.state=r0 | receiver.state=r1) & !sender.ack));
+--		SPEC AF(sender.ack -> (sender KNOW (receiver.state=r0 | receiver.state=r1)));
+		SPEC AG((sender.bit=1 & sender.ack) -> (sender KNOW (receiver.state=r0)));
+END
 
-SPEC abcdef;
+--JUSTICE Act=SR;
 
 
 AGENT Sender(envAct, recAct)
@@ -48,5 +53,7 @@ next(state) := case
 	1 : state;
 esac;
 
-
+SPECIFICATIONS
+--LTLSPEC receiver.state=r1;
+END
 

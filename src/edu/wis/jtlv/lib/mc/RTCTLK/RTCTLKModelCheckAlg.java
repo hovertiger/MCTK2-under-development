@@ -430,11 +430,11 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     @Override
     public AlgResultI doAlgorithm() throws AlgExceptionI {
         Spec origSpec = getProperty();
-        System.out.println("model checking RTCTLK: " + origSpec);
+        System.out.println("model checking RTCTLK: " + simplifySpecString(origSpec.toString(),false));
         if (origSpec == null)
             return new AlgResultString(false, "Cannot model check a null specification.");
         if (!origSpec.isRealTimeCTLKSpec())
-            return new AlgResultString("Cannot model check non RTCTLK specification: " + origSpec);
+            return new AlgResultString("Cannot model check non RTCTLK specification: " + simplifySpecString(origSpec.toString(),false));
 
         //setFairStates(Env.TRUE());
 
@@ -782,8 +782,8 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
             if(i==1) {
                 nid1=stateID; nid2=createdPathNumber+".1";
-                e = G.addEdge("Path #" + createdPathNumber + " |= " + simplifySpecString(child[0].toString(),true) + " U " +
-                        simplifySpecString(child[1].toString(),true), nid1, nid2, true);
+                e = G.addEdge("Path #" + createdPathNumber + " |= " + simplifySpecString(child[0].toString(),false) + " U " +
+                        simplifySpecString(child[1].toString(),false), nid1, nid2, true);
                 e.addAttribute("ui.label", e.getId());
             }else{
                 nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
@@ -891,7 +891,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                 G.addStateNode(createdPathNumber, i, path[i], child[0]);
 
                 if (NotYetCreateEdge) {
-                    e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),true), pred_nid, cur_nid, true);
+                    e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),false), pred_nid, cur_nid, true);
                     e.addAttribute("ui.label", e.getId());
                     NotYetCreateEdge = false;
                 } else {
@@ -1031,7 +1031,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             G.addStateNode(createdPathNumber,  state_idx, period.get(i), child[0]);
 
             if (NotYetCreateEdge) {
-                e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),true), pred_nid, cur_nid, true);
+                e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),false), pred_nid, cur_nid, true);
                 e.addAttribute("ui.label", e.getId());
                 NotYetCreateEdge=false;
             } else {
@@ -1042,7 +1042,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             pred_nid=cur_nid;
         }
         if(NotYetCreateEdge) { // period only has period[0], i.e., prefix_last_node
-            e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),true), pred_nid, prefix_last_nodeId, true);
+            e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),false), pred_nid, prefix_last_nodeId, true);
             e.addAttribute("ui.label", e.getId());
             NotYetCreateEdge=false;
         }else
@@ -1167,7 +1167,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             if(i==1) {
                 e.addAttribute("ui.label", "goes to state " +
                         createdPathNumber+"."+(path.length-1)+" where "+simplifySpecString(agentId,true)
-                        +" consider "+simplifySpecString(spec.toString(),true)+" holds" );
+                        +" consider "+simplifySpecString(spec.toString(),false)+" holds" );
             }
 
             pred_nodeId = cur_nodeId;
@@ -1178,19 +1178,6 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         e.addAttribute("ui.label", "Agent " + simplifySpecString(agentId,true));
         e.setAttribute("ui.class", "epistemicEdge");
 
-        /*
-
-
-        BDD nextState = getDesign().succ(fromState).and(satLeft).and(getFairReachableStates())
-                .satOne(getDesign().moduleUnprimeVars(), false);
-        if(nextState.isZero()) return false;
-
-        createdPathNumber++;
-        String nextStateId = createdPathNumber + "." + (stateNo + 1);
-        G.addStateNode(createdPathNumber, stateNo+1, nextState, child[0]);
-        Edge e = G.addEdge("Path #" + createdPathNumber + " |= X " + child[0], stateId, nextStateId, true);
-        e.addAttribute("ui.label", e.getId());
-*/
         return true;
     }
 

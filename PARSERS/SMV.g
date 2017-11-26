@@ -562,10 +562,10 @@ declaration	: var
 		| justice
 		| compassion
 		| invarspec //not implemented in JTLV
-		| ctlspec //not implemented in JTLV
+/*		| ctlspec //not implemented in JTLV
 		| ltlspec //not implemented in JTLV
 		| pslspec // and I think cannot be implemented in JTLV
-		| compute //not implemented in JTLV
+*/		| compute //not implemented in JTLV
 		| constants //not implemented in JTLV
 		| predicate // and I think cannot be implemented in JTLV
 		| mirror // and I think cannot be implemented in JTLV
@@ -785,6 +785,7 @@ invarspec		: { if (true) throw new SMVUnimplementedException("Unimplemented JTLV
 
 /* Specifications and computation of min and max distance */
 /* not implemented in JTLV */
+/*
 ctlspec		:  { if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement SPEC", input); }
 		TOK_SPEC^ ctl_expression! optsemi!
 		| { if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement CTLSPEC", input); }
@@ -796,6 +797,7 @@ ltlspec		: { if (true) throw new SMVUnimplementedException("Unimplemented JTLV s
 pslspec		: { if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement PSLSPEC", input); }
 		TOK_PSLSPEC^ psl_expression! optsemi!
 		;
+*/
 constants		: { if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement CONSTANTS", input); }
 		TOK_CONSTANTS^ constants_expression! TOK_SEMI!
 		;

@@ -310,31 +310,13 @@ public class AlgorithmRunnerMain {
 	public static void rtctlkCheck() throws IOException {
 		// System.setProperty("bdd", "buddy");
 		Env.loadModule("testcases/bit_transmission.smv");
+//		Env.loadModule("testcases/mwOven.smv");
+
 		SMVModule main = (SMVModule) Env.getModule("main");
 		main.setFullPrintingMode(true);
 		System.out.println("========= DONE Loading Modules ==========");
 
-		String to_parse;
-
-		// dc3.smv
-//		to_parse = "SPEC !dc1.paid -> AG( (dc1 KNOW (!dc1.paid & !dc2.paid & !dc3.paid)) | " +
-//				"( (dc1 KNOW (dc2.paid | dc3.paid)) & !(dc1 KNOW dc2.paid) & !(dc1 KNOW dc3.paid) ) ) \n";
-//		to_parse = "SPEC (AX coin1) | (AX coin2) | (AX coin3)\n";
-//		to_parse = "SPEC !E[TRUE U coin1]";
-
-		//mwOven.smv
-//		to_parse = "SPEC !E[TRUE U (start & close & heat & !error)]";
-//		to_parse = "SPEC !EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )";
-//		to_parse = "SPEC !EG !heat";
-//		to_parse = "SPEC (!EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )) | !EG !heat";
-//		to_parse = "SPEC AG(start -> AF heat)";
-
-		//bit_transmission.smv
-//		to_parse = "SPEC AF((receiver.state=r0 | receiver.state=r1) -> AF sender.ack)";
-//		to_parse = "SPEC EF(EG((receiver.state=r0 | receiver.state=r1) & !sender.ack))";
-//		to_parse = "SPEC AF(sender.ack -> (sender KNOW (receiver.state=r0 | receiver.state=r1)))";
-		to_parse = "SPEC AG((sender.bit=1 & sender.ack) -> (sender KNOW (receiver.state=r0)))";
-
+		String to_parse = Env.getAllSpecsString();
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");
 
@@ -342,7 +324,6 @@ public class AlgorithmRunnerMain {
 		// ///////////////////////////////////////
 		// model checking a module
 		for (int i = 0; i < all_specs.length; i++) {
-			// 17, 18, 19, 20, and 21 fails.
 			runner = new AlgRunnerThread(new RTCTLKModelCheckAlg(main,
 					all_specs[i]));
 			runner.runSequential();
