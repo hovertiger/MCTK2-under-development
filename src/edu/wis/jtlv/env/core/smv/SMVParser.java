@@ -1,4 +1,4 @@
-// $ANTLR 3.0.1 /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g 2017-10-10 20:37:05
+// $ANTLR 3.0.1 /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g 2017-11-25 11:27:42
 
 package edu.wis.jtlv.env.core.smv;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import org.antlr.runtime.tree.*;
 
 public class SMVParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "NOP", "PROGRAM_T", "MODULE_SIGN_T", "VAR_DECL_T", "IVAR_DECL_T", "DEFINE_DECL_T", "ASSIGN_DECL_T", "INIT_ASSIGN_DECL_T", "NEXT_ASSIGN_DECL_T", "JUSTICE_DECL_T", "COMPASSION_DECL_T", "SUBRANGE_T", "TYPE_VALUE_LIST_T", "SYNC_PROCESS_T", "ASYNC_PROCESS_T", "VALUE_T", "VALUE_LIST_T", "REF_T", "REF_LIST_T", "SET_LIST_EXP_T", "BLOCK_T", "CASE_LIST_EXPR_T", "CASE_ELEMENT_EXPR_T", "BIT_SELECT_T", "ARRAY_INDEX_T", "TOK_UNARY_MINUS_T", "PURE_CTL_T", "PURE_LTL_T", "TOK_AND_FOR_T", "TOK_OR_FOR_T", "TOK_PLUS_FOR_T", "AGENT_SIGN_T", "AGENT_REF_LIST_T", "AGENT_SIGN_ATOM_T", "MODULE_DECL_VAR_T", "AGENT_DECL_VAR_T", "AGENT_DECL_INVISIBLE_VAR_T", "TOK_NUMBER", "TOK_PLUS", "TOK_MINUS", "TOK_NUMBER_WORD", "TOK_ATOM", "TOK_TWODOTS", "TOK_FALSEEXP", "TOK_TRUEEXP", "TOK_LP", "TOK_RP", "TOK_BOOL", "TOK_WORD1", "TOK_NEXT", "TOK_CASE", "TOK_ESAC", "TOK_WAREAD", "TOK_COMMA", "TOK_WAWRITE", "TOK_SELF", "TOK_DOT", "TOK_LB", "TOK_RB", "TOK_COLON", "TOK_NOT", "TOK_AND", "TOK_FOR", "TOK_EQUAL", "TOK_SEMI", "TOK_LCB", "TOK_RCB", "TOK_OR", "TOK_CONCATENATION", "TOK_TIMES", "TOK_DIVIDE", "TOK_MOD", "TOK_LSHIFT", "TOK_RSHIFT", "TOK_UNION", "TOK_SETIN", "TOK_NOTEQUAL", "TOK_LT", "TOK_GT", "TOK_LE", "TOK_GE", "TOK_EX", "TOK_AX", "TOK_EF", "TOK_AF", "TOK_EG", "TOK_AG", "TOK_AA", "TOK_UNTIL", "TOK_BUNTIL", "TOK_EE", "TOK_EBF", "TOK_ABF", "TOK_EBG", "TOK_ABG", "TOK_XOR", "TOK_XNOR", "TOK_IFF", "TOK_IMPLIES", "TOK_OP_NEXT", "TOK_OP_PREC", "TOK_OP_NOTPRECNOT", "TOK_OP_GLOBAL", "TOK_OP_HISTORICAL", "TOK_OP_FUTURE", "TOK_OP_ONCE", "TOK_SINCE", "TOK_RELEASES", "TOK_TRIGGERED", "TOK_BOOLEAN", "TOK_WORD", "TOK_PROCESS", "TOK_ARRAY", "TOK_OF", "TOK_MODULE", "TOK_AGENT", "TOK_VISIBLE", "TOK_INVISIBLE_VAR", "TOK_GAME", "TOK_PLAYER_1", "TOK_PLAYER_2", "TOK_VAR", "TOK_IVAR", "TOK_DEFINE", "TOK_EQDEF", "TOK_ASSIGN", "TOK_SMALLINIT", "TOK_INIT", "TOK_INVAR", "TOK_TRANS", "TOK_FAIRNESS", "TOK_JUSTICE", "TOK_COMPASSION", "TOK_INVARSPEC", "TOK_SPEC", "TOK_CTLSPEC", "TOK_LTLSPEC", "TOK_PSLSPEC", "TOK_CONSTANTS", "TOK_PRED", "TOK_MIRROR", "TOK_REACHTARGET", "TOK_AVOIDTARGET", "TOK_REACHDEADLOCK", "TOK_AVOIDDEADLOCK", "TOK_BUCHIGAME", "TOK_GENREACTIVITY", "TOK_COMPUTE", "TOK_MMIN", "TOK_MMAX", "TOK_ISA", "TOK_GOTO", "TOK_CONSTRAINT", "TOK_SIMPWFF", "TOK_INCONTEXT", "TOK_CTLWFF", "TOK_LTLWFF", "TOK_COMPWFF", "TOK_INVISIBLE", "TOK_INTEGER", "TOK_REAL", "TOK_LROTATE", "TOK_RROTATE", "TOK_PREDSLIST", "TOK_NUMBER_FRAC", "JTOK_WS", "JTOK_MULTI_COMMENT", "JTOK_LINE_COMMENT"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "NOP", "PROGRAM_T", "MODULE_SIGN_T", "VAR_DECL_T", "IVAR_DECL_T", "DEFINE_DECL_T", "ASSIGN_DECL_T", "INIT_ASSIGN_DECL_T", "NEXT_ASSIGN_DECL_T", "JUSTICE_DECL_T", "COMPASSION_DECL_T", "SUBRANGE_T", "TYPE_VALUE_LIST_T", "SYNC_PROCESS_T", "ASYNC_PROCESS_T", "VALUE_T", "VALUE_LIST_T", "REF_T", "REF_LIST_T", "SET_LIST_EXP_T", "BLOCK_T", "CASE_LIST_EXPR_T", "CASE_ELEMENT_EXPR_T", "BIT_SELECT_T", "ARRAY_INDEX_T", "TOK_UNARY_MINUS_T", "PURE_CTL_T", "PURE_LTL_T", "TOK_AND_FOR_T", "TOK_OR_FOR_T", "TOK_PLUS_FOR_T", "AGENT_SIGN_T", "AGENT_REF_LIST_T", "AGENT_SIGN_ATOM_T", "MODULE_DECL_VAR_T", "AGENT_DECL_VAR_T", "AGENT_DECL_INVISIBLE_VAR_T", "TOK_NUMBER", "TOK_PLUS", "TOK_MINUS", "TOK_NUMBER_WORD", "TOK_ATOM", "TOK_TWODOTS", "TOK_FALSEEXP", "TOK_TRUEEXP", "TOK_LP", "TOK_RP", "TOK_BOOL", "TOK_WORD1", "TOK_NEXT", "TOK_CASE", "TOK_ESAC", "TOK_WAREAD", "TOK_COMMA", "TOK_WAWRITE", "TOK_SELF", "TOK_DOT", "TOK_LB", "TOK_RB", "TOK_COLON", "TOK_NOT", "TOK_AND", "TOK_FOR", "TOK_EQUAL", "TOK_SEMI", "TOK_LCB", "TOK_RCB", "TOK_OR", "TOK_CONCATENATION", "TOK_TIMES", "TOK_DIVIDE", "TOK_MOD", "TOK_LSHIFT", "TOK_RSHIFT", "TOK_UNION", "TOK_SETIN", "TOK_NOTEQUAL", "TOK_LT", "TOK_GT", "TOK_LE", "TOK_GE", "TOK_EX", "TOK_AX", "TOK_EF", "TOK_AF", "TOK_EG", "TOK_AG", "TOK_AA", "TOK_UNTIL", "TOK_BUNTIL", "TOK_EE", "TOK_EBF", "TOK_ABF", "TOK_EBG", "TOK_ABG", "TOK_XOR", "TOK_XNOR", "TOK_IFF", "TOK_IMPLIES", "TOK_OP_NEXT", "TOK_OP_PREC", "TOK_OP_NOTPRECNOT", "TOK_OP_GLOBAL", "TOK_OP_HISTORICAL", "TOK_OP_FUTURE", "TOK_OP_ONCE", "TOK_SINCE", "TOK_RELEASES", "TOK_TRIGGERED", "TOK_BOOLEAN", "TOK_WORD", "TOK_PROCESS", "TOK_ARRAY", "TOK_OF", "TOK_MODULE", "TOK_AGENT", "TOK_VISIBLE", "TOK_INVISIBLE_VAR", "TOK_GAME", "TOK_PLAYER_1", "TOK_PLAYER_2", "TOK_VAR", "TOK_IVAR", "TOK_DEFINE", "TOK_EQDEF", "TOK_ASSIGN", "TOK_SMALLINIT", "TOK_INIT", "TOK_INVAR", "TOK_TRANS", "TOK_FAIRNESS", "TOK_JUSTICE", "TOK_COMPASSION", "TOK_INVARSPEC", "TOK_CONSTANTS", "TOK_PRED", "TOK_MIRROR", "TOK_REACHTARGET", "TOK_AVOIDTARGET", "TOK_REACHDEADLOCK", "TOK_AVOIDDEADLOCK", "TOK_BUCHIGAME", "TOK_GENREACTIVITY", "TOK_COMPUTE", "TOK_MMIN", "TOK_MMAX", "TOK_ISA", "TOK_GOTO", "TOK_CONSTRAINT", "TOK_SIMPWFF", "TOK_INCONTEXT", "TOK_CTLWFF", "TOK_LTLWFF", "TOK_COMPWFF", "TOK_SPEC", "TOK_CTLSPEC", "TOK_LTLSPEC", "TOK_PSLSPEC", "TOK_INVISIBLE", "TOK_INTEGER", "TOK_REAL", "TOK_LROTATE", "TOK_RROTATE", "TOK_PREDSLIST", "TOK_NUMBER_FRAC", "JTOK_WS", "JTOK_MULTI_COMMENT", "JTOK_LINE_COMMENT"
     };
     public static final int TOK_PLUS=42;
     public static final int TOK_RCB=70;
@@ -31,25 +31,25 @@ public class SMVParser extends Parser {
     public static final int TOK_OR_FOR_T=33;
     public static final int TOK_ABG=98;
     public static final int TOK_ABF=96;
-    public static final int TOK_LTLWFF=160;
+    public static final int TOK_LTLWFF=156;
     public static final int MODULE_SIGN_T=6;
     public static final int AGENT_DECL_VAR_T=39;
     public static final int TOK_TIMES=73;
-    public static final int TOK_CTLSPEC=139;
+    public static final int TOK_CTLSPEC=159;
     public static final int DEFINE_DECL_T=9;
     public static final int MODULE_DECL_VAR_T=38;
-    public static final int TOK_COMPWFF=161;
+    public static final int TOK_COMPWFF=157;
     public static final int TOK_EBG=97;
     public static final int TOK_EBF=95;
-    public static final int TOK_CONSTANTS=142;
+    public static final int TOK_CONSTANTS=138;
     public static final int TOK_PLUS_FOR_T=34;
     public static final int TOK_LP=49;
     public static final int TOK_AGENT=119;
     public static final int TOK_LT=81;
     public static final int TOK_MODULE=118;
     public static final int TOK_COLON=63;
-    public static final int TOK_SPEC=138;
-    public static final int TOK_LTLSPEC=140;
+    public static final int TOK_SPEC=158;
+    public static final int TOK_LTLSPEC=160;
     public static final int JTOK_MULTI_COMMENT=170;
     public static final int TYPE_VALUE_LIST_T=16;
     public static final int REF_T=21;
@@ -64,7 +64,7 @@ public class SMVParser extends Parser {
     public static final int TOK_UNTIL=92;
     public static final int TOK_DEFINE=127;
     public static final int TOK_DOT=60;
-    public static final int TOK_MMIN=152;
+    public static final int TOK_MMIN=148;
     public static final int SUBRANGE_T=15;
     public static final int CASE_ELEMENT_EXPR_T=26;
     public static final int TOK_ATOM=45;
@@ -81,7 +81,7 @@ public class SMVParser extends Parser {
     public static final int TOK_OP_ONCE=109;
     public static final int TOK_ARRAY=116;
     public static final int TOK_JUSTICE=135;
-    public static final int TOK_GOTO=155;
+    public static final int TOK_GOTO=151;
     public static final int TOK_SEMI=68;
     public static final int TOK_INVAR=132;
     public static final int TOK_SMALLINIT=130;
@@ -92,11 +92,11 @@ public class SMVParser extends Parser {
     public static final int TOK_NUMBER_WORD=44;
     public static final int TOK_RROTATE=166;
     public static final int TOK_IMPLIES=102;
-    public static final int TOK_ISA=154;
+    public static final int TOK_ISA=150;
     public static final int COMPASSION_DECL_T=14;
     public static final int TOK_AX=86;
     public static final int JTOK_WS=169;
-    public static final int TOK_REACHDEADLOCK=147;
+    public static final int TOK_REACHDEADLOCK=143;
     public static final int TOK_FALSEEXP=47;
     public static final int ASYNC_PROCESS_T=18;
     public static final int TOK_RP=50;
@@ -106,10 +106,10 @@ public class SMVParser extends Parser {
     public static final int TOK_WAREAD=56;
     public static final int TOK_LROTATE=165;
     public static final int TOK_OR=71;
-    public static final int TOK_MIRROR=144;
+    public static final int TOK_MIRROR=140;
     public static final int TOK_NOT=64;
     public static final int TOK_INVISIBLE_VAR=121;
-    public static final int TOK_GENREACTIVITY=150;
+    public static final int TOK_GENREACTIVITY=146;
     public static final int BLOCK_T=24;
     public static final int TOK_LSHIFT=76;
     public static final int IVAR_DECL_T=8;
@@ -119,14 +119,14 @@ public class SMVParser extends Parser {
     public static final int TOK_OF=117;
     public static final int TOK_TRIGGERED=112;
     public static final int TOK_EQDEF=128;
-    public static final int TOK_PRED=143;
+    public static final int TOK_PRED=139;
     public static final int TOK_CASE=54;
     public static final int TOK_OP_NOTPRECNOT=105;
     public static final int TOK_ASSIGN=129;
     public static final int TOK_IFF=101;
     public static final int NEXT_ASSIGN_DECL_T=12;
     public static final int TOK_GE=84;
-    public static final int TOK_AVOIDTARGET=146;
+    public static final int TOK_AVOIDTARGET=142;
     public static final int SET_LIST_EXP_T=23;
     public static final int CASE_LIST_EXPR_T=25;
     public static final int AGENT_SIGN_T=35;
@@ -137,7 +137,7 @@ public class SMVParser extends Parser {
     public static final int NOP=4;
     public static final int TOK_COMMA=57;
     public static final int TOK_SELF=59;
-    public static final int TOK_AVOIDDEADLOCK=148;
+    public static final int TOK_AVOIDDEADLOCK=144;
     public static final int TOK_NUMBER=41;
     public static final int TOK_UNION=78;
     public static final int TOK_ESAC=55;
@@ -150,17 +150,17 @@ public class SMVParser extends Parser {
     public static final int TOK_PREDSLIST=167;
     public static final int TOK_EG=89;
     public static final int TOK_EF=87;
-    public static final int TOK_SIMPWFF=157;
+    public static final int TOK_SIMPWFF=153;
     public static final int PURE_CTL_T=30;
     public static final int TOK_NOTEQUAL=80;
-    public static final int TOK_INCONTEXT=158;
-    public static final int TOK_BUCHIGAME=149;
-    public static final int TOK_COMPUTE=151;
+    public static final int TOK_INCONTEXT=154;
+    public static final int TOK_BUCHIGAME=145;
+    public static final int TOK_COMPUTE=147;
     public static final int BIT_SELECT_T=27;
-    public static final int TOK_MMAX=153;
+    public static final int TOK_MMAX=149;
     public static final int TOK_OP_FUTURE=108;
     public static final int TOK_EE=94;
-    public static final int TOK_CTLWFF=159;
+    public static final int TOK_CTLWFF=155;
     public static final int EOF=-1;
     public static final int TOK_BOOL=51;
     public static final int TOK_INTEGER=163;
@@ -169,7 +169,7 @@ public class SMVParser extends Parser {
     public static final int JTOK_LINE_COMMENT=171;
     public static final int VALUE_LIST_T=20;
     public static final int TOK_COMPASSION=136;
-    public static final int TOK_CONSTRAINT=156;
+    public static final int TOK_CONSTRAINT=152;
     public static final int TOK_GAME=122;
     public static final int TOK_WORD1=52;
     public static final int REF_LIST_T=22;
@@ -178,7 +178,7 @@ public class SMVParser extends Parser {
     public static final int TOK_NEXT=53;
     public static final int TOK_RELEASES=111;
     public static final int TOK_OP_PREC=104;
-    public static final int TOK_PSLSPEC=141;
+    public static final int TOK_PSLSPEC=161;
     public static final int TOK_INVISIBLE=162;
     public static final int TOK_EX=85;
     public static final int TOK_PLAYER_1=123;
@@ -186,12 +186,12 @@ public class SMVParser extends Parser {
     public static final int TOK_MOD=75;
     public static final int TOK_WORD=114;
     public static final int TOK_INIT=131;
-    public static final int TOK_REACHTARGET=145;
+    public static final int TOK_REACHTARGET=141;
     public static final int TOK_TRANS=133;
 
         public SMVParser(TokenStream input) {
             super(input);
-            ruleMemo = new HashMap[123+1];
+            ruleMemo = new HashMap[120+1];
          }
         
     protected TreeAdaptor adaptor = new CommonTreeAdaptor();
@@ -1308,7 +1308,7 @@ public class SMVParser extends Parser {
                     if ( backtracking==0 ) stream_primary_expr_select.add(primary_expr_select25.getTree());
 
                     // AST REWRITE
-                    // elements: primary_expr_select, constant
+                    // elements: constant, primary_expr_select
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1501,7 +1501,7 @@ public class SMVParser extends Parser {
                     if ( backtracking==0 ) stream_primary_expr_select.add(primary_expr_select41.getTree());
 
                     // AST REWRITE
-                    // elements: TOK_WORD1, primary_expr_select, basic_expr
+                    // elements: primary_expr_select, basic_expr, TOK_WORD1
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1558,7 +1558,7 @@ public class SMVParser extends Parser {
                     if ( backtracking==0 ) stream_primary_expr_select.add(primary_expr_select46.getTree());
 
                     // AST REWRITE
-                    // elements: primary_expr_select, basic_expr, TOK_NEXT
+                    // elements: basic_expr, TOK_NEXT, primary_expr_select
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1677,7 +1677,7 @@ public class SMVParser extends Parser {
                     if ( backtracking==0 ) stream_primary_expr_select.add(primary_expr_select57.getTree());
 
                     // AST REWRITE
-                    // elements: primary_expr_select, simple_expression, simple_expression, TOK_WAREAD
+                    // elements: simple_expression, primary_expr_select, TOK_WAREAD, simple_expression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1753,7 +1753,7 @@ public class SMVParser extends Parser {
                     if ( backtracking==0 ) stream_primary_expr_select.add(primary_expr_select66.getTree());
 
                     // AST REWRITE
-                    // elements: simple_expression, TOK_WAWRITE, simple_expression, primary_expr_select, simple_expression
+                    // elements: simple_expression, simple_expression, primary_expr_select, simple_expression, TOK_WAWRITE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1839,7 +1839,7 @@ public class SMVParser extends Parser {
             if ( backtracking==0 ) stream_primary_expr_select.add(primary_expr_select68.getTree());
 
             // AST REWRITE
-            // elements: TOK_ATOM, primary_expr_select
+            // elements: primary_expr_select, TOK_ATOM
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2164,58 +2164,6 @@ public class SMVParser extends Parser {
 
             if ( (LA8_0==TOK_LB) ) {
                 switch ( input.LA(2) ) {
-                case TOK_NUMBER:
-                    {
-                    int LA8_2 = input.LA(3);
-
-                    if ( ((LA8_2>=TOK_PLUS && LA8_2<=TOK_MINUS)||LA8_2==TOK_TWODOTS||(LA8_2>=TOK_DOT && LA8_2<=TOK_RB)||LA8_2==TOK_AND||LA8_2==TOK_EQUAL||(LA8_2>=TOK_OR && LA8_2<=TOK_GE)||LA8_2==TOK_UNTIL||(LA8_2>=TOK_XOR && LA8_2<=TOK_IMPLIES)||(LA8_2>=TOK_SINCE && LA8_2<=TOK_TRIGGERED)) ) {
-                        alt8=1;
-                    }
-                    else if ( (LA8_2==TOK_COLON) ) {
-                        alt8=2;
-                    }
-                    else {
-                        if (backtracking>0) {failed=true; return retval;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("246:1: primary_expr_select_helper : ( TOK_LB simple_expression TOK_RB -> ^( ARRAY_INDEX_T simple_expression ) | TOK_LB f= number TOK_COLON s= number TOK_RB -> ^( BIT_SELECT_T $f $s) );", 8, 2, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
-                case TOK_PLUS:
-                    {
-                    int LA8_3 = input.LA(3);
-
-                    if ( (LA8_3==TOK_FOR) ) {
-                        alt8=1;
-                    }
-                    else if ( (LA8_3==TOK_NUMBER) ) {
-                        int LA8_6 = input.LA(4);
-
-                        if ( ((LA8_6>=TOK_PLUS && LA8_6<=TOK_MINUS)||LA8_6==TOK_TWODOTS||(LA8_6>=TOK_DOT && LA8_6<=TOK_RB)||LA8_6==TOK_AND||LA8_6==TOK_EQUAL||(LA8_6>=TOK_OR && LA8_6<=TOK_GE)||LA8_6==TOK_UNTIL||(LA8_6>=TOK_XOR && LA8_6<=TOK_IMPLIES)||(LA8_6>=TOK_SINCE && LA8_6<=TOK_TRIGGERED)) ) {
-                            alt8=1;
-                        }
-                        else if ( (LA8_6==TOK_COLON) ) {
-                            alt8=2;
-                        }
-                        else {
-                            if (backtracking>0) {failed=true; return retval;}
-                            NoViableAltException nvae =
-                                new NoViableAltException("246:1: primary_expr_select_helper : ( TOK_LB simple_expression TOK_RB -> ^( ARRAY_INDEX_T simple_expression ) | TOK_LB f= number TOK_COLON s= number TOK_RB -> ^( BIT_SELECT_T $f $s) );", 8, 6, input);
-
-                            throw nvae;
-                        }
-                    }
-                    else {
-                        if (backtracking>0) {failed=true; return retval;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("246:1: primary_expr_select_helper : ( TOK_LB simple_expression TOK_RB -> ^( ARRAY_INDEX_T simple_expression ) | TOK_LB f= number TOK_COLON s= number TOK_RB -> ^( BIT_SELECT_T $f $s) );", 8, 3, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
                 case TOK_MINUS:
                 case TOK_NUMBER_WORD:
                 case TOK_ATOM:
@@ -2254,6 +2202,58 @@ public class SMVParser extends Parser {
                 case TOK_OP_ONCE:
                     {
                     alt8=1;
+                    }
+                    break;
+                case TOK_NUMBER:
+                    {
+                    int LA8_3 = input.LA(3);
+
+                    if ( ((LA8_3>=TOK_PLUS && LA8_3<=TOK_MINUS)||LA8_3==TOK_TWODOTS||(LA8_3>=TOK_DOT && LA8_3<=TOK_RB)||LA8_3==TOK_AND||LA8_3==TOK_EQUAL||(LA8_3>=TOK_OR && LA8_3<=TOK_GE)||LA8_3==TOK_UNTIL||(LA8_3>=TOK_XOR && LA8_3<=TOK_IMPLIES)||(LA8_3>=TOK_SINCE && LA8_3<=TOK_TRIGGERED)) ) {
+                        alt8=1;
+                    }
+                    else if ( (LA8_3==TOK_COLON) ) {
+                        alt8=2;
+                    }
+                    else {
+                        if (backtracking>0) {failed=true; return retval;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("246:1: primary_expr_select_helper : ( TOK_LB simple_expression TOK_RB -> ^( ARRAY_INDEX_T simple_expression ) | TOK_LB f= number TOK_COLON s= number TOK_RB -> ^( BIT_SELECT_T $f $s) );", 8, 3, input);
+
+                        throw nvae;
+                    }
+                    }
+                    break;
+                case TOK_PLUS:
+                    {
+                    int LA8_4 = input.LA(3);
+
+                    if ( (LA8_4==TOK_NUMBER) ) {
+                        int LA8_6 = input.LA(4);
+
+                        if ( ((LA8_6>=TOK_PLUS && LA8_6<=TOK_MINUS)||LA8_6==TOK_TWODOTS||(LA8_6>=TOK_DOT && LA8_6<=TOK_RB)||LA8_6==TOK_AND||LA8_6==TOK_EQUAL||(LA8_6>=TOK_OR && LA8_6<=TOK_GE)||LA8_6==TOK_UNTIL||(LA8_6>=TOK_XOR && LA8_6<=TOK_IMPLIES)||(LA8_6>=TOK_SINCE && LA8_6<=TOK_TRIGGERED)) ) {
+                            alt8=1;
+                        }
+                        else if ( (LA8_6==TOK_COLON) ) {
+                            alt8=2;
+                        }
+                        else {
+                            if (backtracking>0) {failed=true; return retval;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("246:1: primary_expr_select_helper : ( TOK_LB simple_expression TOK_RB -> ^( ARRAY_INDEX_T simple_expression ) | TOK_LB f= number TOK_COLON s= number TOK_RB -> ^( BIT_SELECT_T $f $s) );", 8, 6, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else if ( (LA8_4==TOK_FOR) ) {
+                        alt8=1;
+                    }
+                    else {
+                        if (backtracking>0) {failed=true; return retval;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("246:1: primary_expr_select_helper : ( TOK_LB simple_expression TOK_RB -> ^( ARRAY_INDEX_T simple_expression ) | TOK_LB f= number TOK_COLON s= number TOK_RB -> ^( BIT_SELECT_T $f $s) );", 8, 4, input);
+
+                        throw nvae;
+                    }
                     }
                     break;
                 default:
@@ -2450,11 +2450,11 @@ public class SMVParser extends Parser {
                 {
                 int LA9_2 = input.LA(2);
 
-                if ( (LA9_2==TOK_FOR) ) {
-                    alt9=4;
-                }
-                else if ( (LA9_2==TOK_NUMBER) ) {
+                if ( (LA9_2==TOK_NUMBER) ) {
                     alt9=1;
+                }
+                else if ( (LA9_2==TOK_FOR) ) {
+                    alt9=4;
                 }
                 else {
                     if (backtracking>0) {failed=true; return retval;}
@@ -2844,17 +2844,17 @@ public class SMVParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: i_and, init_and, cond_and, TOK_RP, TOK_LP, loop_main, TOK_LCB, inc_and, TOK_RCB
+                    // elements: init_and, inc_and, TOK_LP, TOK_RP, cond_and, TOK_LCB, TOK_RCB, loop_main, i_and
                     // token labels: i_and
-                    // rule labels: cond_and, loop_main, inc_and, init_and, retval
+                    // rule labels: cond_and, inc_and, loop_main, init_and, retval
                     // token list labels: 
                     // rule list labels: 
                     if ( backtracking==0 ) {
                     retval.tree = root_0;
                     RewriteRuleTokenStream stream_i_and=new RewriteRuleTokenStream(adaptor,"token i_and",i_and);
                     RewriteRuleSubtreeStream stream_cond_and=new RewriteRuleSubtreeStream(adaptor,"token cond_and",cond_and!=null?cond_and.tree:null);
-                    RewriteRuleSubtreeStream stream_loop_main=new RewriteRuleSubtreeStream(adaptor,"token loop_main",loop_main!=null?loop_main.tree:null);
                     RewriteRuleSubtreeStream stream_inc_and=new RewriteRuleSubtreeStream(adaptor,"token inc_and",inc_and!=null?inc_and.tree:null);
+                    RewriteRuleSubtreeStream stream_loop_main=new RewriteRuleSubtreeStream(adaptor,"token loop_main",loop_main!=null?loop_main.tree:null);
                     RewriteRuleSubtreeStream stream_init_and=new RewriteRuleSubtreeStream(adaptor,"token init_and",init_and!=null?init_and.tree:null);
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
@@ -2968,7 +2968,7 @@ public class SMVParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: inc_or, TOK_RCB, TOK_RP, TOK_LCB, init_or, cond_or, i_or, TOK_LP, loop_main
+                    // elements: TOK_LP, i_or, inc_or, init_or, loop_main, cond_or, TOK_RCB, TOK_RP, TOK_LCB
                     // token labels: i_or
                     // rule labels: init_or, loop_main, inc_or, retval, cond_or
                     // token list labels: 
@@ -3092,7 +3092,7 @@ public class SMVParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: cond_plus, TOK_LCB, init_plus, inc_plus, loop_main, TOK_LP, i_plus, TOK_RP, TOK_RCB
+                    // elements: cond_plus, inc_plus, i_plus, init_plus, TOK_LCB, TOK_LP, TOK_RP, TOK_RCB, loop_main
                     // token labels: i_plus
                     // rule labels: loop_main, init_plus, inc_plus, cond_plus, retval
                     // token list labels: 
@@ -3973,11 +3973,11 @@ public class SMVParser extends Parser {
                 {
                 int LA18_2 = input.LA(2);
 
-                if ( (LA18_2==EOF||(LA18_2>=TOK_PLUS && LA18_2<=TOK_MINUS)||LA18_2==TOK_RP||LA18_2==TOK_COMMA||(LA18_2>=TOK_DOT && LA18_2<=TOK_COLON)||LA18_2==TOK_AND||(LA18_2>=TOK_EQUAL && LA18_2<=TOK_SEMI)||(LA18_2>=TOK_RCB && LA18_2<=TOK_GE)||(LA18_2>=TOK_UNTIL && LA18_2<=TOK_BUNTIL)||(LA18_2>=TOK_XOR && LA18_2<=TOK_IMPLIES)||(LA18_2>=TOK_SINCE && LA18_2<=TOK_TRIGGERED)||(LA18_2>=TOK_MODULE && LA18_2<=TOK_AGENT)||(LA18_2>=TOK_INVISIBLE_VAR && LA18_2<=TOK_DEFINE)||LA18_2==TOK_ASSIGN||(LA18_2>=TOK_INIT && LA18_2<=TOK_COMPUTE)||LA18_2==TOK_ISA||LA18_2==TOK_INCONTEXT) ) {
-                    alt18=1;
-                }
-                else if ( (LA18_2==TOK_TWODOTS) ) {
+                if ( (LA18_2==TOK_TWODOTS) ) {
                     alt18=2;
+                }
+                else if ( (LA18_2==EOF||(LA18_2>=TOK_PLUS && LA18_2<=TOK_MINUS)||LA18_2==TOK_RP||LA18_2==TOK_COMMA||(LA18_2>=TOK_DOT && LA18_2<=TOK_COLON)||LA18_2==TOK_AND||(LA18_2>=TOK_EQUAL && LA18_2<=TOK_SEMI)||(LA18_2>=TOK_RCB && LA18_2<=TOK_GE)||(LA18_2>=TOK_UNTIL && LA18_2<=TOK_BUNTIL)||(LA18_2>=TOK_XOR && LA18_2<=TOK_IMPLIES)||(LA18_2>=TOK_SINCE && LA18_2<=TOK_TRIGGERED)||(LA18_2>=TOK_MODULE && LA18_2<=TOK_AGENT)||(LA18_2>=TOK_INVISIBLE_VAR && LA18_2<=TOK_DEFINE)||LA18_2==TOK_ASSIGN||(LA18_2>=TOK_INIT && LA18_2<=TOK_COMPUTE)||LA18_2==TOK_ISA||LA18_2==TOK_INCONTEXT) ) {
+                    alt18=1;
                 }
                 else {
                     if (backtracking>0) {failed=true; return retval;}
@@ -3992,17 +3992,14 @@ public class SMVParser extends Parser {
                 {
                 int LA18_3 = input.LA(2);
 
-                if ( (LA18_3==TOK_FOR) ) {
-                    alt18=1;
-                }
-                else if ( (LA18_3==TOK_NUMBER) ) {
+                if ( (LA18_3==TOK_NUMBER) ) {
                     int LA18_8 = input.LA(3);
 
-                    if ( (LA18_8==TOK_TWODOTS) ) {
-                        alt18=2;
-                    }
-                    else if ( (LA18_8==EOF||(LA18_8>=TOK_PLUS && LA18_8<=TOK_MINUS)||LA18_8==TOK_RP||LA18_8==TOK_COMMA||(LA18_8>=TOK_DOT && LA18_8<=TOK_COLON)||LA18_8==TOK_AND||(LA18_8>=TOK_EQUAL && LA18_8<=TOK_SEMI)||(LA18_8>=TOK_RCB && LA18_8<=TOK_GE)||(LA18_8>=TOK_UNTIL && LA18_8<=TOK_BUNTIL)||(LA18_8>=TOK_XOR && LA18_8<=TOK_IMPLIES)||(LA18_8>=TOK_SINCE && LA18_8<=TOK_TRIGGERED)||(LA18_8>=TOK_MODULE && LA18_8<=TOK_AGENT)||(LA18_8>=TOK_INVISIBLE_VAR && LA18_8<=TOK_DEFINE)||LA18_8==TOK_ASSIGN||(LA18_8>=TOK_INIT && LA18_8<=TOK_COMPUTE)||LA18_8==TOK_ISA||LA18_8==TOK_INCONTEXT) ) {
+                    if ( (LA18_8==EOF||(LA18_8>=TOK_PLUS && LA18_8<=TOK_MINUS)||LA18_8==TOK_RP||LA18_8==TOK_COMMA||(LA18_8>=TOK_DOT && LA18_8<=TOK_COLON)||LA18_8==TOK_AND||(LA18_8>=TOK_EQUAL && LA18_8<=TOK_SEMI)||(LA18_8>=TOK_RCB && LA18_8<=TOK_GE)||(LA18_8>=TOK_UNTIL && LA18_8<=TOK_BUNTIL)||(LA18_8>=TOK_XOR && LA18_8<=TOK_IMPLIES)||(LA18_8>=TOK_SINCE && LA18_8<=TOK_TRIGGERED)||(LA18_8>=TOK_MODULE && LA18_8<=TOK_AGENT)||(LA18_8>=TOK_INVISIBLE_VAR && LA18_8<=TOK_DEFINE)||LA18_8==TOK_ASSIGN||(LA18_8>=TOK_INIT && LA18_8<=TOK_COMPUTE)||LA18_8==TOK_ISA||LA18_8==TOK_INCONTEXT) ) {
                         alt18=1;
+                    }
+                    else if ( (LA18_8==TOK_TWODOTS) ) {
+                        alt18=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return retval;}
@@ -4011,6 +4008,9 @@ public class SMVParser extends Parser {
 
                         throw nvae;
                     }
+                }
+                else if ( (LA18_3==TOK_FOR) ) {
+                    alt18=1;
                 }
                 else {
                     if (backtracking>0) {failed=true; return retval;}
@@ -4025,11 +4025,11 @@ public class SMVParser extends Parser {
                 {
                 int LA18_4 = input.LA(2);
 
-                if ( (LA18_4==EOF||(LA18_4>=TOK_PLUS && LA18_4<=TOK_MINUS)||LA18_4==TOK_RP||LA18_4==TOK_COMMA||(LA18_4>=TOK_DOT && LA18_4<=TOK_COLON)||LA18_4==TOK_AND||(LA18_4>=TOK_EQUAL && LA18_4<=TOK_SEMI)||(LA18_4>=TOK_RCB && LA18_4<=TOK_GE)||(LA18_4>=TOK_UNTIL && LA18_4<=TOK_BUNTIL)||(LA18_4>=TOK_XOR && LA18_4<=TOK_IMPLIES)||(LA18_4>=TOK_SINCE && LA18_4<=TOK_TRIGGERED)||(LA18_4>=TOK_MODULE && LA18_4<=TOK_AGENT)||(LA18_4>=TOK_INVISIBLE_VAR && LA18_4<=TOK_DEFINE)||LA18_4==TOK_ASSIGN||(LA18_4>=TOK_INIT && LA18_4<=TOK_COMPUTE)||LA18_4==TOK_ISA||LA18_4==TOK_INCONTEXT) ) {
-                    alt18=1;
-                }
-                else if ( (LA18_4==TOK_TWODOTS) ) {
+                if ( (LA18_4==TOK_TWODOTS) ) {
                     alt18=2;
+                }
+                else if ( (LA18_4==EOF||(LA18_4>=TOK_PLUS && LA18_4<=TOK_MINUS)||LA18_4==TOK_RP||LA18_4==TOK_COMMA||(LA18_4>=TOK_DOT && LA18_4<=TOK_COLON)||LA18_4==TOK_AND||(LA18_4>=TOK_EQUAL && LA18_4<=TOK_SEMI)||(LA18_4>=TOK_RCB && LA18_4<=TOK_GE)||(LA18_4>=TOK_UNTIL && LA18_4<=TOK_BUNTIL)||(LA18_4>=TOK_XOR && LA18_4<=TOK_IMPLIES)||(LA18_4>=TOK_SINCE && LA18_4<=TOK_TRIGGERED)||(LA18_4>=TOK_MODULE && LA18_4<=TOK_AGENT)||(LA18_4>=TOK_INVISIBLE_VAR && LA18_4<=TOK_DEFINE)||LA18_4==TOK_ASSIGN||(LA18_4>=TOK_INIT && LA18_4<=TOK_COMPUTE)||LA18_4==TOK_ISA||LA18_4==TOK_INCONTEXT) ) {
+                    alt18=1;
                 }
                 else {
                     if (backtracking>0) {failed=true; return retval;}
@@ -4047,11 +4047,11 @@ public class SMVParser extends Parser {
                 if ( (LA18_5==TOK_NUMBER) ) {
                     int LA18_9 = input.LA(3);
 
-                    if ( (LA18_9==TOK_TWODOTS) ) {
-                        alt18=2;
-                    }
-                    else if ( (LA18_9==EOF||(LA18_9>=TOK_PLUS && LA18_9<=TOK_MINUS)||LA18_9==TOK_RP||LA18_9==TOK_COMMA||(LA18_9>=TOK_DOT && LA18_9<=TOK_COLON)||LA18_9==TOK_AND||(LA18_9>=TOK_EQUAL && LA18_9<=TOK_SEMI)||(LA18_9>=TOK_RCB && LA18_9<=TOK_GE)||(LA18_9>=TOK_UNTIL && LA18_9<=TOK_BUNTIL)||(LA18_9>=TOK_XOR && LA18_9<=TOK_IMPLIES)||(LA18_9>=TOK_SINCE && LA18_9<=TOK_TRIGGERED)||(LA18_9>=TOK_MODULE && LA18_9<=TOK_AGENT)||(LA18_9>=TOK_INVISIBLE_VAR && LA18_9<=TOK_DEFINE)||LA18_9==TOK_ASSIGN||(LA18_9>=TOK_INIT && LA18_9<=TOK_COMPUTE)||LA18_9==TOK_ISA||LA18_9==TOK_INCONTEXT) ) {
+                    if ( (LA18_9==EOF||(LA18_9>=TOK_PLUS && LA18_9<=TOK_MINUS)||LA18_9==TOK_RP||LA18_9==TOK_COMMA||(LA18_9>=TOK_DOT && LA18_9<=TOK_COLON)||LA18_9==TOK_AND||(LA18_9>=TOK_EQUAL && LA18_9<=TOK_SEMI)||(LA18_9>=TOK_RCB && LA18_9<=TOK_GE)||(LA18_9>=TOK_UNTIL && LA18_9<=TOK_BUNTIL)||(LA18_9>=TOK_XOR && LA18_9<=TOK_IMPLIES)||(LA18_9>=TOK_SINCE && LA18_9<=TOK_TRIGGERED)||(LA18_9>=TOK_MODULE && LA18_9<=TOK_AGENT)||(LA18_9>=TOK_INVISIBLE_VAR && LA18_9<=TOK_DEFINE)||LA18_9==TOK_ASSIGN||(LA18_9>=TOK_INIT && LA18_9<=TOK_COMPUTE)||LA18_9==TOK_ISA||LA18_9==TOK_INCONTEXT) ) {
                         alt18=1;
+                    }
+                    else if ( (LA18_9==TOK_TWODOTS) ) {
+                        alt18=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return retval;}
@@ -5215,7 +5215,27 @@ public class SMVParser extends Parser {
             else if ( (LA25_0==TOK_NOT) ) {
                 int LA25_13 = input.LA(2);
 
-                if ( (LA25_13==TOK_EX) && (synpred1())) {
+                if ( ((LA25_13>=TOK_NUMBER && LA25_13<=TOK_ATOM)||(LA25_13>=TOK_FALSEEXP && LA25_13<=TOK_LP)||(LA25_13>=TOK_BOOL && LA25_13<=TOK_CASE)||LA25_13==TOK_WAREAD||(LA25_13>=TOK_WAWRITE && LA25_13<=TOK_SELF)||LA25_13==TOK_AND||LA25_13==TOK_OR) ) {
+                    alt25=2;
+                }
+                else if ( (LA25_13==TOK_NOT) ) {
+                    int LA25_15 = input.LA(3);
+
+                    if ( (synpred1()) ) {
+                        alt25=1;
+                    }
+                    else if ( (true) ) {
+                        alt25=2;
+                    }
+                    else {
+                        if (backtracking>0) {failed=true; return retval;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("336:1: ctl_expr : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> pure_ctl_expr -> ^( PURE_CTL_T pure_ctl_expr ) | relational_expr );", 25, 15, input);
+
+                        throw nvae;
+                    }
+                }
+                else if ( (LA25_13==TOK_EX) && (synpred1())) {
                     alt25=1;
                 }
                 else if ( (LA25_13==TOK_AX) && (synpred1())) {
@@ -5250,26 +5270,6 @@ public class SMVParser extends Parser {
                 }
                 else if ( (LA25_13==TOK_ABG) && (synpred1())) {
                     alt25=1;
-                }
-                else if ( (LA25_13==TOK_NOT) ) {
-                    int LA25_27 = input.LA(3);
-
-                    if ( (synpred1()) ) {
-                        alt25=1;
-                    }
-                    else if ( (true) ) {
-                        alt25=2;
-                    }
-                    else {
-                        if (backtracking>0) {failed=true; return retval;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("336:1: ctl_expr : ( ( ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG ) )=> pure_ctl_expr -> ^( PURE_CTL_T pure_ctl_expr ) | relational_expr );", 25, 27, input);
-
-                        throw nvae;
-                    }
-                }
-                else if ( ((LA25_13>=TOK_NUMBER && LA25_13<=TOK_ATOM)||(LA25_13>=TOK_FALSEEXP && LA25_13<=TOK_LP)||(LA25_13>=TOK_BOOL && LA25_13<=TOK_CASE)||LA25_13==TOK_WAREAD||(LA25_13>=TOK_WAWRITE && LA25_13<=TOK_SELF)||LA25_13==TOK_AND||LA25_13==TOK_OR) ) {
-                    alt25=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return retval;}
@@ -7352,7 +7352,7 @@ public class SMVParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: simple_expression, TOK_WORD
+                    // elements: TOK_WORD, simple_expression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -7668,7 +7668,7 @@ public class SMVParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: simple_list_expression, TOK_ATOM
+                    // elements: TOK_ATOM, simple_list_expression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -8485,7 +8485,7 @@ public class SMVParser extends Parser {
             if ( backtracking==0 ) stream_declarations.add(declarations332.getTree());
 
             // AST REWRITE
-            // elements: module_sign, declarations, TOK_MODULE
+            // elements: declarations, TOK_MODULE, module_sign
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -8957,7 +8957,7 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start declaration
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:552:1: declaration : ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | ctlspec | ltlspec | pslspec | compute | constants | predicate | mirror );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:552:1: declaration : ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | compute | constants | predicate | mirror );
     public final declaration_return declaration() throws RecognitionException {
         declaration_return retval = new declaration_return();
         retval.start = input.LT(1);
@@ -8988,25 +8988,19 @@ public class SMVParser extends Parser {
 
         invarspec_return invarspec354 = null;
 
-        ctlspec_return ctlspec355 = null;
+        compute_return compute355 = null;
 
-        ltlspec_return ltlspec356 = null;
+        constants_return constants356 = null;
 
-        pslspec_return pslspec357 = null;
+        predicate_return predicate357 = null;
 
-        compute_return compute358 = null;
-
-        constants_return constants359 = null;
-
-        predicate_return predicate360 = null;
-
-        mirror_return mirror361 = null;
+        mirror_return mirror358 = null;
 
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:552:13: ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | ctlspec | ltlspec | pslspec | compute | constants | predicate | mirror )
-            int alt49=19;
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:552:13: ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | compute | constants | predicate | mirror )
+            int alt49=16;
             switch ( input.LA(1) ) {
             case TOK_VAR:
                 {
@@ -9068,46 +9062,30 @@ public class SMVParser extends Parser {
                 alt49=12;
                 }
                 break;
-            case TOK_SPEC:
-            case TOK_CTLSPEC:
+            case TOK_COMPUTE:
                 {
                 alt49=13;
                 }
                 break;
-            case TOK_LTLSPEC:
+            case TOK_CONSTANTS:
                 {
                 alt49=14;
                 }
                 break;
-            case TOK_PSLSPEC:
+            case TOK_PRED:
                 {
                 alt49=15;
                 }
                 break;
-            case TOK_COMPUTE:
-                {
-                alt49=16;
-                }
-                break;
-            case TOK_CONSTANTS:
-                {
-                alt49=17;
-                }
-                break;
-            case TOK_PRED:
-                {
-                alt49=18;
-                }
-                break;
             case TOK_MIRROR:
                 {
-                alt49=19;
+                alt49=16;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("552:1: declaration : ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | ctlspec | ltlspec | pslspec | compute | constants | predicate | mirror );", 49, 0, input);
+                    new NoViableAltException("552:1: declaration : ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | compute | constants | predicate | mirror );", 49, 0, input);
 
                 throw nvae;
             }
@@ -9270,93 +9248,54 @@ public class SMVParser extends Parser {
                     }
                     break;
                 case 13 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:565:5: ctlspec
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:568:7: compute
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_ctlspec_in_declaration3109);
-                    ctlspec355=ctlspec();
+                    pushFollow(FOLLOW_compute_in_declaration3110);
+                    compute355=compute();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, ctlspec355.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, compute355.getTree());
 
                     }
                     break;
                 case 14 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:566:5: ltlspec
-                    {
-                    root_0 = (Object)adaptor.nil();
-
-                    pushFollow(FOLLOW_ltlspec_in_declaration3116);
-                    ltlspec356=ltlspec();
-                    _fsp--;
-                    if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, ltlspec356.getTree());
-
-                    }
-                    break;
-                case 15 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:567:5: pslspec
-                    {
-                    root_0 = (Object)adaptor.nil();
-
-                    pushFollow(FOLLOW_pslspec_in_declaration3123);
-                    pslspec357=pslspec();
-                    _fsp--;
-                    if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, pslspec357.getTree());
-
-                    }
-                    break;
-                case 16 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:568:5: compute
-                    {
-                    root_0 = (Object)adaptor.nil();
-
-                    pushFollow(FOLLOW_compute_in_declaration3130);
-                    compute358=compute();
-                    _fsp--;
-                    if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, compute358.getTree());
-
-                    }
-                    break;
-                case 17 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:569:5: constants
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_constants_in_declaration3137);
-                    constants359=constants();
+                    pushFollow(FOLLOW_constants_in_declaration3117);
+                    constants356=constants();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, constants359.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, constants356.getTree());
 
                     }
                     break;
-                case 18 :
+                case 15 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:570:5: predicate
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_predicate_in_declaration3144);
-                    predicate360=predicate();
+                    pushFollow(FOLLOW_predicate_in_declaration3124);
+                    predicate357=predicate();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, predicate360.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, predicate357.getTree());
 
                     }
                     break;
-                case 19 :
+                case 16 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:571:5: mirror
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_mirror_in_declaration3151);
-                    mirror361=mirror();
+                    pushFollow(FOLLOW_mirror_in_declaration3131);
+                    mirror358=mirror();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, mirror361.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, mirror358.getTree());
 
                     }
                     break;
@@ -9392,13 +9331,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_AGENT362=null;
-        agent_sign_return agent_sign363 = null;
+        Token TOK_AGENT359=null;
+        agent_sign_return agent_sign360 = null;
 
-        agent_declarations_return agent_declarations364 = null;
+        agent_declarations_return agent_declarations361 = null;
 
 
-        Object TOK_AGENT362_tree=null;
+        Object TOK_AGENT359_tree=null;
         RewriteRuleTokenStream stream_TOK_AGENT=new RewriteRuleTokenStream(adaptor,"token TOK_AGENT");
         RewriteRuleSubtreeStream stream_agent_sign=new RewriteRuleSubtreeStream(adaptor,"rule agent_sign");
         RewriteRuleSubtreeStream stream_agent_declarations=new RewriteRuleSubtreeStream(adaptor,"rule agent_declarations");
@@ -9409,24 +9348,24 @@ public class SMVParser extends Parser {
             if ( backtracking==0 ) {
                curr_module_sign_vector.clear(); 
             }
-            TOK_AGENT362=(Token)input.LT(1);
-            match(input,TOK_AGENT,FOLLOW_TOK_AGENT_in_mas_agent3173); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_AGENT.add(TOK_AGENT362);
+            TOK_AGENT359=(Token)input.LT(1);
+            match(input,TOK_AGENT,FOLLOW_TOK_AGENT_in_mas_agent3153); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_AGENT.add(TOK_AGENT359);
 
-            pushFollow(FOLLOW_agent_sign_in_mas_agent3175);
-            agent_sign363=agent_sign();
+            pushFollow(FOLLOW_agent_sign_in_mas_agent3155);
+            agent_sign360=agent_sign();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_agent_sign.add(agent_sign363.getTree());
+            if ( backtracking==0 ) stream_agent_sign.add(agent_sign360.getTree());
             if ( backtracking==0 ) {
                //curr_module_name = curr_agent_sign_vector.elementAt(0); 
               		  smv_initiator.add_module(curr_module_sign_vector, input); 
             }
-            pushFollow(FOLLOW_agent_declarations_in_mas_agent3183);
-            agent_declarations364=agent_declarations();
+            pushFollow(FOLLOW_agent_declarations_in_mas_agent3163);
+            agent_declarations361=agent_declarations();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_agent_declarations.add(agent_declarations364.getTree());
+            if ( backtracking==0 ) stream_agent_declarations.add(agent_declarations361.getTree());
 
             // AST REWRITE
             // elements: TOK_AGENT, agent_sign, agent_declarations
@@ -9488,23 +9427,23 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_ATOM365=null;
+        Token TOK_ATOM362=null;
+        Token TOK_ATOM363=null;
+        Token TOK_LP364=null;
+        Token TOK_RP365=null;
         Token TOK_ATOM366=null;
         Token TOK_LP367=null;
-        Token TOK_RP368=null;
-        Token TOK_ATOM369=null;
-        Token TOK_LP370=null;
-        Token TOK_RP372=null;
-        agent_sign_atom_list_return agent_sign_atom_list371 = null;
+        Token TOK_RP369=null;
+        agent_sign_atom_list_return agent_sign_atom_list368 = null;
 
 
-        Object TOK_ATOM365_tree=null;
+        Object TOK_ATOM362_tree=null;
+        Object TOK_ATOM363_tree=null;
+        Object TOK_LP364_tree=null;
+        Object TOK_RP365_tree=null;
         Object TOK_ATOM366_tree=null;
         Object TOK_LP367_tree=null;
-        Object TOK_RP368_tree=null;
-        Object TOK_ATOM369_tree=null;
-        Object TOK_LP370_tree=null;
-        Object TOK_RP372_tree=null;
+        Object TOK_RP369_tree=null;
         RewriteRuleTokenStream stream_TOK_LP=new RewriteRuleTokenStream(adaptor,"token TOK_LP");
         RewriteRuleTokenStream stream_TOK_ATOM=new RewriteRuleTokenStream(adaptor,"token TOK_ATOM");
         RewriteRuleTokenStream stream_TOK_RP=new RewriteRuleTokenStream(adaptor,"token TOK_RP");
@@ -9556,12 +9495,12 @@ public class SMVParser extends Parser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:587:15: TOK_ATOM
                     {
-                    TOK_ATOM365=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3207); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_ATOM.add(TOK_ATOM365);
+                    TOK_ATOM362=(Token)input.LT(1);
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3187); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_ATOM.add(TOK_ATOM362);
 
                     if ( backtracking==0 ) {
-                       curr_module_sign_vector.add(TOK_ATOM365.getText()); //the agent name
+                       curr_module_sign_vector.add(TOK_ATOM362.getText()); //the agent name
                       		  curr_module_sign_vector.add("1"); //"1" -- is Agent; "0" -- is normal module
                       		
                     }
@@ -9598,20 +9537,20 @@ public class SMVParser extends Parser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:592:5: TOK_ATOM TOK_LP TOK_RP
                     {
-                    TOK_ATOM366=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3227); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_ATOM.add(TOK_ATOM366);
+                    TOK_ATOM363=(Token)input.LT(1);
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3207); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_ATOM.add(TOK_ATOM363);
 
-                    TOK_LP367=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_agent_sign3229); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP367);
+                    TOK_LP364=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_agent_sign3209); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP364);
 
-                    TOK_RP368=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_agent_sign3231); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP368);
+                    TOK_RP365=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_agent_sign3211); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP365);
 
                     if ( backtracking==0 ) {
-                       curr_module_sign_vector.add(TOK_ATOM366.getText()); //the agent name
+                       curr_module_sign_vector.add(TOK_ATOM363.getText()); //the agent name
                       		  curr_module_sign_vector.add("1"); //"1" -- is Agent; "0" -- is normal module
                       		
                     }
@@ -9648,27 +9587,27 @@ public class SMVParser extends Parser {
                 case 3 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:597:5: TOK_ATOM TOK_LP agent_sign_atom_list TOK_RP
                     {
-                    TOK_ATOM369=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3251); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_ATOM.add(TOK_ATOM369);
+                    TOK_ATOM366=(Token)input.LT(1);
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3231); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_ATOM.add(TOK_ATOM366);
 
                     if ( backtracking==0 ) {
-                       curr_module_sign_vector.add(TOK_ATOM369.getText()); //the agent name
+                       curr_module_sign_vector.add(TOK_ATOM366.getText()); //the agent name
                       		  curr_module_sign_vector.add("1"); //"1" -- is Agent; "0" -- is normal module
                       		
                     }
-                    TOK_LP370=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_agent_sign3260); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP370);
+                    TOK_LP367=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_agent_sign3240); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP367);
 
-                    pushFollow(FOLLOW_agent_sign_atom_list_in_agent_sign3262);
-                    agent_sign_atom_list371=agent_sign_atom_list();
+                    pushFollow(FOLLOW_agent_sign_atom_list_in_agent_sign3242);
+                    agent_sign_atom_list368=agent_sign_atom_list();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_agent_sign_atom_list.add(agent_sign_atom_list371.getTree());
-                    TOK_RP372=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_agent_sign3264); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP372);
+                    if ( backtracking==0 ) stream_agent_sign_atom_list.add(agent_sign_atom_list368.getTree());
+                    TOK_RP369=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_agent_sign3244); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP369);
 
 
                     // AST REWRITE
@@ -9741,7 +9680,7 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        agent_declaration_return agent_declaration373 = null;
+        agent_declaration_return agent_declaration370 = null;
 
 
 
@@ -9766,11 +9705,11 @@ public class SMVParser extends Parser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:606:24: agent_declaration
             	    {
-            	    pushFollow(FOLLOW_agent_declaration_in_agent_declarations3294);
-            	    agent_declaration373=agent_declaration();
+            	    pushFollow(FOLLOW_agent_declaration_in_agent_declarations3274);
+            	    agent_declaration370=agent_declaration();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, agent_declaration373.getTree());
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, agent_declaration370.getTree());
 
             	    }
             	    break;
@@ -9813,13 +9752,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_COMMA375=null;
-        agent_sign_atom_return agent_sign_atom374 = null;
+        Token TOK_COMMA372=null;
+        agent_sign_atom_return agent_sign_atom371 = null;
 
-        agent_sign_atom_return agent_sign_atom376 = null;
+        agent_sign_atom_return agent_sign_atom373 = null;
 
 
-        Object TOK_COMMA375_tree=null;
+        Object TOK_COMMA372_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:607:23: ( agent_sign_atom ( TOK_COMMA agent_sign_atom )* )
@@ -9827,11 +9766,11 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_agent_sign_atom_in_agent_sign_atom_list3305);
-            agent_sign_atom374=agent_sign_atom();
+            pushFollow(FOLLOW_agent_sign_atom_in_agent_sign_atom_list3285);
+            agent_sign_atom371=agent_sign_atom();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, agent_sign_atom374.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, agent_sign_atom371.getTree());
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:608:4: ( TOK_COMMA agent_sign_atom )*
             loop52:
             do {
@@ -9847,13 +9786,13 @@ public class SMVParser extends Parser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:608:5: TOK_COMMA agent_sign_atom
             	    {
-            	    TOK_COMMA375=(Token)input.LT(1);
-            	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_agent_sign_atom_list3312); if (failed) return retval;
-            	    pushFollow(FOLLOW_agent_sign_atom_in_agent_sign_atom_list3315);
-            	    agent_sign_atom376=agent_sign_atom();
+            	    TOK_COMMA372=(Token)input.LT(1);
+            	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_agent_sign_atom_list3292); if (failed) return retval;
+            	    pushFollow(FOLLOW_agent_sign_atom_in_agent_sign_atom_list3295);
+            	    agent_sign_atom373=agent_sign_atom();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, agent_sign_atom376.getTree());
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, agent_sign_atom373.getTree());
 
             	    }
             	    break;
@@ -9898,11 +9837,11 @@ public class SMVParser extends Parser {
 
         Token f=null;
         Token r=null;
-        Token TOK_VISIBLE377=null;
+        Token TOK_VISIBLE374=null;
 
         Object f_tree=null;
         Object r_tree=null;
-        Object TOK_VISIBLE377_tree=null;
+        Object TOK_VISIBLE374_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:613:18: (f= TOK_ATOM | TOK_VISIBLE r= TOK_ATOM )
@@ -9929,7 +9868,7 @@ public class SMVParser extends Parser {
                     root_0 = (Object)adaptor.nil();
 
                     f=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign_atom3332); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign_atom3312); if (failed) return retval;
                     if ( backtracking==0 ) {
                     f_tree = (Object)adaptor.create(f);
                     adaptor.addChild(root_0, f_tree);
@@ -9947,14 +9886,14 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_VISIBLE377=(Token)input.LT(1);
-                    match(input,TOK_VISIBLE,FOLLOW_TOK_VISIBLE_in_agent_sign_atom3346); if (failed) return retval;
+                    TOK_VISIBLE374=(Token)input.LT(1);
+                    match(input,TOK_VISIBLE,FOLLOW_TOK_VISIBLE_in_agent_sign_atom3326); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_VISIBLE377_tree = (Object)adaptor.create(TOK_VISIBLE377);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_VISIBLE377_tree, root_0);
+                    TOK_VISIBLE374_tree = (Object)adaptor.create(TOK_VISIBLE374);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_VISIBLE374_tree, root_0);
                     }
                     r=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign_atom3351); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign_atom3331); if (failed) return retval;
                     if ( backtracking==0 ) {
                     r_tree = (Object)adaptor.create(r);
                     adaptor.addChild(root_0, r_tree);
@@ -9999,23 +9938,23 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        var_return var378 = null;
+        var_return var375 = null;
 
-        agent_invisible_var_return agent_invisible_var379 = null;
+        agent_invisible_var_return agent_invisible_var376 = null;
 
-        input_var_return input_var380 = null;
+        input_var_return input_var377 = null;
 
-        assign_return assign381 = null;
+        assign_return assign378 = null;
 
-        init_return init382 = null;
+        init_return init379 = null;
 
-        trans_return trans383 = null;
+        trans_return trans380 = null;
 
-        define_return define384 = null;
+        define_return define381 = null;
 
-        justice_return justice385 = null;
+        justice_return justice382 = null;
 
-        compassion_return compassion386 = null;
+        compassion_return compassion383 = null;
 
 
 
@@ -10082,11 +10021,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_var_in_agent_declaration3376);
-                    var378=var();
+                    pushFollow(FOLLOW_var_in_agent_declaration3356);
+                    var375=var();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, var378.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, var375.getTree());
 
                     }
                     break;
@@ -10095,11 +10034,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_agent_invisible_var_in_agent_declaration3384);
-                    agent_invisible_var379=agent_invisible_var();
+                    pushFollow(FOLLOW_agent_invisible_var_in_agent_declaration3364);
+                    agent_invisible_var376=agent_invisible_var();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, agent_invisible_var379.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, agent_invisible_var376.getTree());
 
                     }
                     break;
@@ -10108,11 +10047,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_input_var_in_agent_declaration3392);
-                    input_var380=input_var();
+                    pushFollow(FOLLOW_input_var_in_agent_declaration3372);
+                    input_var377=input_var();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, input_var380.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, input_var377.getTree());
 
                     }
                     break;
@@ -10121,11 +10060,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_assign_in_agent_declaration3398);
-                    assign381=assign();
+                    pushFollow(FOLLOW_assign_in_agent_declaration3378);
+                    assign378=assign();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, assign381.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, assign378.getTree());
 
                     }
                     break;
@@ -10134,11 +10073,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_init_in_agent_declaration3405);
-                    init382=init();
+                    pushFollow(FOLLOW_init_in_agent_declaration3385);
+                    init379=init();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, init382.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, init379.getTree());
 
                     }
                     break;
@@ -10147,11 +10086,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_trans_in_agent_declaration3411);
-                    trans383=trans();
+                    pushFollow(FOLLOW_trans_in_agent_declaration3391);
+                    trans380=trans();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, trans383.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, trans380.getTree());
 
                     }
                     break;
@@ -10160,11 +10099,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_define_in_agent_declaration3417);
-                    define384=define();
+                    pushFollow(FOLLOW_define_in_agent_declaration3397);
+                    define381=define();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, define384.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, define381.getTree());
 
                     }
                     break;
@@ -10173,11 +10112,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_justice_in_agent_declaration3423);
-                    justice385=justice();
+                    pushFollow(FOLLOW_justice_in_agent_declaration3403);
+                    justice382=justice();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, justice385.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, justice382.getTree());
 
                     }
                     break;
@@ -10186,11 +10125,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_compassion_in_agent_declaration3429);
-                    compassion386=compassion();
+                    pushFollow(FOLLOW_compassion_in_agent_declaration3409);
+                    compassion383=compassion();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, compassion386.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, compassion383.getTree());
 
                     }
                     break;
@@ -10226,13 +10165,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_INVISIBLE_VAR387=null;
-        Token TOK_INVISIBLE_VAR388=null;
-        var_decl_list_return var_decl_list389 = null;
+        Token TOK_INVISIBLE_VAR384=null;
+        Token TOK_INVISIBLE_VAR385=null;
+        var_decl_list_return var_decl_list386 = null;
 
 
-        Object TOK_INVISIBLE_VAR387_tree=null;
-        Object TOK_INVISIBLE_VAR388_tree=null;
+        Object TOK_INVISIBLE_VAR384_tree=null;
+        Object TOK_INVISIBLE_VAR385_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:639:22: ( TOK_INVISIBLE_VAR | TOK_INVISIBLE_VAR var_decl_list )
@@ -10269,11 +10208,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_INVISIBLE_VAR387=(Token)input.LT(1);
-                    match(input,TOK_INVISIBLE_VAR,FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3441); if (failed) return retval;
+                    TOK_INVISIBLE_VAR384=(Token)input.LT(1);
+                    match(input,TOK_INVISIBLE_VAR,FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3421); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_INVISIBLE_VAR387_tree = (Object)adaptor.create(TOK_INVISIBLE_VAR387);
-                    adaptor.addChild(root_0, TOK_INVISIBLE_VAR387_tree);
+                    TOK_INVISIBLE_VAR384_tree = (Object)adaptor.create(TOK_INVISIBLE_VAR384);
+                    adaptor.addChild(root_0, TOK_INVISIBLE_VAR384_tree);
                     }
 
                     }
@@ -10283,17 +10222,17 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_INVISIBLE_VAR388=(Token)input.LT(1);
-                    match(input,TOK_INVISIBLE_VAR,FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3449); if (failed) return retval;
+                    TOK_INVISIBLE_VAR385=(Token)input.LT(1);
+                    match(input,TOK_INVISIBLE_VAR,FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3429); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_INVISIBLE_VAR388_tree = (Object)adaptor.create(TOK_INVISIBLE_VAR388);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_INVISIBLE_VAR388_tree, root_0);
+                    TOK_INVISIBLE_VAR385_tree = (Object)adaptor.create(TOK_INVISIBLE_VAR385);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_INVISIBLE_VAR385_tree, root_0);
                     }
-                    pushFollow(FOLLOW_var_decl_list_in_agent_invisible_var3452);
-                    var_decl_list389=var_decl_list();
+                    pushFollow(FOLLOW_var_decl_list_in_agent_invisible_var3432);
+                    var_decl_list386=var_decl_list();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, var_decl_list389.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, var_decl_list386.getTree());
 
                     }
                     break;
@@ -10329,26 +10268,26 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_GAME390=null;
-        game_body_return game_body391 = null;
+        Token TOK_GAME387=null;
+        game_body_return game_body388 = null;
 
 
-        Object TOK_GAME390_tree=null;
+        Object TOK_GAME387_tree=null;
         RewriteRuleTokenStream stream_TOK_GAME=new RewriteRuleTokenStream(adaptor,"token TOK_GAME");
         RewriteRuleSubtreeStream stream_game_body=new RewriteRuleSubtreeStream(adaptor,"rule game_body");
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:653:17: ( TOK_GAME game_body -> ^( TOK_GAME game_body ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:653:19: TOK_GAME game_body
             {
-            TOK_GAME390=(Token)input.LT(1);
-            match(input,TOK_GAME,FOLLOW_TOK_GAME_in_game_definition3471); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_GAME.add(TOK_GAME390);
+            TOK_GAME387=(Token)input.LT(1);
+            match(input,TOK_GAME,FOLLOW_TOK_GAME_in_game_definition3451); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_GAME.add(TOK_GAME387);
 
-            pushFollow(FOLLOW_game_body_in_game_definition3473);
-            game_body391=game_body();
+            pushFollow(FOLLOW_game_body_in_game_definition3453);
+            game_body388=game_body();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_game_body.add(game_body391.getTree());
+            if ( backtracking==0 ) stream_game_body.add(game_body388.getTree());
 
             // AST REWRITE
             // elements: TOK_GAME, game_body
@@ -10409,9 +10348,9 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        game_body_element_return game_body_element392 = null;
+        game_body_element_return game_body_element389 = null;
 
-        game_body_return game_body393 = null;
+        game_body_return game_body390 = null;
 
 
 
@@ -10421,11 +10360,11 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_game_body_element_in_game_body3494);
-            game_body_element392=game_body_element();
+            pushFollow(FOLLOW_game_body_element_in_game_body3474);
+            game_body_element389=game_body_element();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, game_body_element392.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, game_body_element389.getTree());
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:656:32: ( game_body )?
             int alt56=2;
             int LA56_0 = input.LA(1);
@@ -10437,11 +10376,11 @@ public class SMVParser extends Parser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:656:33: game_body
                     {
-                    pushFollow(FOLLOW_game_body_in_game_body3497);
-                    game_body393=game_body();
+                    pushFollow(FOLLOW_game_body_in_game_body3477);
+                    game_body390=game_body();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, game_body393.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, game_body390.getTree());
 
                     }
                     break;
@@ -10481,27 +10420,27 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_PLAYER_1394=null;
-        Token TOK_PLAYER_2396=null;
-        player_body_return player_body395 = null;
+        Token TOK_PLAYER_1391=null;
+        Token TOK_PLAYER_2393=null;
+        player_body_return player_body392 = null;
 
-        player_body_return player_body397 = null;
+        player_body_return player_body394 = null;
 
-        reachtarget_return reachtarget398 = null;
+        reachtarget_return reachtarget395 = null;
 
-        avoidtarget_return avoidtarget399 = null;
+        avoidtarget_return avoidtarget396 = null;
 
-        reachdeadlock_return reachdeadlock400 = null;
+        reachdeadlock_return reachdeadlock397 = null;
 
-        avoiddeadlock_return avoiddeadlock401 = null;
+        avoiddeadlock_return avoiddeadlock398 = null;
 
-        buchigame_return buchigame402 = null;
+        buchigame_return buchigame399 = null;
 
-        genreactivity_return genreactivity403 = null;
+        genreactivity_return genreactivity400 = null;
 
 
-        Object TOK_PLAYER_1394_tree=null;
-        Object TOK_PLAYER_2396_tree=null;
+        Object TOK_PLAYER_1391_tree=null;
+        Object TOK_PLAYER_2393_tree=null;
         RewriteRuleTokenStream stream_TOK_PLAYER_1=new RewriteRuleTokenStream(adaptor,"token TOK_PLAYER_1");
         RewriteRuleTokenStream stream_TOK_PLAYER_2=new RewriteRuleTokenStream(adaptor,"token TOK_PLAYER_2");
         RewriteRuleSubtreeStream stream_player_body=new RewriteRuleSubtreeStream(adaptor,"rule player_body");
@@ -10561,18 +10500,18 @@ public class SMVParser extends Parser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:660:21: TOK_PLAYER_1 player_body
                     {
-                    TOK_PLAYER_1394=(Token)input.LT(1);
-                    match(input,TOK_PLAYER_1,FOLLOW_TOK_PLAYER_1_in_game_body_element3508); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_PLAYER_1.add(TOK_PLAYER_1394);
+                    TOK_PLAYER_1391=(Token)input.LT(1);
+                    match(input,TOK_PLAYER_1,FOLLOW_TOK_PLAYER_1_in_game_body_element3488); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_PLAYER_1.add(TOK_PLAYER_1391);
 
-                    pushFollow(FOLLOW_player_body_in_game_body_element3510);
-                    player_body395=player_body();
+                    pushFollow(FOLLOW_player_body_in_game_body_element3490);
+                    player_body392=player_body();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_player_body.add(player_body395.getTree());
+                    if ( backtracking==0 ) stream_player_body.add(player_body392.getTree());
 
                     // AST REWRITE
-                    // elements: TOK_PLAYER_1, player_body
+                    // elements: player_body, TOK_PLAYER_1
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -10603,18 +10542,18 @@ public class SMVParser extends Parser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:662:5: TOK_PLAYER_2 player_body
                     {
-                    TOK_PLAYER_2396=(Token)input.LT(1);
-                    match(input,TOK_PLAYER_2,FOLLOW_TOK_PLAYER_2_in_game_body_element3526); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_PLAYER_2.add(TOK_PLAYER_2396);
+                    TOK_PLAYER_2393=(Token)input.LT(1);
+                    match(input,TOK_PLAYER_2,FOLLOW_TOK_PLAYER_2_in_game_body_element3506); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_PLAYER_2.add(TOK_PLAYER_2393);
 
-                    pushFollow(FOLLOW_player_body_in_game_body_element3528);
-                    player_body397=player_body();
+                    pushFollow(FOLLOW_player_body_in_game_body_element3508);
+                    player_body394=player_body();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_player_body.add(player_body397.getTree());
+                    if ( backtracking==0 ) stream_player_body.add(player_body394.getTree());
 
                     // AST REWRITE
-                    // elements: TOK_PLAYER_2, player_body
+                    // elements: player_body, TOK_PLAYER_2
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -10647,11 +10586,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_reachtarget_in_game_body_element3549);
-                    reachtarget398=reachtarget();
+                    pushFollow(FOLLOW_reachtarget_in_game_body_element3529);
+                    reachtarget395=reachtarget();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, reachtarget398.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, reachtarget395.getTree());
 
                     }
                     break;
@@ -10660,11 +10599,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_avoidtarget_in_game_body_element3555);
-                    avoidtarget399=avoidtarget();
+                    pushFollow(FOLLOW_avoidtarget_in_game_body_element3535);
+                    avoidtarget396=avoidtarget();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, avoidtarget399.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, avoidtarget396.getTree());
 
                     }
                     break;
@@ -10673,11 +10612,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_reachdeadlock_in_game_body_element3561);
-                    reachdeadlock400=reachdeadlock();
+                    pushFollow(FOLLOW_reachdeadlock_in_game_body_element3541);
+                    reachdeadlock397=reachdeadlock();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, reachdeadlock400.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, reachdeadlock397.getTree());
 
                     }
                     break;
@@ -10686,11 +10625,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_avoiddeadlock_in_game_body_element3567);
-                    avoiddeadlock401=avoiddeadlock();
+                    pushFollow(FOLLOW_avoiddeadlock_in_game_body_element3547);
+                    avoiddeadlock398=avoiddeadlock();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, avoiddeadlock401.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, avoiddeadlock398.getTree());
 
                     }
                     break;
@@ -10699,11 +10638,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_buchigame_in_game_body_element3573);
-                    buchigame402=buchigame();
+                    pushFollow(FOLLOW_buchigame_in_game_body_element3553);
+                    buchigame399=buchigame();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, buchigame402.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, buchigame399.getTree());
 
                     }
                     break;
@@ -10712,11 +10651,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_genreactivity_in_game_body_element3579);
-                    genreactivity403=genreactivity();
+                    pushFollow(FOLLOW_genreactivity_in_game_body_element3559);
+                    genreactivity400=genreactivity();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, genreactivity403.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, genreactivity400.getTree());
 
                     }
                     break;
@@ -10752,7 +10691,7 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        player_body_element_return player_body_element404 = null;
+        player_body_element_return player_body_element401 = null;
 
 
 
@@ -10777,11 +10716,11 @@ public class SMVParser extends Parser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:679:17: player_body_element
             	    {
-            	    pushFollow(FOLLOW_player_body_element_in_player_body3593);
-            	    player_body_element404=player_body_element();
+            	    pushFollow(FOLLOW_player_body_element_in_player_body3573);
+            	    player_body_element401=player_body_element();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, player_body_element404.getTree());
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, player_body_element401.getTree());
 
             	    }
             	    break;
@@ -10824,17 +10763,17 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        var_return var405 = null;
+        var_return var402 = null;
 
-        assign_return assign406 = null;
+        assign_return assign403 = null;
 
-        init_return init407 = null;
+        init_return init404 = null;
 
-        invar_return invar408 = null;
+        invar_return invar405 = null;
 
-        trans_return trans409 = null;
+        trans_return trans406 = null;
 
-        define_return define410 = null;
+        define_return define407 = null;
 
 
 
@@ -10886,11 +10825,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_var_in_player_body_element3605);
-                    var405=var();
+                    pushFollow(FOLLOW_var_in_player_body_element3585);
+                    var402=var();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, var405.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, var402.getTree());
 
                     }
                     break;
@@ -10899,11 +10838,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_assign_in_player_body_element3612);
-                    assign406=assign();
+                    pushFollow(FOLLOW_assign_in_player_body_element3592);
+                    assign403=assign();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, assign406.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, assign403.getTree());
 
                     }
                     break;
@@ -10912,11 +10851,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_init_in_player_body_element3619);
-                    init407=init();
+                    pushFollow(FOLLOW_init_in_player_body_element3599);
+                    init404=init();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, init407.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, init404.getTree());
 
                     }
                     break;
@@ -10925,11 +10864,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_invar_in_player_body_element3625);
-                    invar408=invar();
+                    pushFollow(FOLLOW_invar_in_player_body_element3605);
+                    invar405=invar();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, invar408.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, invar405.getTree());
 
                     }
                     break;
@@ -10938,11 +10877,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_trans_in_player_body_element3632);
-                    trans409=trans();
+                    pushFollow(FOLLOW_trans_in_player_body_element3612);
+                    trans406=trans();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, trans409.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, trans406.getTree());
 
                     }
                     break;
@@ -10951,11 +10890,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_define_in_player_body_element3638);
-                    define410=define();
+                    pushFollow(FOLLOW_define_in_player_body_element3618);
+                    define407=define();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, define410.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, define407.getTree());
 
                     }
                     break;
@@ -10991,13 +10930,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_VAR411=null;
-        Token TOK_VAR412=null;
-        var_decl_list_return var_decl_list413 = null;
+        Token TOK_VAR408=null;
+        Token TOK_VAR409=null;
+        var_decl_list_return var_decl_list410 = null;
 
 
-        Object TOK_VAR411_tree=null;
-        Object TOK_VAR412_tree=null;
+        Object TOK_VAR408_tree=null;
+        Object TOK_VAR409_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:698:6: ( TOK_VAR | TOK_VAR var_decl_list )
@@ -11007,11 +10946,11 @@ public class SMVParser extends Parser {
             if ( (LA60_0==TOK_VAR) ) {
                 int LA60_1 = input.LA(2);
 
-                if ( (LA60_1==TOK_ATOM||LA60_1==TOK_FOR) ) {
-                    alt60=2;
-                }
-                else if ( (LA60_1==EOF||(LA60_1>=TOK_MODULE && LA60_1<=TOK_AGENT)||(LA60_1>=TOK_INVISIBLE_VAR && LA60_1<=TOK_DEFINE)||LA60_1==TOK_ASSIGN||(LA60_1>=TOK_INIT && LA60_1<=TOK_COMPUTE)||LA60_1==TOK_ISA) ) {
+                if ( (LA60_1==EOF||(LA60_1>=TOK_MODULE && LA60_1<=TOK_AGENT)||(LA60_1>=TOK_INVISIBLE_VAR && LA60_1<=TOK_DEFINE)||LA60_1==TOK_ASSIGN||(LA60_1>=TOK_INIT && LA60_1<=TOK_COMPUTE)||LA60_1==TOK_ISA) ) {
                     alt60=1;
+                }
+                else if ( (LA60_1==TOK_ATOM||LA60_1==TOK_FOR) ) {
+                    alt60=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return retval;}
@@ -11034,11 +10973,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_VAR411=(Token)input.LT(1);
-                    match(input,TOK_VAR,FOLLOW_TOK_VAR_in_var3656); if (failed) return retval;
+                    TOK_VAR408=(Token)input.LT(1);
+                    match(input,TOK_VAR,FOLLOW_TOK_VAR_in_var3636); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_VAR411_tree = (Object)adaptor.create(TOK_VAR411);
-                    adaptor.addChild(root_0, TOK_VAR411_tree);
+                    TOK_VAR408_tree = (Object)adaptor.create(TOK_VAR408);
+                    adaptor.addChild(root_0, TOK_VAR408_tree);
                     }
 
                     }
@@ -11048,17 +10987,17 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_VAR412=(Token)input.LT(1);
-                    match(input,TOK_VAR,FOLLOW_TOK_VAR_in_var3662); if (failed) return retval;
+                    TOK_VAR409=(Token)input.LT(1);
+                    match(input,TOK_VAR,FOLLOW_TOK_VAR_in_var3642); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_VAR412_tree = (Object)adaptor.create(TOK_VAR412);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_VAR412_tree, root_0);
+                    TOK_VAR409_tree = (Object)adaptor.create(TOK_VAR409);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_VAR409_tree, root_0);
                     }
-                    pushFollow(FOLLOW_var_decl_list_in_var3665);
-                    var_decl_list413=var_decl_list();
+                    pushFollow(FOLLOW_var_decl_list_in_var3645);
+                    var_decl_list410=var_decl_list();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, var_decl_list413.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, var_decl_list410.getTree());
 
                     }
                     break;
@@ -11094,9 +11033,9 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        var_decl_return var_decl414 = null;
+        var_decl_return var_decl411 = null;
 
-        var_decl_return var_decl415 = null;
+        var_decl_return var_decl412 = null;
 
 
 
@@ -11106,11 +11045,11 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_var_decl_in_var_decl_list3678);
-            var_decl414=var_decl();
+            pushFollow(FOLLOW_var_decl_in_var_decl_list3658);
+            var_decl411=var_decl();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, var_decl414.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, var_decl411.getTree());
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:702:27: ( var_decl )*
             loop61:
             do {
@@ -11126,11 +11065,11 @@ public class SMVParser extends Parser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:702:28: var_decl
             	    {
-            	    pushFollow(FOLLOW_var_decl_in_var_decl_list3681);
-            	    var_decl415=var_decl();
+            	    pushFollow(FOLLOW_var_decl_in_var_decl_list3661);
+            	    var_decl412=var_decl();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, var_decl415.getTree());
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, var_decl412.getTree());
 
             	    }
             	    break;
@@ -11175,17 +11114,17 @@ public class SMVParser extends Parser {
 
         Token i_f=null;
         Token ii=null;
-        Token TOK_COLON417=null;
-        Token TOK_SEMI419=null;
-        Token TOK_FOR420=null;
-        Token TOK_LP421=null;
+        Token TOK_COLON414=null;
+        Token TOK_SEMI416=null;
+        Token TOK_FOR417=null;
+        Token TOK_LP418=null;
+        Token TOK_EQUAL419=null;
+        Token TOK_SEMI420=null;
+        Token TOK_SEMI421=null;
         Token TOK_EQUAL422=null;
-        Token TOK_SEMI423=null;
-        Token TOK_SEMI424=null;
-        Token TOK_EQUAL425=null;
-        Token TOK_RP426=null;
-        Token TOK_LCB427=null;
-        Token TOK_RCB428=null;
+        Token TOK_RP423=null;
+        Token TOK_LCB424=null;
+        Token TOK_RCB425=null;
         simple_expression_return init_f = null;
 
         simple_expression_return cond_f = null;
@@ -11194,24 +11133,24 @@ public class SMVParser extends Parser {
 
         var_decl_list_return loop_main = null;
 
-        decl_var_id_return decl_var_id416 = null;
+        decl_var_id_return decl_var_id413 = null;
 
-        type_return type418 = null;
+        type_return type415 = null;
 
 
         Object i_f_tree=null;
         Object ii_tree=null;
-        Object TOK_COLON417_tree=null;
-        Object TOK_SEMI419_tree=null;
-        Object TOK_FOR420_tree=null;
-        Object TOK_LP421_tree=null;
+        Object TOK_COLON414_tree=null;
+        Object TOK_SEMI416_tree=null;
+        Object TOK_FOR417_tree=null;
+        Object TOK_LP418_tree=null;
+        Object TOK_EQUAL419_tree=null;
+        Object TOK_SEMI420_tree=null;
+        Object TOK_SEMI421_tree=null;
         Object TOK_EQUAL422_tree=null;
-        Object TOK_SEMI423_tree=null;
-        Object TOK_SEMI424_tree=null;
-        Object TOK_EQUAL425_tree=null;
-        Object TOK_RP426_tree=null;
-        Object TOK_LCB427_tree=null;
-        Object TOK_RCB428_tree=null;
+        Object TOK_RP423_tree=null;
+        Object TOK_LCB424_tree=null;
+        Object TOK_RCB425_tree=null;
         RewriteRuleTokenStream stream_TOK_LP=new RewriteRuleTokenStream(adaptor,"token TOK_LP");
         RewriteRuleTokenStream stream_TOK_ATOM=new RewriteRuleTokenStream(adaptor,"token TOK_ATOM");
         RewriteRuleTokenStream stream_TOK_RCB=new RewriteRuleTokenStream(adaptor,"token TOK_RCB");
@@ -11247,23 +11186,23 @@ public class SMVParser extends Parser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:704:13: decl_var_id TOK_COLON type TOK_SEMI
                     {
-                    pushFollow(FOLLOW_decl_var_id_in_var_decl3695);
-                    decl_var_id416=decl_var_id();
+                    pushFollow(FOLLOW_decl_var_id_in_var_decl3675);
+                    decl_var_id413=decl_var_id();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_decl_var_id.add(decl_var_id416.getTree());
-                    TOK_COLON417=(Token)input.LT(1);
-                    match(input,TOK_COLON,FOLLOW_TOK_COLON_in_var_decl3697); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_COLON.add(TOK_COLON417);
+                    if ( backtracking==0 ) stream_decl_var_id.add(decl_var_id413.getTree());
+                    TOK_COLON414=(Token)input.LT(1);
+                    match(input,TOK_COLON,FOLLOW_TOK_COLON_in_var_decl3677); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_COLON.add(TOK_COLON414);
 
-                    pushFollow(FOLLOW_type_in_var_decl3699);
-                    type418=type();
+                    pushFollow(FOLLOW_type_in_var_decl3679);
+                    type415=type();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_type.add(type418.getTree());
-                    TOK_SEMI419=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_var_decl3701); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI419);
+                    if ( backtracking==0 ) stream_type.add(type415.getTree());
+                    TOK_SEMI416=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_var_decl3681); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI416);
 
 
                     // AST REWRITE
@@ -11302,76 +11241,76 @@ public class SMVParser extends Parser {
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:706:8: ( TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= var_decl_list TOK_RCB )
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:706:10: TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= var_decl_list TOK_RCB
                     {
-                    TOK_FOR420=(Token)input.LT(1);
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_var_decl3728); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR420);
+                    TOK_FOR417=(Token)input.LT(1);
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_var_decl3708); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR417);
 
-                    TOK_LP421=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_var_decl3730); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP421);
+                    TOK_LP418=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_var_decl3710); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP418);
 
                     i_f=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_decl3735); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_decl3715); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(i_f);
 
-                    TOK_EQUAL422=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_var_decl3737); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL422);
+                    TOK_EQUAL419=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_var_decl3717); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL419);
 
-                    pushFollow(FOLLOW_simple_expression_in_var_decl3742);
+                    pushFollow(FOLLOW_simple_expression_in_var_decl3722);
                     init_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(init_f.getTree());
-                    TOK_SEMI423=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_var_decl3744); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI423);
+                    TOK_SEMI420=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_var_decl3724); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI420);
 
-                    pushFollow(FOLLOW_simple_expression_in_var_decl3749);
+                    pushFollow(FOLLOW_simple_expression_in_var_decl3729);
                     cond_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(cond_f.getTree());
-                    TOK_SEMI424=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_var_decl3751); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI424);
+                    TOK_SEMI421=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_var_decl3731); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI421);
 
                     ii=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_decl3756); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_decl3736); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(ii);
 
-                    TOK_EQUAL425=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_var_decl3758); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL425);
+                    TOK_EQUAL422=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_var_decl3738); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL422);
 
-                    pushFollow(FOLLOW_simple_expression_in_var_decl3763);
+                    pushFollow(FOLLOW_simple_expression_in_var_decl3743);
                     inc_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(inc_f.getTree());
-                    TOK_RP426=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_var_decl3765); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP426);
+                    TOK_RP423=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_var_decl3745); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP423);
 
-                    TOK_LCB427=(Token)input.LT(1);
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_var_decl3767); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB427);
+                    TOK_LCB424=(Token)input.LT(1);
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_var_decl3747); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB424);
 
-                    pushFollow(FOLLOW_var_decl_list_in_var_decl3772);
+                    pushFollow(FOLLOW_var_decl_list_in_var_decl3752);
                     loop_main=var_decl_list();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_var_decl_list.add(loop_main.getTree());
-                    TOK_RCB428=(Token)input.LT(1);
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_var_decl3774); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB428);
+                    TOK_RCB425=(Token)input.LT(1);
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_var_decl3754); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB425);
 
 
                     }
 
 
                     // AST REWRITE
-                    // elements: init_f, loop_main, i_f, TOK_LP, cond_f, TOK_FOR, TOK_RCB, inc_f, TOK_RP, TOK_LCB
+                    // elements: cond_f, TOK_LCB, i_f, TOK_RP, loop_main, init_f, inc_f, TOK_LP, TOK_RCB, TOK_FOR
                     // token labels: i_f
                     // rule labels: loop_main, cond_f, init_f, inc_f, retval
                     // token list labels: 
@@ -11448,13 +11387,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_IVAR429=null;
-        Token TOK_IVAR430=null;
-        ivar_decl_list_return ivar_decl_list431 = null;
+        Token TOK_IVAR426=null;
+        Token TOK_IVAR427=null;
+        ivar_decl_list_return ivar_decl_list428 = null;
 
 
-        Object TOK_IVAR429_tree=null;
-        Object TOK_IVAR430_tree=null;
+        Object TOK_IVAR426_tree=null;
+        Object TOK_IVAR427_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:709:12: ( TOK_IVAR | TOK_IVAR ivar_decl_list )
@@ -11491,11 +11430,11 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_IVAR429=(Token)input.LT(1);
-                    match(input,TOK_IVAR,FOLLOW_TOK_IVAR_in_input_var3832); if (failed) return retval;
+                    TOK_IVAR426=(Token)input.LT(1);
+                    match(input,TOK_IVAR,FOLLOW_TOK_IVAR_in_input_var3812); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_IVAR429_tree = (Object)adaptor.create(TOK_IVAR429);
-                    adaptor.addChild(root_0, TOK_IVAR429_tree);
+                    TOK_IVAR426_tree = (Object)adaptor.create(TOK_IVAR426);
+                    adaptor.addChild(root_0, TOK_IVAR426_tree);
                     }
 
                     }
@@ -11505,17 +11444,17 @@ public class SMVParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_IVAR430=(Token)input.LT(1);
-                    match(input,TOK_IVAR,FOLLOW_TOK_IVAR_in_input_var3838); if (failed) return retval;
+                    TOK_IVAR427=(Token)input.LT(1);
+                    match(input,TOK_IVAR,FOLLOW_TOK_IVAR_in_input_var3818); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_IVAR430_tree = (Object)adaptor.create(TOK_IVAR430);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_IVAR430_tree, root_0);
+                    TOK_IVAR427_tree = (Object)adaptor.create(TOK_IVAR427);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_IVAR427_tree, root_0);
                     }
-                    pushFollow(FOLLOW_ivar_decl_list_in_input_var3841);
-                    ivar_decl_list431=ivar_decl_list();
+                    pushFollow(FOLLOW_ivar_decl_list_in_input_var3821);
+                    ivar_decl_list428=ivar_decl_list();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, ivar_decl_list431.getTree());
+                    if ( backtracking==0 ) adaptor.addChild(root_0, ivar_decl_list428.getTree());
 
                     }
                     break;
@@ -11551,9 +11490,9 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        ivar_decl_return ivar_decl432 = null;
+        ivar_decl_return ivar_decl429 = null;
 
-        ivar_decl_return ivar_decl433 = null;
+        ivar_decl_return ivar_decl430 = null;
 
 
 
@@ -11563,11 +11502,11 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_ivar_decl_in_ivar_decl_list3854);
-            ivar_decl432=ivar_decl();
+            pushFollow(FOLLOW_ivar_decl_in_ivar_decl_list3834);
+            ivar_decl429=ivar_decl();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, ivar_decl432.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, ivar_decl429.getTree());
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:713:29: ( ivar_decl )*
             loop64:
             do {
@@ -11583,11 +11522,11 @@ public class SMVParser extends Parser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:713:30: ivar_decl
             	    {
-            	    pushFollow(FOLLOW_ivar_decl_in_ivar_decl_list3857);
-            	    ivar_decl433=ivar_decl();
+            	    pushFollow(FOLLOW_ivar_decl_in_ivar_decl_list3837);
+            	    ivar_decl430=ivar_decl();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, ivar_decl433.getTree());
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, ivar_decl430.getTree());
 
             	    }
             	    break;
@@ -11632,17 +11571,17 @@ public class SMVParser extends Parser {
 
         Token i_f=null;
         Token ii=null;
-        Token TOK_COLON435=null;
-        Token TOK_SEMI437=null;
-        Token TOK_FOR438=null;
-        Token TOK_LP439=null;
+        Token TOK_COLON432=null;
+        Token TOK_SEMI434=null;
+        Token TOK_FOR435=null;
+        Token TOK_LP436=null;
+        Token TOK_EQUAL437=null;
+        Token TOK_SEMI438=null;
+        Token TOK_SEMI439=null;
         Token TOK_EQUAL440=null;
-        Token TOK_SEMI441=null;
-        Token TOK_SEMI442=null;
-        Token TOK_EQUAL443=null;
-        Token TOK_RP444=null;
-        Token TOK_LCB445=null;
-        Token TOK_RCB446=null;
+        Token TOK_RP441=null;
+        Token TOK_LCB442=null;
+        Token TOK_RCB443=null;
         simple_expression_return init_f = null;
 
         simple_expression_return cond_f = null;
@@ -11651,24 +11590,24 @@ public class SMVParser extends Parser {
 
         ivar_decl_list_return loop_main = null;
 
-        decl_var_id_return decl_var_id434 = null;
+        decl_var_id_return decl_var_id431 = null;
 
-        type_return type436 = null;
+        type_return type433 = null;
 
 
         Object i_f_tree=null;
         Object ii_tree=null;
-        Object TOK_COLON435_tree=null;
-        Object TOK_SEMI437_tree=null;
-        Object TOK_FOR438_tree=null;
-        Object TOK_LP439_tree=null;
+        Object TOK_COLON432_tree=null;
+        Object TOK_SEMI434_tree=null;
+        Object TOK_FOR435_tree=null;
+        Object TOK_LP436_tree=null;
+        Object TOK_EQUAL437_tree=null;
+        Object TOK_SEMI438_tree=null;
+        Object TOK_SEMI439_tree=null;
         Object TOK_EQUAL440_tree=null;
-        Object TOK_SEMI441_tree=null;
-        Object TOK_SEMI442_tree=null;
-        Object TOK_EQUAL443_tree=null;
-        Object TOK_RP444_tree=null;
-        Object TOK_LCB445_tree=null;
-        Object TOK_RCB446_tree=null;
+        Object TOK_RP441_tree=null;
+        Object TOK_LCB442_tree=null;
+        Object TOK_RCB443_tree=null;
         RewriteRuleTokenStream stream_TOK_LP=new RewriteRuleTokenStream(adaptor,"token TOK_LP");
         RewriteRuleTokenStream stream_TOK_ATOM=new RewriteRuleTokenStream(adaptor,"token TOK_ATOM");
         RewriteRuleTokenStream stream_TOK_RCB=new RewriteRuleTokenStream(adaptor,"token TOK_RCB");
@@ -11704,23 +11643,23 @@ public class SMVParser extends Parser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:716:14: decl_var_id TOK_COLON type TOK_SEMI
                     {
-                    pushFollow(FOLLOW_decl_var_id_in_ivar_decl3871);
-                    decl_var_id434=decl_var_id();
+                    pushFollow(FOLLOW_decl_var_id_in_ivar_decl3851);
+                    decl_var_id431=decl_var_id();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_decl_var_id.add(decl_var_id434.getTree());
-                    TOK_COLON435=(Token)input.LT(1);
-                    match(input,TOK_COLON,FOLLOW_TOK_COLON_in_ivar_decl3873); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_COLON.add(TOK_COLON435);
+                    if ( backtracking==0 ) stream_decl_var_id.add(decl_var_id431.getTree());
+                    TOK_COLON432=(Token)input.LT(1);
+                    match(input,TOK_COLON,FOLLOW_TOK_COLON_in_ivar_decl3853); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_COLON.add(TOK_COLON432);
 
-                    pushFollow(FOLLOW_type_in_ivar_decl3875);
-                    type436=type();
+                    pushFollow(FOLLOW_type_in_ivar_decl3855);
+                    type433=type();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_type.add(type436.getTree());
-                    TOK_SEMI437=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_ivar_decl3877); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI437);
+                    if ( backtracking==0 ) stream_type.add(type433.getTree());
+                    TOK_SEMI434=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_ivar_decl3857); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI434);
 
 
                     // AST REWRITE
@@ -11759,76 +11698,76 @@ public class SMVParser extends Parser {
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:716:89: ( TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= ivar_decl_list TOK_RCB )
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:716:91: TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= ivar_decl_list TOK_RCB
                     {
-                    TOK_FOR438=(Token)input.LT(1);
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_ivar_decl3895); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR438);
+                    TOK_FOR435=(Token)input.LT(1);
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_ivar_decl3875); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR435);
 
-                    TOK_LP439=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ivar_decl3897); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP439);
+                    TOK_LP436=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ivar_decl3877); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP436);
 
                     i_f=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_ivar_decl3902); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_ivar_decl3882); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(i_f);
 
-                    TOK_EQUAL440=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_ivar_decl3904); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL440);
+                    TOK_EQUAL437=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_ivar_decl3884); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL437);
 
-                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3909);
+                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3889);
                     init_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(init_f.getTree());
-                    TOK_SEMI441=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_ivar_decl3911); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI441);
+                    TOK_SEMI438=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_ivar_decl3891); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI438);
 
-                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3916);
+                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3896);
                     cond_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(cond_f.getTree());
-                    TOK_SEMI442=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_ivar_decl3918); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI442);
+                    TOK_SEMI439=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_ivar_decl3898); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI439);
 
                     ii=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_ivar_decl3923); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_ivar_decl3903); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(ii);
 
-                    TOK_EQUAL443=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_ivar_decl3925); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL443);
+                    TOK_EQUAL440=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_ivar_decl3905); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL440);
 
-                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3930);
+                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3910);
                     inc_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(inc_f.getTree());
-                    TOK_RP444=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ivar_decl3932); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP444);
+                    TOK_RP441=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ivar_decl3912); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP441);
 
-                    TOK_LCB445=(Token)input.LT(1);
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_ivar_decl3934); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB445);
+                    TOK_LCB442=(Token)input.LT(1);
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_ivar_decl3914); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB442);
 
-                    pushFollow(FOLLOW_ivar_decl_list_in_ivar_decl3939);
+                    pushFollow(FOLLOW_ivar_decl_list_in_ivar_decl3919);
                     loop_main=ivar_decl_list();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_ivar_decl_list.add(loop_main.getTree());
-                    TOK_RCB446=(Token)input.LT(1);
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_ivar_decl3941); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB446);
+                    TOK_RCB443=(Token)input.LT(1);
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_ivar_decl3921); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB443);
 
 
                     }
 
 
                     // AST REWRITE
-                    // elements: cond_f, TOK_LP, init_f, loop_main, TOK_LCB, TOK_FOR, inc_f, TOK_RP, TOK_RCB, i_f
+                    // elements: TOK_RCB, inc_f, TOK_RP, TOK_LP, TOK_FOR, TOK_LCB, i_f, loop_main, init_f, cond_f
                     // token labels: i_f
                     // rule labels: loop_main, cond_f, init_f, inc_f, retval
                     // token list labels: 
@@ -11905,11 +11844,11 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_DEFINE447=null;
-        define_list_return define_list448 = null;
+        Token TOK_DEFINE444=null;
+        define_list_return define_list445 = null;
 
 
-        Object TOK_DEFINE447_tree=null;
+        Object TOK_DEFINE444_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:719:9: ( TOK_DEFINE define_list )
@@ -11917,17 +11856,17 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            TOK_DEFINE447=(Token)input.LT(1);
-            match(input,TOK_DEFINE,FOLLOW_TOK_DEFINE_in_define3994); if (failed) return retval;
+            TOK_DEFINE444=(Token)input.LT(1);
+            match(input,TOK_DEFINE,FOLLOW_TOK_DEFINE_in_define3974); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_DEFINE447_tree = (Object)adaptor.create(TOK_DEFINE447);
-            root_0 = (Object)adaptor.becomeRoot(TOK_DEFINE447_tree, root_0);
+            TOK_DEFINE444_tree = (Object)adaptor.create(TOK_DEFINE444);
+            root_0 = (Object)adaptor.becomeRoot(TOK_DEFINE444_tree, root_0);
             }
-            pushFollow(FOLLOW_define_list_in_define3997);
-            define_list448=define_list();
+            pushFollow(FOLLOW_define_list_in_define3977);
+            define_list445=define_list();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, define_list448.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, define_list445.getTree());
 
             }
 
@@ -11961,9 +11900,9 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        define_decl_return define_decl449 = null;
+        define_decl_return define_decl446 = null;
 
-        define_decl_return define_decl450 = null;
+        define_decl_return define_decl447 = null;
 
 
 
@@ -11973,11 +11912,11 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_define_decl_in_define_list4008);
-            define_decl449=define_decl();
+            pushFollow(FOLLOW_define_decl_in_define_list3988);
+            define_decl446=define_decl();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, define_decl449.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, define_decl446.getTree());
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:721:28: ( define_decl )*
             loop66:
             do {
@@ -11993,11 +11932,11 @@ public class SMVParser extends Parser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:721:30: define_decl
             	    {
-            	    pushFollow(FOLLOW_define_decl_in_define_list4012);
-            	    define_decl450=define_decl();
+            	    pushFollow(FOLLOW_define_decl_in_define_list3992);
+            	    define_decl447=define_decl();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, define_decl450.getTree());
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, define_decl447.getTree());
 
             	    }
             	    break;
@@ -12042,17 +11981,17 @@ public class SMVParser extends Parser {
 
         Token i_f=null;
         Token ii=null;
-        Token TOK_EQDEF452=null;
-        Token TOK_SEMI454=null;
-        Token TOK_FOR455=null;
-        Token TOK_LP456=null;
+        Token TOK_EQDEF449=null;
+        Token TOK_SEMI451=null;
+        Token TOK_FOR452=null;
+        Token TOK_LP453=null;
+        Token TOK_EQUAL454=null;
+        Token TOK_SEMI455=null;
+        Token TOK_SEMI456=null;
         Token TOK_EQUAL457=null;
-        Token TOK_SEMI458=null;
-        Token TOK_SEMI459=null;
-        Token TOK_EQUAL460=null;
-        Token TOK_RP461=null;
-        Token TOK_LCB462=null;
-        Token TOK_RCB463=null;
+        Token TOK_RP458=null;
+        Token TOK_LCB459=null;
+        Token TOK_RCB460=null;
         simple_expression_return init_f = null;
 
         simple_expression_return cond_f = null;
@@ -12061,24 +12000,24 @@ public class SMVParser extends Parser {
 
         define_list_return loop_main = null;
 
-        decl_var_id_return decl_var_id451 = null;
+        decl_var_id_return decl_var_id448 = null;
 
-        simple_expression_return simple_expression453 = null;
+        simple_expression_return simple_expression450 = null;
 
 
         Object i_f_tree=null;
         Object ii_tree=null;
-        Object TOK_EQDEF452_tree=null;
-        Object TOK_SEMI454_tree=null;
-        Object TOK_FOR455_tree=null;
-        Object TOK_LP456_tree=null;
+        Object TOK_EQDEF449_tree=null;
+        Object TOK_SEMI451_tree=null;
+        Object TOK_FOR452_tree=null;
+        Object TOK_LP453_tree=null;
+        Object TOK_EQUAL454_tree=null;
+        Object TOK_SEMI455_tree=null;
+        Object TOK_SEMI456_tree=null;
         Object TOK_EQUAL457_tree=null;
-        Object TOK_SEMI458_tree=null;
-        Object TOK_SEMI459_tree=null;
-        Object TOK_EQUAL460_tree=null;
-        Object TOK_RP461_tree=null;
-        Object TOK_LCB462_tree=null;
-        Object TOK_RCB463_tree=null;
+        Object TOK_RP458_tree=null;
+        Object TOK_LCB459_tree=null;
+        Object TOK_RCB460_tree=null;
         RewriteRuleTokenStream stream_TOK_LP=new RewriteRuleTokenStream(adaptor,"token TOK_LP");
         RewriteRuleTokenStream stream_TOK_ATOM=new RewriteRuleTokenStream(adaptor,"token TOK_ATOM");
         RewriteRuleTokenStream stream_TOK_RCB=new RewriteRuleTokenStream(adaptor,"token TOK_RCB");
@@ -12113,23 +12052,23 @@ public class SMVParser extends Parser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:723:15: decl_var_id TOK_EQDEF simple_expression TOK_SEMI
                     {
-                    pushFollow(FOLLOW_decl_var_id_in_define_decl4026);
-                    decl_var_id451=decl_var_id();
+                    pushFollow(FOLLOW_decl_var_id_in_define_decl4006);
+                    decl_var_id448=decl_var_id();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_decl_var_id.add(decl_var_id451.getTree());
-                    TOK_EQDEF452=(Token)input.LT(1);
-                    match(input,TOK_EQDEF,FOLLOW_TOK_EQDEF_in_define_decl4028); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQDEF.add(TOK_EQDEF452);
+                    if ( backtracking==0 ) stream_decl_var_id.add(decl_var_id448.getTree());
+                    TOK_EQDEF449=(Token)input.LT(1);
+                    match(input,TOK_EQDEF,FOLLOW_TOK_EQDEF_in_define_decl4008); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQDEF.add(TOK_EQDEF449);
 
-                    pushFollow(FOLLOW_simple_expression_in_define_decl4030);
-                    simple_expression453=simple_expression();
+                    pushFollow(FOLLOW_simple_expression_in_define_decl4010);
+                    simple_expression450=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_simple_expression.add(simple_expression453.getTree());
-                    TOK_SEMI454=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_define_decl4032); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI454);
+                    if ( backtracking==0 ) stream_simple_expression.add(simple_expression450.getTree());
+                    TOK_SEMI451=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_define_decl4012); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI451);
 
 
                     // AST REWRITE
@@ -12168,76 +12107,76 @@ public class SMVParser extends Parser {
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:723:118: ( TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= define_list TOK_RCB )
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:723:120: TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= define_list TOK_RCB
                     {
-                    TOK_FOR455=(Token)input.LT(1);
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_define_decl4050); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR455);
+                    TOK_FOR452=(Token)input.LT(1);
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_define_decl4030); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR452);
 
-                    TOK_LP456=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_define_decl4052); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP456);
+                    TOK_LP453=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_define_decl4032); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP453);
 
                     i_f=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_define_decl4057); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_define_decl4037); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(i_f);
 
-                    TOK_EQUAL457=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_define_decl4059); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL457);
+                    TOK_EQUAL454=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_define_decl4039); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL454);
 
-                    pushFollow(FOLLOW_simple_expression_in_define_decl4064);
+                    pushFollow(FOLLOW_simple_expression_in_define_decl4044);
                     init_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(init_f.getTree());
-                    TOK_SEMI458=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_define_decl4066); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI458);
+                    TOK_SEMI455=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_define_decl4046); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI455);
 
-                    pushFollow(FOLLOW_simple_expression_in_define_decl4071);
+                    pushFollow(FOLLOW_simple_expression_in_define_decl4051);
                     cond_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(cond_f.getTree());
-                    TOK_SEMI459=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_define_decl4073); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI459);
+                    TOK_SEMI456=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_define_decl4053); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI456);
 
                     ii=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_define_decl4078); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_define_decl4058); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(ii);
 
-                    TOK_EQUAL460=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_define_decl4080); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL460);
+                    TOK_EQUAL457=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_define_decl4060); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL457);
 
-                    pushFollow(FOLLOW_simple_expression_in_define_decl4085);
+                    pushFollow(FOLLOW_simple_expression_in_define_decl4065);
                     inc_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(inc_f.getTree());
-                    TOK_RP461=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_define_decl4087); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP461);
+                    TOK_RP458=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_define_decl4067); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP458);
 
-                    TOK_LCB462=(Token)input.LT(1);
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_define_decl4089); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB462);
+                    TOK_LCB459=(Token)input.LT(1);
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_define_decl4069); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB459);
 
-                    pushFollow(FOLLOW_define_list_in_define_decl4094);
+                    pushFollow(FOLLOW_define_list_in_define_decl4074);
                     loop_main=define_list();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_define_list.add(loop_main.getTree());
-                    TOK_RCB463=(Token)input.LT(1);
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_define_decl4096); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB463);
+                    TOK_RCB460=(Token)input.LT(1);
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_define_decl4076); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB460);
 
 
                     }
 
 
                     // AST REWRITE
-                    // elements: TOK_FOR, TOK_RP, cond_f, TOK_LCB, i_f, loop_main, TOK_RCB, TOK_LP, init_f, inc_f
+                    // elements: i_f, TOK_RP, TOK_LP, TOK_LCB, init_f, loop_main, TOK_FOR, cond_f, inc_f, TOK_RCB
                     // token labels: i_f
                     // rule labels: loop_main, cond_f, init_f, inc_f, retval
                     // token list labels: 
@@ -12314,11 +12253,11 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_ASSIGN464=null;
-        assign_list_return assign_list465 = null;
+        Token TOK_ASSIGN461=null;
+        assign_list_return assign_list462 = null;
 
 
-        Object TOK_ASSIGN464_tree=null;
+        Object TOK_ASSIGN461_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:726:9: ( TOK_ASSIGN assign_list )
@@ -12326,17 +12265,17 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            TOK_ASSIGN464=(Token)input.LT(1);
-            match(input,TOK_ASSIGN,FOLLOW_TOK_ASSIGN_in_assign4149); if (failed) return retval;
+            TOK_ASSIGN461=(Token)input.LT(1);
+            match(input,TOK_ASSIGN,FOLLOW_TOK_ASSIGN_in_assign4129); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_ASSIGN464_tree = (Object)adaptor.create(TOK_ASSIGN464);
-            root_0 = (Object)adaptor.becomeRoot(TOK_ASSIGN464_tree, root_0);
+            TOK_ASSIGN461_tree = (Object)adaptor.create(TOK_ASSIGN461);
+            root_0 = (Object)adaptor.becomeRoot(TOK_ASSIGN461_tree, root_0);
             }
-            pushFollow(FOLLOW_assign_list_in_assign4152);
-            assign_list465=assign_list();
+            pushFollow(FOLLOW_assign_list_in_assign4132);
+            assign_list462=assign_list();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, assign_list465.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, assign_list462.getTree());
 
             }
 
@@ -12370,9 +12309,9 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        one_assign_return one_assign466 = null;
+        one_assign_return one_assign463 = null;
 
-        one_assign_return one_assign467 = null;
+        one_assign_return one_assign464 = null;
 
 
 
@@ -12382,11 +12321,11 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_one_assign_in_assign_list4163);
-            one_assign466=one_assign();
+            pushFollow(FOLLOW_one_assign_in_assign_list4143);
+            one_assign463=one_assign();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, one_assign466.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, one_assign463.getTree());
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:728:27: ( one_assign )*
             loop68:
             do {
@@ -12402,11 +12341,11 @@ public class SMVParser extends Parser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:728:29: one_assign
             	    {
-            	    pushFollow(FOLLOW_one_assign_in_assign_list4167);
-            	    one_assign467=one_assign();
+            	    pushFollow(FOLLOW_one_assign_in_assign_list4147);
+            	    one_assign464=one_assign();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, one_assign467.getTree());
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, one_assign464.getTree());
 
             	    }
             	    break;
@@ -12451,27 +12390,27 @@ public class SMVParser extends Parser {
 
         Token i_f=null;
         Token ii=null;
-        Token TOK_EQDEF469=null;
-        Token TOK_SEMI471=null;
-        Token TOK_SMALLINIT472=null;
-        Token TOK_LP473=null;
-        Token TOK_RP475=null;
-        Token TOK_EQDEF476=null;
-        Token TOK_SEMI478=null;
-        Token TOK_NEXT479=null;
-        Token TOK_LP480=null;
-        Token TOK_RP482=null;
-        Token TOK_EQDEF483=null;
-        Token TOK_SEMI485=null;
-        Token TOK_FOR486=null;
-        Token TOK_LP487=null;
+        Token TOK_EQDEF466=null;
+        Token TOK_SEMI468=null;
+        Token TOK_SMALLINIT469=null;
+        Token TOK_LP470=null;
+        Token TOK_RP472=null;
+        Token TOK_EQDEF473=null;
+        Token TOK_SEMI475=null;
+        Token TOK_NEXT476=null;
+        Token TOK_LP477=null;
+        Token TOK_RP479=null;
+        Token TOK_EQDEF480=null;
+        Token TOK_SEMI482=null;
+        Token TOK_FOR483=null;
+        Token TOK_LP484=null;
+        Token TOK_EQUAL485=null;
+        Token TOK_SEMI486=null;
+        Token TOK_SEMI487=null;
         Token TOK_EQUAL488=null;
-        Token TOK_SEMI489=null;
-        Token TOK_SEMI490=null;
-        Token TOK_EQUAL491=null;
-        Token TOK_RP492=null;
-        Token TOK_LCB493=null;
-        Token TOK_RCB494=null;
+        Token TOK_RP489=null;
+        Token TOK_LCB490=null;
+        Token TOK_RCB491=null;
         simple_expression_return init_f = null;
 
         simple_expression_return cond_f = null;
@@ -12480,42 +12419,42 @@ public class SMVParser extends Parser {
 
         assign_list_return loop_main = null;
 
-        var_id_return var_id468 = null;
+        var_id_return var_id465 = null;
 
-        simple_expression_return simple_expression470 = null;
+        simple_expression_return simple_expression467 = null;
 
-        var_id_return var_id474 = null;
+        var_id_return var_id471 = null;
 
-        simple_expression_return simple_expression477 = null;
+        simple_expression_return simple_expression474 = null;
 
-        var_id_return var_id481 = null;
+        var_id_return var_id478 = null;
 
-        next_expression_return next_expression484 = null;
+        next_expression_return next_expression481 = null;
 
 
         Object i_f_tree=null;
         Object ii_tree=null;
-        Object TOK_EQDEF469_tree=null;
-        Object TOK_SEMI471_tree=null;
-        Object TOK_SMALLINIT472_tree=null;
-        Object TOK_LP473_tree=null;
-        Object TOK_RP475_tree=null;
-        Object TOK_EQDEF476_tree=null;
-        Object TOK_SEMI478_tree=null;
-        Object TOK_NEXT479_tree=null;
-        Object TOK_LP480_tree=null;
-        Object TOK_RP482_tree=null;
-        Object TOK_EQDEF483_tree=null;
-        Object TOK_SEMI485_tree=null;
-        Object TOK_FOR486_tree=null;
-        Object TOK_LP487_tree=null;
+        Object TOK_EQDEF466_tree=null;
+        Object TOK_SEMI468_tree=null;
+        Object TOK_SMALLINIT469_tree=null;
+        Object TOK_LP470_tree=null;
+        Object TOK_RP472_tree=null;
+        Object TOK_EQDEF473_tree=null;
+        Object TOK_SEMI475_tree=null;
+        Object TOK_NEXT476_tree=null;
+        Object TOK_LP477_tree=null;
+        Object TOK_RP479_tree=null;
+        Object TOK_EQDEF480_tree=null;
+        Object TOK_SEMI482_tree=null;
+        Object TOK_FOR483_tree=null;
+        Object TOK_LP484_tree=null;
+        Object TOK_EQUAL485_tree=null;
+        Object TOK_SEMI486_tree=null;
+        Object TOK_SEMI487_tree=null;
         Object TOK_EQUAL488_tree=null;
-        Object TOK_SEMI489_tree=null;
-        Object TOK_SEMI490_tree=null;
-        Object TOK_EQUAL491_tree=null;
-        Object TOK_RP492_tree=null;
-        Object TOK_LCB493_tree=null;
-        Object TOK_RCB494_tree=null;
+        Object TOK_RP489_tree=null;
+        Object TOK_LCB490_tree=null;
+        Object TOK_RCB491_tree=null;
         RewriteRuleTokenStream stream_TOK_LP=new RewriteRuleTokenStream(adaptor,"token TOK_LP");
         RewriteRuleTokenStream stream_TOK_ATOM=new RewriteRuleTokenStream(adaptor,"token TOK_ATOM");
         RewriteRuleTokenStream stream_TOK_RCB=new RewriteRuleTokenStream(adaptor,"token TOK_RCB");
@@ -12568,23 +12507,23 @@ public class SMVParser extends Parser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:732:3: var_id TOK_EQDEF simple_expression TOK_SEMI
                     {
-                    pushFollow(FOLLOW_var_id_in_one_assign4183);
-                    var_id468=var_id();
+                    pushFollow(FOLLOW_var_id_in_one_assign4163);
+                    var_id465=var_id();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_var_id.add(var_id468.getTree());
-                    TOK_EQDEF469=(Token)input.LT(1);
-                    match(input,TOK_EQDEF,FOLLOW_TOK_EQDEF_in_one_assign4185); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQDEF.add(TOK_EQDEF469);
+                    if ( backtracking==0 ) stream_var_id.add(var_id465.getTree());
+                    TOK_EQDEF466=(Token)input.LT(1);
+                    match(input,TOK_EQDEF,FOLLOW_TOK_EQDEF_in_one_assign4165); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQDEF.add(TOK_EQDEF466);
 
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4187);
-                    simple_expression470=simple_expression();
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4167);
+                    simple_expression467=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_simple_expression.add(simple_expression470.getTree());
-                    TOK_SEMI471=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4189); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI471);
+                    if ( backtracking==0 ) stream_simple_expression.add(simple_expression467.getTree());
+                    TOK_SEMI468=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4169); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI468);
 
 
                     // AST REWRITE
@@ -12620,35 +12559,35 @@ public class SMVParser extends Parser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:734:5: TOK_SMALLINIT TOK_LP var_id TOK_RP TOK_EQDEF simple_expression TOK_SEMI
                     {
-                    TOK_SMALLINIT472=(Token)input.LT(1);
-                    match(input,TOK_SMALLINIT,FOLLOW_TOK_SMALLINIT_in_one_assign4209); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SMALLINIT.add(TOK_SMALLINIT472);
+                    TOK_SMALLINIT469=(Token)input.LT(1);
+                    match(input,TOK_SMALLINIT,FOLLOW_TOK_SMALLINIT_in_one_assign4189); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SMALLINIT.add(TOK_SMALLINIT469);
 
-                    TOK_LP473=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_one_assign4211); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP473);
+                    TOK_LP470=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_one_assign4191); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP470);
 
-                    pushFollow(FOLLOW_var_id_in_one_assign4213);
-                    var_id474=var_id();
+                    pushFollow(FOLLOW_var_id_in_one_assign4193);
+                    var_id471=var_id();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_var_id.add(var_id474.getTree());
-                    TOK_RP475=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_one_assign4215); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP475);
+                    if ( backtracking==0 ) stream_var_id.add(var_id471.getTree());
+                    TOK_RP472=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_one_assign4195); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP472);
 
-                    TOK_EQDEF476=(Token)input.LT(1);
-                    match(input,TOK_EQDEF,FOLLOW_TOK_EQDEF_in_one_assign4217); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQDEF.add(TOK_EQDEF476);
+                    TOK_EQDEF473=(Token)input.LT(1);
+                    match(input,TOK_EQDEF,FOLLOW_TOK_EQDEF_in_one_assign4197); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQDEF.add(TOK_EQDEF473);
 
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4219);
-                    simple_expression477=simple_expression();
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4199);
+                    simple_expression474=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_simple_expression.add(simple_expression477.getTree());
-                    TOK_SEMI478=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4221); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI478);
+                    if ( backtracking==0 ) stream_simple_expression.add(simple_expression474.getTree());
+                    TOK_SEMI475=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4201); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI475);
 
 
                     // AST REWRITE
@@ -12684,35 +12623,35 @@ public class SMVParser extends Parser {
                 case 3 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:736:5: TOK_NEXT TOK_LP var_id TOK_RP TOK_EQDEF next_expression TOK_SEMI
                     {
-                    TOK_NEXT479=(Token)input.LT(1);
-                    match(input,TOK_NEXT,FOLLOW_TOK_NEXT_in_one_assign4242); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_NEXT.add(TOK_NEXT479);
+                    TOK_NEXT476=(Token)input.LT(1);
+                    match(input,TOK_NEXT,FOLLOW_TOK_NEXT_in_one_assign4222); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_NEXT.add(TOK_NEXT476);
 
-                    TOK_LP480=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_one_assign4244); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP480);
+                    TOK_LP477=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_one_assign4224); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP477);
 
-                    pushFollow(FOLLOW_var_id_in_one_assign4246);
-                    var_id481=var_id();
+                    pushFollow(FOLLOW_var_id_in_one_assign4226);
+                    var_id478=var_id();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_var_id.add(var_id481.getTree());
-                    TOK_RP482=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_one_assign4248); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP482);
+                    if ( backtracking==0 ) stream_var_id.add(var_id478.getTree());
+                    TOK_RP479=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_one_assign4228); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP479);
 
-                    TOK_EQDEF483=(Token)input.LT(1);
-                    match(input,TOK_EQDEF,FOLLOW_TOK_EQDEF_in_one_assign4250); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQDEF.add(TOK_EQDEF483);
+                    TOK_EQDEF480=(Token)input.LT(1);
+                    match(input,TOK_EQDEF,FOLLOW_TOK_EQDEF_in_one_assign4230); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQDEF.add(TOK_EQDEF480);
 
-                    pushFollow(FOLLOW_next_expression_in_one_assign4252);
-                    next_expression484=next_expression();
+                    pushFollow(FOLLOW_next_expression_in_one_assign4232);
+                    next_expression481=next_expression();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_next_expression.add(next_expression484.getTree());
-                    TOK_SEMI485=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4254); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI485);
+                    if ( backtracking==0 ) stream_next_expression.add(next_expression481.getTree());
+                    TOK_SEMI482=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4234); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI482);
 
 
                     // AST REWRITE
@@ -12751,76 +12690,76 @@ public class SMVParser extends Parser {
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:738:5: ( TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= assign_list TOK_RCB )
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:738:7: TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= assign_list TOK_RCB
                     {
-                    TOK_FOR486=(Token)input.LT(1);
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_one_assign4278); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR486);
+                    TOK_FOR483=(Token)input.LT(1);
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_one_assign4258); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR483);
 
-                    TOK_LP487=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_one_assign4280); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP487);
+                    TOK_LP484=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_one_assign4260); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP484);
 
                     i_f=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_one_assign4285); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_one_assign4265); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(i_f);
 
-                    TOK_EQUAL488=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_one_assign4287); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL488);
+                    TOK_EQUAL485=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_one_assign4267); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL485);
 
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4292);
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4272);
                     init_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(init_f.getTree());
-                    TOK_SEMI489=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4294); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI489);
+                    TOK_SEMI486=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4274); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI486);
 
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4299);
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4279);
                     cond_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(cond_f.getTree());
-                    TOK_SEMI490=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4301); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI490);
+                    TOK_SEMI487=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_one_assign4281); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI487);
 
                     ii=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_one_assign4306); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_one_assign4286); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(ii);
 
-                    TOK_EQUAL491=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_one_assign4308); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL491);
+                    TOK_EQUAL488=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_one_assign4288); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL488);
 
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4313);
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4293);
                     inc_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(inc_f.getTree());
-                    TOK_RP492=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_one_assign4315); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP492);
+                    TOK_RP489=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_one_assign4295); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP489);
 
-                    TOK_LCB493=(Token)input.LT(1);
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_one_assign4317); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB493);
+                    TOK_LCB490=(Token)input.LT(1);
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_one_assign4297); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB490);
 
-                    pushFollow(FOLLOW_assign_list_in_one_assign4322);
+                    pushFollow(FOLLOW_assign_list_in_one_assign4302);
                     loop_main=assign_list();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_assign_list.add(loop_main.getTree());
-                    TOK_RCB494=(Token)input.LT(1);
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_one_assign4324); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB494);
+                    TOK_RCB491=(Token)input.LT(1);
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_one_assign4304); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB491);
 
 
                     }
 
 
                     // AST REWRITE
-                    // elements: TOK_LP, inc_f, TOK_RP, loop_main, TOK_LCB, init_f, TOK_RCB, cond_f, i_f, TOK_FOR
+                    // elements: TOK_RCB, TOK_LP, TOK_FOR, i_f, cond_f, init_f, TOK_RP, TOK_LCB, inc_f, loop_main
                     // token labels: i_f
                     // rule labels: loop_main, cond_f, init_f, inc_f, retval
                     // token list labels: 
@@ -12897,13 +12836,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_INIT495=null;
-        simple_expression_return simple_expression496 = null;
+        Token TOK_INIT492=null;
+        simple_expression_return simple_expression493 = null;
 
-        optsemi_return optsemi497 = null;
+        optsemi_return optsemi494 = null;
 
 
-        Object TOK_INIT495_tree=null;
+        Object TOK_INIT492_tree=null;
         RewriteRuleTokenStream stream_TOK_INIT=new RewriteRuleTokenStream(adaptor,"token TOK_INIT");
         RewriteRuleSubtreeStream stream_simple_expression=new RewriteRuleSubtreeStream(adaptor,"rule simple_expression");
         RewriteRuleSubtreeStream stream_optsemi=new RewriteRuleSubtreeStream(adaptor,"rule optsemi");
@@ -12911,20 +12850,20 @@ public class SMVParser extends Parser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:743:7: ( TOK_INIT simple_expression optsemi -> ^( TOK_INIT simple_expression ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:743:9: TOK_INIT simple_expression optsemi
             {
-            TOK_INIT495=(Token)input.LT(1);
-            match(input,TOK_INIT,FOLLOW_TOK_INIT_in_init4382); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_INIT.add(TOK_INIT495);
+            TOK_INIT492=(Token)input.LT(1);
+            match(input,TOK_INIT,FOLLOW_TOK_INIT_in_init4362); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_INIT.add(TOK_INIT492);
 
-            pushFollow(FOLLOW_simple_expression_in_init4384);
-            simple_expression496=simple_expression();
+            pushFollow(FOLLOW_simple_expression_in_init4364);
+            simple_expression493=simple_expression();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_simple_expression.add(simple_expression496.getTree());
-            pushFollow(FOLLOW_optsemi_in_init4386);
-            optsemi497=optsemi();
+            if ( backtracking==0 ) stream_simple_expression.add(simple_expression493.getTree());
+            pushFollow(FOLLOW_optsemi_in_init4366);
+            optsemi494=optsemi();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_optsemi.add(optsemi497.getTree());
+            if ( backtracking==0 ) stream_optsemi.add(optsemi494.getTree());
 
             // AST REWRITE
             // elements: TOK_INIT, simple_expression
@@ -12985,13 +12924,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_INVAR498=null;
-        simple_expression_return simple_expression499 = null;
+        Token TOK_INVAR495=null;
+        simple_expression_return simple_expression496 = null;
 
-        optsemi_return optsemi500 = null;
+        optsemi_return optsemi497 = null;
 
 
-        Object TOK_INVAR498_tree=null;
+        Object TOK_INVAR495_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:748:8: ( TOK_INVAR simple_expression optsemi )
@@ -13002,18 +12941,18 @@ public class SMVParser extends Parser {
             if ( backtracking==0 ) {
                if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement INVAR", input); 
             }
-            TOK_INVAR498=(Token)input.LT(1);
-            match(input,TOK_INVAR,FOLLOW_TOK_INVAR_in_invar4414); if (failed) return retval;
+            TOK_INVAR495=(Token)input.LT(1);
+            match(input,TOK_INVAR,FOLLOW_TOK_INVAR_in_invar4394); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_INVAR498_tree = (Object)adaptor.create(TOK_INVAR498);
-            root_0 = (Object)adaptor.becomeRoot(TOK_INVAR498_tree, root_0);
+            TOK_INVAR495_tree = (Object)adaptor.create(TOK_INVAR495);
+            root_0 = (Object)adaptor.becomeRoot(TOK_INVAR495_tree, root_0);
             }
-            pushFollow(FOLLOW_simple_expression_in_invar4417);
-            simple_expression499=simple_expression();
+            pushFollow(FOLLOW_simple_expression_in_invar4397);
+            simple_expression496=simple_expression();
             _fsp--;
             if (failed) return retval;
-            pushFollow(FOLLOW_optsemi_in_invar4420);
-            optsemi500=optsemi();
+            pushFollow(FOLLOW_optsemi_in_invar4400);
+            optsemi497=optsemi();
             _fsp--;
             if (failed) return retval;
 
@@ -13049,13 +12988,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_TRANS501=null;
-        next_expression_return next_expression502 = null;
+        Token TOK_TRANS498=null;
+        next_expression_return next_expression499 = null;
 
-        optsemi_return optsemi503 = null;
+        optsemi_return optsemi500 = null;
 
 
-        Object TOK_TRANS501_tree=null;
+        Object TOK_TRANS498_tree=null;
         RewriteRuleTokenStream stream_TOK_TRANS=new RewriteRuleTokenStream(adaptor,"token TOK_TRANS");
         RewriteRuleSubtreeStream stream_next_expression=new RewriteRuleSubtreeStream(adaptor,"rule next_expression");
         RewriteRuleSubtreeStream stream_optsemi=new RewriteRuleSubtreeStream(adaptor,"rule optsemi");
@@ -13063,20 +13002,20 @@ public class SMVParser extends Parser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:753:8: ( TOK_TRANS next_expression optsemi -> ^( TOK_TRANS next_expression ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:753:10: TOK_TRANS next_expression optsemi
             {
-            TOK_TRANS501=(Token)input.LT(1);
-            match(input,TOK_TRANS,FOLLOW_TOK_TRANS_in_trans4435); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_TRANS.add(TOK_TRANS501);
+            TOK_TRANS498=(Token)input.LT(1);
+            match(input,TOK_TRANS,FOLLOW_TOK_TRANS_in_trans4415); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_TRANS.add(TOK_TRANS498);
 
-            pushFollow(FOLLOW_next_expression_in_trans4437);
-            next_expression502=next_expression();
+            pushFollow(FOLLOW_next_expression_in_trans4417);
+            next_expression499=next_expression();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_next_expression.add(next_expression502.getTree());
-            pushFollow(FOLLOW_optsemi_in_trans4439);
-            optsemi503=optsemi();
+            if ( backtracking==0 ) stream_next_expression.add(next_expression499.getTree());
+            pushFollow(FOLLOW_optsemi_in_trans4419);
+            optsemi500=optsemi();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_optsemi.add(optsemi503.getTree());
+            if ( backtracking==0 ) stream_optsemi.add(optsemi500.getTree());
 
             // AST REWRITE
             // elements: TOK_TRANS, next_expression
@@ -13137,13 +13076,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_FAIRNESS504=null;
-        simple_expression_return simple_expression505 = null;
+        Token TOK_FAIRNESS501=null;
+        simple_expression_return simple_expression502 = null;
 
-        optsemi_return optsemi506 = null;
+        optsemi_return optsemi503 = null;
 
 
-        Object TOK_FAIRNESS504_tree=null;
+        Object TOK_FAIRNESS501_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:759:11: ( TOK_FAIRNESS simple_expression optsemi )
@@ -13154,18 +13093,18 @@ public class SMVParser extends Parser {
             if ( backtracking==0 ) {
                if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement FAIRNESS", input); 
             }
-            TOK_FAIRNESS504=(Token)input.LT(1);
-            match(input,TOK_FAIRNESS,FOLLOW_TOK_FAIRNESS_in_fairness4469); if (failed) return retval;
+            TOK_FAIRNESS501=(Token)input.LT(1);
+            match(input,TOK_FAIRNESS,FOLLOW_TOK_FAIRNESS_in_fairness4449); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_FAIRNESS504_tree = (Object)adaptor.create(TOK_FAIRNESS504);
-            root_0 = (Object)adaptor.becomeRoot(TOK_FAIRNESS504_tree, root_0);
+            TOK_FAIRNESS501_tree = (Object)adaptor.create(TOK_FAIRNESS501);
+            root_0 = (Object)adaptor.becomeRoot(TOK_FAIRNESS501_tree, root_0);
             }
-            pushFollow(FOLLOW_simple_expression_in_fairness4472);
-            simple_expression505=simple_expression();
+            pushFollow(FOLLOW_simple_expression_in_fairness4452);
+            simple_expression502=simple_expression();
             _fsp--;
             if (failed) return retval;
-            pushFollow(FOLLOW_optsemi_in_fairness4475);
-            optsemi506=optsemi();
+            pushFollow(FOLLOW_optsemi_in_fairness4455);
+            optsemi503=optsemi();
             _fsp--;
             if (failed) return retval;
 
@@ -13201,11 +13140,11 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_JUSTICE507=null;
-        justice_list_return justice_list508 = null;
+        Token TOK_JUSTICE504=null;
+        justice_list_return justice_list505 = null;
 
 
-        Object TOK_JUSTICE507_tree=null;
+        Object TOK_JUSTICE504_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:764:10: ( TOK_JUSTICE justice_list )
@@ -13213,17 +13152,17 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            TOK_JUSTICE507=(Token)input.LT(1);
-            match(input,TOK_JUSTICE,FOLLOW_TOK_JUSTICE_in_justice4490); if (failed) return retval;
+            TOK_JUSTICE504=(Token)input.LT(1);
+            match(input,TOK_JUSTICE,FOLLOW_TOK_JUSTICE_in_justice4470); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_JUSTICE507_tree = (Object)adaptor.create(TOK_JUSTICE507);
-            root_0 = (Object)adaptor.becomeRoot(TOK_JUSTICE507_tree, root_0);
+            TOK_JUSTICE504_tree = (Object)adaptor.create(TOK_JUSTICE504);
+            root_0 = (Object)adaptor.becomeRoot(TOK_JUSTICE504_tree, root_0);
             }
-            pushFollow(FOLLOW_justice_list_in_justice4493);
-            justice_list508=justice_list();
+            pushFollow(FOLLOW_justice_list_in_justice4473);
+            justice_list505=justice_list();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, justice_list508.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, justice_list505.getTree());
 
             }
 
@@ -13257,9 +13196,9 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        justice_decl_return justice_decl509 = null;
+        justice_decl_return justice_decl506 = null;
 
-        justice_decl_return justice_decl510 = null;
+        justice_decl_return justice_decl507 = null;
 
 
 
@@ -13269,11 +13208,11 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_justice_decl_in_justice_list4503);
-            justice_decl509=justice_decl();
+            pushFollow(FOLLOW_justice_decl_in_justice_list4483);
+            justice_decl506=justice_decl();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, justice_decl509.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, justice_decl506.getTree());
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:766:29: ( justice_decl )*
             loop70:
             do {
@@ -13289,11 +13228,11 @@ public class SMVParser extends Parser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:766:31: justice_decl
             	    {
-            	    pushFollow(FOLLOW_justice_decl_in_justice_list4507);
-            	    justice_decl510=justice_decl();
+            	    pushFollow(FOLLOW_justice_decl_in_justice_list4487);
+            	    justice_decl507=justice_decl();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, justice_decl510.getTree());
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, justice_decl507.getTree());
 
             	    }
             	    break;
@@ -13338,16 +13277,16 @@ public class SMVParser extends Parser {
 
         Token i_f=null;
         Token ii=null;
-        Token TOK_SEMI512=null;
-        Token TOK_FOR513=null;
-        Token TOK_LP514=null;
+        Token TOK_SEMI509=null;
+        Token TOK_FOR510=null;
+        Token TOK_LP511=null;
+        Token TOK_EQUAL512=null;
+        Token TOK_SEMI513=null;
+        Token TOK_SEMI514=null;
         Token TOK_EQUAL515=null;
-        Token TOK_SEMI516=null;
-        Token TOK_SEMI517=null;
-        Token TOK_EQUAL518=null;
-        Token TOK_RP519=null;
-        Token TOK_LCB520=null;
-        Token TOK_RCB521=null;
+        Token TOK_RP516=null;
+        Token TOK_LCB517=null;
+        Token TOK_RCB518=null;
         simple_expression_return init_f = null;
 
         simple_expression_return cond_f = null;
@@ -13356,21 +13295,21 @@ public class SMVParser extends Parser {
 
         justice_list_return loop_main = null;
 
-        simple_expression_return simple_expression511 = null;
+        simple_expression_return simple_expression508 = null;
 
 
         Object i_f_tree=null;
         Object ii_tree=null;
-        Object TOK_SEMI512_tree=null;
-        Object TOK_FOR513_tree=null;
-        Object TOK_LP514_tree=null;
+        Object TOK_SEMI509_tree=null;
+        Object TOK_FOR510_tree=null;
+        Object TOK_LP511_tree=null;
+        Object TOK_EQUAL512_tree=null;
+        Object TOK_SEMI513_tree=null;
+        Object TOK_SEMI514_tree=null;
         Object TOK_EQUAL515_tree=null;
-        Object TOK_SEMI516_tree=null;
-        Object TOK_SEMI517_tree=null;
-        Object TOK_EQUAL518_tree=null;
-        Object TOK_RP519_tree=null;
-        Object TOK_LCB520_tree=null;
-        Object TOK_RCB521_tree=null;
+        Object TOK_RP516_tree=null;
+        Object TOK_LCB517_tree=null;
+        Object TOK_RCB518_tree=null;
         RewriteRuleTokenStream stream_TOK_LP=new RewriteRuleTokenStream(adaptor,"token TOK_LP");
         RewriteRuleTokenStream stream_TOK_ATOM=new RewriteRuleTokenStream(adaptor,"token TOK_ATOM");
         RewriteRuleTokenStream stream_TOK_RCB=new RewriteRuleTokenStream(adaptor,"token TOK_RCB");
@@ -13403,14 +13342,14 @@ public class SMVParser extends Parser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:768:16: simple_expression TOK_SEMI
                     {
-                    pushFollow(FOLLOW_simple_expression_in_justice_decl4521);
-                    simple_expression511=simple_expression();
+                    pushFollow(FOLLOW_simple_expression_in_justice_decl4501);
+                    simple_expression508=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) stream_simple_expression.add(simple_expression511.getTree());
-                    TOK_SEMI512=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_justice_decl4523); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI512);
+                    if ( backtracking==0 ) stream_simple_expression.add(simple_expression508.getTree());
+                    TOK_SEMI509=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_justice_decl4503); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI509);
 
 
                     // AST REWRITE
@@ -13448,76 +13387,76 @@ public class SMVParser extends Parser {
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:770:5: ( TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= justice_list TOK_RCB )
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:770:7: TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= justice_list TOK_RCB
                     {
-                    TOK_FOR513=(Token)input.LT(1);
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_justice_decl4541); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR513);
+                    TOK_FOR510=(Token)input.LT(1);
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_justice_decl4521); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR510);
 
-                    TOK_LP514=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_justice_decl4543); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP514);
+                    TOK_LP511=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_justice_decl4523); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP511);
 
                     i_f=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_justice_decl4548); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_justice_decl4528); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(i_f);
 
-                    TOK_EQUAL515=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_justice_decl4550); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL515);
+                    TOK_EQUAL512=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_justice_decl4530); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL512);
 
-                    pushFollow(FOLLOW_simple_expression_in_justice_decl4555);
+                    pushFollow(FOLLOW_simple_expression_in_justice_decl4535);
                     init_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(init_f.getTree());
-                    TOK_SEMI516=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_justice_decl4557); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI516);
+                    TOK_SEMI513=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_justice_decl4537); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI513);
 
-                    pushFollow(FOLLOW_simple_expression_in_justice_decl4562);
+                    pushFollow(FOLLOW_simple_expression_in_justice_decl4542);
                     cond_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(cond_f.getTree());
-                    TOK_SEMI517=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_justice_decl4564); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI517);
+                    TOK_SEMI514=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_justice_decl4544); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI514);
 
                     ii=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_justice_decl4569); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_justice_decl4549); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(ii);
 
-                    TOK_EQUAL518=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_justice_decl4571); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL518);
+                    TOK_EQUAL515=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_justice_decl4551); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL515);
 
-                    pushFollow(FOLLOW_simple_expression_in_justice_decl4576);
+                    pushFollow(FOLLOW_simple_expression_in_justice_decl4556);
                     inc_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(inc_f.getTree());
-                    TOK_RP519=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_justice_decl4578); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP519);
+                    TOK_RP516=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_justice_decl4558); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP516);
 
-                    TOK_LCB520=(Token)input.LT(1);
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_justice_decl4580); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB520);
+                    TOK_LCB517=(Token)input.LT(1);
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_justice_decl4560); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB517);
 
-                    pushFollow(FOLLOW_justice_list_in_justice_decl4585);
+                    pushFollow(FOLLOW_justice_list_in_justice_decl4565);
                     loop_main=justice_list();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_justice_list.add(loop_main.getTree());
-                    TOK_RCB521=(Token)input.LT(1);
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_justice_decl4587); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB521);
+                    TOK_RCB518=(Token)input.LT(1);
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_justice_decl4567); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB518);
 
 
                     }
 
 
                     // AST REWRITE
-                    // elements: inc_f, TOK_LP, loop_main, TOK_RCB, TOK_FOR, TOK_RP, TOK_LCB, i_f, cond_f, init_f
+                    // elements: TOK_FOR, TOK_RCB, cond_f, init_f, TOK_LP, i_f, inc_f, TOK_LCB, TOK_RP, loop_main
                     // token labels: i_f
                     // rule labels: loop_main, cond_f, init_f, inc_f, retval
                     // token list labels: 
@@ -13594,11 +13533,11 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_COMPASSION522=null;
-        compassion_list_return compassion_list523 = null;
+        Token TOK_COMPASSION519=null;
+        compassion_list_return compassion_list520 = null;
 
 
-        Object TOK_COMPASSION522_tree=null;
+        Object TOK_COMPASSION519_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:772:12: ( TOK_COMPASSION compassion_list )
@@ -13606,17 +13545,17 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            TOK_COMPASSION522=(Token)input.LT(1);
-            match(input,TOK_COMPASSION,FOLLOW_TOK_COMPASSION_in_compassion4639); if (failed) return retval;
+            TOK_COMPASSION519=(Token)input.LT(1);
+            match(input,TOK_COMPASSION,FOLLOW_TOK_COMPASSION_in_compassion4619); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_COMPASSION522_tree = (Object)adaptor.create(TOK_COMPASSION522);
-            root_0 = (Object)adaptor.becomeRoot(TOK_COMPASSION522_tree, root_0);
+            TOK_COMPASSION519_tree = (Object)adaptor.create(TOK_COMPASSION519);
+            root_0 = (Object)adaptor.becomeRoot(TOK_COMPASSION519_tree, root_0);
             }
-            pushFollow(FOLLOW_compassion_list_in_compassion4642);
-            compassion_list523=compassion_list();
+            pushFollow(FOLLOW_compassion_list_in_compassion4622);
+            compassion_list520=compassion_list();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, compassion_list523.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, compassion_list520.getTree());
 
             }
 
@@ -13650,9 +13589,9 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        compassion_decl_return compassion_decl524 = null;
+        compassion_decl_return compassion_decl521 = null;
 
-        compassion_decl_return compassion_decl525 = null;
+        compassion_decl_return compassion_decl522 = null;
 
 
 
@@ -13662,11 +13601,11 @@ public class SMVParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_compassion_decl_in_compassion_list4652);
-            compassion_decl524=compassion_decl();
+            pushFollow(FOLLOW_compassion_decl_in_compassion_list4632);
+            compassion_decl521=compassion_decl();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, compassion_decl524.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, compassion_decl521.getTree());
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:774:35: ( compassion_decl )*
             loop72:
             do {
@@ -13682,11 +13621,11 @@ public class SMVParser extends Parser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:774:37: compassion_decl
             	    {
-            	    pushFollow(FOLLOW_compassion_decl_in_compassion_list4656);
-            	    compassion_decl525=compassion_decl();
+            	    pushFollow(FOLLOW_compassion_decl_in_compassion_list4636);
+            	    compassion_decl522=compassion_decl();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, compassion_decl525.getTree());
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, compassion_decl522.getTree());
 
             	    }
             	    break;
@@ -13731,19 +13670,19 @@ public class SMVParser extends Parser {
 
         Token i_f=null;
         Token ii=null;
-        Token TOK_LP526=null;
-        Token TOK_COMMA527=null;
-        Token TOK_RP528=null;
-        Token TOK_SEMI529=null;
-        Token TOK_FOR530=null;
-        Token TOK_LP531=null;
+        Token TOK_LP523=null;
+        Token TOK_COMMA524=null;
+        Token TOK_RP525=null;
+        Token TOK_SEMI526=null;
+        Token TOK_FOR527=null;
+        Token TOK_LP528=null;
+        Token TOK_EQUAL529=null;
+        Token TOK_SEMI530=null;
+        Token TOK_SEMI531=null;
         Token TOK_EQUAL532=null;
-        Token TOK_SEMI533=null;
-        Token TOK_SEMI534=null;
-        Token TOK_EQUAL535=null;
-        Token TOK_RP536=null;
-        Token TOK_LCB537=null;
-        Token TOK_RCB538=null;
+        Token TOK_RP533=null;
+        Token TOK_LCB534=null;
+        Token TOK_RCB535=null;
         simple_expression_return f = null;
 
         simple_expression_return s = null;
@@ -13759,19 +13698,19 @@ public class SMVParser extends Parser {
 
         Object i_f_tree=null;
         Object ii_tree=null;
-        Object TOK_LP526_tree=null;
-        Object TOK_COMMA527_tree=null;
-        Object TOK_RP528_tree=null;
-        Object TOK_SEMI529_tree=null;
-        Object TOK_FOR530_tree=null;
-        Object TOK_LP531_tree=null;
+        Object TOK_LP523_tree=null;
+        Object TOK_COMMA524_tree=null;
+        Object TOK_RP525_tree=null;
+        Object TOK_SEMI526_tree=null;
+        Object TOK_FOR527_tree=null;
+        Object TOK_LP528_tree=null;
+        Object TOK_EQUAL529_tree=null;
+        Object TOK_SEMI530_tree=null;
+        Object TOK_SEMI531_tree=null;
         Object TOK_EQUAL532_tree=null;
-        Object TOK_SEMI533_tree=null;
-        Object TOK_SEMI534_tree=null;
-        Object TOK_EQUAL535_tree=null;
-        Object TOK_RP536_tree=null;
-        Object TOK_LCB537_tree=null;
-        Object TOK_RCB538_tree=null;
+        Object TOK_RP533_tree=null;
+        Object TOK_LCB534_tree=null;
+        Object TOK_RCB535_tree=null;
         RewriteRuleTokenStream stream_TOK_LP=new RewriteRuleTokenStream(adaptor,"token TOK_LP");
         RewriteRuleTokenStream stream_TOK_COMMA=new RewriteRuleTokenStream(adaptor,"token TOK_COMMA");
         RewriteRuleTokenStream stream_TOK_ATOM=new RewriteRuleTokenStream(adaptor,"token TOK_ATOM");
@@ -13805,35 +13744,35 @@ public class SMVParser extends Parser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:776:19: TOK_LP f= simple_expression TOK_COMMA s= simple_expression TOK_RP TOK_SEMI
                     {
-                    TOK_LP526=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_compassion_decl4670); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP526);
+                    TOK_LP523=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_compassion_decl4650); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP523);
 
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4674);
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4654);
                     f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(f.getTree());
-                    TOK_COMMA527=(Token)input.LT(1);
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compassion_decl4676); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_COMMA.add(TOK_COMMA527);
+                    TOK_COMMA524=(Token)input.LT(1);
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compassion_decl4656); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_COMMA.add(TOK_COMMA524);
 
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4680);
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4660);
                     s=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(s.getTree());
-                    TOK_RP528=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_compassion_decl4682); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP528);
+                    TOK_RP525=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_compassion_decl4662); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP525);
 
-                    TOK_SEMI529=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_compassion_decl4684); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI529);
+                    TOK_SEMI526=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_compassion_decl4664); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI526);
 
 
                     // AST REWRITE
-                    // elements: TOK_COMMA, f, s
+                    // elements: TOK_COMMA, s, f
                     // token labels: 
                     // rule labels: s, f, retval
                     // token list labels: 
@@ -13871,76 +13810,76 @@ public class SMVParser extends Parser {
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:778:5: ( TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= compassion_list TOK_RCB )
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:778:7: TOK_FOR TOK_LP i_f= TOK_ATOM TOK_EQUAL init_f= simple_expression TOK_SEMI cond_f= simple_expression TOK_SEMI ii= TOK_ATOM TOK_EQUAL inc_f= simple_expression TOK_RP TOK_LCB loop_main= compassion_list TOK_RCB
                     {
-                    TOK_FOR530=(Token)input.LT(1);
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_compassion_decl4708); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR530);
+                    TOK_FOR527=(Token)input.LT(1);
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_compassion_decl4688); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_FOR.add(TOK_FOR527);
 
-                    TOK_LP531=(Token)input.LT(1);
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_compassion_decl4710); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP531);
+                    TOK_LP528=(Token)input.LT(1);
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_compassion_decl4690); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP528);
 
                     i_f=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_compassion_decl4715); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_compassion_decl4695); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(i_f);
 
-                    TOK_EQUAL532=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_compassion_decl4717); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL532);
+                    TOK_EQUAL529=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_compassion_decl4697); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL529);
 
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4722);
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4702);
                     init_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(init_f.getTree());
-                    TOK_SEMI533=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_compassion_decl4724); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI533);
+                    TOK_SEMI530=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_compassion_decl4704); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI530);
 
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4729);
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4709);
                     cond_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(cond_f.getTree());
-                    TOK_SEMI534=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_compassion_decl4731); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI534);
+                    TOK_SEMI531=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_compassion_decl4711); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_SEMI.add(TOK_SEMI531);
 
                     ii=(Token)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_compassion_decl4736); if (failed) return retval;
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_compassion_decl4716); if (failed) return retval;
                     if ( backtracking==0 ) stream_TOK_ATOM.add(ii);
 
-                    TOK_EQUAL535=(Token)input.LT(1);
-                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_compassion_decl4738); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL535);
+                    TOK_EQUAL532=(Token)input.LT(1);
+                    match(input,TOK_EQUAL,FOLLOW_TOK_EQUAL_in_compassion_decl4718); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_EQUAL.add(TOK_EQUAL532);
 
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4743);
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4723);
                     inc_f=simple_expression();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_simple_expression.add(inc_f.getTree());
-                    TOK_RP536=(Token)input.LT(1);
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_compassion_decl4745); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP536);
+                    TOK_RP533=(Token)input.LT(1);
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_compassion_decl4725); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP533);
 
-                    TOK_LCB537=(Token)input.LT(1);
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_compassion_decl4747); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB537);
+                    TOK_LCB534=(Token)input.LT(1);
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_compassion_decl4727); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_LCB.add(TOK_LCB534);
 
-                    pushFollow(FOLLOW_compassion_list_in_compassion_decl4752);
+                    pushFollow(FOLLOW_compassion_list_in_compassion_decl4732);
                     loop_main=compassion_list();
                     _fsp--;
                     if (failed) return retval;
                     if ( backtracking==0 ) stream_compassion_list.add(loop_main.getTree());
-                    TOK_RCB538=(Token)input.LT(1);
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_compassion_decl4754); if (failed) return retval;
-                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB538);
+                    TOK_RCB535=(Token)input.LT(1);
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_compassion_decl4734); if (failed) return retval;
+                    if ( backtracking==0 ) stream_TOK_RCB.add(TOK_RCB535);
 
 
                     }
 
 
                     // AST REWRITE
-                    // elements: init_f, inc_f, TOK_RP, i_f, TOK_LP, cond_f, TOK_LCB, TOK_FOR, loop_main, TOK_RCB
+                    // elements: TOK_LCB, TOK_RP, i_f, TOK_RCB, loop_main, TOK_FOR, cond_f, init_f, TOK_LP, inc_f
                     // token labels: i_f
                     // rule labels: loop_main, cond_f, init_f, inc_f, retval
                     // token list labels: 
@@ -14017,13 +13956,13 @@ public class SMVParser extends Parser {
 
         Object root_0 = null;
 
-        Token TOK_INVARSPEC539=null;
-        simple_expression_return simple_expression540 = null;
+        Token TOK_INVARSPEC536=null;
+        simple_expression_return simple_expression537 = null;
 
-        optsemi_return optsemi541 = null;
+        optsemi_return optsemi538 = null;
 
 
-        Object TOK_INVARSPEC539_tree=null;
+        Object TOK_INVARSPEC536_tree=null;
 
         try {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:781:12: ( TOK_INVARSPEC simple_expression optsemi )
@@ -14034,18 +13973,18 @@ public class SMVParser extends Parser {
             if ( backtracking==0 ) {
                if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement INVAR", input); 
             }
-            TOK_INVARSPEC539=(Token)input.LT(1);
-            match(input,TOK_INVARSPEC,FOLLOW_TOK_INVARSPEC_in_invarspec4813); if (failed) return retval;
+            TOK_INVARSPEC536=(Token)input.LT(1);
+            match(input,TOK_INVARSPEC,FOLLOW_TOK_INVARSPEC_in_invarspec4793); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_INVARSPEC539_tree = (Object)adaptor.create(TOK_INVARSPEC539);
-            root_0 = (Object)adaptor.becomeRoot(TOK_INVARSPEC539_tree, root_0);
+            TOK_INVARSPEC536_tree = (Object)adaptor.create(TOK_INVARSPEC536);
+            root_0 = (Object)adaptor.becomeRoot(TOK_INVARSPEC536_tree, root_0);
             }
-            pushFollow(FOLLOW_simple_expression_in_invarspec4816);
-            simple_expression540=simple_expression();
+            pushFollow(FOLLOW_simple_expression_in_invarspec4796);
+            simple_expression537=simple_expression();
             _fsp--;
             if (failed) return retval;
-            pushFollow(FOLLOW_optsemi_in_invarspec4819);
-            optsemi541=optsemi();
+            pushFollow(FOLLOW_optsemi_in_invarspec4799);
+            optsemi538=optsemi();
             _fsp--;
             if (failed) return retval;
 
@@ -14068,291 +14007,48 @@ public class SMVParser extends Parser {
     }
     // $ANTLR end invarspec
 
-    public static class ctlspec_return extends ParserRuleReturnScope {
-        Object tree;
-        public Object getTree() { return tree; }
-    };
-
-    // $ANTLR start ctlspec
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:788:1: ctlspec : ( TOK_SPEC ctl_expression optsemi | TOK_CTLSPEC ctl_expression optsemi );
-    public final ctlspec_return ctlspec() throws RecognitionException {
-        ctlspec_return retval = new ctlspec_return();
-        retval.start = input.LT(1);
-
-        Object root_0 = null;
-
-        Token TOK_SPEC542=null;
-        Token TOK_CTLSPEC545=null;
-        ctl_expression_return ctl_expression543 = null;
-
-        optsemi_return optsemi544 = null;
-
-        ctl_expression_return ctl_expression546 = null;
-
-        optsemi_return optsemi547 = null;
-
-
-        Object TOK_SPEC542_tree=null;
-        Object TOK_CTLSPEC545_tree=null;
-
-        try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:788:10: ( TOK_SPEC ctl_expression optsemi | TOK_CTLSPEC ctl_expression optsemi )
-            int alt74=2;
-            int LA74_0 = input.LA(1);
-
-            if ( (LA74_0==TOK_SPEC) ) {
-                alt74=1;
-            }
-            else if ( (LA74_0==TOK_CTLSPEC) ) {
-                alt74=2;
-            }
-            else {
-                if (backtracking>0) {failed=true; return retval;}
-                NoViableAltException nvae =
-                    new NoViableAltException("788:1: ctlspec : ( TOK_SPEC ctl_expression optsemi | TOK_CTLSPEC ctl_expression optsemi );", 74, 0, input);
-
-                throw nvae;
-            }
-            switch (alt74) {
-                case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:788:13: TOK_SPEC ctl_expression optsemi
-                    {
-                    root_0 = (Object)adaptor.nil();
-
-                    if ( backtracking==0 ) {
-                       if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement SPEC", input); 
-                    }
-                    TOK_SPEC542=(Token)input.LT(1);
-                    match(input,TOK_SPEC,FOLLOW_TOK_SPEC_in_ctlspec4843); if (failed) return retval;
-                    if ( backtracking==0 ) {
-                    TOK_SPEC542_tree = (Object)adaptor.create(TOK_SPEC542);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_SPEC542_tree, root_0);
-                    }
-                    pushFollow(FOLLOW_ctl_expression_in_ctlspec4846);
-                    ctl_expression543=ctl_expression();
-                    _fsp--;
-                    if (failed) return retval;
-                    pushFollow(FOLLOW_optsemi_in_ctlspec4849);
-                    optsemi544=optsemi();
-                    _fsp--;
-                    if (failed) return retval;
-
-                    }
-                    break;
-                case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:790:5: TOK_CTLSPEC ctl_expression optsemi
-                    {
-                    root_0 = (Object)adaptor.nil();
-
-                    if ( backtracking==0 ) {
-                       if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement CTLSPEC", input); 
-                    }
-                    TOK_CTLSPEC545=(Token)input.LT(1);
-                    match(input,TOK_CTLSPEC,FOLLOW_TOK_CTLSPEC_in_ctlspec4860); if (failed) return retval;
-                    if ( backtracking==0 ) {
-                    TOK_CTLSPEC545_tree = (Object)adaptor.create(TOK_CTLSPEC545);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_CTLSPEC545_tree, root_0);
-                    }
-                    pushFollow(FOLLOW_ctl_expression_in_ctlspec4863);
-                    ctl_expression546=ctl_expression();
-                    _fsp--;
-                    if (failed) return retval;
-                    pushFollow(FOLLOW_optsemi_in_ctlspec4866);
-                    optsemi547=optsemi();
-                    _fsp--;
-                    if (failed) return retval;
-
-                    }
-                    break;
-
-            }
-            retval.stop = input.LT(-1);
-
-            if ( backtracking==0 ) {
-                retval.tree = (Object)adaptor.rulePostProcessing(root_0);
-                adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return retval;
-    }
-    // $ANTLR end ctlspec
-
-    public static class ltlspec_return extends ParserRuleReturnScope {
-        Object tree;
-        public Object getTree() { return tree; }
-    };
-
-    // $ANTLR start ltlspec
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:793:1: ltlspec : TOK_LTLSPEC ltl_expression optsemi ;
-    public final ltlspec_return ltlspec() throws RecognitionException {
-        ltlspec_return retval = new ltlspec_return();
-        retval.start = input.LT(1);
-
-        Object root_0 = null;
-
-        Token TOK_LTLSPEC548=null;
-        ltl_expression_return ltl_expression549 = null;
-
-        optsemi_return optsemi550 = null;
-
-
-        Object TOK_LTLSPEC548_tree=null;
-
-        try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:793:10: ( TOK_LTLSPEC ltl_expression optsemi )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:793:12: TOK_LTLSPEC ltl_expression optsemi
-            {
-            root_0 = (Object)adaptor.nil();
-
-            if ( backtracking==0 ) {
-               if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement LTLSPEC", input); 
-            }
-            TOK_LTLSPEC548=(Token)input.LT(1);
-            match(input,TOK_LTLSPEC,FOLLOW_TOK_LTLSPEC_in_ltlspec4882); if (failed) return retval;
-            if ( backtracking==0 ) {
-            TOK_LTLSPEC548_tree = (Object)adaptor.create(TOK_LTLSPEC548);
-            root_0 = (Object)adaptor.becomeRoot(TOK_LTLSPEC548_tree, root_0);
-            }
-            pushFollow(FOLLOW_ltl_expression_in_ltlspec4885);
-            ltl_expression549=ltl_expression();
-            _fsp--;
-            if (failed) return retval;
-            pushFollow(FOLLOW_optsemi_in_ltlspec4888);
-            optsemi550=optsemi();
-            _fsp--;
-            if (failed) return retval;
-
-            }
-
-            retval.stop = input.LT(-1);
-
-            if ( backtracking==0 ) {
-                retval.tree = (Object)adaptor.rulePostProcessing(root_0);
-                adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return retval;
-    }
-    // $ANTLR end ltlspec
-
-    public static class pslspec_return extends ParserRuleReturnScope {
-        Object tree;
-        public Object getTree() { return tree; }
-    };
-
-    // $ANTLR start pslspec
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:796:1: pslspec : TOK_PSLSPEC psl_expression optsemi ;
-    public final pslspec_return pslspec() throws RecognitionException {
-        pslspec_return retval = new pslspec_return();
-        retval.start = input.LT(1);
-
-        Object root_0 = null;
-
-        Token TOK_PSLSPEC551=null;
-        psl_expression_return psl_expression552 = null;
-
-        optsemi_return optsemi553 = null;
-
-
-        Object TOK_PSLSPEC551_tree=null;
-
-        try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:796:10: ( TOK_PSLSPEC psl_expression optsemi )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:796:12: TOK_PSLSPEC psl_expression optsemi
-            {
-            root_0 = (Object)adaptor.nil();
-
-            if ( backtracking==0 ) {
-               if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement PSLSPEC", input); 
-            }
-            TOK_PSLSPEC551=(Token)input.LT(1);
-            match(input,TOK_PSLSPEC,FOLLOW_TOK_PSLSPEC_in_pslspec4904); if (failed) return retval;
-            if ( backtracking==0 ) {
-            TOK_PSLSPEC551_tree = (Object)adaptor.create(TOK_PSLSPEC551);
-            root_0 = (Object)adaptor.becomeRoot(TOK_PSLSPEC551_tree, root_0);
-            }
-            pushFollow(FOLLOW_psl_expression_in_pslspec4907);
-            psl_expression552=psl_expression();
-            _fsp--;
-            if (failed) return retval;
-            pushFollow(FOLLOW_optsemi_in_pslspec4910);
-            optsemi553=optsemi();
-            _fsp--;
-            if (failed) return retval;
-
-            }
-
-            retval.stop = input.LT(-1);
-
-            if ( backtracking==0 ) {
-                retval.tree = (Object)adaptor.rulePostProcessing(root_0);
-                adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return retval;
-    }
-    // $ANTLR end pslspec
-
     public static class constants_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
     // $ANTLR start constants
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:799:1: constants : TOK_CONSTANTS constants_expression TOK_SEMI ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:801:1: constants : TOK_CONSTANTS constants_expression TOK_SEMI ;
     public final constants_return constants() throws RecognitionException {
         constants_return retval = new constants_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_CONSTANTS554=null;
-        Token TOK_SEMI556=null;
-        constants_expression_return constants_expression555 = null;
+        Token TOK_CONSTANTS539=null;
+        Token TOK_SEMI541=null;
+        constants_expression_return constants_expression540 = null;
 
 
-        Object TOK_CONSTANTS554_tree=null;
-        Object TOK_SEMI556_tree=null;
+        Object TOK_CONSTANTS539_tree=null;
+        Object TOK_SEMI541_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:799:12: ( TOK_CONSTANTS constants_expression TOK_SEMI )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:799:14: TOK_CONSTANTS constants_expression TOK_SEMI
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:801:12: ( TOK_CONSTANTS constants_expression TOK_SEMI )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:801:14: TOK_CONSTANTS constants_expression TOK_SEMI
             {
             root_0 = (Object)adaptor.nil();
 
             if ( backtracking==0 ) {
                if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement CONSTANTS", input); 
             }
-            TOK_CONSTANTS554=(Token)input.LT(1);
-            match(input,TOK_CONSTANTS,FOLLOW_TOK_CONSTANTS_in_constants4926); if (failed) return retval;
+            TOK_CONSTANTS539=(Token)input.LT(1);
+            match(input,TOK_CONSTANTS,FOLLOW_TOK_CONSTANTS_in_constants4824); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_CONSTANTS554_tree = (Object)adaptor.create(TOK_CONSTANTS554);
-            root_0 = (Object)adaptor.becomeRoot(TOK_CONSTANTS554_tree, root_0);
+            TOK_CONSTANTS539_tree = (Object)adaptor.create(TOK_CONSTANTS539);
+            root_0 = (Object)adaptor.becomeRoot(TOK_CONSTANTS539_tree, root_0);
             }
-            pushFollow(FOLLOW_constants_expression_in_constants4929);
-            constants_expression555=constants_expression();
+            pushFollow(FOLLOW_constants_expression_in_constants4827);
+            constants_expression540=constants_expression();
             _fsp--;
             if (failed) return retval;
-            TOK_SEMI556=(Token)input.LT(1);
-            match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_constants4932); if (failed) return retval;
+            TOK_SEMI541=(Token)input.LT(1);
+            match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_constants4830); if (failed) return retval;
 
             }
 
@@ -14379,89 +14075,89 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start constants_expression
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:806:1: constants_expression : ( | complex_atom ( TOK_COMMA complex_atom )* );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:808:1: constants_expression : ( | complex_atom ( TOK_COMMA complex_atom )* );
     public final constants_expression_return constants_expression() throws RecognitionException {
         constants_expression_return retval = new constants_expression_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_COMMA558=null;
-        complex_atom_return complex_atom557 = null;
+        Token TOK_COMMA543=null;
+        complex_atom_return complex_atom542 = null;
 
-        complex_atom_return complex_atom559 = null;
+        complex_atom_return complex_atom544 = null;
 
 
-        Object TOK_COMMA558_tree=null;
+        Object TOK_COMMA543_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:806:22: ( | complex_atom ( TOK_COMMA complex_atom )* )
-            int alt76=2;
-            int LA76_0 = input.LA(1);
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:808:22: ( | complex_atom ( TOK_COMMA complex_atom )* )
+            int alt75=2;
+            int LA75_0 = input.LA(1);
 
-            if ( (LA76_0==TOK_SEMI) ) {
-                alt76=1;
+            if ( (LA75_0==TOK_SEMI) ) {
+                alt75=1;
             }
-            else if ( (LA76_0==TOK_ATOM) ) {
-                alt76=2;
+            else if ( (LA75_0==TOK_ATOM) ) {
+                alt75=2;
             }
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("806:1: constants_expression : ( | complex_atom ( TOK_COMMA complex_atom )* );", 76, 0, input);
+                    new NoViableAltException("808:1: constants_expression : ( | complex_atom ( TOK_COMMA complex_atom )* );", 75, 0, input);
 
                 throw nvae;
             }
-            switch (alt76) {
+            switch (alt75) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:807:3: 
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:809:3: 
                     {
                     root_0 = (Object)adaptor.nil();
 
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:807:5: complex_atom ( TOK_COMMA complex_atom )*
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:809:5: complex_atom ( TOK_COMMA complex_atom )*
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_complex_atom_in_constants_expression4953);
-                    complex_atom557=complex_atom();
+                    pushFollow(FOLLOW_complex_atom_in_constants_expression4851);
+                    complex_atom542=complex_atom();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, complex_atom557.getTree());
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:807:18: ( TOK_COMMA complex_atom )*
-                    loop75:
+                    if ( backtracking==0 ) adaptor.addChild(root_0, complex_atom542.getTree());
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:809:18: ( TOK_COMMA complex_atom )*
+                    loop74:
                     do {
-                        int alt75=2;
-                        int LA75_0 = input.LA(1);
+                        int alt74=2;
+                        int LA74_0 = input.LA(1);
 
-                        if ( (LA75_0==TOK_COMMA) ) {
-                            alt75=1;
+                        if ( (LA74_0==TOK_COMMA) ) {
+                            alt74=1;
                         }
 
 
-                        switch (alt75) {
+                        switch (alt74) {
                     	case 1 :
-                    	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:807:19: TOK_COMMA complex_atom
+                    	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:809:19: TOK_COMMA complex_atom
                     	    {
-                    	    TOK_COMMA558=(Token)input.LT(1);
-                    	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_constants_expression4956); if (failed) return retval;
+                    	    TOK_COMMA543=(Token)input.LT(1);
+                    	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_constants_expression4854); if (failed) return retval;
                     	    if ( backtracking==0 ) {
-                    	    TOK_COMMA558_tree = (Object)adaptor.create(TOK_COMMA558);
-                    	    adaptor.addChild(root_0, TOK_COMMA558_tree);
+                    	    TOK_COMMA543_tree = (Object)adaptor.create(TOK_COMMA543);
+                    	    adaptor.addChild(root_0, TOK_COMMA543_tree);
                     	    }
-                    	    pushFollow(FOLLOW_complex_atom_in_constants_expression4958);
-                    	    complex_atom559=complex_atom();
+                    	    pushFollow(FOLLOW_complex_atom_in_constants_expression4856);
+                    	    complex_atom544=complex_atom();
                     	    _fsp--;
                     	    if (failed) return retval;
-                    	    if ( backtracking==0 ) adaptor.addChild(root_0, complex_atom559.getTree());
+                    	    if ( backtracking==0 ) adaptor.addChild(root_0, complex_atom544.getTree());
 
                     	    }
                     	    break;
 
                     	default :
-                    	    break loop75;
+                    	    break loop74;
                         }
                     } while (true);
 
@@ -14493,27 +14189,27 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start player_num
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:809:1: player_num : ( TOK_PLAYER_1 | TOK_PLAYER_2 );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:811:1: player_num : ( TOK_PLAYER_1 | TOK_PLAYER_2 );
     public final player_num_return player_num() throws RecognitionException {
         player_num_return retval = new player_num_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token set560=null;
+        Token set545=null;
 
-        Object set560_tree=null;
+        Object set545_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:809:13: ( TOK_PLAYER_1 | TOK_PLAYER_2 )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:811:13: ( TOK_PLAYER_1 | TOK_PLAYER_2 )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:
             {
             root_0 = (Object)adaptor.nil();
 
-            set560=(Token)input.LT(1);
+            set545=(Token)input.LT(1);
             if ( (input.LA(1)>=TOK_PLAYER_1 && input.LA(1)<=TOK_PLAYER_2) ) {
                 input.consume();
-                if ( backtracking==0 ) adaptor.addChild(root_0, adaptor.create(set560));
+                if ( backtracking==0 ) adaptor.addChild(root_0, adaptor.create(set545));
                 errorRecovery=false;failed=false;
             }
             else {
@@ -14549,51 +14245,51 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start predicate
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:814:1: predicate : ( TOK_PRED simple_expression optsemi | TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:816:1: predicate : ( TOK_PRED simple_expression optsemi | TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi );
     public final predicate_return predicate() throws RecognitionException {
         predicate_return retval = new predicate_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_PRED561=null;
-        Token TOK_PRED564=null;
-        Token TOK_LB565=null;
-        Token TOK_NUMBER566=null;
-        Token TOK_RB567=null;
-        simple_expression_return simple_expression562 = null;
+        Token TOK_PRED546=null;
+        Token TOK_PRED549=null;
+        Token TOK_LB550=null;
+        Token TOK_NUMBER551=null;
+        Token TOK_RB552=null;
+        simple_expression_return simple_expression547 = null;
 
-        optsemi_return optsemi563 = null;
+        optsemi_return optsemi548 = null;
 
-        simple_expression_return simple_expression568 = null;
+        simple_expression_return simple_expression553 = null;
 
-        optsemi_return optsemi569 = null;
+        optsemi_return optsemi554 = null;
 
 
-        Object TOK_PRED561_tree=null;
-        Object TOK_PRED564_tree=null;
-        Object TOK_LB565_tree=null;
-        Object TOK_NUMBER566_tree=null;
-        Object TOK_RB567_tree=null;
+        Object TOK_PRED546_tree=null;
+        Object TOK_PRED549_tree=null;
+        Object TOK_LB550_tree=null;
+        Object TOK_NUMBER551_tree=null;
+        Object TOK_RB552_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:814:12: ( TOK_PRED simple_expression optsemi | TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi )
-            int alt77=2;
-            int LA77_0 = input.LA(1);
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:816:12: ( TOK_PRED simple_expression optsemi | TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi )
+            int alt76=2;
+            int LA76_0 = input.LA(1);
 
-            if ( (LA77_0==TOK_PRED) ) {
-                int LA77_1 = input.LA(2);
+            if ( (LA76_0==TOK_PRED) ) {
+                int LA76_1 = input.LA(2);
 
-                if ( (LA77_1==TOK_LB) ) {
-                    alt77=2;
+                if ( (LA76_1==TOK_LB) ) {
+                    alt76=2;
                 }
-                else if ( ((LA77_1>=TOK_NUMBER && LA77_1<=TOK_ATOM)||(LA77_1>=TOK_FALSEEXP && LA77_1<=TOK_LP)||(LA77_1>=TOK_BOOL && LA77_1<=TOK_CASE)||LA77_1==TOK_WAREAD||(LA77_1>=TOK_WAWRITE && LA77_1<=TOK_SELF)||(LA77_1>=TOK_NOT && LA77_1<=TOK_AND)||LA77_1==TOK_LCB||LA77_1==TOK_OR||(LA77_1>=TOK_EX && LA77_1<=TOK_AA)||(LA77_1>=TOK_EE && LA77_1<=TOK_ABG)||(LA77_1>=TOK_OP_NEXT && LA77_1<=TOK_OP_ONCE)) ) {
-                    alt77=1;
+                else if ( ((LA76_1>=TOK_NUMBER && LA76_1<=TOK_ATOM)||(LA76_1>=TOK_FALSEEXP && LA76_1<=TOK_LP)||(LA76_1>=TOK_BOOL && LA76_1<=TOK_CASE)||LA76_1==TOK_WAREAD||(LA76_1>=TOK_WAWRITE && LA76_1<=TOK_SELF)||(LA76_1>=TOK_NOT && LA76_1<=TOK_AND)||LA76_1==TOK_LCB||LA76_1==TOK_OR||(LA76_1>=TOK_EX && LA76_1<=TOK_AA)||(LA76_1>=TOK_EE && LA76_1<=TOK_ABG)||(LA76_1>=TOK_OP_NEXT && LA76_1<=TOK_OP_ONCE)) ) {
+                    alt76=1;
                 }
                 else {
                     if (backtracking>0) {failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("814:1: predicate : ( TOK_PRED simple_expression optsemi | TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi );", 77, 1, input);
+                        new NoViableAltException("816:1: predicate : ( TOK_PRED simple_expression optsemi | TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi );", 76, 1, input);
 
                     throw nvae;
                 }
@@ -14601,62 +14297,62 @@ public class SMVParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("814:1: predicate : ( TOK_PRED simple_expression optsemi | TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi );", 77, 0, input);
+                    new NoViableAltException("816:1: predicate : ( TOK_PRED simple_expression optsemi | TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi );", 76, 0, input);
 
                 throw nvae;
             }
-            switch (alt77) {
+            switch (alt76) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:814:14: TOK_PRED simple_expression optsemi
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:816:14: TOK_PRED simple_expression optsemi
                     {
                     root_0 = (Object)adaptor.nil();
 
                     if ( backtracking==0 ) {
                        if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement PRED", input); 
                     }
-                    TOK_PRED561=(Token)input.LT(1);
-                    match(input,TOK_PRED,FOLLOW_TOK_PRED_in_predicate4995); if (failed) return retval;
+                    TOK_PRED546=(Token)input.LT(1);
+                    match(input,TOK_PRED,FOLLOW_TOK_PRED_in_predicate4893); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_PRED561_tree = (Object)adaptor.create(TOK_PRED561);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_PRED561_tree, root_0);
+                    TOK_PRED546_tree = (Object)adaptor.create(TOK_PRED546);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_PRED546_tree, root_0);
                     }
-                    pushFollow(FOLLOW_simple_expression_in_predicate4998);
-                    simple_expression562=simple_expression();
+                    pushFollow(FOLLOW_simple_expression_in_predicate4896);
+                    simple_expression547=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    pushFollow(FOLLOW_optsemi_in_predicate5001);
-                    optsemi563=optsemi();
+                    pushFollow(FOLLOW_optsemi_in_predicate4899);
+                    optsemi548=optsemi();
                     _fsp--;
                     if (failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:816:5: TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:818:5: TOK_PRED TOK_LB TOK_NUMBER TOK_RB simple_expression optsemi
                     {
                     root_0 = (Object)adaptor.nil();
 
                     if ( backtracking==0 ) {
                        if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement PRED[..]", input); 
                     }
-                    TOK_PRED564=(Token)input.LT(1);
-                    match(input,TOK_PRED,FOLLOW_TOK_PRED_in_predicate5012); if (failed) return retval;
+                    TOK_PRED549=(Token)input.LT(1);
+                    match(input,TOK_PRED,FOLLOW_TOK_PRED_in_predicate4910); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_PRED564_tree = (Object)adaptor.create(TOK_PRED564);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_PRED564_tree, root_0);
+                    TOK_PRED549_tree = (Object)adaptor.create(TOK_PRED549);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_PRED549_tree, root_0);
                     }
-                    TOK_LB565=(Token)input.LT(1);
-                    match(input,TOK_LB,FOLLOW_TOK_LB_in_predicate5015); if (failed) return retval;
-                    TOK_NUMBER566=(Token)input.LT(1);
-                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_predicate5018); if (failed) return retval;
-                    TOK_RB567=(Token)input.LT(1);
-                    match(input,TOK_RB,FOLLOW_TOK_RB_in_predicate5021); if (failed) return retval;
-                    pushFollow(FOLLOW_simple_expression_in_predicate5024);
-                    simple_expression568=simple_expression();
+                    TOK_LB550=(Token)input.LT(1);
+                    match(input,TOK_LB,FOLLOW_TOK_LB_in_predicate4913); if (failed) return retval;
+                    TOK_NUMBER551=(Token)input.LT(1);
+                    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_predicate4916); if (failed) return retval;
+                    TOK_RB552=(Token)input.LT(1);
+                    match(input,TOK_RB,FOLLOW_TOK_RB_in_predicate4919); if (failed) return retval;
+                    pushFollow(FOLLOW_simple_expression_in_predicate4922);
+                    simple_expression553=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    pushFollow(FOLLOW_optsemi_in_predicate5027);
-                    optsemi569=optsemi();
+                    pushFollow(FOLLOW_optsemi_in_predicate4925);
+                    optsemi554=optsemi();
                     _fsp--;
                     if (failed) return retval;
 
@@ -14687,42 +14383,42 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start mirror
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:819:1: mirror : TOK_MIRROR decl_var_id optsemi ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:821:1: mirror : TOK_MIRROR decl_var_id optsemi ;
     public final mirror_return mirror() throws RecognitionException {
         mirror_return retval = new mirror_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_MIRROR570=null;
-        decl_var_id_return decl_var_id571 = null;
+        Token TOK_MIRROR555=null;
+        decl_var_id_return decl_var_id556 = null;
 
-        optsemi_return optsemi572 = null;
+        optsemi_return optsemi557 = null;
 
 
-        Object TOK_MIRROR570_tree=null;
+        Object TOK_MIRROR555_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:819:9: ( TOK_MIRROR decl_var_id optsemi )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:819:11: TOK_MIRROR decl_var_id optsemi
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:821:9: ( TOK_MIRROR decl_var_id optsemi )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:821:11: TOK_MIRROR decl_var_id optsemi
             {
             root_0 = (Object)adaptor.nil();
 
             if ( backtracking==0 ) {
                if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement MIRROR", input); 
             }
-            TOK_MIRROR570=(Token)input.LT(1);
-            match(input,TOK_MIRROR,FOLLOW_TOK_MIRROR_in_mirror5044); if (failed) return retval;
+            TOK_MIRROR555=(Token)input.LT(1);
+            match(input,TOK_MIRROR,FOLLOW_TOK_MIRROR_in_mirror4942); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_MIRROR570_tree = (Object)adaptor.create(TOK_MIRROR570);
-            root_0 = (Object)adaptor.becomeRoot(TOK_MIRROR570_tree, root_0);
+            TOK_MIRROR555_tree = (Object)adaptor.create(TOK_MIRROR555);
+            root_0 = (Object)adaptor.becomeRoot(TOK_MIRROR555_tree, root_0);
             }
-            pushFollow(FOLLOW_decl_var_id_in_mirror5047);
-            decl_var_id571=decl_var_id();
+            pushFollow(FOLLOW_decl_var_id_in_mirror4945);
+            decl_var_id556=decl_var_id();
             _fsp--;
             if (failed) return retval;
-            pushFollow(FOLLOW_optsemi_in_mirror5050);
-            optsemi572=optsemi();
+            pushFollow(FOLLOW_optsemi_in_mirror4948);
+            optsemi557=optsemi();
             _fsp--;
             if (failed) return retval;
 
@@ -14751,52 +14447,52 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start reachtarget
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:823:1: reachtarget : TOK_REACHTARGET player_num simple_expression optsemi -> ^( TOK_REACHTARGET player_num simple_expression ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:825:1: reachtarget : TOK_REACHTARGET player_num simple_expression optsemi -> ^( TOK_REACHTARGET player_num simple_expression ) ;
     public final reachtarget_return reachtarget() throws RecognitionException {
         reachtarget_return retval = new reachtarget_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_REACHTARGET573=null;
-        player_num_return player_num574 = null;
+        Token TOK_REACHTARGET558=null;
+        player_num_return player_num559 = null;
 
-        simple_expression_return simple_expression575 = null;
+        simple_expression_return simple_expression560 = null;
 
-        optsemi_return optsemi576 = null;
+        optsemi_return optsemi561 = null;
 
 
-        Object TOK_REACHTARGET573_tree=null;
+        Object TOK_REACHTARGET558_tree=null;
         RewriteRuleTokenStream stream_TOK_REACHTARGET=new RewriteRuleTokenStream(adaptor,"token TOK_REACHTARGET");
         RewriteRuleSubtreeStream stream_player_num=new RewriteRuleSubtreeStream(adaptor,"rule player_num");
         RewriteRuleSubtreeStream stream_simple_expression=new RewriteRuleSubtreeStream(adaptor,"rule simple_expression");
         RewriteRuleSubtreeStream stream_optsemi=new RewriteRuleSubtreeStream(adaptor,"rule optsemi");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:823:14: ( TOK_REACHTARGET player_num simple_expression optsemi -> ^( TOK_REACHTARGET player_num simple_expression ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:823:16: TOK_REACHTARGET player_num simple_expression optsemi
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:825:14: ( TOK_REACHTARGET player_num simple_expression optsemi -> ^( TOK_REACHTARGET player_num simple_expression ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:825:16: TOK_REACHTARGET player_num simple_expression optsemi
             {
-            TOK_REACHTARGET573=(Token)input.LT(1);
-            match(input,TOK_REACHTARGET,FOLLOW_TOK_REACHTARGET_in_reachtarget5064); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_REACHTARGET.add(TOK_REACHTARGET573);
+            TOK_REACHTARGET558=(Token)input.LT(1);
+            match(input,TOK_REACHTARGET,FOLLOW_TOK_REACHTARGET_in_reachtarget4962); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_REACHTARGET.add(TOK_REACHTARGET558);
 
-            pushFollow(FOLLOW_player_num_in_reachtarget5066);
-            player_num574=player_num();
+            pushFollow(FOLLOW_player_num_in_reachtarget4964);
+            player_num559=player_num();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_player_num.add(player_num574.getTree());
-            pushFollow(FOLLOW_simple_expression_in_reachtarget5068);
-            simple_expression575=simple_expression();
+            if ( backtracking==0 ) stream_player_num.add(player_num559.getTree());
+            pushFollow(FOLLOW_simple_expression_in_reachtarget4966);
+            simple_expression560=simple_expression();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_simple_expression.add(simple_expression575.getTree());
-            pushFollow(FOLLOW_optsemi_in_reachtarget5070);
-            optsemi576=optsemi();
+            if ( backtracking==0 ) stream_simple_expression.add(simple_expression560.getTree());
+            pushFollow(FOLLOW_optsemi_in_reachtarget4968);
+            optsemi561=optsemi();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_optsemi.add(optsemi576.getTree());
+            if ( backtracking==0 ) stream_optsemi.add(optsemi561.getTree());
 
             // AST REWRITE
-            // elements: simple_expression, player_num, TOK_REACHTARGET
+            // elements: TOK_REACHTARGET, player_num, simple_expression
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -14806,9 +14502,9 @@ public class SMVParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 824:3: -> ^( TOK_REACHTARGET player_num simple_expression )
+            // 826:3: -> ^( TOK_REACHTARGET player_num simple_expression )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:824:6: ^( TOK_REACHTARGET player_num simple_expression )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:826:6: ^( TOK_REACHTARGET player_num simple_expression )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_TOK_REACHTARGET.next(), root_1);
@@ -14848,52 +14544,52 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start avoidtarget
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:826:1: avoidtarget : TOK_AVOIDTARGET player_num simple_expression optsemi -> ^( TOK_AVOIDTARGET player_num simple_expression ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:828:1: avoidtarget : TOK_AVOIDTARGET player_num simple_expression optsemi -> ^( TOK_AVOIDTARGET player_num simple_expression ) ;
     public final avoidtarget_return avoidtarget() throws RecognitionException {
         avoidtarget_return retval = new avoidtarget_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_AVOIDTARGET577=null;
-        player_num_return player_num578 = null;
+        Token TOK_AVOIDTARGET562=null;
+        player_num_return player_num563 = null;
 
-        simple_expression_return simple_expression579 = null;
+        simple_expression_return simple_expression564 = null;
 
-        optsemi_return optsemi580 = null;
+        optsemi_return optsemi565 = null;
 
 
-        Object TOK_AVOIDTARGET577_tree=null;
+        Object TOK_AVOIDTARGET562_tree=null;
         RewriteRuleTokenStream stream_TOK_AVOIDTARGET=new RewriteRuleTokenStream(adaptor,"token TOK_AVOIDTARGET");
         RewriteRuleSubtreeStream stream_player_num=new RewriteRuleSubtreeStream(adaptor,"rule player_num");
         RewriteRuleSubtreeStream stream_simple_expression=new RewriteRuleSubtreeStream(adaptor,"rule simple_expression");
         RewriteRuleSubtreeStream stream_optsemi=new RewriteRuleSubtreeStream(adaptor,"rule optsemi");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:826:14: ( TOK_AVOIDTARGET player_num simple_expression optsemi -> ^( TOK_AVOIDTARGET player_num simple_expression ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:826:16: TOK_AVOIDTARGET player_num simple_expression optsemi
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:828:14: ( TOK_AVOIDTARGET player_num simple_expression optsemi -> ^( TOK_AVOIDTARGET player_num simple_expression ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:828:16: TOK_AVOIDTARGET player_num simple_expression optsemi
             {
-            TOK_AVOIDTARGET577=(Token)input.LT(1);
-            match(input,TOK_AVOIDTARGET,FOLLOW_TOK_AVOIDTARGET_in_avoidtarget5093); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_AVOIDTARGET.add(TOK_AVOIDTARGET577);
+            TOK_AVOIDTARGET562=(Token)input.LT(1);
+            match(input,TOK_AVOIDTARGET,FOLLOW_TOK_AVOIDTARGET_in_avoidtarget4991); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_AVOIDTARGET.add(TOK_AVOIDTARGET562);
 
-            pushFollow(FOLLOW_player_num_in_avoidtarget5095);
-            player_num578=player_num();
+            pushFollow(FOLLOW_player_num_in_avoidtarget4993);
+            player_num563=player_num();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_player_num.add(player_num578.getTree());
-            pushFollow(FOLLOW_simple_expression_in_avoidtarget5097);
-            simple_expression579=simple_expression();
+            if ( backtracking==0 ) stream_player_num.add(player_num563.getTree());
+            pushFollow(FOLLOW_simple_expression_in_avoidtarget4995);
+            simple_expression564=simple_expression();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_simple_expression.add(simple_expression579.getTree());
-            pushFollow(FOLLOW_optsemi_in_avoidtarget5099);
-            optsemi580=optsemi();
+            if ( backtracking==0 ) stream_simple_expression.add(simple_expression564.getTree());
+            pushFollow(FOLLOW_optsemi_in_avoidtarget4997);
+            optsemi565=optsemi();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_optsemi.add(optsemi580.getTree());
+            if ( backtracking==0 ) stream_optsemi.add(optsemi565.getTree());
 
             // AST REWRITE
-            // elements: TOK_AVOIDTARGET, player_num, simple_expression
+            // elements: player_num, simple_expression, TOK_AVOIDTARGET
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -14903,9 +14599,9 @@ public class SMVParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 827:3: -> ^( TOK_AVOIDTARGET player_num simple_expression )
+            // 829:3: -> ^( TOK_AVOIDTARGET player_num simple_expression )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:827:6: ^( TOK_AVOIDTARGET player_num simple_expression )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:829:6: ^( TOK_AVOIDTARGET player_num simple_expression )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_TOK_AVOIDTARGET.next(), root_1);
@@ -14945,44 +14641,44 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start reachdeadlock
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:829:1: reachdeadlock : TOK_REACHDEADLOCK player_num optsemi -> ^( TOK_REACHDEADLOCK player_num ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:831:1: reachdeadlock : TOK_REACHDEADLOCK player_num optsemi -> ^( TOK_REACHDEADLOCK player_num ) ;
     public final reachdeadlock_return reachdeadlock() throws RecognitionException {
         reachdeadlock_return retval = new reachdeadlock_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_REACHDEADLOCK581=null;
-        player_num_return player_num582 = null;
+        Token TOK_REACHDEADLOCK566=null;
+        player_num_return player_num567 = null;
 
-        optsemi_return optsemi583 = null;
+        optsemi_return optsemi568 = null;
 
 
-        Object TOK_REACHDEADLOCK581_tree=null;
+        Object TOK_REACHDEADLOCK566_tree=null;
         RewriteRuleTokenStream stream_TOK_REACHDEADLOCK=new RewriteRuleTokenStream(adaptor,"token TOK_REACHDEADLOCK");
         RewriteRuleSubtreeStream stream_player_num=new RewriteRuleSubtreeStream(adaptor,"rule player_num");
         RewriteRuleSubtreeStream stream_optsemi=new RewriteRuleSubtreeStream(adaptor,"rule optsemi");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:829:15: ( TOK_REACHDEADLOCK player_num optsemi -> ^( TOK_REACHDEADLOCK player_num ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:829:17: TOK_REACHDEADLOCK player_num optsemi
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:831:15: ( TOK_REACHDEADLOCK player_num optsemi -> ^( TOK_REACHDEADLOCK player_num ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:831:17: TOK_REACHDEADLOCK player_num optsemi
             {
-            TOK_REACHDEADLOCK581=(Token)input.LT(1);
-            match(input,TOK_REACHDEADLOCK,FOLLOW_TOK_REACHDEADLOCK_in_reachdeadlock5121); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_REACHDEADLOCK.add(TOK_REACHDEADLOCK581);
+            TOK_REACHDEADLOCK566=(Token)input.LT(1);
+            match(input,TOK_REACHDEADLOCK,FOLLOW_TOK_REACHDEADLOCK_in_reachdeadlock5019); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_REACHDEADLOCK.add(TOK_REACHDEADLOCK566);
 
-            pushFollow(FOLLOW_player_num_in_reachdeadlock5123);
-            player_num582=player_num();
+            pushFollow(FOLLOW_player_num_in_reachdeadlock5021);
+            player_num567=player_num();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_player_num.add(player_num582.getTree());
-            pushFollow(FOLLOW_optsemi_in_reachdeadlock5125);
-            optsemi583=optsemi();
+            if ( backtracking==0 ) stream_player_num.add(player_num567.getTree());
+            pushFollow(FOLLOW_optsemi_in_reachdeadlock5023);
+            optsemi568=optsemi();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_optsemi.add(optsemi583.getTree());
+            if ( backtracking==0 ) stream_optsemi.add(optsemi568.getTree());
 
             // AST REWRITE
-            // elements: player_num, TOK_REACHDEADLOCK
+            // elements: TOK_REACHDEADLOCK, player_num
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -14992,9 +14688,9 @@ public class SMVParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 830:3: -> ^( TOK_REACHDEADLOCK player_num )
+            // 832:3: -> ^( TOK_REACHDEADLOCK player_num )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:830:6: ^( TOK_REACHDEADLOCK player_num )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:832:6: ^( TOK_REACHDEADLOCK player_num )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_TOK_REACHDEADLOCK.next(), root_1);
@@ -15033,41 +14729,41 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start avoiddeadlock
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:832:1: avoiddeadlock : TOK_AVOIDDEADLOCK player_num optsemi -> ^( TOK_AVOIDDEADLOCK player_num ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:834:1: avoiddeadlock : TOK_AVOIDDEADLOCK player_num optsemi -> ^( TOK_AVOIDDEADLOCK player_num ) ;
     public final avoiddeadlock_return avoiddeadlock() throws RecognitionException {
         avoiddeadlock_return retval = new avoiddeadlock_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_AVOIDDEADLOCK584=null;
-        player_num_return player_num585 = null;
+        Token TOK_AVOIDDEADLOCK569=null;
+        player_num_return player_num570 = null;
 
-        optsemi_return optsemi586 = null;
+        optsemi_return optsemi571 = null;
 
 
-        Object TOK_AVOIDDEADLOCK584_tree=null;
+        Object TOK_AVOIDDEADLOCK569_tree=null;
         RewriteRuleTokenStream stream_TOK_AVOIDDEADLOCK=new RewriteRuleTokenStream(adaptor,"token TOK_AVOIDDEADLOCK");
         RewriteRuleSubtreeStream stream_player_num=new RewriteRuleSubtreeStream(adaptor,"rule player_num");
         RewriteRuleSubtreeStream stream_optsemi=new RewriteRuleSubtreeStream(adaptor,"rule optsemi");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:832:15: ( TOK_AVOIDDEADLOCK player_num optsemi -> ^( TOK_AVOIDDEADLOCK player_num ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:832:17: TOK_AVOIDDEADLOCK player_num optsemi
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:834:15: ( TOK_AVOIDDEADLOCK player_num optsemi -> ^( TOK_AVOIDDEADLOCK player_num ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:834:17: TOK_AVOIDDEADLOCK player_num optsemi
             {
-            TOK_AVOIDDEADLOCK584=(Token)input.LT(1);
-            match(input,TOK_AVOIDDEADLOCK,FOLLOW_TOK_AVOIDDEADLOCK_in_avoiddeadlock5145); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_AVOIDDEADLOCK.add(TOK_AVOIDDEADLOCK584);
+            TOK_AVOIDDEADLOCK569=(Token)input.LT(1);
+            match(input,TOK_AVOIDDEADLOCK,FOLLOW_TOK_AVOIDDEADLOCK_in_avoiddeadlock5043); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_AVOIDDEADLOCK.add(TOK_AVOIDDEADLOCK569);
 
-            pushFollow(FOLLOW_player_num_in_avoiddeadlock5147);
-            player_num585=player_num();
+            pushFollow(FOLLOW_player_num_in_avoiddeadlock5045);
+            player_num570=player_num();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_player_num.add(player_num585.getTree());
-            pushFollow(FOLLOW_optsemi_in_avoiddeadlock5149);
-            optsemi586=optsemi();
+            if ( backtracking==0 ) stream_player_num.add(player_num570.getTree());
+            pushFollow(FOLLOW_optsemi_in_avoiddeadlock5047);
+            optsemi571=optsemi();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_optsemi.add(optsemi586.getTree());
+            if ( backtracking==0 ) stream_optsemi.add(optsemi571.getTree());
 
             // AST REWRITE
             // elements: player_num, TOK_AVOIDDEADLOCK
@@ -15080,9 +14776,9 @@ public class SMVParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 833:3: -> ^( TOK_AVOIDDEADLOCK player_num )
+            // 835:3: -> ^( TOK_AVOIDDEADLOCK player_num )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:833:6: ^( TOK_AVOIDDEADLOCK player_num )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:835:6: ^( TOK_AVOIDDEADLOCK player_num )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_TOK_AVOIDDEADLOCK.next(), root_1);
@@ -15121,26 +14817,26 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start buchigame
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:835:1: buchigame : TOK_BUCHIGAME player_num TOK_LP simple_list_expression TOK_RP optsemi -> ^( TOK_BUCHIGAME player_num simple_list_expression ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:837:1: buchigame : TOK_BUCHIGAME player_num TOK_LP simple_list_expression TOK_RP optsemi -> ^( TOK_BUCHIGAME player_num simple_list_expression ) ;
     public final buchigame_return buchigame() throws RecognitionException {
         buchigame_return retval = new buchigame_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_BUCHIGAME587=null;
-        Token TOK_LP589=null;
-        Token TOK_RP591=null;
-        player_num_return player_num588 = null;
+        Token TOK_BUCHIGAME572=null;
+        Token TOK_LP574=null;
+        Token TOK_RP576=null;
+        player_num_return player_num573 = null;
 
-        simple_list_expression_return simple_list_expression590 = null;
+        simple_list_expression_return simple_list_expression575 = null;
 
-        optsemi_return optsemi592 = null;
+        optsemi_return optsemi577 = null;
 
 
-        Object TOK_BUCHIGAME587_tree=null;
-        Object TOK_LP589_tree=null;
-        Object TOK_RP591_tree=null;
+        Object TOK_BUCHIGAME572_tree=null;
+        Object TOK_LP574_tree=null;
+        Object TOK_RP576_tree=null;
         RewriteRuleTokenStream stream_TOK_LP=new RewriteRuleTokenStream(adaptor,"token TOK_LP");
         RewriteRuleTokenStream stream_TOK_BUCHIGAME=new RewriteRuleTokenStream(adaptor,"token TOK_BUCHIGAME");
         RewriteRuleTokenStream stream_TOK_RP=new RewriteRuleTokenStream(adaptor,"token TOK_RP");
@@ -15148,39 +14844,39 @@ public class SMVParser extends Parser {
         RewriteRuleSubtreeStream stream_optsemi=new RewriteRuleSubtreeStream(adaptor,"rule optsemi");
         RewriteRuleSubtreeStream stream_simple_list_expression=new RewriteRuleSubtreeStream(adaptor,"rule simple_list_expression");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:835:12: ( TOK_BUCHIGAME player_num TOK_LP simple_list_expression TOK_RP optsemi -> ^( TOK_BUCHIGAME player_num simple_list_expression ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:835:14: TOK_BUCHIGAME player_num TOK_LP simple_list_expression TOK_RP optsemi
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:837:12: ( TOK_BUCHIGAME player_num TOK_LP simple_list_expression TOK_RP optsemi -> ^( TOK_BUCHIGAME player_num simple_list_expression ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:837:14: TOK_BUCHIGAME player_num TOK_LP simple_list_expression TOK_RP optsemi
             {
-            TOK_BUCHIGAME587=(Token)input.LT(1);
-            match(input,TOK_BUCHIGAME,FOLLOW_TOK_BUCHIGAME_in_buchigame5170); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_BUCHIGAME.add(TOK_BUCHIGAME587);
+            TOK_BUCHIGAME572=(Token)input.LT(1);
+            match(input,TOK_BUCHIGAME,FOLLOW_TOK_BUCHIGAME_in_buchigame5068); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_BUCHIGAME.add(TOK_BUCHIGAME572);
 
-            pushFollow(FOLLOW_player_num_in_buchigame5172);
-            player_num588=player_num();
+            pushFollow(FOLLOW_player_num_in_buchigame5070);
+            player_num573=player_num();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_player_num.add(player_num588.getTree());
-            TOK_LP589=(Token)input.LT(1);
-            match(input,TOK_LP,FOLLOW_TOK_LP_in_buchigame5174); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP589);
+            if ( backtracking==0 ) stream_player_num.add(player_num573.getTree());
+            TOK_LP574=(Token)input.LT(1);
+            match(input,TOK_LP,FOLLOW_TOK_LP_in_buchigame5072); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP574);
 
-            pushFollow(FOLLOW_simple_list_expression_in_buchigame5176);
-            simple_list_expression590=simple_list_expression();
+            pushFollow(FOLLOW_simple_list_expression_in_buchigame5074);
+            simple_list_expression575=simple_list_expression();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_simple_list_expression.add(simple_list_expression590.getTree());
-            TOK_RP591=(Token)input.LT(1);
-            match(input,TOK_RP,FOLLOW_TOK_RP_in_buchigame5178); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP591);
+            if ( backtracking==0 ) stream_simple_list_expression.add(simple_list_expression575.getTree());
+            TOK_RP576=(Token)input.LT(1);
+            match(input,TOK_RP,FOLLOW_TOK_RP_in_buchigame5076); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP576);
 
-            pushFollow(FOLLOW_optsemi_in_buchigame5180);
-            optsemi592=optsemi();
+            pushFollow(FOLLOW_optsemi_in_buchigame5078);
+            optsemi577=optsemi();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_optsemi.add(optsemi592.getTree());
+            if ( backtracking==0 ) stream_optsemi.add(optsemi577.getTree());
 
             // AST REWRITE
-            // elements: simple_list_expression, player_num, TOK_BUCHIGAME
+            // elements: TOK_BUCHIGAME, player_num, simple_list_expression
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -15190,9 +14886,9 @@ public class SMVParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 836:3: -> ^( TOK_BUCHIGAME player_num simple_list_expression )
+            // 838:3: -> ^( TOK_BUCHIGAME player_num simple_list_expression )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:836:6: ^( TOK_BUCHIGAME player_num simple_list_expression )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:838:6: ^( TOK_BUCHIGAME player_num simple_list_expression )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_TOK_BUCHIGAME.next(), root_1);
@@ -15232,34 +14928,34 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start genreactivity
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:838:1: genreactivity : TOK_GENREACTIVITY player_num TOK_LP simple_list_expression TOK_RP TOK_IMPLIES TOK_LP simple_list_expression TOK_RP optsemi -> ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:840:1: genreactivity : TOK_GENREACTIVITY player_num TOK_LP simple_list_expression TOK_RP TOK_IMPLIES TOK_LP simple_list_expression TOK_RP optsemi -> ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression ) ;
     public final genreactivity_return genreactivity() throws RecognitionException {
         genreactivity_return retval = new genreactivity_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_GENREACTIVITY593=null;
-        Token TOK_LP595=null;
-        Token TOK_RP597=null;
-        Token TOK_IMPLIES598=null;
-        Token TOK_LP599=null;
-        Token TOK_RP601=null;
-        player_num_return player_num594 = null;
+        Token TOK_GENREACTIVITY578=null;
+        Token TOK_LP580=null;
+        Token TOK_RP582=null;
+        Token TOK_IMPLIES583=null;
+        Token TOK_LP584=null;
+        Token TOK_RP586=null;
+        player_num_return player_num579 = null;
 
-        simple_list_expression_return simple_list_expression596 = null;
+        simple_list_expression_return simple_list_expression581 = null;
 
-        simple_list_expression_return simple_list_expression600 = null;
+        simple_list_expression_return simple_list_expression585 = null;
 
-        optsemi_return optsemi602 = null;
+        optsemi_return optsemi587 = null;
 
 
-        Object TOK_GENREACTIVITY593_tree=null;
-        Object TOK_LP595_tree=null;
-        Object TOK_RP597_tree=null;
-        Object TOK_IMPLIES598_tree=null;
-        Object TOK_LP599_tree=null;
-        Object TOK_RP601_tree=null;
+        Object TOK_GENREACTIVITY578_tree=null;
+        Object TOK_LP580_tree=null;
+        Object TOK_RP582_tree=null;
+        Object TOK_IMPLIES583_tree=null;
+        Object TOK_LP584_tree=null;
+        Object TOK_RP586_tree=null;
         RewriteRuleTokenStream stream_TOK_LP=new RewriteRuleTokenStream(adaptor,"token TOK_LP");
         RewriteRuleTokenStream stream_TOK_GENREACTIVITY=new RewriteRuleTokenStream(adaptor,"token TOK_GENREACTIVITY");
         RewriteRuleTokenStream stream_TOK_RP=new RewriteRuleTokenStream(adaptor,"token TOK_RP");
@@ -15268,56 +14964,56 @@ public class SMVParser extends Parser {
         RewriteRuleSubtreeStream stream_optsemi=new RewriteRuleSubtreeStream(adaptor,"rule optsemi");
         RewriteRuleSubtreeStream stream_simple_list_expression=new RewriteRuleSubtreeStream(adaptor,"rule simple_list_expression");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:838:16: ( TOK_GENREACTIVITY player_num TOK_LP simple_list_expression TOK_RP TOK_IMPLIES TOK_LP simple_list_expression TOK_RP optsemi -> ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:838:18: TOK_GENREACTIVITY player_num TOK_LP simple_list_expression TOK_RP TOK_IMPLIES TOK_LP simple_list_expression TOK_RP optsemi
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:840:16: ( TOK_GENREACTIVITY player_num TOK_LP simple_list_expression TOK_RP TOK_IMPLIES TOK_LP simple_list_expression TOK_RP optsemi -> ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:840:18: TOK_GENREACTIVITY player_num TOK_LP simple_list_expression TOK_RP TOK_IMPLIES TOK_LP simple_list_expression TOK_RP optsemi
             {
-            TOK_GENREACTIVITY593=(Token)input.LT(1);
-            match(input,TOK_GENREACTIVITY,FOLLOW_TOK_GENREACTIVITY_in_genreactivity5203); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_GENREACTIVITY.add(TOK_GENREACTIVITY593);
+            TOK_GENREACTIVITY578=(Token)input.LT(1);
+            match(input,TOK_GENREACTIVITY,FOLLOW_TOK_GENREACTIVITY_in_genreactivity5101); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_GENREACTIVITY.add(TOK_GENREACTIVITY578);
 
-            pushFollow(FOLLOW_player_num_in_genreactivity5205);
-            player_num594=player_num();
+            pushFollow(FOLLOW_player_num_in_genreactivity5103);
+            player_num579=player_num();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_player_num.add(player_num594.getTree());
-            TOK_LP595=(Token)input.LT(1);
-            match(input,TOK_LP,FOLLOW_TOK_LP_in_genreactivity5207); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP595);
+            if ( backtracking==0 ) stream_player_num.add(player_num579.getTree());
+            TOK_LP580=(Token)input.LT(1);
+            match(input,TOK_LP,FOLLOW_TOK_LP_in_genreactivity5105); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP580);
 
-            pushFollow(FOLLOW_simple_list_expression_in_genreactivity5209);
-            simple_list_expression596=simple_list_expression();
+            pushFollow(FOLLOW_simple_list_expression_in_genreactivity5107);
+            simple_list_expression581=simple_list_expression();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_simple_list_expression.add(simple_list_expression596.getTree());
-            TOK_RP597=(Token)input.LT(1);
-            match(input,TOK_RP,FOLLOW_TOK_RP_in_genreactivity5211); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP597);
+            if ( backtracking==0 ) stream_simple_list_expression.add(simple_list_expression581.getTree());
+            TOK_RP582=(Token)input.LT(1);
+            match(input,TOK_RP,FOLLOW_TOK_RP_in_genreactivity5109); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP582);
 
-            TOK_IMPLIES598=(Token)input.LT(1);
-            match(input,TOK_IMPLIES,FOLLOW_TOK_IMPLIES_in_genreactivity5213); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_IMPLIES.add(TOK_IMPLIES598);
+            TOK_IMPLIES583=(Token)input.LT(1);
+            match(input,TOK_IMPLIES,FOLLOW_TOK_IMPLIES_in_genreactivity5111); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_IMPLIES.add(TOK_IMPLIES583);
 
-            TOK_LP599=(Token)input.LT(1);
-            match(input,TOK_LP,FOLLOW_TOK_LP_in_genreactivity5215); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP599);
+            TOK_LP584=(Token)input.LT(1);
+            match(input,TOK_LP,FOLLOW_TOK_LP_in_genreactivity5113); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_LP.add(TOK_LP584);
 
-            pushFollow(FOLLOW_simple_list_expression_in_genreactivity5217);
-            simple_list_expression600=simple_list_expression();
+            pushFollow(FOLLOW_simple_list_expression_in_genreactivity5115);
+            simple_list_expression585=simple_list_expression();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_simple_list_expression.add(simple_list_expression600.getTree());
-            TOK_RP601=(Token)input.LT(1);
-            match(input,TOK_RP,FOLLOW_TOK_RP_in_genreactivity5219); if (failed) return retval;
-            if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP601);
+            if ( backtracking==0 ) stream_simple_list_expression.add(simple_list_expression585.getTree());
+            TOK_RP586=(Token)input.LT(1);
+            match(input,TOK_RP,FOLLOW_TOK_RP_in_genreactivity5117); if (failed) return retval;
+            if ( backtracking==0 ) stream_TOK_RP.add(TOK_RP586);
 
-            pushFollow(FOLLOW_optsemi_in_genreactivity5221);
-            optsemi602=optsemi();
+            pushFollow(FOLLOW_optsemi_in_genreactivity5119);
+            optsemi587=optsemi();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_optsemi.add(optsemi602.getTree());
+            if ( backtracking==0 ) stream_optsemi.add(optsemi587.getTree());
 
             // AST REWRITE
-            // elements: TOK_IMPLIES, player_num, TOK_GENREACTIVITY, simple_list_expression, simple_list_expression
+            // elements: player_num, simple_list_expression, simple_list_expression, TOK_IMPLIES, TOK_GENREACTIVITY
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -15327,9 +15023,9 @@ public class SMVParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 839:3: -> ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression )
+            // 841:3: -> ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:839:6: ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:841:6: ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_TOK_GENREACTIVITY.next(), root_1);
@@ -15371,42 +15067,42 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start compute
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:843:1: compute : TOK_COMPUTE compute_expression optsemi ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:845:1: compute : TOK_COMPUTE compute_expression optsemi ;
     public final compute_return compute() throws RecognitionException {
         compute_return retval = new compute_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_COMPUTE603=null;
-        compute_expression_return compute_expression604 = null;
+        Token TOK_COMPUTE588=null;
+        compute_expression_return compute_expression589 = null;
 
-        optsemi_return optsemi605 = null;
+        optsemi_return optsemi590 = null;
 
 
-        Object TOK_COMPUTE603_tree=null;
+        Object TOK_COMPUTE588_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:843:10: ( TOK_COMPUTE compute_expression optsemi )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:843:12: TOK_COMPUTE compute_expression optsemi
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:845:10: ( TOK_COMPUTE compute_expression optsemi )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:845:12: TOK_COMPUTE compute_expression optsemi
             {
             root_0 = (Object)adaptor.nil();
 
             if ( backtracking==0 ) {
                if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement COMPUTE", input); 
             }
-            TOK_COMPUTE603=(Token)input.LT(1);
-            match(input,TOK_COMPUTE,FOLLOW_TOK_COMPUTE_in_compute5255); if (failed) return retval;
+            TOK_COMPUTE588=(Token)input.LT(1);
+            match(input,TOK_COMPUTE,FOLLOW_TOK_COMPUTE_in_compute5153); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_COMPUTE603_tree = (Object)adaptor.create(TOK_COMPUTE603);
-            root_0 = (Object)adaptor.becomeRoot(TOK_COMPUTE603_tree, root_0);
+            TOK_COMPUTE588_tree = (Object)adaptor.create(TOK_COMPUTE588);
+            root_0 = (Object)adaptor.becomeRoot(TOK_COMPUTE588_tree, root_0);
             }
-            pushFollow(FOLLOW_compute_expression_in_compute5258);
-            compute_expression604=compute_expression();
+            pushFollow(FOLLOW_compute_expression_in_compute5156);
+            compute_expression589=compute_expression();
             _fsp--;
             if (failed) return retval;
-            pushFollow(FOLLOW_optsemi_in_compute5261);
-            optsemi605=optsemi();
+            pushFollow(FOLLOW_optsemi_in_compute5159);
+            optsemi590=optsemi();
             _fsp--;
             if (failed) return retval;
 
@@ -15435,138 +15131,138 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start compute_expression
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:846:1: compute_expression : ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:848:1: compute_expression : ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB );
     public final compute_expression_return compute_expression() throws RecognitionException {
         compute_expression_return retval = new compute_expression_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_MMIN606=null;
-        Token TOK_LB607=null;
-        Token TOK_COMMA609=null;
-        Token TOK_RB611=null;
-        Token TOK_MMAX612=null;
-        Token TOK_LB613=null;
-        Token TOK_COMMA615=null;
-        Token TOK_RB617=null;
-        ctl_expression_return ctl_expression608 = null;
+        Token TOK_MMIN591=null;
+        Token TOK_LB592=null;
+        Token TOK_COMMA594=null;
+        Token TOK_RB596=null;
+        Token TOK_MMAX597=null;
+        Token TOK_LB598=null;
+        Token TOK_COMMA600=null;
+        Token TOK_RB602=null;
+        ctl_expression_return ctl_expression593 = null;
 
-        ctl_expression_return ctl_expression610 = null;
+        ctl_expression_return ctl_expression595 = null;
 
-        ctl_expression_return ctl_expression614 = null;
+        ctl_expression_return ctl_expression599 = null;
 
-        ctl_expression_return ctl_expression616 = null;
+        ctl_expression_return ctl_expression601 = null;
 
 
-        Object TOK_MMIN606_tree=null;
-        Object TOK_LB607_tree=null;
-        Object TOK_COMMA609_tree=null;
-        Object TOK_RB611_tree=null;
-        Object TOK_MMAX612_tree=null;
-        Object TOK_LB613_tree=null;
-        Object TOK_COMMA615_tree=null;
-        Object TOK_RB617_tree=null;
+        Object TOK_MMIN591_tree=null;
+        Object TOK_LB592_tree=null;
+        Object TOK_COMMA594_tree=null;
+        Object TOK_RB596_tree=null;
+        Object TOK_MMAX597_tree=null;
+        Object TOK_LB598_tree=null;
+        Object TOK_COMMA600_tree=null;
+        Object TOK_RB602_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:846:20: ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB )
-            int alt78=2;
-            int LA78_0 = input.LA(1);
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:848:20: ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB )
+            int alt77=2;
+            int LA77_0 = input.LA(1);
 
-            if ( (LA78_0==TOK_MMIN) ) {
-                alt78=1;
+            if ( (LA77_0==TOK_MMIN) ) {
+                alt77=1;
             }
-            else if ( (LA78_0==TOK_MMAX) ) {
-                alt78=2;
+            else if ( (LA77_0==TOK_MMAX) ) {
+                alt77=2;
             }
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("846:1: compute_expression : ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB );", 78, 0, input);
+                    new NoViableAltException("848:1: compute_expression : ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB );", 77, 0, input);
 
                 throw nvae;
             }
-            switch (alt78) {
+            switch (alt77) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:846:22: TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:848:22: TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_MMIN606=(Token)input.LT(1);
-                    match(input,TOK_MMIN,FOLLOW_TOK_MMIN_in_compute_expression5272); if (failed) return retval;
+                    TOK_MMIN591=(Token)input.LT(1);
+                    match(input,TOK_MMIN,FOLLOW_TOK_MMIN_in_compute_expression5170); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_MMIN606_tree = (Object)adaptor.create(TOK_MMIN606);
-                    adaptor.addChild(root_0, TOK_MMIN606_tree);
+                    TOK_MMIN591_tree = (Object)adaptor.create(TOK_MMIN591);
+                    adaptor.addChild(root_0, TOK_MMIN591_tree);
                     }
-                    TOK_LB607=(Token)input.LT(1);
-                    match(input,TOK_LB,FOLLOW_TOK_LB_in_compute_expression5274); if (failed) return retval;
+                    TOK_LB592=(Token)input.LT(1);
+                    match(input,TOK_LB,FOLLOW_TOK_LB_in_compute_expression5172); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_LB607_tree = (Object)adaptor.create(TOK_LB607);
-                    adaptor.addChild(root_0, TOK_LB607_tree);
+                    TOK_LB592_tree = (Object)adaptor.create(TOK_LB592);
+                    adaptor.addChild(root_0, TOK_LB592_tree);
                     }
-                    pushFollow(FOLLOW_ctl_expression_in_compute_expression5276);
-                    ctl_expression608=ctl_expression();
+                    pushFollow(FOLLOW_ctl_expression_in_compute_expression5174);
+                    ctl_expression593=ctl_expression();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, ctl_expression608.getTree());
-                    TOK_COMMA609=(Token)input.LT(1);
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compute_expression5278); if (failed) return retval;
+                    if ( backtracking==0 ) adaptor.addChild(root_0, ctl_expression593.getTree());
+                    TOK_COMMA594=(Token)input.LT(1);
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compute_expression5176); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_COMMA609_tree = (Object)adaptor.create(TOK_COMMA609);
-                    adaptor.addChild(root_0, TOK_COMMA609_tree);
+                    TOK_COMMA594_tree = (Object)adaptor.create(TOK_COMMA594);
+                    adaptor.addChild(root_0, TOK_COMMA594_tree);
                     }
-                    pushFollow(FOLLOW_ctl_expression_in_compute_expression5280);
-                    ctl_expression610=ctl_expression();
+                    pushFollow(FOLLOW_ctl_expression_in_compute_expression5178);
+                    ctl_expression595=ctl_expression();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, ctl_expression610.getTree());
-                    TOK_RB611=(Token)input.LT(1);
-                    match(input,TOK_RB,FOLLOW_TOK_RB_in_compute_expression5282); if (failed) return retval;
+                    if ( backtracking==0 ) adaptor.addChild(root_0, ctl_expression595.getTree());
+                    TOK_RB596=(Token)input.LT(1);
+                    match(input,TOK_RB,FOLLOW_TOK_RB_in_compute_expression5180); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_RB611_tree = (Object)adaptor.create(TOK_RB611);
-                    adaptor.addChild(root_0, TOK_RB611_tree);
+                    TOK_RB596_tree = (Object)adaptor.create(TOK_RB596);
+                    adaptor.addChild(root_0, TOK_RB596_tree);
                     }
 
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:847:5: TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:849:5: TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_MMAX612=(Token)input.LT(1);
-                    match(input,TOK_MMAX,FOLLOW_TOK_MMAX_in_compute_expression5288); if (failed) return retval;
+                    TOK_MMAX597=(Token)input.LT(1);
+                    match(input,TOK_MMAX,FOLLOW_TOK_MMAX_in_compute_expression5186); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_MMAX612_tree = (Object)adaptor.create(TOK_MMAX612);
-                    adaptor.addChild(root_0, TOK_MMAX612_tree);
+                    TOK_MMAX597_tree = (Object)adaptor.create(TOK_MMAX597);
+                    adaptor.addChild(root_0, TOK_MMAX597_tree);
                     }
-                    TOK_LB613=(Token)input.LT(1);
-                    match(input,TOK_LB,FOLLOW_TOK_LB_in_compute_expression5290); if (failed) return retval;
+                    TOK_LB598=(Token)input.LT(1);
+                    match(input,TOK_LB,FOLLOW_TOK_LB_in_compute_expression5188); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_LB613_tree = (Object)adaptor.create(TOK_LB613);
-                    adaptor.addChild(root_0, TOK_LB613_tree);
+                    TOK_LB598_tree = (Object)adaptor.create(TOK_LB598);
+                    adaptor.addChild(root_0, TOK_LB598_tree);
                     }
-                    pushFollow(FOLLOW_ctl_expression_in_compute_expression5292);
-                    ctl_expression614=ctl_expression();
+                    pushFollow(FOLLOW_ctl_expression_in_compute_expression5190);
+                    ctl_expression599=ctl_expression();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, ctl_expression614.getTree());
-                    TOK_COMMA615=(Token)input.LT(1);
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compute_expression5294); if (failed) return retval;
+                    if ( backtracking==0 ) adaptor.addChild(root_0, ctl_expression599.getTree());
+                    TOK_COMMA600=(Token)input.LT(1);
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compute_expression5192); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_COMMA615_tree = (Object)adaptor.create(TOK_COMMA615);
-                    adaptor.addChild(root_0, TOK_COMMA615_tree);
+                    TOK_COMMA600_tree = (Object)adaptor.create(TOK_COMMA600);
+                    adaptor.addChild(root_0, TOK_COMMA600_tree);
                     }
-                    pushFollow(FOLLOW_ctl_expression_in_compute_expression5296);
-                    ctl_expression616=ctl_expression();
+                    pushFollow(FOLLOW_ctl_expression_in_compute_expression5194);
+                    ctl_expression601=ctl_expression();
                     _fsp--;
                     if (failed) return retval;
-                    if ( backtracking==0 ) adaptor.addChild(root_0, ctl_expression616.getTree());
-                    TOK_RB617=(Token)input.LT(1);
-                    match(input,TOK_RB,FOLLOW_TOK_RB_in_compute_expression5298); if (failed) return retval;
+                    if ( backtracking==0 ) adaptor.addChild(root_0, ctl_expression601.getTree());
+                    TOK_RB602=(Token)input.LT(1);
+                    match(input,TOK_RB,FOLLOW_TOK_RB_in_compute_expression5196); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_RB617_tree = (Object)adaptor.create(TOK_RB617);
-                    adaptor.addChild(root_0, TOK_RB617_tree);
+                    TOK_RB602_tree = (Object)adaptor.create(TOK_RB602);
+                    adaptor.addChild(root_0, TOK_RB602_tree);
                     }
 
                     }
@@ -15596,36 +15292,36 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start isa
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:853:1: isa : TOK_ISA TOK_ATOM ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:855:1: isa : TOK_ISA TOK_ATOM ;
     public final isa_return isa() throws RecognitionException {
         isa_return retval = new isa_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_ISA618=null;
-        Token TOK_ATOM619=null;
+        Token TOK_ISA603=null;
+        Token TOK_ATOM604=null;
 
-        Object TOK_ISA618_tree=null;
-        Object TOK_ATOM619_tree=null;
+        Object TOK_ISA603_tree=null;
+        Object TOK_ATOM604_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:853:6: ( TOK_ISA TOK_ATOM )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:853:8: TOK_ISA TOK_ATOM
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:855:6: ( TOK_ISA TOK_ATOM )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:855:8: TOK_ISA TOK_ATOM
             {
             root_0 = (Object)adaptor.nil();
 
             if ( backtracking==0 ) {
                if (true) throw new SMVUnimplementedException("Unimplemented JTLV statement ISA", input); 
             }
-            TOK_ISA618=(Token)input.LT(1);
-            match(input,TOK_ISA,FOLLOW_TOK_ISA_in_isa5320); if (failed) return retval;
+            TOK_ISA603=(Token)input.LT(1);
+            match(input,TOK_ISA,FOLLOW_TOK_ISA_in_isa5218); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_ISA618_tree = (Object)adaptor.create(TOK_ISA618);
-            root_0 = (Object)adaptor.becomeRoot(TOK_ISA618_tree, root_0);
+            TOK_ISA603_tree = (Object)adaptor.create(TOK_ISA603);
+            root_0 = (Object)adaptor.becomeRoot(TOK_ISA603_tree, root_0);
             }
-            TOK_ATOM619=(Token)input.LT(1);
-            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_isa5323); if (failed) return retval;
+            TOK_ATOM604=(Token)input.LT(1);
+            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_isa5221); if (failed) return retval;
 
             }
 
@@ -15652,53 +15348,53 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start optsemi
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:859:1: optsemi : ( | TOK_SEMI );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:861:1: optsemi : ( | TOK_SEMI );
     public final optsemi_return optsemi() throws RecognitionException {
         optsemi_return retval = new optsemi_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_SEMI620=null;
+        Token TOK_SEMI605=null;
 
-        Object TOK_SEMI620_tree=null;
+        Object TOK_SEMI605_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:859:10: ( | TOK_SEMI )
-            int alt79=2;
-            int LA79_0 = input.LA(1);
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:861:10: ( | TOK_SEMI )
+            int alt78=2;
+            int LA78_0 = input.LA(1);
 
-            if ( (LA79_0==EOF||(LA79_0>=TOK_MODULE && LA79_0<=TOK_AGENT)||(LA79_0>=TOK_INVISIBLE_VAR && LA79_0<=TOK_DEFINE)||LA79_0==TOK_ASSIGN||(LA79_0>=TOK_INIT && LA79_0<=TOK_COMPUTE)||LA79_0==TOK_ISA) ) {
-                alt79=1;
+            if ( (LA78_0==EOF||(LA78_0>=TOK_MODULE && LA78_0<=TOK_AGENT)||(LA78_0>=TOK_INVISIBLE_VAR && LA78_0<=TOK_DEFINE)||LA78_0==TOK_ASSIGN||(LA78_0>=TOK_INIT && LA78_0<=TOK_COMPUTE)||LA78_0==TOK_ISA) ) {
+                alt78=1;
             }
-            else if ( (LA79_0==TOK_SEMI) ) {
-                alt79=2;
+            else if ( (LA78_0==TOK_SEMI) ) {
+                alt78=2;
             }
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("859:1: optsemi : ( | TOK_SEMI );", 79, 0, input);
+                    new NoViableAltException("861:1: optsemi : ( | TOK_SEMI );", 78, 0, input);
 
                 throw nvae;
             }
-            switch (alt79) {
+            switch (alt78) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:860:3: 
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:862:3: 
                     {
                     root_0 = (Object)adaptor.nil();
 
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:860:5: TOK_SEMI
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:862:5: TOK_SEMI
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TOK_SEMI620=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_optsemi5345); if (failed) return retval;
+                    TOK_SEMI605=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_optsemi5243); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_SEMI620_tree = (Object)adaptor.create(TOK_SEMI620);
-                    adaptor.addChild(root_0, TOK_SEMI620_tree);
+                    TOK_SEMI605_tree = (Object)adaptor.create(TOK_SEMI605);
+                    adaptor.addChild(root_0, TOK_SEMI605_tree);
                     }
 
                     }
@@ -15728,26 +15424,26 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start decl_var_id
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:867:1: decl_var_id : decl_var_id_helper -> ^( REF_T decl_var_id_helper ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:869:1: decl_var_id : decl_var_id_helper -> ^( REF_T decl_var_id_helper ) ;
     public final decl_var_id_return decl_var_id() throws RecognitionException {
         decl_var_id_return retval = new decl_var_id_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        decl_var_id_helper_return decl_var_id_helper621 = null;
+        decl_var_id_helper_return decl_var_id_helper606 = null;
 
 
         RewriteRuleSubtreeStream stream_decl_var_id_helper=new RewriteRuleSubtreeStream(adaptor,"rule decl_var_id_helper");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:867:14: ( decl_var_id_helper -> ^( REF_T decl_var_id_helper ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:867:16: decl_var_id_helper
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:869:14: ( decl_var_id_helper -> ^( REF_T decl_var_id_helper ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:869:16: decl_var_id_helper
             {
-            pushFollow(FOLLOW_decl_var_id_helper_in_decl_var_id5357);
-            decl_var_id_helper621=decl_var_id_helper();
+            pushFollow(FOLLOW_decl_var_id_helper_in_decl_var_id5255);
+            decl_var_id_helper606=decl_var_id_helper();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_decl_var_id_helper.add(decl_var_id_helper621.getTree());
+            if ( backtracking==0 ) stream_decl_var_id_helper.add(decl_var_id_helper606.getTree());
 
             // AST REWRITE
             // elements: decl_var_id_helper
@@ -15760,9 +15456,9 @@ public class SMVParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 868:3: -> ^( REF_T decl_var_id_helper )
+            // 870:3: -> ^( REF_T decl_var_id_helper )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:868:6: ^( REF_T decl_var_id_helper )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:870:6: ^( REF_T decl_var_id_helper )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(adaptor.create(REF_T, "REF_T"), root_1);
@@ -15801,121 +15497,121 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start decl_var_id_helper
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:870:1: decl_var_id_helper : TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:872:1: decl_var_id_helper : TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )* ;
     public final decl_var_id_helper_return decl_var_id_helper() throws RecognitionException {
         decl_var_id_helper_return retval = new decl_var_id_helper_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_ATOM622=null;
-        Token TOK_DOT623=null;
-        Token TOK_ATOM624=null;
-        Token TOK_DOT625=null;
-        Token TOK_NUMBER626=null;
-        Token TOK_LB627=null;
-        Token TOK_RB629=null;
-        simple_expression_return simple_expression628 = null;
+        Token TOK_ATOM607=null;
+        Token TOK_DOT608=null;
+        Token TOK_ATOM609=null;
+        Token TOK_DOT610=null;
+        Token TOK_NUMBER611=null;
+        Token TOK_LB612=null;
+        Token TOK_RB614=null;
+        simple_expression_return simple_expression613 = null;
 
 
-        Object TOK_ATOM622_tree=null;
-        Object TOK_DOT623_tree=null;
-        Object TOK_ATOM624_tree=null;
-        Object TOK_DOT625_tree=null;
-        Object TOK_NUMBER626_tree=null;
-        Object TOK_LB627_tree=null;
-        Object TOK_RB629_tree=null;
+        Object TOK_ATOM607_tree=null;
+        Object TOK_DOT608_tree=null;
+        Object TOK_ATOM609_tree=null;
+        Object TOK_DOT610_tree=null;
+        Object TOK_NUMBER611_tree=null;
+        Object TOK_LB612_tree=null;
+        Object TOK_RB614_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:870:20: ( TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:870:22: TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:872:20: ( TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:872:22: TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )*
             {
             root_0 = (Object)adaptor.nil();
 
-            TOK_ATOM622=(Token)input.LT(1);
-            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_decl_var_id_helper5377); if (failed) return retval;
+            TOK_ATOM607=(Token)input.LT(1);
+            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_decl_var_id_helper5275); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_ATOM622_tree = (Object)adaptor.create(TOK_ATOM622);
-            adaptor.addChild(root_0, TOK_ATOM622_tree);
+            TOK_ATOM607_tree = (Object)adaptor.create(TOK_ATOM607);
+            adaptor.addChild(root_0, TOK_ATOM607_tree);
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:871:4: ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )*
-            loop80:
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:873:4: ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )*
+            loop79:
             do {
-                int alt80=4;
-                int LA80_0 = input.LA(1);
+                int alt79=4;
+                int LA79_0 = input.LA(1);
 
-                if ( (LA80_0==TOK_DOT) ) {
-                    int LA80_2 = input.LA(2);
+                if ( (LA79_0==TOK_DOT) ) {
+                    int LA79_2 = input.LA(2);
 
-                    if ( (LA80_2==TOK_ATOM) ) {
-                        alt80=1;
+                    if ( (LA79_2==TOK_ATOM) ) {
+                        alt79=1;
                     }
-                    else if ( (LA80_2==TOK_NUMBER) ) {
-                        alt80=2;
+                    else if ( (LA79_2==TOK_NUMBER) ) {
+                        alt79=2;
                     }
 
 
                 }
-                else if ( (LA80_0==TOK_LB) ) {
-                    alt80=3;
+                else if ( (LA79_0==TOK_LB) ) {
+                    alt79=3;
                 }
 
 
-                switch (alt80) {
+                switch (alt79) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:871:6: TOK_DOT TOK_ATOM
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:873:6: TOK_DOT TOK_ATOM
             	    {
-            	    TOK_DOT623=(Token)input.LT(1);
-            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_decl_var_id_helper5384); if (failed) return retval;
-            	    TOK_ATOM624=(Token)input.LT(1);
-            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_decl_var_id_helper5387); if (failed) return retval;
+            	    TOK_DOT608=(Token)input.LT(1);
+            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_decl_var_id_helper5282); if (failed) return retval;
+            	    TOK_ATOM609=(Token)input.LT(1);
+            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_decl_var_id_helper5285); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_ATOM624_tree = (Object)adaptor.create(TOK_ATOM624);
-            	    adaptor.addChild(root_0, TOK_ATOM624_tree);
+            	    TOK_ATOM609_tree = (Object)adaptor.create(TOK_ATOM609);
+            	    adaptor.addChild(root_0, TOK_ATOM609_tree);
             	    }
 
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:872:6: TOK_DOT TOK_NUMBER
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:874:6: TOK_DOT TOK_NUMBER
             	    {
-            	    TOK_DOT625=(Token)input.LT(1);
-            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_decl_var_id_helper5394); if (failed) return retval;
-            	    TOK_NUMBER626=(Token)input.LT(1);
-            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_decl_var_id_helper5397); if (failed) return retval;
+            	    TOK_DOT610=(Token)input.LT(1);
+            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_decl_var_id_helper5292); if (failed) return retval;
+            	    TOK_NUMBER611=(Token)input.LT(1);
+            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_decl_var_id_helper5295); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_NUMBER626_tree = (Object)adaptor.create(TOK_NUMBER626);
-            	    adaptor.addChild(root_0, TOK_NUMBER626_tree);
+            	    TOK_NUMBER611_tree = (Object)adaptor.create(TOK_NUMBER611);
+            	    adaptor.addChild(root_0, TOK_NUMBER611_tree);
             	    }
 
             	    }
             	    break;
             	case 3 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:873:6: TOK_LB simple_expression TOK_RB
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:875:6: TOK_LB simple_expression TOK_RB
             	    {
-            	    TOK_LB627=(Token)input.LT(1);
-            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_decl_var_id_helper5405); if (failed) return retval;
+            	    TOK_LB612=(Token)input.LT(1);
+            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_decl_var_id_helper5303); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_LB627_tree = (Object)adaptor.create(TOK_LB627);
-            	    adaptor.addChild(root_0, TOK_LB627_tree);
+            	    TOK_LB612_tree = (Object)adaptor.create(TOK_LB612);
+            	    adaptor.addChild(root_0, TOK_LB612_tree);
             	    }
-            	    pushFollow(FOLLOW_simple_expression_in_decl_var_id_helper5407);
-            	    simple_expression628=simple_expression();
+            	    pushFollow(FOLLOW_simple_expression_in_decl_var_id_helper5305);
+            	    simple_expression613=simple_expression();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, simple_expression628.getTree());
-            	    TOK_RB629=(Token)input.LT(1);
-            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_decl_var_id_helper5409); if (failed) return retval;
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, simple_expression613.getTree());
+            	    TOK_RB614=(Token)input.LT(1);
+            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_decl_var_id_helper5307); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_RB629_tree = (Object)adaptor.create(TOK_RB629);
-            	    adaptor.addChild(root_0, TOK_RB629_tree);
+            	    TOK_RB614_tree = (Object)adaptor.create(TOK_RB614);
+            	    adaptor.addChild(root_0, TOK_RB614_tree);
             	    }
 
             	    }
             	    break;
 
             	default :
-            	    break loop80;
+            	    break loop79;
                 }
             } while (true);
 
@@ -15945,26 +15641,26 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start var_id
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:875:1: var_id : var_id_helper -> ^( REF_T var_id_helper ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:877:1: var_id : var_id_helper -> ^( REF_T var_id_helper ) ;
     public final var_id_return var_id() throws RecognitionException {
         var_id_return retval = new var_id_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        var_id_helper_return var_id_helper630 = null;
+        var_id_helper_return var_id_helper615 = null;
 
 
         RewriteRuleSubtreeStream stream_var_id_helper=new RewriteRuleSubtreeStream(adaptor,"rule var_id_helper");
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:875:9: ( var_id_helper -> ^( REF_T var_id_helper ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:875:11: var_id_helper
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:877:9: ( var_id_helper -> ^( REF_T var_id_helper ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:877:11: var_id_helper
             {
-            pushFollow(FOLLOW_var_id_helper_in_var_id5423);
-            var_id_helper630=var_id_helper();
+            pushFollow(FOLLOW_var_id_helper_in_var_id5321);
+            var_id_helper615=var_id_helper();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) stream_var_id_helper.add(var_id_helper630.getTree());
+            if ( backtracking==0 ) stream_var_id_helper.add(var_id_helper615.getTree());
 
             // AST REWRITE
             // elements: var_id_helper
@@ -15977,9 +15673,9 @@ public class SMVParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 876:3: -> ^( REF_T var_id_helper )
+            // 878:3: -> ^( REF_T var_id_helper )
             {
-                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:876:6: ^( REF_T var_id_helper )
+                // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:878:6: ^( REF_T var_id_helper )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(adaptor.create(REF_T, "REF_T"), root_1);
@@ -16018,128 +15714,128 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start var_id_helper
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:878:1: var_id_helper : ( TOK_ATOM | TOK_SELF ) ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:880:1: var_id_helper : ( TOK_ATOM | TOK_SELF ) ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )* ;
     public final var_id_helper_return var_id_helper() throws RecognitionException {
         var_id_helper_return retval = new var_id_helper_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token set631=null;
-        Token TOK_DOT632=null;
-        Token TOK_ATOM633=null;
-        Token TOK_DOT634=null;
-        Token TOK_NUMBER635=null;
-        Token TOK_LB636=null;
-        Token TOK_RB638=null;
-        simple_expression_return simple_expression637 = null;
+        Token set616=null;
+        Token TOK_DOT617=null;
+        Token TOK_ATOM618=null;
+        Token TOK_DOT619=null;
+        Token TOK_NUMBER620=null;
+        Token TOK_LB621=null;
+        Token TOK_RB623=null;
+        simple_expression_return simple_expression622 = null;
 
 
-        Object set631_tree=null;
-        Object TOK_DOT632_tree=null;
-        Object TOK_ATOM633_tree=null;
-        Object TOK_DOT634_tree=null;
-        Object TOK_NUMBER635_tree=null;
-        Object TOK_LB636_tree=null;
-        Object TOK_RB638_tree=null;
+        Object set616_tree=null;
+        Object TOK_DOT617_tree=null;
+        Object TOK_ATOM618_tree=null;
+        Object TOK_DOT619_tree=null;
+        Object TOK_NUMBER620_tree=null;
+        Object TOK_LB621_tree=null;
+        Object TOK_RB623_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:878:16: ( ( TOK_ATOM | TOK_SELF ) ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:878:18: ( TOK_ATOM | TOK_SELF ) ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:880:16: ( ( TOK_ATOM | TOK_SELF ) ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:880:18: ( TOK_ATOM | TOK_SELF ) ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )*
             {
             root_0 = (Object)adaptor.nil();
 
-            set631=(Token)input.LT(1);
+            set616=(Token)input.LT(1);
             if ( input.LA(1)==TOK_ATOM||input.LA(1)==TOK_SELF ) {
                 input.consume();
-                if ( backtracking==0 ) adaptor.addChild(root_0, adaptor.create(set631));
+                if ( backtracking==0 ) adaptor.addChild(root_0, adaptor.create(set616));
                 errorRecovery=false;failed=false;
             }
             else {
                 if (backtracking>0) {failed=true; return retval;}
                 MismatchedSetException mse =
                     new MismatchedSetException(null,input);
-                recoverFromMismatchedSet(input,mse,FOLLOW_set_in_var_id_helper5444);    throw mse;
+                recoverFromMismatchedSet(input,mse,FOLLOW_set_in_var_id_helper5342);    throw mse;
             }
 
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:879:4: ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )*
-            loop81:
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:881:4: ( TOK_DOT TOK_ATOM | TOK_DOT TOK_NUMBER | TOK_LB simple_expression TOK_RB )*
+            loop80:
             do {
-                int alt81=4;
-                int LA81_0 = input.LA(1);
+                int alt80=4;
+                int LA80_0 = input.LA(1);
 
-                if ( (LA81_0==TOK_DOT) ) {
-                    int LA81_2 = input.LA(2);
+                if ( (LA80_0==TOK_DOT) ) {
+                    int LA80_2 = input.LA(2);
 
-                    if ( (LA81_2==TOK_ATOM) ) {
-                        alt81=1;
+                    if ( (LA80_2==TOK_NUMBER) ) {
+                        alt80=2;
                     }
-                    else if ( (LA81_2==TOK_NUMBER) ) {
-                        alt81=2;
+                    else if ( (LA80_2==TOK_ATOM) ) {
+                        alt80=1;
                     }
 
 
                 }
-                else if ( (LA81_0==TOK_LB) ) {
-                    alt81=3;
+                else if ( (LA80_0==TOK_LB) ) {
+                    alt80=3;
                 }
 
 
-                switch (alt81) {
+                switch (alt80) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:879:6: TOK_DOT TOK_ATOM
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:881:6: TOK_DOT TOK_ATOM
             	    {
-            	    TOK_DOT632=(Token)input.LT(1);
-            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_var_id_helper5457); if (failed) return retval;
-            	    TOK_ATOM633=(Token)input.LT(1);
-            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_id_helper5460); if (failed) return retval;
+            	    TOK_DOT617=(Token)input.LT(1);
+            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_var_id_helper5355); if (failed) return retval;
+            	    TOK_ATOM618=(Token)input.LT(1);
+            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_id_helper5358); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_ATOM633_tree = (Object)adaptor.create(TOK_ATOM633);
-            	    adaptor.addChild(root_0, TOK_ATOM633_tree);
+            	    TOK_ATOM618_tree = (Object)adaptor.create(TOK_ATOM618);
+            	    adaptor.addChild(root_0, TOK_ATOM618_tree);
             	    }
 
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:880:6: TOK_DOT TOK_NUMBER
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:882:6: TOK_DOT TOK_NUMBER
             	    {
-            	    TOK_DOT634=(Token)input.LT(1);
-            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_var_id_helper5467); if (failed) return retval;
-            	    TOK_NUMBER635=(Token)input.LT(1);
-            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_var_id_helper5470); if (failed) return retval;
+            	    TOK_DOT619=(Token)input.LT(1);
+            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_var_id_helper5365); if (failed) return retval;
+            	    TOK_NUMBER620=(Token)input.LT(1);
+            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_var_id_helper5368); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_NUMBER635_tree = (Object)adaptor.create(TOK_NUMBER635);
-            	    adaptor.addChild(root_0, TOK_NUMBER635_tree);
+            	    TOK_NUMBER620_tree = (Object)adaptor.create(TOK_NUMBER620);
+            	    adaptor.addChild(root_0, TOK_NUMBER620_tree);
             	    }
 
             	    }
             	    break;
             	case 3 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:881:6: TOK_LB simple_expression TOK_RB
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:883:6: TOK_LB simple_expression TOK_RB
             	    {
-            	    TOK_LB636=(Token)input.LT(1);
-            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_var_id_helper5477); if (failed) return retval;
+            	    TOK_LB621=(Token)input.LT(1);
+            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_var_id_helper5375); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_LB636_tree = (Object)adaptor.create(TOK_LB636);
-            	    adaptor.addChild(root_0, TOK_LB636_tree);
+            	    TOK_LB621_tree = (Object)adaptor.create(TOK_LB621);
+            	    adaptor.addChild(root_0, TOK_LB621_tree);
             	    }
-            	    pushFollow(FOLLOW_simple_expression_in_var_id_helper5479);
-            	    simple_expression637=simple_expression();
+            	    pushFollow(FOLLOW_simple_expression_in_var_id_helper5377);
+            	    simple_expression622=simple_expression();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, simple_expression637.getTree());
-            	    TOK_RB638=(Token)input.LT(1);
-            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_var_id_helper5481); if (failed) return retval;
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, simple_expression622.getTree());
+            	    TOK_RB623=(Token)input.LT(1);
+            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_var_id_helper5379); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_RB638_tree = (Object)adaptor.create(TOK_RB638);
-            	    adaptor.addChild(root_0, TOK_RB638_tree);
+            	    TOK_RB623_tree = (Object)adaptor.create(TOK_RB623);
+            	    adaptor.addChild(root_0, TOK_RB623_tree);
             	    }
 
             	    }
             	    break;
 
             	default :
-            	    break loop81;
+            	    break loop80;
                 }
             } while (true);
 
@@ -16169,28 +15865,28 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start command
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:889:1: command : command_case ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:891:1: command : command_case ;
     public final command_return command() throws RecognitionException {
         command_return retval = new command_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        command_case_return command_case639 = null;
+        command_case_return command_case624 = null;
 
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:889:10: ( command_case )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:889:12: command_case
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:891:10: ( command_case )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:891:12: command_case
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_command_case_in_command5504);
-            command_case639=command_case();
+            pushFollow(FOLLOW_command_case_in_command5402);
+            command_case624=command_case();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, command_case639.getTree());
+            if ( backtracking==0 ) adaptor.addChild(root_0, command_case624.getTree());
 
             }
 
@@ -16217,277 +15913,323 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start command_case
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:893:1: command_case : ( TOK_GOTO state TOK_SEMI | TOK_INIT simple_expression TOK_SEMI | TOK_FAIRNESS simple_expression TOK_SEMI | TOK_TRANS next_expression TOK_SEMI | TOK_CONSTRAINT simple_expression TOK_SEMI | TOK_SIMPWFF simple_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_CTLWFF ctl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_LTLWFF ltl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_COMPWFF compute_expression ( TOK_INCONTEXT context )? TOK_SEMI );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:895:1: command_case : ( TOK_GOTO state TOK_SEMI | TOK_INIT simple_expression TOK_SEMI | TOK_FAIRNESS simple_expression TOK_SEMI | TOK_TRANS next_expression TOK_SEMI | TOK_CONSTRAINT simple_expression TOK_SEMI | TOK_SIMPWFF simple_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_CTLWFF ctl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_LTLWFF ltl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_COMPWFF compute_expression ( TOK_INCONTEXT context )? TOK_SEMI );
     public final command_case_return command_case() throws RecognitionException {
         command_case_return retval = new command_case_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_GOTO640=null;
-        Token TOK_SEMI642=null;
-        Token TOK_INIT643=null;
-        Token TOK_SEMI645=null;
-        Token TOK_FAIRNESS646=null;
-        Token TOK_SEMI648=null;
-        Token TOK_TRANS649=null;
-        Token TOK_SEMI651=null;
-        Token TOK_CONSTRAINT652=null;
+        Token TOK_GOTO625=null;
+        Token TOK_SEMI627=null;
+        Token TOK_INIT628=null;
+        Token TOK_SEMI630=null;
+        Token TOK_FAIRNESS631=null;
+        Token TOK_SEMI633=null;
+        Token TOK_TRANS634=null;
+        Token TOK_SEMI636=null;
+        Token TOK_CONSTRAINT637=null;
+        Token TOK_SEMI639=null;
+        Token TOK_SIMPWFF640=null;
+        Token TOK_INCONTEXT642=null;
+        Token TOK_SEMI644=null;
+        Token TOK_CTLWFF645=null;
+        Token TOK_INCONTEXT647=null;
+        Token TOK_SEMI649=null;
+        Token TOK_LTLWFF650=null;
+        Token TOK_INCONTEXT652=null;
         Token TOK_SEMI654=null;
-        Token TOK_SIMPWFF655=null;
+        Token TOK_COMPWFF655=null;
         Token TOK_INCONTEXT657=null;
         Token TOK_SEMI659=null;
-        Token TOK_CTLWFF660=null;
-        Token TOK_INCONTEXT662=null;
-        Token TOK_SEMI664=null;
-        Token TOK_LTLWFF665=null;
-        Token TOK_INCONTEXT667=null;
-        Token TOK_SEMI669=null;
-        Token TOK_COMPWFF670=null;
-        Token TOK_INCONTEXT672=null;
-        Token TOK_SEMI674=null;
-        state_return state641 = null;
+        state_return state626 = null;
 
-        simple_expression_return simple_expression644 = null;
+        simple_expression_return simple_expression629 = null;
 
-        simple_expression_return simple_expression647 = null;
+        simple_expression_return simple_expression632 = null;
 
-        next_expression_return next_expression650 = null;
+        next_expression_return next_expression635 = null;
 
-        simple_expression_return simple_expression653 = null;
+        simple_expression_return simple_expression638 = null;
 
-        simple_expression_return simple_expression656 = null;
+        simple_expression_return simple_expression641 = null;
+
+        context_return context643 = null;
+
+        ctl_expression_return ctl_expression646 = null;
+
+        context_return context648 = null;
+
+        ltl_expression_return ltl_expression651 = null;
+
+        context_return context653 = null;
+
+        compute_expression_return compute_expression656 = null;
 
         context_return context658 = null;
 
-        ctl_expression_return ctl_expression661 = null;
 
-        context_return context663 = null;
-
-        ltl_expression_return ltl_expression666 = null;
-
-        context_return context668 = null;
-
-        compute_expression_return compute_expression671 = null;
-
-        context_return context673 = null;
-
-
-        Object TOK_GOTO640_tree=null;
-        Object TOK_SEMI642_tree=null;
-        Object TOK_INIT643_tree=null;
-        Object TOK_SEMI645_tree=null;
-        Object TOK_FAIRNESS646_tree=null;
-        Object TOK_SEMI648_tree=null;
-        Object TOK_TRANS649_tree=null;
-        Object TOK_SEMI651_tree=null;
-        Object TOK_CONSTRAINT652_tree=null;
+        Object TOK_GOTO625_tree=null;
+        Object TOK_SEMI627_tree=null;
+        Object TOK_INIT628_tree=null;
+        Object TOK_SEMI630_tree=null;
+        Object TOK_FAIRNESS631_tree=null;
+        Object TOK_SEMI633_tree=null;
+        Object TOK_TRANS634_tree=null;
+        Object TOK_SEMI636_tree=null;
+        Object TOK_CONSTRAINT637_tree=null;
+        Object TOK_SEMI639_tree=null;
+        Object TOK_SIMPWFF640_tree=null;
+        Object TOK_INCONTEXT642_tree=null;
+        Object TOK_SEMI644_tree=null;
+        Object TOK_CTLWFF645_tree=null;
+        Object TOK_INCONTEXT647_tree=null;
+        Object TOK_SEMI649_tree=null;
+        Object TOK_LTLWFF650_tree=null;
+        Object TOK_INCONTEXT652_tree=null;
         Object TOK_SEMI654_tree=null;
-        Object TOK_SIMPWFF655_tree=null;
+        Object TOK_COMPWFF655_tree=null;
         Object TOK_INCONTEXT657_tree=null;
         Object TOK_SEMI659_tree=null;
-        Object TOK_CTLWFF660_tree=null;
-        Object TOK_INCONTEXT662_tree=null;
-        Object TOK_SEMI664_tree=null;
-        Object TOK_LTLWFF665_tree=null;
-        Object TOK_INCONTEXT667_tree=null;
-        Object TOK_SEMI669_tree=null;
-        Object TOK_COMPWFF670_tree=null;
-        Object TOK_INCONTEXT672_tree=null;
-        Object TOK_SEMI674_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:893:14: ( TOK_GOTO state TOK_SEMI | TOK_INIT simple_expression TOK_SEMI | TOK_FAIRNESS simple_expression TOK_SEMI | TOK_TRANS next_expression TOK_SEMI | TOK_CONSTRAINT simple_expression TOK_SEMI | TOK_SIMPWFF simple_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_CTLWFF ctl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_LTLWFF ltl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_COMPWFF compute_expression ( TOK_INCONTEXT context )? TOK_SEMI )
-            int alt86=9;
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:895:14: ( TOK_GOTO state TOK_SEMI | TOK_INIT simple_expression TOK_SEMI | TOK_FAIRNESS simple_expression TOK_SEMI | TOK_TRANS next_expression TOK_SEMI | TOK_CONSTRAINT simple_expression TOK_SEMI | TOK_SIMPWFF simple_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_CTLWFF ctl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_LTLWFF ltl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_COMPWFF compute_expression ( TOK_INCONTEXT context )? TOK_SEMI )
+            int alt85=9;
             switch ( input.LA(1) ) {
             case TOK_GOTO:
                 {
-                alt86=1;
+                alt85=1;
                 }
                 break;
             case TOK_INIT:
                 {
-                alt86=2;
+                alt85=2;
                 }
                 break;
             case TOK_FAIRNESS:
                 {
-                alt86=3;
+                alt85=3;
                 }
                 break;
             case TOK_TRANS:
                 {
-                alt86=4;
+                alt85=4;
                 }
                 break;
             case TOK_CONSTRAINT:
                 {
-                alt86=5;
+                alt85=5;
                 }
                 break;
             case TOK_SIMPWFF:
                 {
-                alt86=6;
+                alt85=6;
                 }
                 break;
             case TOK_CTLWFF:
                 {
-                alt86=7;
+                alt85=7;
                 }
                 break;
             case TOK_LTLWFF:
                 {
-                alt86=8;
+                alt85=8;
                 }
                 break;
             case TOK_COMPWFF:
                 {
-                alt86=9;
+                alt85=9;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("893:1: command_case : ( TOK_GOTO state TOK_SEMI | TOK_INIT simple_expression TOK_SEMI | TOK_FAIRNESS simple_expression TOK_SEMI | TOK_TRANS next_expression TOK_SEMI | TOK_CONSTRAINT simple_expression TOK_SEMI | TOK_SIMPWFF simple_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_CTLWFF ctl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_LTLWFF ltl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_COMPWFF compute_expression ( TOK_INCONTEXT context )? TOK_SEMI );", 86, 0, input);
+                    new NoViableAltException("895:1: command_case : ( TOK_GOTO state TOK_SEMI | TOK_INIT simple_expression TOK_SEMI | TOK_FAIRNESS simple_expression TOK_SEMI | TOK_TRANS next_expression TOK_SEMI | TOK_CONSTRAINT simple_expression TOK_SEMI | TOK_SIMPWFF simple_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_CTLWFF ctl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_LTLWFF ltl_expression ( TOK_INCONTEXT context )? TOK_SEMI | TOK_COMPWFF compute_expression ( TOK_INCONTEXT context )? TOK_SEMI );", 85, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt86) {
+            switch (alt85) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:893:16: TOK_GOTO state TOK_SEMI
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:895:16: TOK_GOTO state TOK_SEMI
                     {
                     root_0 = (Object)adaptor.nil();
 
                     if ( backtracking==0 ) {
                        if (true) throw new SMVUnimplementedException("Unimplemented JTLV command GOTO", input); 
                     }
-                    TOK_GOTO640=(Token)input.LT(1);
-                    match(input,TOK_GOTO,FOLLOW_TOK_GOTO_in_command_case5520); if (failed) return retval;
+                    TOK_GOTO625=(Token)input.LT(1);
+                    match(input,TOK_GOTO,FOLLOW_TOK_GOTO_in_command_case5418); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_GOTO640_tree = (Object)adaptor.create(TOK_GOTO640);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_GOTO640_tree, root_0);
+                    TOK_GOTO625_tree = (Object)adaptor.create(TOK_GOTO625);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_GOTO625_tree, root_0);
                     }
-                    pushFollow(FOLLOW_state_in_command_case5523);
-                    state641=state();
+                    pushFollow(FOLLOW_state_in_command_case5421);
+                    state626=state();
                     _fsp--;
                     if (failed) return retval;
-                    TOK_SEMI642=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5526); if (failed) return retval;
+                    TOK_SEMI627=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5424); if (failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:895:5: TOK_INIT simple_expression TOK_SEMI
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:897:5: TOK_INIT simple_expression TOK_SEMI
                     {
                     root_0 = (Object)adaptor.nil();
 
                     if ( backtracking==0 ) {
                        if (true) throw new SMVUnimplementedException("Unimplemented JTLV command INIT", input); 
                     }
-                    TOK_INIT643=(Token)input.LT(1);
-                    match(input,TOK_INIT,FOLLOW_TOK_INIT_in_command_case5537); if (failed) return retval;
+                    TOK_INIT628=(Token)input.LT(1);
+                    match(input,TOK_INIT,FOLLOW_TOK_INIT_in_command_case5435); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_INIT643_tree = (Object)adaptor.create(TOK_INIT643);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_INIT643_tree, root_0);
+                    TOK_INIT628_tree = (Object)adaptor.create(TOK_INIT628);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_INIT628_tree, root_0);
                     }
-                    pushFollow(FOLLOW_simple_expression_in_command_case5540);
-                    simple_expression644=simple_expression();
+                    pushFollow(FOLLOW_simple_expression_in_command_case5438);
+                    simple_expression629=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    TOK_SEMI645=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5543); if (failed) return retval;
+                    TOK_SEMI630=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5441); if (failed) return retval;
 
                     }
                     break;
                 case 3 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:897:5: TOK_FAIRNESS simple_expression TOK_SEMI
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:899:5: TOK_FAIRNESS simple_expression TOK_SEMI
                     {
                     root_0 = (Object)adaptor.nil();
 
                     if ( backtracking==0 ) {
                        if (true) throw new SMVUnimplementedException("Unimplemented JTLV command FAIRNESS", input); 
                     }
-                    TOK_FAIRNESS646=(Token)input.LT(1);
-                    match(input,TOK_FAIRNESS,FOLLOW_TOK_FAIRNESS_in_command_case5554); if (failed) return retval;
+                    TOK_FAIRNESS631=(Token)input.LT(1);
+                    match(input,TOK_FAIRNESS,FOLLOW_TOK_FAIRNESS_in_command_case5452); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_FAIRNESS646_tree = (Object)adaptor.create(TOK_FAIRNESS646);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_FAIRNESS646_tree, root_0);
+                    TOK_FAIRNESS631_tree = (Object)adaptor.create(TOK_FAIRNESS631);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_FAIRNESS631_tree, root_0);
                     }
-                    pushFollow(FOLLOW_simple_expression_in_command_case5557);
-                    simple_expression647=simple_expression();
+                    pushFollow(FOLLOW_simple_expression_in_command_case5455);
+                    simple_expression632=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    TOK_SEMI648=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5560); if (failed) return retval;
+                    TOK_SEMI633=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5458); if (failed) return retval;
 
                     }
                     break;
                 case 4 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:899:5: TOK_TRANS next_expression TOK_SEMI
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:901:5: TOK_TRANS next_expression TOK_SEMI
                     {
                     root_0 = (Object)adaptor.nil();
 
                     if ( backtracking==0 ) {
                        if (true) throw new SMVUnimplementedException("Unimplemented JTLV command TRANS", input); 
                     }
-                    TOK_TRANS649=(Token)input.LT(1);
-                    match(input,TOK_TRANS,FOLLOW_TOK_TRANS_in_command_case5571); if (failed) return retval;
+                    TOK_TRANS634=(Token)input.LT(1);
+                    match(input,TOK_TRANS,FOLLOW_TOK_TRANS_in_command_case5469); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_TRANS649_tree = (Object)adaptor.create(TOK_TRANS649);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_TRANS649_tree, root_0);
+                    TOK_TRANS634_tree = (Object)adaptor.create(TOK_TRANS634);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_TRANS634_tree, root_0);
                     }
-                    pushFollow(FOLLOW_next_expression_in_command_case5574);
-                    next_expression650=next_expression();
+                    pushFollow(FOLLOW_next_expression_in_command_case5472);
+                    next_expression635=next_expression();
                     _fsp--;
                     if (failed) return retval;
-                    TOK_SEMI651=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5577); if (failed) return retval;
+                    TOK_SEMI636=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5475); if (failed) return retval;
 
                     }
                     break;
                 case 5 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:901:5: TOK_CONSTRAINT simple_expression TOK_SEMI
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:903:5: TOK_CONSTRAINT simple_expression TOK_SEMI
                     {
                     root_0 = (Object)adaptor.nil();
 
                     if ( backtracking==0 ) {
                        if (true) throw new SMVUnimplementedException("Unimplemented JTLV command CONSTRAINT", input); 
                     }
-                    TOK_CONSTRAINT652=(Token)input.LT(1);
-                    match(input,TOK_CONSTRAINT,FOLLOW_TOK_CONSTRAINT_in_command_case5588); if (failed) return retval;
+                    TOK_CONSTRAINT637=(Token)input.LT(1);
+                    match(input,TOK_CONSTRAINT,FOLLOW_TOK_CONSTRAINT_in_command_case5486); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_CONSTRAINT652_tree = (Object)adaptor.create(TOK_CONSTRAINT652);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_CONSTRAINT652_tree, root_0);
+                    TOK_CONSTRAINT637_tree = (Object)adaptor.create(TOK_CONSTRAINT637);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_CONSTRAINT637_tree, root_0);
                     }
-                    pushFollow(FOLLOW_simple_expression_in_command_case5591);
-                    simple_expression653=simple_expression();
+                    pushFollow(FOLLOW_simple_expression_in_command_case5489);
+                    simple_expression638=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    TOK_SEMI654=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5594); if (failed) return retval;
+                    TOK_SEMI639=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5492); if (failed) return retval;
 
                     }
                     break;
                 case 6 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:903:5: TOK_SIMPWFF simple_expression ( TOK_INCONTEXT context )? TOK_SEMI
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:905:5: TOK_SIMPWFF simple_expression ( TOK_INCONTEXT context )? TOK_SEMI
                     {
                     root_0 = (Object)adaptor.nil();
 
                     if ( backtracking==0 ) {
                        if (true) throw new SMVUnimplementedException("Unimplemented JTLV command SIMPWFF", input); 
                     }
-                    TOK_SIMPWFF655=(Token)input.LT(1);
-                    match(input,TOK_SIMPWFF,FOLLOW_TOK_SIMPWFF_in_command_case5605); if (failed) return retval;
+                    TOK_SIMPWFF640=(Token)input.LT(1);
+                    match(input,TOK_SIMPWFF,FOLLOW_TOK_SIMPWFF_in_command_case5503); if (failed) return retval;
                     if ( backtracking==0 ) {
-                    TOK_SIMPWFF655_tree = (Object)adaptor.create(TOK_SIMPWFF655);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_SIMPWFF655_tree, root_0);
+                    TOK_SIMPWFF640_tree = (Object)adaptor.create(TOK_SIMPWFF640);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_SIMPWFF640_tree, root_0);
                     }
-                    pushFollow(FOLLOW_simple_expression_in_command_case5608);
-                    simple_expression656=simple_expression();
+                    pushFollow(FOLLOW_simple_expression_in_command_case5506);
+                    simple_expression641=simple_expression();
                     _fsp--;
                     if (failed) return retval;
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:904:35: ( TOK_INCONTEXT context )?
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:906:35: ( TOK_INCONTEXT context )?
+                    int alt81=2;
+                    int LA81_0 = input.LA(1);
+
+                    if ( (LA81_0==TOK_INCONTEXT) ) {
+                        alt81=1;
+                    }
+                    switch (alt81) {
+                        case 1 :
+                            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:906:36: TOK_INCONTEXT context
+                            {
+                            TOK_INCONTEXT642=(Token)input.LT(1);
+                            match(input,TOK_INCONTEXT,FOLLOW_TOK_INCONTEXT_in_command_case5510); if (failed) return retval;
+                            pushFollow(FOLLOW_context_in_command_case5513);
+                            context643=context();
+                            _fsp--;
+                            if (failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    TOK_SEMI644=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5518); if (failed) return retval;
+
+                    }
+                    break;
+                case 7 :
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:907:5: TOK_CTLWFF ctl_expression ( TOK_INCONTEXT context )? TOK_SEMI
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+                    if ( backtracking==0 ) {
+                       if (true) throw new SMVUnimplementedException("Unimplemented JTLV command CTLWFF", input); 
+                    }
+                    TOK_CTLWFF645=(Token)input.LT(1);
+                    match(input,TOK_CTLWFF,FOLLOW_TOK_CTLWFF_in_command_case5529); if (failed) return retval;
+                    if ( backtracking==0 ) {
+                    TOK_CTLWFF645_tree = (Object)adaptor.create(TOK_CTLWFF645);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_CTLWFF645_tree, root_0);
+                    }
+                    pushFollow(FOLLOW_ctl_expression_in_command_case5532);
+                    ctl_expression646=ctl_expression();
+                    _fsp--;
+                    if (failed) return retval;
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:908:31: ( TOK_INCONTEXT context )?
                     int alt82=2;
                     int LA82_0 = input.LA(1);
 
@@ -16496,11 +16238,103 @@ public class SMVParser extends Parser {
                     }
                     switch (alt82) {
                         case 1 :
-                            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:904:36: TOK_INCONTEXT context
+                            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:908:32: TOK_INCONTEXT context
+                            {
+                            TOK_INCONTEXT647=(Token)input.LT(1);
+                            match(input,TOK_INCONTEXT,FOLLOW_TOK_INCONTEXT_in_command_case5536); if (failed) return retval;
+                            pushFollow(FOLLOW_context_in_command_case5539);
+                            context648=context();
+                            _fsp--;
+                            if (failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    TOK_SEMI649=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5544); if (failed) return retval;
+
+                    }
+                    break;
+                case 8 :
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:909:5: TOK_LTLWFF ltl_expression ( TOK_INCONTEXT context )? TOK_SEMI
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+                    if ( backtracking==0 ) {
+                       if (true) throw new SMVUnimplementedException("Unimplemented JTLV command LTLWFF", input); 
+                    }
+                    TOK_LTLWFF650=(Token)input.LT(1);
+                    match(input,TOK_LTLWFF,FOLLOW_TOK_LTLWFF_in_command_case5555); if (failed) return retval;
+                    if ( backtracking==0 ) {
+                    TOK_LTLWFF650_tree = (Object)adaptor.create(TOK_LTLWFF650);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_LTLWFF650_tree, root_0);
+                    }
+                    pushFollow(FOLLOW_ltl_expression_in_command_case5558);
+                    ltl_expression651=ltl_expression();
+                    _fsp--;
+                    if (failed) return retval;
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:910:31: ( TOK_INCONTEXT context )?
+                    int alt83=2;
+                    int LA83_0 = input.LA(1);
+
+                    if ( (LA83_0==TOK_INCONTEXT) ) {
+                        alt83=1;
+                    }
+                    switch (alt83) {
+                        case 1 :
+                            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:910:32: TOK_INCONTEXT context
+                            {
+                            TOK_INCONTEXT652=(Token)input.LT(1);
+                            match(input,TOK_INCONTEXT,FOLLOW_TOK_INCONTEXT_in_command_case5562); if (failed) return retval;
+                            pushFollow(FOLLOW_context_in_command_case5565);
+                            context653=context();
+                            _fsp--;
+                            if (failed) return retval;
+
+                            }
+                            break;
+
+                    }
+
+                    TOK_SEMI654=(Token)input.LT(1);
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5570); if (failed) return retval;
+
+                    }
+                    break;
+                case 9 :
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:911:5: TOK_COMPWFF compute_expression ( TOK_INCONTEXT context )? TOK_SEMI
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+                    if ( backtracking==0 ) {
+                       if (true) throw new SMVUnimplementedException("Unimplemented JTLV command COMPWFF", input); 
+                    }
+                    TOK_COMPWFF655=(Token)input.LT(1);
+                    match(input,TOK_COMPWFF,FOLLOW_TOK_COMPWFF_in_command_case5581); if (failed) return retval;
+                    if ( backtracking==0 ) {
+                    TOK_COMPWFF655_tree = (Object)adaptor.create(TOK_COMPWFF655);
+                    root_0 = (Object)adaptor.becomeRoot(TOK_COMPWFF655_tree, root_0);
+                    }
+                    pushFollow(FOLLOW_compute_expression_in_command_case5584);
+                    compute_expression656=compute_expression();
+                    _fsp--;
+                    if (failed) return retval;
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:912:36: ( TOK_INCONTEXT context )?
+                    int alt84=2;
+                    int LA84_0 = input.LA(1);
+
+                    if ( (LA84_0==TOK_INCONTEXT) ) {
+                        alt84=1;
+                    }
+                    switch (alt84) {
+                        case 1 :
+                            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:912:37: TOK_INCONTEXT context
                             {
                             TOK_INCONTEXT657=(Token)input.LT(1);
-                            match(input,TOK_INCONTEXT,FOLLOW_TOK_INCONTEXT_in_command_case5612); if (failed) return retval;
-                            pushFollow(FOLLOW_context_in_command_case5615);
+                            match(input,TOK_INCONTEXT,FOLLOW_TOK_INCONTEXT_in_command_case5588); if (failed) return retval;
+                            pushFollow(FOLLOW_context_in_command_case5591);
                             context658=context();
                             _fsp--;
                             if (failed) return retval;
@@ -16511,145 +16345,7 @@ public class SMVParser extends Parser {
                     }
 
                     TOK_SEMI659=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5620); if (failed) return retval;
-
-                    }
-                    break;
-                case 7 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:905:5: TOK_CTLWFF ctl_expression ( TOK_INCONTEXT context )? TOK_SEMI
-                    {
-                    root_0 = (Object)adaptor.nil();
-
-                    if ( backtracking==0 ) {
-                       if (true) throw new SMVUnimplementedException("Unimplemented JTLV command CTLWFF", input); 
-                    }
-                    TOK_CTLWFF660=(Token)input.LT(1);
-                    match(input,TOK_CTLWFF,FOLLOW_TOK_CTLWFF_in_command_case5631); if (failed) return retval;
-                    if ( backtracking==0 ) {
-                    TOK_CTLWFF660_tree = (Object)adaptor.create(TOK_CTLWFF660);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_CTLWFF660_tree, root_0);
-                    }
-                    pushFollow(FOLLOW_ctl_expression_in_command_case5634);
-                    ctl_expression661=ctl_expression();
-                    _fsp--;
-                    if (failed) return retval;
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:906:31: ( TOK_INCONTEXT context )?
-                    int alt83=2;
-                    int LA83_0 = input.LA(1);
-
-                    if ( (LA83_0==TOK_INCONTEXT) ) {
-                        alt83=1;
-                    }
-                    switch (alt83) {
-                        case 1 :
-                            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:906:32: TOK_INCONTEXT context
-                            {
-                            TOK_INCONTEXT662=(Token)input.LT(1);
-                            match(input,TOK_INCONTEXT,FOLLOW_TOK_INCONTEXT_in_command_case5638); if (failed) return retval;
-                            pushFollow(FOLLOW_context_in_command_case5641);
-                            context663=context();
-                            _fsp--;
-                            if (failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    TOK_SEMI664=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5646); if (failed) return retval;
-
-                    }
-                    break;
-                case 8 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:907:5: TOK_LTLWFF ltl_expression ( TOK_INCONTEXT context )? TOK_SEMI
-                    {
-                    root_0 = (Object)adaptor.nil();
-
-                    if ( backtracking==0 ) {
-                       if (true) throw new SMVUnimplementedException("Unimplemented JTLV command LTLWFF", input); 
-                    }
-                    TOK_LTLWFF665=(Token)input.LT(1);
-                    match(input,TOK_LTLWFF,FOLLOW_TOK_LTLWFF_in_command_case5657); if (failed) return retval;
-                    if ( backtracking==0 ) {
-                    TOK_LTLWFF665_tree = (Object)adaptor.create(TOK_LTLWFF665);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_LTLWFF665_tree, root_0);
-                    }
-                    pushFollow(FOLLOW_ltl_expression_in_command_case5660);
-                    ltl_expression666=ltl_expression();
-                    _fsp--;
-                    if (failed) return retval;
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:908:31: ( TOK_INCONTEXT context )?
-                    int alt84=2;
-                    int LA84_0 = input.LA(1);
-
-                    if ( (LA84_0==TOK_INCONTEXT) ) {
-                        alt84=1;
-                    }
-                    switch (alt84) {
-                        case 1 :
-                            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:908:32: TOK_INCONTEXT context
-                            {
-                            TOK_INCONTEXT667=(Token)input.LT(1);
-                            match(input,TOK_INCONTEXT,FOLLOW_TOK_INCONTEXT_in_command_case5664); if (failed) return retval;
-                            pushFollow(FOLLOW_context_in_command_case5667);
-                            context668=context();
-                            _fsp--;
-                            if (failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    TOK_SEMI669=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5672); if (failed) return retval;
-
-                    }
-                    break;
-                case 9 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:909:5: TOK_COMPWFF compute_expression ( TOK_INCONTEXT context )? TOK_SEMI
-                    {
-                    root_0 = (Object)adaptor.nil();
-
-                    if ( backtracking==0 ) {
-                       if (true) throw new SMVUnimplementedException("Unimplemented JTLV command COMPWFF", input); 
-                    }
-                    TOK_COMPWFF670=(Token)input.LT(1);
-                    match(input,TOK_COMPWFF,FOLLOW_TOK_COMPWFF_in_command_case5683); if (failed) return retval;
-                    if ( backtracking==0 ) {
-                    TOK_COMPWFF670_tree = (Object)adaptor.create(TOK_COMPWFF670);
-                    root_0 = (Object)adaptor.becomeRoot(TOK_COMPWFF670_tree, root_0);
-                    }
-                    pushFollow(FOLLOW_compute_expression_in_command_case5686);
-                    compute_expression671=compute_expression();
-                    _fsp--;
-                    if (failed) return retval;
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:910:36: ( TOK_INCONTEXT context )?
-                    int alt85=2;
-                    int LA85_0 = input.LA(1);
-
-                    if ( (LA85_0==TOK_INCONTEXT) ) {
-                        alt85=1;
-                    }
-                    switch (alt85) {
-                        case 1 :
-                            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:910:37: TOK_INCONTEXT context
-                            {
-                            TOK_INCONTEXT672=(Token)input.LT(1);
-                            match(input,TOK_INCONTEXT,FOLLOW_TOK_INCONTEXT_in_command_case5690); if (failed) return retval;
-                            pushFollow(FOLLOW_context_in_command_case5693);
-                            context673=context();
-                            _fsp--;
-                            if (failed) return retval;
-
-                            }
-                            break;
-
-                    }
-
-                    TOK_SEMI674=(Token)input.LT(1);
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5698); if (failed) return retval;
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_command_case5596); if (failed) return retval;
 
                     }
                     break;
@@ -16678,98 +16374,98 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start context
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:913:1: context : TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:915:1: context : TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )* ;
     public final context_return context() throws RecognitionException {
         context_return retval = new context_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_ATOM675=null;
-        Token TOK_DOT676=null;
-        Token TOK_ATOM677=null;
-        Token TOK_LB678=null;
-        Token TOK_RB680=null;
-        simple_expression_return simple_expression679 = null;
+        Token TOK_ATOM660=null;
+        Token TOK_DOT661=null;
+        Token TOK_ATOM662=null;
+        Token TOK_LB663=null;
+        Token TOK_RB665=null;
+        simple_expression_return simple_expression664 = null;
 
 
-        Object TOK_ATOM675_tree=null;
-        Object TOK_DOT676_tree=null;
-        Object TOK_ATOM677_tree=null;
-        Object TOK_LB678_tree=null;
-        Object TOK_RB680_tree=null;
+        Object TOK_ATOM660_tree=null;
+        Object TOK_DOT661_tree=null;
+        Object TOK_ATOM662_tree=null;
+        Object TOK_LB663_tree=null;
+        Object TOK_RB665_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:913:10: ( TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:913:12: TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:915:10: ( TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:915:12: TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )*
             {
             root_0 = (Object)adaptor.nil();
 
-            TOK_ATOM675=(Token)input.LT(1);
-            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_context5713); if (failed) return retval;
+            TOK_ATOM660=(Token)input.LT(1);
+            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_context5611); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_ATOM675_tree = (Object)adaptor.create(TOK_ATOM675);
-            adaptor.addChild(root_0, TOK_ATOM675_tree);
+            TOK_ATOM660_tree = (Object)adaptor.create(TOK_ATOM660);
+            adaptor.addChild(root_0, TOK_ATOM660_tree);
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:914:4: ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )*
-            loop87:
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:916:4: ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )*
+            loop86:
             do {
-                int alt87=3;
-                int LA87_0 = input.LA(1);
+                int alt86=3;
+                int LA86_0 = input.LA(1);
 
-                if ( (LA87_0==TOK_DOT) ) {
-                    alt87=1;
+                if ( (LA86_0==TOK_DOT) ) {
+                    alt86=1;
                 }
-                else if ( (LA87_0==TOK_LB) ) {
-                    alt87=2;
+                else if ( (LA86_0==TOK_LB) ) {
+                    alt86=2;
                 }
 
 
-                switch (alt87) {
+                switch (alt86) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:914:6: TOK_DOT TOK_ATOM
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:916:6: TOK_DOT TOK_ATOM
             	    {
-            	    TOK_DOT676=(Token)input.LT(1);
-            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_context5720); if (failed) return retval;
+            	    TOK_DOT661=(Token)input.LT(1);
+            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_context5618); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_DOT676_tree = (Object)adaptor.create(TOK_DOT676);
-            	    adaptor.addChild(root_0, TOK_DOT676_tree);
+            	    TOK_DOT661_tree = (Object)adaptor.create(TOK_DOT661);
+            	    adaptor.addChild(root_0, TOK_DOT661_tree);
             	    }
-            	    TOK_ATOM677=(Token)input.LT(1);
-            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_context5722); if (failed) return retval;
+            	    TOK_ATOM662=(Token)input.LT(1);
+            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_context5620); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_ATOM677_tree = (Object)adaptor.create(TOK_ATOM677);
-            	    adaptor.addChild(root_0, TOK_ATOM677_tree);
+            	    TOK_ATOM662_tree = (Object)adaptor.create(TOK_ATOM662);
+            	    adaptor.addChild(root_0, TOK_ATOM662_tree);
             	    }
 
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:915:6: TOK_LB simple_expression TOK_RB
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:917:6: TOK_LB simple_expression TOK_RB
             	    {
-            	    TOK_LB678=(Token)input.LT(1);
-            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_context5730); if (failed) return retval;
+            	    TOK_LB663=(Token)input.LT(1);
+            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_context5628); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_LB678_tree = (Object)adaptor.create(TOK_LB678);
-            	    adaptor.addChild(root_0, TOK_LB678_tree);
+            	    TOK_LB663_tree = (Object)adaptor.create(TOK_LB663);
+            	    adaptor.addChild(root_0, TOK_LB663_tree);
             	    }
-            	    pushFollow(FOLLOW_simple_expression_in_context5732);
-            	    simple_expression679=simple_expression();
+            	    pushFollow(FOLLOW_simple_expression_in_context5630);
+            	    simple_expression664=simple_expression();
             	    _fsp--;
             	    if (failed) return retval;
-            	    if ( backtracking==0 ) adaptor.addChild(root_0, simple_expression679.getTree());
-            	    TOK_RB680=(Token)input.LT(1);
-            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_context5734); if (failed) return retval;
+            	    if ( backtracking==0 ) adaptor.addChild(root_0, simple_expression664.getTree());
+            	    TOK_RB665=(Token)input.LT(1);
+            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_context5632); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_RB680_tree = (Object)adaptor.create(TOK_RB680);
-            	    adaptor.addChild(root_0, TOK_RB680_tree);
+            	    TOK_RB665_tree = (Object)adaptor.create(TOK_RB665);
+            	    adaptor.addChild(root_0, TOK_RB665_tree);
             	    }
 
             	    }
             	    break;
 
             	default :
-            	    break loop87;
+            	    break loop86;
                 }
             } while (true);
 
@@ -16799,47 +16495,47 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start trace
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:917:1: trace : TOK_NUMBER ( TOK_DOT TOK_NUMBER )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:919:1: trace : TOK_NUMBER ( TOK_DOT TOK_NUMBER )* ;
     public final trace_return trace() throws RecognitionException {
         trace_return retval = new trace_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_NUMBER681=null;
-        Token TOK_DOT682=null;
-        Token TOK_NUMBER683=null;
+        Token TOK_NUMBER666=null;
+        Token TOK_DOT667=null;
+        Token TOK_NUMBER668=null;
 
-        Object TOK_NUMBER681_tree=null;
-        Object TOK_DOT682_tree=null;
-        Object TOK_NUMBER683_tree=null;
+        Object TOK_NUMBER666_tree=null;
+        Object TOK_DOT667_tree=null;
+        Object TOK_NUMBER668_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:917:8: ( TOK_NUMBER ( TOK_DOT TOK_NUMBER )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:917:10: TOK_NUMBER ( TOK_DOT TOK_NUMBER )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:919:8: ( TOK_NUMBER ( TOK_DOT TOK_NUMBER )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:919:10: TOK_NUMBER ( TOK_DOT TOK_NUMBER )*
             {
             root_0 = (Object)adaptor.nil();
 
-            TOK_NUMBER681=(Token)input.LT(1);
-            match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_trace5747); if (failed) return retval;
+            TOK_NUMBER666=(Token)input.LT(1);
+            match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_trace5645); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_NUMBER681_tree = (Object)adaptor.create(TOK_NUMBER681);
-            adaptor.addChild(root_0, TOK_NUMBER681_tree);
+            TOK_NUMBER666_tree = (Object)adaptor.create(TOK_NUMBER666);
+            adaptor.addChild(root_0, TOK_NUMBER666_tree);
             }
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:917:21: ( TOK_DOT TOK_NUMBER )*
-            loop88:
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:919:21: ( TOK_DOT TOK_NUMBER )*
+            loop87:
             do {
-                int alt88=2;
-                int LA88_0 = input.LA(1);
+                int alt87=2;
+                int LA87_0 = input.LA(1);
 
-                if ( (LA88_0==TOK_DOT) ) {
-                    int LA88_1 = input.LA(2);
+                if ( (LA87_0==TOK_DOT) ) {
+                    int LA87_1 = input.LA(2);
 
-                    if ( (LA88_1==TOK_NUMBER) ) {
-                        int LA88_2 = input.LA(3);
+                    if ( (LA87_1==TOK_NUMBER) ) {
+                        int LA87_2 = input.LA(3);
 
-                        if ( (LA88_2==TOK_DOT) ) {
-                            alt88=1;
+                        if ( (LA87_2==TOK_DOT) ) {
+                            alt87=1;
                         }
 
 
@@ -16849,28 +16545,28 @@ public class SMVParser extends Parser {
                 }
 
 
-                switch (alt88) {
+                switch (alt87) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:917:22: TOK_DOT TOK_NUMBER
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:919:22: TOK_DOT TOK_NUMBER
             	    {
-            	    TOK_DOT682=(Token)input.LT(1);
-            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_trace5750); if (failed) return retval;
+            	    TOK_DOT667=(Token)input.LT(1);
+            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_trace5648); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_DOT682_tree = (Object)adaptor.create(TOK_DOT682);
-            	    adaptor.addChild(root_0, TOK_DOT682_tree);
+            	    TOK_DOT667_tree = (Object)adaptor.create(TOK_DOT667);
+            	    adaptor.addChild(root_0, TOK_DOT667_tree);
             	    }
-            	    TOK_NUMBER683=(Token)input.LT(1);
-            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_trace5752); if (failed) return retval;
+            	    TOK_NUMBER668=(Token)input.LT(1);
+            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_trace5650); if (failed) return retval;
             	    if ( backtracking==0 ) {
-            	    TOK_NUMBER683_tree = (Object)adaptor.create(TOK_NUMBER683);
-            	    adaptor.addChild(root_0, TOK_NUMBER683_tree);
+            	    TOK_NUMBER668_tree = (Object)adaptor.create(TOK_NUMBER668);
+            	    adaptor.addChild(root_0, TOK_NUMBER668_tree);
             	    }
 
             	    }
             	    break;
 
             	default :
-            	    break loop88;
+            	    break loop87;
                 }
             } while (true);
 
@@ -16900,43 +16596,43 @@ public class SMVParser extends Parser {
     };
 
     // $ANTLR start state
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:919:1: state : trace TOK_DOT TOK_NUMBER ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:921:1: state : trace TOK_DOT TOK_NUMBER ;
     public final state_return state() throws RecognitionException {
         state_return retval = new state_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token TOK_DOT685=null;
-        Token TOK_NUMBER686=null;
-        trace_return trace684 = null;
+        Token TOK_DOT670=null;
+        Token TOK_NUMBER671=null;
+        trace_return trace669 = null;
 
 
-        Object TOK_DOT685_tree=null;
-        Object TOK_NUMBER686_tree=null;
+        Object TOK_DOT670_tree=null;
+        Object TOK_NUMBER671_tree=null;
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:919:8: ( trace TOK_DOT TOK_NUMBER )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:919:10: trace TOK_DOT TOK_NUMBER
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:921:8: ( trace TOK_DOT TOK_NUMBER )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:921:10: trace TOK_DOT TOK_NUMBER
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_trace_in_state5765);
-            trace684=trace();
+            pushFollow(FOLLOW_trace_in_state5663);
+            trace669=trace();
             _fsp--;
             if (failed) return retval;
-            if ( backtracking==0 ) adaptor.addChild(root_0, trace684.getTree());
-            TOK_DOT685=(Token)input.LT(1);
-            match(input,TOK_DOT,FOLLOW_TOK_DOT_in_state5767); if (failed) return retval;
+            if ( backtracking==0 ) adaptor.addChild(root_0, trace669.getTree());
+            TOK_DOT670=(Token)input.LT(1);
+            match(input,TOK_DOT,FOLLOW_TOK_DOT_in_state5665); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_DOT685_tree = (Object)adaptor.create(TOK_DOT685);
-            adaptor.addChild(root_0, TOK_DOT685_tree);
+            TOK_DOT670_tree = (Object)adaptor.create(TOK_DOT670);
+            adaptor.addChild(root_0, TOK_DOT670_tree);
             }
-            TOK_NUMBER686=(Token)input.LT(1);
-            match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_state5769); if (failed) return retval;
+            TOK_NUMBER671=(Token)input.LT(1);
+            match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_state5667); if (failed) return retval;
             if ( backtracking==0 ) {
-            TOK_NUMBER686_tree = (Object)adaptor.create(TOK_NUMBER686);
-            adaptor.addChild(root_0, TOK_NUMBER686_tree);
+            TOK_NUMBER671_tree = (Object)adaptor.create(TOK_NUMBER671);
+            adaptor.addChild(root_0, TOK_NUMBER671_tree);
             }
 
             }
@@ -16964,17 +16660,17 @@ public class SMVParser extends Parser {
         // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:336:14: ( TOK_NOT )* ( TOK_EX | TOK_AX | TOK_EF | TOK_AF | TOK_EG | TOK_AG | TOK_AA | TOK_EE | TOK_EBF | TOK_ABF | TOK_EBG | TOK_ABG )
         {
         // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:336:14: ( TOK_NOT )*
-        loop89:
+        loop88:
         do {
-            int alt89=2;
-            int LA89_0 = input.LA(1);
+            int alt88=2;
+            int LA88_0 = input.LA(1);
 
-            if ( (LA89_0==TOK_NOT) ) {
-                alt89=1;
+            if ( (LA88_0==TOK_NOT) ) {
+                alt88=1;
             }
 
 
-            switch (alt89) {
+            switch (alt88) {
         	case 1 :
         	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:336:14: TOK_NOT
         	    {
@@ -16984,7 +16680,7 @@ public class SMVParser extends Parser {
         	    break;
 
         	default :
-        	    break loop89;
+        	    break loop88;
             }
         } while (true);
 
@@ -17010,17 +16706,17 @@ public class SMVParser extends Parser {
         // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:380:20: ( TOK_NOT )* ( TOK_OP_NEXT | TOK_OP_PREC | TOK_OP_NOTPRECNOT | TOK_OP_GLOBAL | TOK_OP_HISTORICAL | TOK_OP_FUTURE | TOK_OP_ONCE )
         {
         // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:380:20: ( TOK_NOT )*
-        loop90:
+        loop89:
         do {
-            int alt90=2;
-            int LA90_0 = input.LA(1);
+            int alt89=2;
+            int LA89_0 = input.LA(1);
 
-            if ( (LA90_0==TOK_NOT) ) {
-                alt90=1;
+            if ( (LA89_0==TOK_NOT) ) {
+                alt89=1;
             }
 
 
-            switch (alt90) {
+            switch (alt89) {
         	case 1 :
         	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMV.g:380:20: TOK_NOT
         	    {
@@ -17030,7 +16726,7 @@ public class SMVParser extends Parser {
         	    break;
 
         	default :
-        	    break loop90;
+        	    break loop89;
             }
         } while (true);
 
@@ -17432,7 +17128,7 @@ public class SMVParser extends Parser {
     public static final BitSet FOLLOW_game_definition_in_module_list2836 = new BitSet(new long[]{0x0000000000000002L,0x04C0000000000000L});
     public static final BitSet FOLLOW_mas_agent_in_module_list2843 = new BitSet(new long[]{0x0000000000000002L,0x04C0000000000000L});
     public static final BitSet FOLLOW_TOK_MODULE_in_module2861 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_module_sign_in_module2863 = new BitSet(new long[]{0x0000000000000002L,0xE000000000000000L,0x000000000481FFFAL});
+    public static final BitSet FOLLOW_module_sign_in_module2863 = new BitSet(new long[]{0x0000000000000002L,0xE000000000000000L,0x0000000000481FFAL});
     public static final BitSet FOLLOW_declarations_in_module2871 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TOK_ATOM_in_module_sign2894 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TOK_ATOM_in_module_sign2914 = new BitSet(new long[]{0x0002000000000000L});
@@ -17442,7 +17138,7 @@ public class SMVParser extends Parser {
     public static final BitSet FOLLOW_TOK_LP_in_module_sign2947 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_sign_atom_list_in_module_sign2949 = new BitSet(new long[]{0x0004000000000000L});
     public static final BitSet FOLLOW_TOK_RP_in_module_sign2951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_declaration_in_declarations2983 = new BitSet(new long[]{0x0000000000000002L,0xE000000000000000L,0x000000000481FFFAL});
+    public static final BitSet FOLLOW_declaration_in_declarations2983 = new BitSet(new long[]{0x0000000000000002L,0xE000000000000000L,0x0000000000481FFAL});
     public static final BitSet FOLLOW_TOK_ATOM_in_sign_atom_list2996 = new BitSet(new long[]{0x0200000000000002L});
     public static final BitSet FOLLOW_TOK_COMMA_in_sign_atom_list3006 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_TOK_ATOM_in_sign_atom_list3011 = new BitSet(new long[]{0x0200000000000002L});
@@ -17458,378 +17154,363 @@ public class SMVParser extends Parser {
     public static final BitSet FOLLOW_justice_in_declaration3090 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_compassion_in_declaration3096 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_invarspec_in_declaration3102 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctlspec_in_declaration3109 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ltlspec_in_declaration3116 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_pslspec_in_declaration3123 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_compute_in_declaration3130 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_constants_in_declaration3137 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_predicate_in_declaration3144 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_mirror_in_declaration3151 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AGENT_in_mas_agent3173 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_agent_sign_in_mas_agent3175 = new BitSet(new long[]{0x0000000000000002L,0xE200000000000000L,0x00000000000001AAL});
-    public static final BitSet FOLLOW_agent_declarations_in_mas_agent3183 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3227 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_agent_sign3229 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_agent_sign3231 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3251 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_agent_sign3260 = new BitSet(new long[]{0x0000200000000000L,0x0100000000000000L});
-    public static final BitSet FOLLOW_agent_sign_atom_list_in_agent_sign3262 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_agent_sign3264 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_agent_declaration_in_agent_declarations3294 = new BitSet(new long[]{0x0000000000000002L,0xE200000000000000L,0x00000000000001AAL});
-    public static final BitSet FOLLOW_agent_sign_atom_in_agent_sign_atom_list3305 = new BitSet(new long[]{0x0200000000000002L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_agent_sign_atom_list3312 = new BitSet(new long[]{0x0000200000000000L,0x0100000000000000L});
-    public static final BitSet FOLLOW_agent_sign_atom_in_agent_sign_atom_list3315 = new BitSet(new long[]{0x0200000000000002L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign_atom3332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_VISIBLE_in_agent_sign_atom3346 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign_atom3351 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_var_in_agent_declaration3376 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_agent_invisible_var_in_agent_declaration3384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_input_var_in_agent_declaration3392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_assign_in_agent_declaration3398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_init_in_agent_declaration3405 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_trans_in_agent_declaration3411 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_define_in_agent_declaration3417 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_justice_in_agent_declaration3423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_compassion_in_agent_declaration3429 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3441 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3449 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_var_decl_list_in_agent_invisible_var3452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_GAME_in_game_definition3471 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L,0x00000000007E0000L});
-    public static final BitSet FOLLOW_game_body_in_game_definition3473 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_game_body_element_in_game_body3494 = new BitSet(new long[]{0x0000000000000002L,0x1800000000000000L,0x00000000007E0000L});
-    public static final BitSet FOLLOW_game_body_in_game_body3497 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PLAYER_1_in_game_body_element3508 = new BitSet(new long[]{0x0000000000000002L,0xA000000000000000L,0x000000000000003AL});
-    public static final BitSet FOLLOW_player_body_in_game_body_element3510 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PLAYER_2_in_game_body_element3526 = new BitSet(new long[]{0x0000000000000002L,0xA000000000000000L,0x000000000000003AL});
-    public static final BitSet FOLLOW_player_body_in_game_body_element3528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_reachtarget_in_game_body_element3549 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_avoidtarget_in_game_body_element3555 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_reachdeadlock_in_game_body_element3561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_avoiddeadlock_in_game_body_element3567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_buchigame_in_game_body_element3573 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genreactivity_in_game_body_element3579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_player_body_element_in_player_body3593 = new BitSet(new long[]{0x0000000000000002L,0xA000000000000000L,0x000000000000003AL});
-    public static final BitSet FOLLOW_var_in_player_body_element3605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_assign_in_player_body_element3612 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_init_in_player_body_element3619 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_invar_in_player_body_element3625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_trans_in_player_body_element3632 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_define_in_player_body_element3638 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_VAR_in_var3656 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_VAR_in_var3662 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_var_decl_list_in_var3665 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_var_decl_in_var_decl_list3678 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_var_decl_in_var_decl_list3681 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_decl_var_id_in_var_decl3695 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_TOK_COLON_in_var_decl3697 = new BitSet(new long[]{0x00002E0000000000L,0x001E000000000020L});
-    public static final BitSet FOLLOW_type_in_var_decl3699 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_var_decl3701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_FOR_in_var_decl3728 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_var_decl3730 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_var_decl3735 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_var_decl3737 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_var_decl3742 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_var_decl3744 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_var_decl3749 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_var_decl3751 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_var_decl3756 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_var_decl3758 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_var_decl3763 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_var_decl3765 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_var_decl3767 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_var_decl_list_in_var_decl3772 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_var_decl3774 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_IVAR_in_input_var3832 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_IVAR_in_input_var3838 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_ivar_decl_list_in_input_var3841 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ivar_decl_in_ivar_decl_list3854 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_ivar_decl_in_ivar_decl_list3857 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_decl_var_id_in_ivar_decl3871 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_TOK_COLON_in_ivar_decl3873 = new BitSet(new long[]{0x00002E0000000000L,0x001E000000000020L});
-    public static final BitSet FOLLOW_type_in_ivar_decl3875 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_ivar_decl3877 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_FOR_in_ivar_decl3895 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_ivar_decl3897 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_ivar_decl3902 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_ivar_decl3904 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3909 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_ivar_decl3911 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3916 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_ivar_decl3918 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_ivar_decl3923 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_ivar_decl3925 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3930 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ivar_decl3932 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_ivar_decl3934 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_ivar_decl_list_in_ivar_decl3939 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_ivar_decl3941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_DEFINE_in_define3994 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_define_list_in_define3997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_define_decl_in_define_list4008 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_define_decl_in_define_list4012 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_decl_var_id_in_define_decl4026 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_TOK_EQDEF_in_define_decl4028 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_define_decl4030 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_define_decl4032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_FOR_in_define_decl4050 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_define_decl4052 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_define_decl4057 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_define_decl4059 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_define_decl4064 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_define_decl4066 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_define_decl4071 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_define_decl4073 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_define_decl4078 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_define_decl4080 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_define_decl4085 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_define_decl4087 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_define_decl4089 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_define_list_in_define_decl4094 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_define_decl4096 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ASSIGN_in_assign4149 = new BitSet(new long[]{0x0820200000000000L,0x0000000000000004L,0x0000000000000004L});
-    public static final BitSet FOLLOW_assign_list_in_assign4152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_one_assign_in_assign_list4163 = new BitSet(new long[]{0x0820200000000002L,0x0000000000000004L,0x0000000000000004L});
-    public static final BitSet FOLLOW_one_assign_in_assign_list4167 = new BitSet(new long[]{0x0820200000000002L,0x0000000000000004L,0x0000000000000004L});
-    public static final BitSet FOLLOW_var_id_in_one_assign4183 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_TOK_EQDEF_in_one_assign4185 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4187 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_SMALLINIT_in_one_assign4209 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_one_assign4211 = new BitSet(new long[]{0x0800200000000000L});
-    public static final BitSet FOLLOW_var_id_in_one_assign4213 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_one_assign4215 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_TOK_EQDEF_in_one_assign4217 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4219 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_NEXT_in_one_assign4242 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_one_assign4244 = new BitSet(new long[]{0x0800200000000000L});
-    public static final BitSet FOLLOW_var_id_in_one_assign4246 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_one_assign4248 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_TOK_EQDEF_in_one_assign4250 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_next_expression_in_one_assign4252 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4254 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_FOR_in_one_assign4278 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_one_assign4280 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_one_assign4285 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_one_assign4287 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4292 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4294 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4299 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4301 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_one_assign4306 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_one_assign4308 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4313 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_one_assign4315 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_one_assign4317 = new BitSet(new long[]{0x0820200000000000L,0x0000000000000004L,0x0000000000000004L});
-    public static final BitSet FOLLOW_assign_list_in_one_assign4322 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_one_assign4324 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_INIT_in_init4382 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_init4384 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_init4386 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_INVAR_in_invar4414 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_invar4417 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_invar4420 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_TRANS_in_trans4435 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_next_expression_in_trans4437 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_trans4439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_FAIRNESS_in_fairness4469 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_fairness4472 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_fairness4475 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_JUSTICE_in_justice4490 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A7L});
-    public static final BitSet FOLLOW_justice_list_in_justice4493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_justice_decl_in_justice_list4503 = new BitSet(new long[]{0x0D7BBE0000000002L,0x00003F87CFE000A7L});
-    public static final BitSet FOLLOW_justice_decl_in_justice_list4507 = new BitSet(new long[]{0x0D7BBE0000000002L,0x00003F87CFE000A7L});
-    public static final BitSet FOLLOW_simple_expression_in_justice_decl4521 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_justice_decl4523 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_FOR_in_justice_decl4541 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_justice_decl4543 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_justice_decl4548 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_justice_decl4550 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_justice_decl4555 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_justice_decl4557 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_justice_decl4562 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_justice_decl4564 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_justice_decl4569 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_justice_decl4571 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_justice_decl4576 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_justice_decl4578 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_justice_decl4580 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A7L});
-    public static final BitSet FOLLOW_justice_list_in_justice_decl4585 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_justice_decl4587 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_COMPASSION_in_compassion4639 = new BitSet(new long[]{0x0002000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_compassion_list_in_compassion4642 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_compassion_decl_in_compassion_list4652 = new BitSet(new long[]{0x0002000000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_compassion_decl_in_compassion_list4656 = new BitSet(new long[]{0x0002000000000002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_LP_in_compassion_decl4670 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4674 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_compassion_decl4676 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4680 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_compassion_decl4682 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_compassion_decl4684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_FOR_in_compassion_decl4708 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_compassion_decl4710 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_compassion_decl4715 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_compassion_decl4717 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4722 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_compassion_decl4724 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4729 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_compassion_decl4731 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_compassion_decl4736 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_EQUAL_in_compassion_decl4738 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4743 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_compassion_decl4745 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_compassion_decl4747 = new BitSet(new long[]{0x0002000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_compassion_list_in_compassion_decl4752 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_compassion_decl4754 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_INVARSPEC_in_invarspec4813 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_invarspec4816 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_invarspec4819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_SPEC_in_ctlspec4843 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_ctl_expression_in_ctlspec4846 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_ctlspec4849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_CTLSPEC_in_ctlspec4860 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_ctl_expression_in_ctlspec4863 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_ctlspec4866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LTLSPEC_in_ltlspec4882 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_ltl_expression_in_ltlspec4885 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_ltlspec4888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PSLSPEC_in_pslspec4904 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_psl_expression_in_pslspec4907 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_pslspec4910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_CONSTANTS_in_constants4926 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_constants_expression_in_constants4929 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_constants4932 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_complex_atom_in_constants_expression4953 = new BitSet(new long[]{0x0200000000000002L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_constants_expression4956 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_complex_atom_in_constants_expression4958 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_compute_in_declaration3110 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_constants_in_declaration3117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_predicate_in_declaration3124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_mirror_in_declaration3131 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AGENT_in_mas_agent3153 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_agent_sign_in_mas_agent3155 = new BitSet(new long[]{0x0000000000000002L,0xE200000000000000L,0x00000000000001AAL});
+    public static final BitSet FOLLOW_agent_declarations_in_mas_agent3163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3187 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3207 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_agent_sign3209 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_agent_sign3211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3231 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_agent_sign3240 = new BitSet(new long[]{0x0000200000000000L,0x0100000000000000L});
+    public static final BitSet FOLLOW_agent_sign_atom_list_in_agent_sign3242 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_agent_sign3244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_agent_declaration_in_agent_declarations3274 = new BitSet(new long[]{0x0000000000000002L,0xE200000000000000L,0x00000000000001AAL});
+    public static final BitSet FOLLOW_agent_sign_atom_in_agent_sign_atom_list3285 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_agent_sign_atom_list3292 = new BitSet(new long[]{0x0000200000000000L,0x0100000000000000L});
+    public static final BitSet FOLLOW_agent_sign_atom_in_agent_sign_atom_list3295 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign_atom3312 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_VISIBLE_in_agent_sign_atom3326 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign_atom3331 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_var_in_agent_declaration3356 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_agent_invisible_var_in_agent_declaration3364 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_input_var_in_agent_declaration3372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_assign_in_agent_declaration3378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_init_in_agent_declaration3385 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_trans_in_agent_declaration3391 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_define_in_agent_declaration3397 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_justice_in_agent_declaration3403 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_compassion_in_agent_declaration3409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3421 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3429 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_var_decl_list_in_agent_invisible_var3432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_GAME_in_game_definition3451 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L,0x000000000007E000L});
+    public static final BitSet FOLLOW_game_body_in_game_definition3453 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_game_body_element_in_game_body3474 = new BitSet(new long[]{0x0000000000000002L,0x1800000000000000L,0x000000000007E000L});
+    public static final BitSet FOLLOW_game_body_in_game_body3477 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_PLAYER_1_in_game_body_element3488 = new BitSet(new long[]{0x0000000000000002L,0xA000000000000000L,0x000000000000003AL});
+    public static final BitSet FOLLOW_player_body_in_game_body_element3490 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_PLAYER_2_in_game_body_element3506 = new BitSet(new long[]{0x0000000000000002L,0xA000000000000000L,0x000000000000003AL});
+    public static final BitSet FOLLOW_player_body_in_game_body_element3508 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_reachtarget_in_game_body_element3529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_avoidtarget_in_game_body_element3535 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_reachdeadlock_in_game_body_element3541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_avoiddeadlock_in_game_body_element3547 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_buchigame_in_game_body_element3553 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genreactivity_in_game_body_element3559 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_player_body_element_in_player_body3573 = new BitSet(new long[]{0x0000000000000002L,0xA000000000000000L,0x000000000000003AL});
+    public static final BitSet FOLLOW_var_in_player_body_element3585 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_assign_in_player_body_element3592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_init_in_player_body_element3599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_invar_in_player_body_element3605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_trans_in_player_body_element3612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_define_in_player_body_element3618 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_VAR_in_var3636 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_VAR_in_var3642 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_var_decl_list_in_var3645 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_var_decl_in_var_decl_list3658 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_var_decl_in_var_decl_list3661 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_decl_var_id_in_var_decl3675 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_TOK_COLON_in_var_decl3677 = new BitSet(new long[]{0x00002E0000000000L,0x001E000000000020L});
+    public static final BitSet FOLLOW_type_in_var_decl3679 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_var_decl3681 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_FOR_in_var_decl3708 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_var_decl3710 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_var_decl3715 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_var_decl3717 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_var_decl3722 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_var_decl3724 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_var_decl3729 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_var_decl3731 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_var_decl3736 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_var_decl3738 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_var_decl3743 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_var_decl3745 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_var_decl3747 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_var_decl_list_in_var_decl3752 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_var_decl3754 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_IVAR_in_input_var3812 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_IVAR_in_input_var3818 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ivar_decl_list_in_input_var3821 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ivar_decl_in_ivar_decl_list3834 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ivar_decl_in_ivar_decl_list3837 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_decl_var_id_in_ivar_decl3851 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_TOK_COLON_in_ivar_decl3853 = new BitSet(new long[]{0x00002E0000000000L,0x001E000000000020L});
+    public static final BitSet FOLLOW_type_in_ivar_decl3855 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_ivar_decl3857 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_FOR_in_ivar_decl3875 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_ivar_decl3877 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_ivar_decl3882 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_ivar_decl3884 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3889 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_ivar_decl3891 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3896 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_ivar_decl3898 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_ivar_decl3903 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_ivar_decl3905 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3910 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ivar_decl3912 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_ivar_decl3914 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ivar_decl_list_in_ivar_decl3919 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_ivar_decl3921 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_DEFINE_in_define3974 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_define_list_in_define3977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_define_decl_in_define_list3988 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_define_decl_in_define_list3992 = new BitSet(new long[]{0x0000200000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_decl_var_id_in_define_decl4006 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_TOK_EQDEF_in_define_decl4008 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_define_decl4010 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_define_decl4012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_FOR_in_define_decl4030 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_define_decl4032 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_define_decl4037 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_define_decl4039 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_define_decl4044 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_define_decl4046 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_define_decl4051 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_define_decl4053 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_define_decl4058 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_define_decl4060 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_define_decl4065 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_define_decl4067 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_define_decl4069 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_define_list_in_define_decl4074 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_define_decl4076 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ASSIGN_in_assign4129 = new BitSet(new long[]{0x0820200000000000L,0x0000000000000004L,0x0000000000000004L});
+    public static final BitSet FOLLOW_assign_list_in_assign4132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_one_assign_in_assign_list4143 = new BitSet(new long[]{0x0820200000000002L,0x0000000000000004L,0x0000000000000004L});
+    public static final BitSet FOLLOW_one_assign_in_assign_list4147 = new BitSet(new long[]{0x0820200000000002L,0x0000000000000004L,0x0000000000000004L});
+    public static final BitSet FOLLOW_var_id_in_one_assign4163 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_TOK_EQDEF_in_one_assign4165 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4167 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4169 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_SMALLINIT_in_one_assign4189 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_one_assign4191 = new BitSet(new long[]{0x0800200000000000L});
+    public static final BitSet FOLLOW_var_id_in_one_assign4193 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_one_assign4195 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_TOK_EQDEF_in_one_assign4197 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4199 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4201 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_NEXT_in_one_assign4222 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_one_assign4224 = new BitSet(new long[]{0x0800200000000000L});
+    public static final BitSet FOLLOW_var_id_in_one_assign4226 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_one_assign4228 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_TOK_EQDEF_in_one_assign4230 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_next_expression_in_one_assign4232 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4234 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_FOR_in_one_assign4258 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_one_assign4260 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_one_assign4265 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_one_assign4267 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4272 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4274 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4279 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_one_assign4281 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_one_assign4286 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_one_assign4288 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4293 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_one_assign4295 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_one_assign4297 = new BitSet(new long[]{0x0820200000000000L,0x0000000000000004L,0x0000000000000004L});
+    public static final BitSet FOLLOW_assign_list_in_one_assign4302 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_one_assign4304 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_INIT_in_init4362 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_init4364 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_init4366 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_INVAR_in_invar4394 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_invar4397 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_invar4400 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_TRANS_in_trans4415 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_next_expression_in_trans4417 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_trans4419 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_FAIRNESS_in_fairness4449 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_fairness4452 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_fairness4455 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_JUSTICE_in_justice4470 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A7L});
+    public static final BitSet FOLLOW_justice_list_in_justice4473 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_justice_decl_in_justice_list4483 = new BitSet(new long[]{0x0D7BBE0000000002L,0x00003F87CFE000A7L});
+    public static final BitSet FOLLOW_justice_decl_in_justice_list4487 = new BitSet(new long[]{0x0D7BBE0000000002L,0x00003F87CFE000A7L});
+    public static final BitSet FOLLOW_simple_expression_in_justice_decl4501 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_justice_decl4503 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_FOR_in_justice_decl4521 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_justice_decl4523 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_justice_decl4528 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_justice_decl4530 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_justice_decl4535 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_justice_decl4537 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_justice_decl4542 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_justice_decl4544 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_justice_decl4549 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_justice_decl4551 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_justice_decl4556 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_justice_decl4558 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_justice_decl4560 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A7L});
+    public static final BitSet FOLLOW_justice_list_in_justice_decl4565 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_justice_decl4567 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_COMPASSION_in_compassion4619 = new BitSet(new long[]{0x0002000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_compassion_list_in_compassion4622 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_compassion_decl_in_compassion_list4632 = new BitSet(new long[]{0x0002000000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_compassion_decl_in_compassion_list4636 = new BitSet(new long[]{0x0002000000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_LP_in_compassion_decl4650 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4654 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_compassion_decl4656 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4660 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_compassion_decl4662 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_compassion_decl4664 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_FOR_in_compassion_decl4688 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_compassion_decl4690 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_compassion_decl4695 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_compassion_decl4697 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4702 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_compassion_decl4704 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4709 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_compassion_decl4711 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_compassion_decl4716 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_EQUAL_in_compassion_decl4718 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4723 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_compassion_decl4725 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_compassion_decl4727 = new BitSet(new long[]{0x0002000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_compassion_list_in_compassion_decl4732 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_compassion_decl4734 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_INVARSPEC_in_invarspec4793 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_invarspec4796 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_invarspec4799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_CONSTANTS_in_constants4824 = new BitSet(new long[]{0x0000200000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_constants_expression_in_constants4827 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_constants4830 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_complex_atom_in_constants_expression4851 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_constants_expression4854 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_complex_atom_in_constants_expression4856 = new BitSet(new long[]{0x0200000000000002L});
     public static final BitSet FOLLOW_set_in_player_num0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PRED_in_predicate4995 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_predicate4998 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_predicate5001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PRED_in_predicate5012 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_TOK_LB_in_predicate5015 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_predicate5018 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_predicate5021 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_predicate5024 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_predicate5027 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_MIRROR_in_mirror5044 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_decl_var_id_in_mirror5047 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_mirror5050 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_REACHTARGET_in_reachtarget5064 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
-    public static final BitSet FOLLOW_player_num_in_reachtarget5066 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_reachtarget5068 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_reachtarget5070 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AVOIDTARGET_in_avoidtarget5093 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
-    public static final BitSet FOLLOW_player_num_in_avoidtarget5095 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_avoidtarget5097 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_avoidtarget5099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_REACHDEADLOCK_in_reachdeadlock5121 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
-    public static final BitSet FOLLOW_player_num_in_reachdeadlock5123 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_reachdeadlock5125 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AVOIDDEADLOCK_in_avoiddeadlock5145 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
-    public static final BitSet FOLLOW_player_num_in_avoiddeadlock5147 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_avoiddeadlock5149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_BUCHIGAME_in_buchigame5170 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
-    public static final BitSet FOLLOW_player_num_in_buchigame5172 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_buchigame5174 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_list_expression_in_buchigame5176 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_buchigame5178 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_buchigame5180 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_GENREACTIVITY_in_genreactivity5203 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
-    public static final BitSet FOLLOW_player_num_in_genreactivity5205 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_genreactivity5207 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_list_expression_in_genreactivity5209 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_genreactivity5211 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
-    public static final BitSet FOLLOW_TOK_IMPLIES_in_genreactivity5213 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_TOK_LP_in_genreactivity5215 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_list_expression_in_genreactivity5217 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_genreactivity5219 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_genreactivity5221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_COMPUTE_in_compute5255 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000003000000L});
-    public static final BitSet FOLLOW_compute_expression_in_compute5258 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
-    public static final BitSet FOLLOW_optsemi_in_compute5261 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_MMIN_in_compute_expression5272 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_TOK_LB_in_compute_expression5274 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_ctl_expression_in_compute_expression5276 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_compute_expression5278 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_ctl_expression_in_compute_expression5280 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_compute_expression5282 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_MMAX_in_compute_expression5288 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_TOK_LB_in_compute_expression5290 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_ctl_expression_in_compute_expression5292 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_compute_expression5294 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_ctl_expression_in_compute_expression5296 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_compute_expression5298 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ISA_in_isa5320 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_isa5323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_optsemi5345 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_decl_var_id_helper_in_decl_var_id5357 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_decl_var_id_helper5377 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_DOT_in_decl_var_id_helper5384 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_decl_var_id_helper5387 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_DOT_in_decl_var_id_helper5394 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_decl_var_id_helper5397 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_LB_in_decl_var_id_helper5405 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_decl_var_id_helper5407 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_decl_var_id_helper5409 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_var_id_helper_in_var_id5423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_var_id_helper5444 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_DOT_in_var_id_helper5457 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_var_id_helper5460 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_DOT_in_var_id_helper5467 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_var_id_helper5470 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_LB_in_var_id_helper5477 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_var_id_helper5479 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_var_id_helper5481 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_command_case_in_command5504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_GOTO_in_command_case5520 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_state_in_command_case5523 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5526 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_INIT_in_command_case5537 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_command_case5540 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_FAIRNESS_in_command_case5554 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_command_case5557 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5560 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_TRANS_in_command_case5571 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_next_expression_in_command_case5574 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_CONSTRAINT_in_command_case5588 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_command_case5591 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5594 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_SIMPWFF_in_command_case5605 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_command_case5608 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L,0x0000000040000000L});
-    public static final BitSet FOLLOW_TOK_INCONTEXT_in_command_case5612 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_context_in_command_case5615 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_CTLWFF_in_command_case5631 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_ctl_expression_in_command_case5634 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L,0x0000000040000000L});
-    public static final BitSet FOLLOW_TOK_INCONTEXT_in_command_case5638 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_context_in_command_case5641 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5646 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LTLWFF_in_command_case5657 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_ltl_expression_in_command_case5660 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L,0x0000000040000000L});
-    public static final BitSet FOLLOW_TOK_INCONTEXT_in_command_case5664 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_context_in_command_case5667 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5672 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_COMPWFF_in_command_case5683 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000003000000L});
-    public static final BitSet FOLLOW_compute_expression_in_command_case5686 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L,0x0000000040000000L});
-    public static final BitSet FOLLOW_TOK_INCONTEXT_in_command_case5690 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_context_in_command_case5693 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5698 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_context5713 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_DOT_in_context5720 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_context5722 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_LB_in_context5730 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
-    public static final BitSet FOLLOW_simple_expression_in_context5732 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_context5734 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_trace5747 = new BitSet(new long[]{0x1000000000000002L});
-    public static final BitSet FOLLOW_TOK_DOT_in_trace5750 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_trace5752 = new BitSet(new long[]{0x1000000000000002L});
-    public static final BitSet FOLLOW_trace_in_state5765 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_TOK_DOT_in_state5767 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_state5769 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_PRED_in_predicate4893 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_predicate4896 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_predicate4899 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_PRED_in_predicate4910 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_TOK_LB_in_predicate4913 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_predicate4916 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_predicate4919 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_predicate4922 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_predicate4925 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_MIRROR_in_mirror4942 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_decl_var_id_in_mirror4945 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_mirror4948 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_REACHTARGET_in_reachtarget4962 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
+    public static final BitSet FOLLOW_player_num_in_reachtarget4964 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_reachtarget4966 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_reachtarget4968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AVOIDTARGET_in_avoidtarget4991 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
+    public static final BitSet FOLLOW_player_num_in_avoidtarget4993 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_avoidtarget4995 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_avoidtarget4997 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_REACHDEADLOCK_in_reachdeadlock5019 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
+    public static final BitSet FOLLOW_player_num_in_reachdeadlock5021 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_reachdeadlock5023 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AVOIDDEADLOCK_in_avoiddeadlock5043 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
+    public static final BitSet FOLLOW_player_num_in_avoiddeadlock5045 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_avoiddeadlock5047 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_BUCHIGAME_in_buchigame5068 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
+    public static final BitSet FOLLOW_player_num_in_buchigame5070 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_buchigame5072 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_list_expression_in_buchigame5074 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_buchigame5076 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_buchigame5078 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_GENREACTIVITY_in_genreactivity5101 = new BitSet(new long[]{0x0000000000000000L,0x1800000000000000L});
+    public static final BitSet FOLLOW_player_num_in_genreactivity5103 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_genreactivity5105 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_list_expression_in_genreactivity5107 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_genreactivity5109 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
+    public static final BitSet FOLLOW_TOK_IMPLIES_in_genreactivity5111 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_TOK_LP_in_genreactivity5113 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_list_expression_in_genreactivity5115 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_genreactivity5117 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_genreactivity5119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_COMPUTE_in_compute5153 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000300000L});
+    public static final BitSet FOLLOW_compute_expression_in_compute5156 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000010L});
+    public static final BitSet FOLLOW_optsemi_in_compute5159 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_MMIN_in_compute_expression5170 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_TOK_LB_in_compute_expression5172 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_ctl_expression_in_compute_expression5174 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_compute_expression5176 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_ctl_expression_in_compute_expression5178 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_compute_expression5180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_MMAX_in_compute_expression5186 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_TOK_LB_in_compute_expression5188 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_ctl_expression_in_compute_expression5190 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_compute_expression5192 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_ctl_expression_in_compute_expression5194 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_compute_expression5196 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ISA_in_isa5218 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_isa5221 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_optsemi5243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_decl_var_id_helper_in_decl_var_id5255 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_decl_var_id_helper5275 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_DOT_in_decl_var_id_helper5282 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_decl_var_id_helper5285 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_DOT_in_decl_var_id_helper5292 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_decl_var_id_helper5295 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_LB_in_decl_var_id_helper5303 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_decl_var_id_helper5305 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_decl_var_id_helper5307 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_var_id_helper_in_var_id5321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_var_id_helper5342 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_DOT_in_var_id_helper5355 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_var_id_helper5358 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_DOT_in_var_id_helper5365 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_var_id_helper5368 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_LB_in_var_id_helper5375 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_var_id_helper5377 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_var_id_helper5379 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_command_case_in_command5402 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_GOTO_in_command_case5418 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_state_in_command_case5421 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_INIT_in_command_case5435 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_command_case5438 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5441 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_FAIRNESS_in_command_case5452 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_command_case5455 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5458 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_TRANS_in_command_case5469 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_next_expression_in_command_case5472 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_CONSTRAINT_in_command_case5486 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_command_case5489 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5492 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_SIMPWFF_in_command_case5503 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_command_case5506 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L,0x0000000004000000L});
+    public static final BitSet FOLLOW_TOK_INCONTEXT_in_command_case5510 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_context_in_command_case5513 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5518 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_CTLWFF_in_command_case5529 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_ctl_expression_in_command_case5532 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L,0x0000000004000000L});
+    public static final BitSet FOLLOW_TOK_INCONTEXT_in_command_case5536 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_context_in_command_case5539 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5544 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_LTLWFF_in_command_case5555 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_ltl_expression_in_command_case5558 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L,0x0000000004000000L});
+    public static final BitSet FOLLOW_TOK_INCONTEXT_in_command_case5562 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_context_in_command_case5565 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5570 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_COMPWFF_in_command_case5581 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000300000L});
+    public static final BitSet FOLLOW_compute_expression_in_command_case5584 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L,0x0000000004000000L});
+    public static final BitSet FOLLOW_TOK_INCONTEXT_in_command_case5588 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_context_in_command_case5591 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_command_case5596 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_context5611 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_DOT_in_context5618 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_context5620 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_LB_in_context5628 = new BitSet(new long[]{0x0D7BBE0000000000L,0x00003F87CFE000A3L});
+    public static final BitSet FOLLOW_simple_expression_in_context5630 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_context5632 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_trace5645 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_TOK_DOT_in_trace5648 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_trace5650 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_trace_in_state5663 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_TOK_DOT_in_state5665 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_state5667 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TOK_NOT_in_synpred11777 = new BitSet(new long[]{0x0000000000000000L,0x00000007CFE00001L});
     public static final BitSet FOLLOW_set_in_synpred11784 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TOK_NOT_in_synpred22104 = new BitSet(new long[]{0x0000000000000000L,0x00003F8000000001L});

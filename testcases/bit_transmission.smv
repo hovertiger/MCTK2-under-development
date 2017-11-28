@@ -4,9 +4,15 @@ VAR
     sender : Sender(Act, receiver.Act);
     receiver : Receiver(Act, sender.Act);
 
-JUSTICE Act=SR;
+SPECIFICATIONS
+--      SPEC AG((receiver.state=r0 | receiver.state=r1) -> AF sender.ack);
+--      SPEC EF(EG((receiver.state=r0 | receiver.state=r1) & !sender.ack));
+--      SPEC AF(sender.ack -> (sender KNOW (receiver.state=r0 | receiver.state=r1)));
+--      SPEC AG((sender.bit=1 & sender.ack) -> (sender KNOW (receiver.state=r0)));
+SPEC AF((receiver KNOW receiver.state=r0) | (receiver KNOW receiver.state=r1));
+END
 
-SPEC abcdef;
+--JUSTICE Act=SR;
 
 
 AGENT Sender(envAct, recAct)
@@ -25,14 +31,14 @@ TRANS ack -> (Act=none);
 --Sender's evolution function
 ASSIGN
 next(ack) := case
-	(!ack & recAct=sendack & (envAct=SR | envAct=rec)) : TRUE;
-	1 : ack;	
+   (!ack & recAct=sendack & (envAct=SR | envAct=rec)) : TRUE;
+   1 : ack;   
 esac;
 
 AGENT Receiver(envAct, sndAct)
 VAR
-	state : {empty, r0, r1};
-	Act : {none, sendack};
+   state : {empty, r0, r1};
+   Act : {none, sendack};
 
 INIT state=empty;
 
@@ -43,10 +49,11 @@ TRANS (state=r0 | state=r1) -> (Act=sendack);
 --Receiver's evolution function
 ASSIGN
 next(state) := case
-	(sndAct=sb0 & state=empty & (envAct=SR | envAct=snd)) : r0;
-	(sndAct=sb1 & state=empty & (envAct=SR | envAct=snd)) : r1;
-	1 : state;
+   (sndAct=sb0 & state=empty & (envAct=SR | envAct=snd)) : r0;
+   (sndAct=sb1 & state=empty & (envAct=SR | envAct=snd)) : r1;
+   1 : state;
 esac;
 
-
-
+SPECIFICATIONS
+--LTLSPEC receiver.state=r1;
+END

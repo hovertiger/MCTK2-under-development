@@ -1,6 +1,7 @@
 
 import java.io.IOException;
 
+import edu.wis.jtlv.env.module.SMVModule;
 import net.sf.javabdd.BDD;
 import edu.wis.jtlv.env.Env;
 import edu.wis.jtlv.env.module.FDSModule;
@@ -36,7 +37,6 @@ public class FDSFileConstructionTest {
 	public static void test_main(String args) {
 		String file_name;
 		file_name = args;
-		
 		try {
 			Env.loadModule(file_name);
 			FDSModule player1 = (FDSModule) Env.getModule("sys");

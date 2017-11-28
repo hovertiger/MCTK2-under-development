@@ -1,15 +1,7 @@
 MODULE main
-	VAR
-		v1 	 : boolean;
-		v2   : boolean;
-		m2[1] : module2(v1,v2);
-		m2[2] : module2(v2,v1);
+IVAR
+    act : {a1,a2,a3};
 
-MODULE module1(m1arg1)
-	VAR
-		x : boolean;
-
-MODULE module2(m2arg1, m2arg2)
-VAR
-  x : boolean;
-  y : module1(m2arg2);
+--SPECIFICATIONS
+--SPEC TRUE;
+--END

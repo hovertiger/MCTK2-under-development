@@ -25,6 +25,7 @@ import edu.wis.jtlv.env.core.smv.*;
 import edu.wis.jtlv.env.core.smv.schema.SMVAgentInfo;
 import edu.wis.jtlv.env.core.spec.*;
 import edu.wis.jtlv.env.spec.*;
+import edu.wis.jtlv.lib.mc.MCTKANTLRFileStream;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDDomain;
 import net.sf.javabdd.BDDException;
@@ -134,6 +135,16 @@ public final class Env {
 		return all_agent_modules;
 	}
 
+	public static String getAllSpecsString() {
+		return all_specifications_string;
+	}
+
+	public static void setAllSpecsString(String allSpecsString) {
+		Env.all_specifications_string = allSpecsString;
+	}
+
+	private static String all_specifications_string;
+
 	/**
 	 * <p>
 	 * An object responsible for associating BDD variables to their names.
@@ -240,6 +251,7 @@ public final class Env {
 		stringer = new JTLVBDDToString();
 
 		all_agent_modules = new HashMap<String, SMVAgentInfo>(10);
+		all_specifications_string = "";
 
 		// /////////////////////////////////
 		// other resets...
@@ -645,7 +657,10 @@ public final class Env {
 	public static Spec[] loadSpecString(String to_parse) {
 		try {
 			CharStream input = new ANTLRStringStream(to_parse);
-			return convertSpecToAPI(loadSpec(input, false));
+			InternalSpec[] intSpecs = loadSpec(input, false);
+			if(intSpecs==null) return null;
+			else
+				return convertSpecToAPI(intSpecs);
 		} catch (RecognitionException re) {
 			Env.doError(re, re.getMessage());
 		} catch (Exception e) {
@@ -860,6 +875,10 @@ public final class Env {
 		CommonTokenStream tokens = new CommonTokenStream(lex);
 		SPCParser parser = new SPCParser(tokens);
 		SPCParser.spec_return r = parser.spec();
+		if(r.ret==null) {
+			return null;
+		}
+
 		// //////////////////////////////////////////
 		// debugging... /////////////////////////////
 		// //////////////////////////////////////////
@@ -982,8 +1001,9 @@ public final class Env {
 				return loadFDSModule(new ANTLRFileStream(filename), false,
 						false, order);
 			} else if (filename.toLowerCase().endsWith("smv")) {
-				return loadSMVModule(new ANTLRFileStream(filename), false,
-						false, order);
+				MCTKANTLRFileStream input_smv = new MCTKANTLRFileStream(filename);
+				Env.setAllSpecsString(input_smv.seperateSpecsFromModules());
+				return loadSMVModule(input_smv, false,false, order);
 			}
 		} catch (RecognitionException e) {
 			//Env.doError(e, e.getMessage());
