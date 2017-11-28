@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.Stack;
+import java.util.Vector;
 
 import edu.wis.jtlv.lib.mc.RTCTLK.RTCTLKModelCheckAlg;
 import net.sf.javabdd.BDD;
@@ -36,9 +38,10 @@ public class AlgorithmRunnerMain {
 		ctlCheck();
 */
 		Env.resetEnv();
-		rtctlkCheck();
+//		rtctlkCheck();
+		rtctlCheck();
 
-		System.out.println("DONE");
+//		System.out.println("DONE");
 	}
 
 
@@ -310,7 +313,7 @@ public class AlgorithmRunnerMain {
 	public static void rtctlkCheck() throws IOException {
 		// System.setProperty("bdd", "buddy");
 		Env.loadModule("testcases/bit_transmission.smv");
-//		Env.loadModule("testcases/mwOven.smv");
+//		Env.loadModule("testcases/test.smv");
 
 		SMVModule main = (SMVModule) Env.getModule("main");
 		main.setFullPrintingMode(true);
@@ -318,12 +321,57 @@ public class AlgorithmRunnerMain {
 
 		String to_parse = Env.getAllSpecsString();
 		Spec[] all_specs = Env.loadSpecString(to_parse);
+		if(all_specs==null || all_specs.length==0) {
+			System.out.println("========= No Specs loaded =========");
+			return;
+		}else
+			System.out.println("========= DONE Loading Specs ============");
+
+		AlgRunnerThread runner;
+		// ///////////////////////////////////////
+		// model checking a module
+		for (int i = 0; i < all_specs.length; i++) {
+			runner = new AlgRunnerThread(new RTCTLKModelCheckAlg(main,
+					all_specs[i]));
+			runner.runSequential();
+			if (runner.getDoResult() != null)
+				System.out.println(runner.getDoResult().resultString());
+			if (runner.getDoException() != null)
+				System.err.println(runner.getDoException().getMessage());
+
+		}
+		// ///////////////////////////////////////
+	}
+
+	public static void rtctlCheck()  {
+		// System.setProperty("bdd", "buddy");
+		try {
+			Env.loadModule("testcases/mwOven.smv");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		SMVModule main = (SMVModule) Env.getModule("main");
+		main.setFullPrintingMode(true);
+		System.out.println("========= DONE Loading Modules ==========");
+
+		String to_parse;
+
+		//mwOven.smv
+		to_parse = "SPEC !E[TRUE BU 3..12 (start & close & heat & !error)]";
+		//to_parse = "SPEC !EBG  0..6 ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )";
+//		to_parse = "SPEC !EG !heat";
+//		to_parse = "SPEC (!EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )) | !EG !heat";
+//		to_parse = "SPEC ABG 3..8 (start -> AF heat)";
+
+
+		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");
 
 		AlgRunnerThread runner;
 		// ///////////////////////////////////////
 		// model checking a module
 		for (int i = 0; i < all_specs.length; i++) {
+			// 17, 18, 19, 20, and 21 fails.
 			runner = new AlgRunnerThread(new RTCTLKModelCheckAlg(main,
 					all_specs[i]));
 			runner.runSequential();

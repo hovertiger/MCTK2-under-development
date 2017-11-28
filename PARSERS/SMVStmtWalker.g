@@ -592,10 +592,10 @@ declaration		: { curr_var_decl_is_visible = true; } var
 		| justice
 		| compassion
 		| invarspec //not implemented in JTLV
-		| ctlspec //not implemented in JTLV
+/*		| ctlspec //not implemented in JTLV
 		| ltlspec //not implemented in JTLV
 		| pslspec // and I think cannot be implemented in JTLV
-		| compute //not implemented in JTLV
+*/		| compute //not implemented in JTLV
 		| constants //not implemented in JTLV
 		| predicate // and I think cannot be implemented in JTLV
 		| mirror // and I think cannot be implemented in JTLV
@@ -900,13 +900,14 @@ invarspec		: TOK_INVARSPEC
 		;
 
 /* Specifications and computation of min and max distance */
-ctlspec		: TOK_SPEC
+/*ctlspec		: TOK_SPEC
 		| TOK_CTLSPEC
 		;
 ltlspec		: TOK_LTLSPEC
 		;
 pslspec		: TOK_PSLSPEC
 		;
+*/
 constants		: TOK_CONSTANTS
 		;
 /* -------------------- */

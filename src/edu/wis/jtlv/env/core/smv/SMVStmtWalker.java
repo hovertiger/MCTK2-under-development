@@ -1,4 +1,4 @@
-// $ANTLR 3.0.1 /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g 2017-10-10 20:37:11
+// $ANTLR 3.0.1 /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g 2017-11-27 17:15:29
 
 package edu.wis.jtlv.env.core.smv;
 
@@ -5386,11 +5386,11 @@ public class SMVStmtWalker extends TreeParser {
                     if ( (LA42_2==TOK_ATOM) ) {
                         int LA42_3 = input.LA(4);
 
-                        if ( (LA42_3==UP) ) {
-                            alt42=1;
-                        }
-                        else if ( (LA42_3==REF_LIST_T) ) {
+                        if ( (LA42_3==REF_LIST_T) ) {
                             alt42=2;
+                        }
+                        else if ( (LA42_3==UP) ) {
+                            alt42=1;
                         }
                         else {
                             NoViableAltException nvae =
@@ -5536,7 +5536,7 @@ public class SMVStmtWalker extends TreeParser {
                 int alt44=2;
                 int LA44_0 = input.LA(1);
 
-                if ( ((LA44_0>=TOK_VAR && LA44_0<=TOK_DEFINE)||LA44_0==TOK_ASSIGN||(LA44_0>=TOK_INIT && LA44_0<=TOK_MIRROR)||LA44_0==TOK_COMPUTE||LA44_0==TOK_ISA) ) {
+                if ( ((LA44_0>=TOK_VAR && LA44_0<=TOK_DEFINE)||LA44_0==TOK_ASSIGN||(LA44_0>=TOK_INIT && LA44_0<=TOK_INVARSPEC)||(LA44_0>=TOK_CONSTANTS && LA44_0<=TOK_MIRROR)||LA44_0==TOK_COMPUTE||LA44_0==TOK_ISA) ) {
                     alt44=1;
                 }
 
@@ -5574,11 +5574,11 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start declaration
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:582:1: declaration : ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | ctlspec | ltlspec | pslspec | compute | constants | predicate | mirror );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:582:1: declaration : ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | compute | constants | predicate | mirror );
     public final void declaration() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:582:14: ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | ctlspec | ltlspec | pslspec | compute | constants | predicate | mirror )
-            int alt45=19;
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:582:14: ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | compute | constants | predicate | mirror )
+            int alt45=16;
             switch ( input.LA(1) ) {
             case TOK_VAR:
                 {
@@ -5640,45 +5640,29 @@ public class SMVStmtWalker extends TreeParser {
                 alt45=12;
                 }
                 break;
-            case TOK_SPEC:
-            case TOK_CTLSPEC:
+            case TOK_COMPUTE:
                 {
                 alt45=13;
                 }
                 break;
-            case TOK_LTLSPEC:
+            case TOK_CONSTANTS:
                 {
                 alt45=14;
                 }
                 break;
-            case TOK_PSLSPEC:
+            case TOK_PRED:
                 {
                 alt45=15;
                 }
                 break;
-            case TOK_COMPUTE:
+            case TOK_MIRROR:
                 {
                 alt45=16;
                 }
                 break;
-            case TOK_CONSTANTS:
-                {
-                alt45=17;
-                }
-                break;
-            case TOK_PRED:
-                {
-                alt45=18;
-                }
-                break;
-            case TOK_MIRROR:
-                {
-                alt45=19;
-                }
-                break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("582:1: declaration : ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | ctlspec | ltlspec | pslspec | compute | constants | predicate | mirror );", 45, 0, input);
+                    new NoViableAltException("582:1: declaration : ( var | isa | input_var | assign | init | invar | trans | define | fairness | justice | compassion | invarspec | compute | constants | predicate | mirror );", 45, 0, input);
 
                 throw nvae;
             }
@@ -5806,69 +5790,39 @@ public class SMVStmtWalker extends TreeParser {
                     }
                     break;
                 case 13 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:595:5: ctlspec
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:598:7: compute
                     {
-                    pushFollow(FOLLOW_ctlspec_in_declaration3193);
-                    ctlspec();
-                    _fsp--;
-
-
-                    }
-                    break;
-                case 14 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:596:5: ltlspec
-                    {
-                    pushFollow(FOLLOW_ltlspec_in_declaration3200);
-                    ltlspec();
-                    _fsp--;
-
-
-                    }
-                    break;
-                case 15 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:597:5: pslspec
-                    {
-                    pushFollow(FOLLOW_pslspec_in_declaration3207);
-                    pslspec();
-                    _fsp--;
-
-
-                    }
-                    break;
-                case 16 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:598:5: compute
-                    {
-                    pushFollow(FOLLOW_compute_in_declaration3214);
+                    pushFollow(FOLLOW_compute_in_declaration3194);
                     compute();
                     _fsp--;
 
 
                     }
                     break;
-                case 17 :
+                case 14 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:599:5: constants
                     {
-                    pushFollow(FOLLOW_constants_in_declaration3221);
+                    pushFollow(FOLLOW_constants_in_declaration3201);
                     constants();
                     _fsp--;
 
 
                     }
                     break;
-                case 18 :
+                case 15 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:600:5: predicate
                     {
-                    pushFollow(FOLLOW_predicate_in_declaration3228);
+                    pushFollow(FOLLOW_predicate_in_declaration3208);
                     predicate();
                     _fsp--;
 
 
                     }
                     break;
-                case 19 :
+                case 16 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:601:5: mirror
                     {
-                    pushFollow(FOLLOW_mirror_in_declaration3235);
+                    pushFollow(FOLLOW_mirror_in_declaration3215);
                     mirror();
                     _fsp--;
 
@@ -5896,15 +5850,15 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:605:12: ( ^( TOK_AGENT agent_sign agent_declarations ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:605:14: ^( TOK_AGENT agent_sign agent_declarations )
             {
-            match(input,TOK_AGENT,FOLLOW_TOK_AGENT_in_mas_agent3250); 
+            match(input,TOK_AGENT,FOLLOW_TOK_AGENT_in_mas_agent3230); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_agent_sign_in_mas_agent3255);
+            pushFollow(FOLLOW_agent_sign_in_mas_agent3235);
             agent_sign();
             _fsp--;
 
              intr.collect_module_inst(curr_module_name); 
-            pushFollow(FOLLOW_agent_declarations_in_mas_agent3266);
+            pushFollow(FOLLOW_agent_declarations_in_mas_agent3246);
             agent_declarations();
             _fsp--;
 
@@ -5983,11 +5937,11 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:614:15: ^( AGENT_SIGN_T TOK_ATOM )
                     {
-                    match(input,AGENT_SIGN_T,FOLLOW_AGENT_SIGN_T_in_agent_sign3291); 
+                    match(input,AGENT_SIGN_T,FOLLOW_AGENT_SIGN_T_in_agent_sign3271); 
 
                     match(input, Token.DOWN, null); 
                     TOK_ATOM62=(CommonTree)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3293); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3273); 
 
                     match(input, Token.UP, null); 
                      curr_module_name = TOK_ATOM62.getText(); curr_module_is_agent = true; 
@@ -5997,16 +5951,16 @@ public class SMVStmtWalker extends TreeParser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:616:5: ^( AGENT_SIGN_T TOK_ATOM ^( AGENT_REF_LIST_T agent_sign_atom_list ) )
                     {
-                    match(input,AGENT_SIGN_T,FOLLOW_AGENT_SIGN_T_in_agent_sign3305); 
+                    match(input,AGENT_SIGN_T,FOLLOW_AGENT_SIGN_T_in_agent_sign3285); 
 
                     match(input, Token.DOWN, null); 
                     TOK_ATOM63=(CommonTree)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3307); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign3287); 
                      curr_module_name = TOK_ATOM63.getText(); curr_module_is_agent = true; 
-                    match(input,AGENT_REF_LIST_T,FOLLOW_AGENT_REF_LIST_T_in_agent_sign3317); 
+                    match(input,AGENT_REF_LIST_T,FOLLOW_AGENT_REF_LIST_T_in_agent_sign3297); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_agent_sign_atom_list_in_agent_sign3319);
+                    pushFollow(FOLLOW_agent_sign_atom_list_in_agent_sign3299);
                     agent_sign_atom_list();
                     _fsp--;
 
@@ -6053,7 +6007,7 @@ public class SMVStmtWalker extends TreeParser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:622:24: agent_declaration
             	    {
-            	    pushFollow(FOLLOW_agent_declaration_in_agent_declarations3335);
+            	    pushFollow(FOLLOW_agent_declaration_in_agent_declarations3315);
             	    agent_declaration();
             	    _fsp--;
 
@@ -6104,7 +6058,7 @@ public class SMVStmtWalker extends TreeParser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:623:26: agent_sign_atom
             	    {
-            	    pushFollow(FOLLOW_agent_sign_atom_in_agent_sign_atom_list3346);
+            	    pushFollow(FOLLOW_agent_sign_atom_in_agent_sign_atom_list3326);
             	    agent_sign_atom();
             	    _fsp--;
 
@@ -6160,17 +6114,17 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:625:20: TOK_ATOM
                     {
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign_atom3357); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign_atom3337); 
 
                     }
                     break;
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:626:6: ^( TOK_VISIBLE TOK_ATOM )
                     {
-                    match(input,TOK_VISIBLE,FOLLOW_TOK_VISIBLE_in_agent_sign_atom3366); 
+                    match(input,TOK_VISIBLE,FOLLOW_TOK_VISIBLE_in_agent_sign_atom3346); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign_atom3368); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_agent_sign_atom3348); 
 
                     match(input, Token.UP, null); 
 
@@ -6254,7 +6208,7 @@ public class SMVStmtWalker extends TreeParser {
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:630:4: var
                     {
                      curr_var_decl_is_visible = true; 
-                    pushFollow(FOLLOW_var_in_agent_declaration3392);
+                    pushFollow(FOLLOW_var_in_agent_declaration3372);
                     var();
                     _fsp--;
 
@@ -6265,7 +6219,7 @@ public class SMVStmtWalker extends TreeParser {
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:633:5: agent_invisible_var
                     {
                      curr_var_decl_is_visible = false; 
-                    pushFollow(FOLLOW_agent_invisible_var_in_agent_declaration3403);
+                    pushFollow(FOLLOW_agent_invisible_var_in_agent_declaration3383);
                     agent_invisible_var();
                     _fsp--;
 
@@ -6275,7 +6229,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 3 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:634:5: input_var
                     {
-                    pushFollow(FOLLOW_input_var_in_agent_declaration3409);
+                    pushFollow(FOLLOW_input_var_in_agent_declaration3389);
                     input_var();
                     _fsp--;
 
@@ -6285,7 +6239,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 4 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:635:5: assign
                     {
-                    pushFollow(FOLLOW_assign_in_agent_declaration3415);
+                    pushFollow(FOLLOW_assign_in_agent_declaration3395);
                     assign();
                     _fsp--;
 
@@ -6295,7 +6249,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 5 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:636:5: init
                     {
-                    pushFollow(FOLLOW_init_in_agent_declaration3422);
+                    pushFollow(FOLLOW_init_in_agent_declaration3402);
                     init();
                     _fsp--;
 
@@ -6305,7 +6259,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 6 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:637:5: trans
                     {
-                    pushFollow(FOLLOW_trans_in_agent_declaration3428);
+                    pushFollow(FOLLOW_trans_in_agent_declaration3408);
                     trans();
                     _fsp--;
 
@@ -6315,7 +6269,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 7 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:638:5: define
                     {
-                    pushFollow(FOLLOW_define_in_agent_declaration3434);
+                    pushFollow(FOLLOW_define_in_agent_declaration3414);
                     define();
                     _fsp--;
 
@@ -6325,7 +6279,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 8 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:639:5: justice
                     {
-                    pushFollow(FOLLOW_justice_in_agent_declaration3440);
+                    pushFollow(FOLLOW_justice_in_agent_declaration3420);
                     justice();
                     _fsp--;
 
@@ -6335,7 +6289,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 9 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:640:5: compassion
                     {
-                    pushFollow(FOLLOW_compassion_in_agent_declaration3446);
+                    pushFollow(FOLLOW_compassion_in_agent_declaration3426);
                     compassion();
                     _fsp--;
 
@@ -6390,17 +6344,17 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:643:24: TOK_INVISIBLE_VAR
                     {
-                    match(input,TOK_INVISIBLE_VAR,FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3458); 
+                    match(input,TOK_INVISIBLE_VAR,FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3438); 
 
                     }
                     break;
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:644:7: ^( TOK_INVISIBLE_VAR var_decl_list )
                     {
-                    match(input,TOK_INVISIBLE_VAR,FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3467); 
+                    match(input,TOK_INVISIBLE_VAR,FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3447); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_var_decl_list_in_agent_invisible_var3469);
+                    pushFollow(FOLLOW_var_decl_list_in_agent_invisible_var3449);
                     var_decl_list();
                     _fsp--;
 
@@ -6430,10 +6384,10 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:656:17: ( ^( TOK_GAME game_body ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:656:19: ^( TOK_GAME game_body )
             {
-            match(input,TOK_GAME,FOLLOW_TOK_GAME_in_game_definition3489); 
+            match(input,TOK_GAME,FOLLOW_TOK_GAME_in_game_definition3469); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_game_body_in_game_definition3491);
+            pushFollow(FOLLOW_game_body_in_game_definition3471);
             game_body();
             _fsp--;
 
@@ -6461,7 +6415,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:658:12: ( game_body_element ( game_body )? )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:658:14: game_body_element ( game_body )?
             {
-            pushFollow(FOLLOW_game_body_element_in_game_body3503);
+            pushFollow(FOLLOW_game_body_element_in_game_body3483);
             game_body_element();
             _fsp--;
 
@@ -6476,7 +6430,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:658:33: game_body
                     {
-                    pushFollow(FOLLOW_game_body_in_game_body3506);
+                    pushFollow(FOLLOW_game_body_in_game_body3486);
                     game_body();
                     _fsp--;
 
@@ -6559,11 +6513,11 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:662:21: ^( TOK_PLAYER_1 player_body )
                     {
-                    match(input,TOK_PLAYER_1,FOLLOW_TOK_PLAYER_1_in_game_body_element3518); 
+                    match(input,TOK_PLAYER_1,FOLLOW_TOK_PLAYER_1_in_game_body_element3498); 
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); 
-                        pushFollow(FOLLOW_player_body_in_game_body_element3520);
+                        pushFollow(FOLLOW_player_body_in_game_body_element3500);
                         player_body();
                         _fsp--;
 
@@ -6576,11 +6530,11 @@ public class SMVStmtWalker extends TreeParser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:663:5: ^( TOK_PLAYER_2 player_body )
                     {
-                    match(input,TOK_PLAYER_2,FOLLOW_TOK_PLAYER_2_in_game_body_element3528); 
+                    match(input,TOK_PLAYER_2,FOLLOW_TOK_PLAYER_2_in_game_body_element3508); 
 
                     if ( input.LA(1)==Token.DOWN ) {
                         match(input, Token.DOWN, null); 
-                        pushFollow(FOLLOW_player_body_in_game_body_element3530);
+                        pushFollow(FOLLOW_player_body_in_game_body_element3510);
                         player_body();
                         _fsp--;
 
@@ -6593,7 +6547,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 3 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:669:5: reachtarget
                     {
-                    pushFollow(FOLLOW_reachtarget_in_game_body_element3542);
+                    pushFollow(FOLLOW_reachtarget_in_game_body_element3522);
                     reachtarget();
                     _fsp--;
 
@@ -6603,7 +6557,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 4 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:670:5: avoidtarget
                     {
-                    pushFollow(FOLLOW_avoidtarget_in_game_body_element3548);
+                    pushFollow(FOLLOW_avoidtarget_in_game_body_element3528);
                     avoidtarget();
                     _fsp--;
 
@@ -6613,7 +6567,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 5 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:671:5: reachdeadlock
                     {
-                    pushFollow(FOLLOW_reachdeadlock_in_game_body_element3554);
+                    pushFollow(FOLLOW_reachdeadlock_in_game_body_element3534);
                     reachdeadlock();
                     _fsp--;
 
@@ -6623,7 +6577,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 6 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:672:5: avoiddeadlock
                     {
-                    pushFollow(FOLLOW_avoiddeadlock_in_game_body_element3560);
+                    pushFollow(FOLLOW_avoiddeadlock_in_game_body_element3540);
                     avoiddeadlock();
                     _fsp--;
 
@@ -6633,7 +6587,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 7 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:673:5: buchigame
                     {
-                    pushFollow(FOLLOW_buchigame_in_game_body_element3566);
+                    pushFollow(FOLLOW_buchigame_in_game_body_element3546);
                     buchigame();
                     _fsp--;
 
@@ -6643,7 +6597,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 8 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:674:5: genreactivity
                     {
-                    pushFollow(FOLLOW_genreactivity_in_game_body_element3572);
+                    pushFollow(FOLLOW_genreactivity_in_game_body_element3552);
                     genreactivity();
                     _fsp--;
 
@@ -6686,7 +6640,7 @@ public class SMVStmtWalker extends TreeParser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:679:17: player_body_element
             	    {
-            	    pushFollow(FOLLOW_player_body_element_in_player_body3586);
+            	    pushFollow(FOLLOW_player_body_element_in_player_body3566);
             	    player_body_element();
             	    _fsp--;
 
@@ -6762,7 +6716,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:681:23: var
                     {
-                    pushFollow(FOLLOW_var_in_player_body_element3598);
+                    pushFollow(FOLLOW_var_in_player_body_element3578);
                     var();
                     _fsp--;
 
@@ -6772,7 +6726,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:683:5: assign
                     {
-                    pushFollow(FOLLOW_assign_in_player_body_element3605);
+                    pushFollow(FOLLOW_assign_in_player_body_element3585);
                     assign();
                     _fsp--;
 
@@ -6782,7 +6736,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 3 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:684:5: init
                     {
-                    pushFollow(FOLLOW_init_in_player_body_element3612);
+                    pushFollow(FOLLOW_init_in_player_body_element3592);
                     init();
                     _fsp--;
 
@@ -6792,7 +6746,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 4 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:685:5: invar
                     {
-                    pushFollow(FOLLOW_invar_in_player_body_element3618);
+                    pushFollow(FOLLOW_invar_in_player_body_element3598);
                     invar();
                     _fsp--;
 
@@ -6802,7 +6756,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 5 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:686:5: trans
                     {
-                    pushFollow(FOLLOW_trans_in_player_body_element3625);
+                    pushFollow(FOLLOW_trans_in_player_body_element3605);
                     trans();
                     _fsp--;
 
@@ -6812,7 +6766,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 6 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:687:5: define
                     {
-                    pushFollow(FOLLOW_define_in_player_body_element3631);
+                    pushFollow(FOLLOW_define_in_player_body_element3611);
                     define();
                     _fsp--;
 
@@ -6847,7 +6801,7 @@ public class SMVStmtWalker extends TreeParser {
                 if ( (LA56_1==DOWN) ) {
                     alt56=2;
                 }
-                else if ( (LA56_1==UP||LA56_1==TOK_INVISIBLE_VAR||(LA56_1>=TOK_VAR && LA56_1<=TOK_DEFINE)||LA56_1==TOK_ASSIGN||(LA56_1>=TOK_INIT && LA56_1<=TOK_MIRROR)||LA56_1==TOK_COMPUTE||LA56_1==TOK_ISA) ) {
+                else if ( (LA56_1==UP||LA56_1==TOK_INVISIBLE_VAR||(LA56_1>=TOK_VAR && LA56_1<=TOK_DEFINE)||LA56_1==TOK_ASSIGN||(LA56_1>=TOK_INIT && LA56_1<=TOK_INVARSPEC)||(LA56_1>=TOK_CONSTANTS && LA56_1<=TOK_MIRROR)||LA56_1==TOK_COMPUTE||LA56_1==TOK_ISA) ) {
                     alt56=1;
                 }
                 else {
@@ -6867,17 +6821,17 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:698:8: TOK_VAR
                     {
-                    match(input,TOK_VAR,FOLLOW_TOK_VAR_in_var3649); 
+                    match(input,TOK_VAR,FOLLOW_TOK_VAR_in_var3629); 
 
                     }
                     break;
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:699:5: ^( TOK_VAR var_decl_list )
                     {
-                    match(input,TOK_VAR,FOLLOW_TOK_VAR_in_var3656); 
+                    match(input,TOK_VAR,FOLLOW_TOK_VAR_in_var3636); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_var_decl_list_in_var3658);
+                    pushFollow(FOLLOW_var_decl_list_in_var3638);
                     var_decl_list();
                     _fsp--;
 
@@ -6907,7 +6861,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:702:16: ( var_decl ( var_decl )* )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:702:18: var_decl ( var_decl )*
             {
-            pushFollow(FOLLOW_var_decl_in_var_decl_list3672);
+            pushFollow(FOLLOW_var_decl_in_var_decl_list3652);
             var_decl();
             _fsp--;
 
@@ -6926,7 +6880,7 @@ public class SMVStmtWalker extends TreeParser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:702:28: var_decl
             	    {
-            	    pushFollow(FOLLOW_var_decl_in_var_decl_list3675);
+            	    pushFollow(FOLLOW_var_decl_in_var_decl_list3655);
             	    var_decl();
             	    _fsp--;
 
@@ -6992,15 +6946,15 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:713:8: ^( VAR_DECL_T var_id type )
                     {
-                    match(input,VAR_DECL_T,FOLLOW_VAR_DECL_T_in_var_decl3698); 
+                    match(input,VAR_DECL_T,FOLLOW_VAR_DECL_T_in_var_decl3678); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_var_id_in_var_decl3700);
+                    pushFollow(FOLLOW_var_id_in_var_decl3680);
                     var_id64=var_id();
                     _fsp--;
 
                      curr_var_name = var_id64; 
-                    pushFollow(FOLLOW_type_in_var_decl3703);
+                    pushFollow(FOLLOW_type_in_var_decl3683);
                     type65=type();
                     _fsp--;
 
@@ -7013,7 +6967,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:715:5: ^( TOK_FOR TOK_LP TOK_ATOM NOP simple_expression NOP simple_expression NOP simple_expression NOP TOK_RP TOK_LCB var_decl_list TOK_RCB )
                     {
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_var_decl3718); 
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_var_decl3698); 
 
                     intr.startDummyPhase();
                     		
@@ -7022,36 +6976,36 @@ public class SMVStmtWalker extends TreeParser {
                                     
 
                     match(input, Token.DOWN, null); 
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_var_decl3721); 
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_var_decl3701); 
                     TOK_ATOM66=(CommonTree)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_decl3723); 
-                    match(input,NOP,FOLLOW_NOP_in_var_decl3725); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_decl3703); 
+                    match(input,NOP,FOLLOW_NOP_in_var_decl3705); 
                     init_marker = input.mark(); 
-                    pushFollow(FOLLOW_simple_expression_in_var_decl3728);
+                    pushFollow(FOLLOW_simple_expression_in_var_decl3708);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_var_decl3730); 
+                    match(input,NOP,FOLLOW_NOP_in_var_decl3710); 
                     cond_marker = input.mark(); 
-                    pushFollow(FOLLOW_simple_expression_in_var_decl3733);
+                    pushFollow(FOLLOW_simple_expression_in_var_decl3713);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_var_decl3735); 
+                    match(input,NOP,FOLLOW_NOP_in_var_decl3715); 
                     inc_marker = input.mark(); 
-                    pushFollow(FOLLOW_simple_expression_in_var_decl3738);
+                    pushFollow(FOLLOW_simple_expression_in_var_decl3718);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_var_decl3740); 
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_var_decl3742); 
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_var_decl3744); 
+                    match(input,NOP,FOLLOW_NOP_in_var_decl3720); 
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_var_decl3722); 
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_var_decl3724); 
                     expr_marker = input.mark(); 
-                    pushFollow(FOLLOW_var_decl_list_in_var_decl3747);
+                    pushFollow(FOLLOW_var_decl_list_in_var_decl3727);
                     var_decl_list();
                     _fsp--;
 
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_var_decl3749); 
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_var_decl3729); 
                     end_marker = input.mark(); 
 
                                      if(old_init_trans_phase_val)
@@ -7094,7 +7048,7 @@ public class SMVStmtWalker extends TreeParser {
                 if ( (LA59_1==DOWN) ) {
                     alt59=2;
                 }
-                else if ( (LA59_1==UP||LA59_1==TOK_INVISIBLE_VAR||(LA59_1>=TOK_VAR && LA59_1<=TOK_DEFINE)||LA59_1==TOK_ASSIGN||(LA59_1>=TOK_INIT && LA59_1<=TOK_MIRROR)||LA59_1==TOK_COMPUTE||LA59_1==TOK_ISA) ) {
+                else if ( (LA59_1==UP||LA59_1==TOK_INVISIBLE_VAR||(LA59_1>=TOK_VAR && LA59_1<=TOK_DEFINE)||LA59_1==TOK_ASSIGN||(LA59_1>=TOK_INIT && LA59_1<=TOK_INVARSPEC)||(LA59_1>=TOK_CONSTANTS && LA59_1<=TOK_MIRROR)||LA59_1==TOK_COMPUTE||LA59_1==TOK_ISA) ) {
                     alt59=1;
                 }
                 else {
@@ -7114,17 +7068,17 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:731:14: TOK_IVAR
                     {
-                    match(input,TOK_IVAR,FOLLOW_TOK_IVAR_in_input_var3783); 
+                    match(input,TOK_IVAR,FOLLOW_TOK_IVAR_in_input_var3763); 
 
                     }
                     break;
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:732:5: ^( TOK_IVAR ivar_decl_list )
                     {
-                    match(input,TOK_IVAR,FOLLOW_TOK_IVAR_in_input_var3790); 
+                    match(input,TOK_IVAR,FOLLOW_TOK_IVAR_in_input_var3770); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_ivar_decl_list_in_input_var3792);
+                    pushFollow(FOLLOW_ivar_decl_list_in_input_var3772);
                     ivar_decl_list();
                     _fsp--;
 
@@ -7154,7 +7108,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:735:17: ( ivar_decl ( ivar_decl )* )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:735:19: ivar_decl ( ivar_decl )*
             {
-            pushFollow(FOLLOW_ivar_decl_in_ivar_decl_list3806);
+            pushFollow(FOLLOW_ivar_decl_in_ivar_decl_list3786);
             ivar_decl();
             _fsp--;
 
@@ -7173,7 +7127,7 @@ public class SMVStmtWalker extends TreeParser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:735:30: ivar_decl
             	    {
-            	    pushFollow(FOLLOW_ivar_decl_in_ivar_decl_list3809);
+            	    pushFollow(FOLLOW_ivar_decl_in_ivar_decl_list3789);
             	    ivar_decl();
             	    _fsp--;
 
@@ -7235,14 +7189,14 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:745:8: ^( IVAR_DECL_T var_id type )
                     {
-                    match(input,IVAR_DECL_T,FOLLOW_IVAR_DECL_T_in_ivar_decl3831); 
+                    match(input,IVAR_DECL_T,FOLLOW_IVAR_DECL_T_in_ivar_decl3811); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_var_id_in_ivar_decl3833);
+                    pushFollow(FOLLOW_var_id_in_ivar_decl3813);
                     var_id();
                     _fsp--;
 
-                    pushFollow(FOLLOW_type_in_ivar_decl3835);
+                    pushFollow(FOLLOW_type_in_ivar_decl3815);
                     type();
                     _fsp--;
 
@@ -7254,7 +7208,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:746:5: ^( TOK_FOR TOK_LP TOK_ATOM NOP simple_expression NOP simple_expression NOP simple_expression NOP TOK_RP TOK_LCB ivar_decl_list TOK_RCB )
                     {
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_ivar_decl3846); 
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_ivar_decl3826); 
 
                     intr.startDummyPhase();
                     		
@@ -7263,36 +7217,36 @@ public class SMVStmtWalker extends TreeParser {
                                     
 
                     match(input, Token.DOWN, null); 
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ivar_decl3849); 
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_ivar_decl3829); 
                     TOK_ATOM67=(CommonTree)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_ivar_decl3851); 
-                    match(input,NOP,FOLLOW_NOP_in_ivar_decl3853); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_ivar_decl3831); 
+                    match(input,NOP,FOLLOW_NOP_in_ivar_decl3833); 
                     init_marker = input.mark(); 
-                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3856);
+                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3836);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_ivar_decl3858); 
+                    match(input,NOP,FOLLOW_NOP_in_ivar_decl3838); 
                     cond_marker = input.mark(); 
-                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3861);
+                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3841);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_ivar_decl3863); 
+                    match(input,NOP,FOLLOW_NOP_in_ivar_decl3843); 
                     inc_marker = input.mark(); 
-                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3866);
+                    pushFollow(FOLLOW_simple_expression_in_ivar_decl3846);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_ivar_decl3868); 
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ivar_decl3870); 
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_ivar_decl3872); 
+                    match(input,NOP,FOLLOW_NOP_in_ivar_decl3848); 
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_ivar_decl3850); 
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_ivar_decl3852); 
                     expr_marker = input.mark(); 
-                    pushFollow(FOLLOW_ivar_decl_list_in_ivar_decl3875);
+                    pushFollow(FOLLOW_ivar_decl_list_in_ivar_decl3855);
                     ivar_decl_list();
                     _fsp--;
 
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_ivar_decl3877); 
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_ivar_decl3857); 
                     end_marker = input.mark(); 
 
                                      if(old_init_trans_phase_val)
@@ -7328,10 +7282,10 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:762:9: ( ^( TOK_DEFINE define_list ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:762:11: ^( TOK_DEFINE define_list )
             {
-            match(input,TOK_DEFINE,FOLLOW_TOK_DEFINE_in_define3910); 
+            match(input,TOK_DEFINE,FOLLOW_TOK_DEFINE_in_define3890); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_define_list_in_define3912);
+            pushFollow(FOLLOW_define_list_in_define3892);
             define_list();
             _fsp--;
 
@@ -7359,7 +7313,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:764:14: ( define_decl ( define_decl )* )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:764:16: define_decl ( define_decl )*
             {
-            pushFollow(FOLLOW_define_decl_in_define_list3924);
+            pushFollow(FOLLOW_define_decl_in_define_list3904);
             define_decl();
             _fsp--;
 
@@ -7378,7 +7332,7 @@ public class SMVStmtWalker extends TreeParser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:764:30: define_decl
             	    {
-            	    pushFollow(FOLLOW_define_decl_in_define_list3928);
+            	    pushFollow(FOLLOW_define_decl_in_define_list3908);
             	    define_decl();
             	    _fsp--;
 
@@ -7444,17 +7398,17 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:774:7: ^( DEFINE_DECL_T var_id simple_expression )
                     {
-                    match(input,DEFINE_DECL_T,FOLLOW_DEFINE_DECL_T_in_define_decl3951); 
+                    match(input,DEFINE_DECL_T,FOLLOW_DEFINE_DECL_T_in_define_decl3931); 
 
                     intr.startAllDefineScope(); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_var_id_in_define_decl3954);
+                    pushFollow(FOLLOW_var_id_in_define_decl3934);
                     var_id68=var_id();
                     _fsp--;
 
                     curr_var_name = var_id68;
-                    pushFollow(FOLLOW_simple_expression_in_define_decl3957);
+                    pushFollow(FOLLOW_simple_expression_in_define_decl3937);
                     simple_expression69=simple_expression();
                     _fsp--;
 
@@ -7468,7 +7422,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:776:5: ^( TOK_FOR TOK_LP TOK_ATOM NOP simple_expression NOP simple_expression NOP simple_expression NOP TOK_RP TOK_LCB define_list TOK_RCB )
                     {
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_define_decl3973); 
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_define_decl3953); 
 
                     intr.startDummyPhase();
                     		
@@ -7477,36 +7431,36 @@ public class SMVStmtWalker extends TreeParser {
                                     
 
                     match(input, Token.DOWN, null); 
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_define_decl3976); 
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_define_decl3956); 
                     TOK_ATOM70=(CommonTree)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_define_decl3978); 
-                    match(input,NOP,FOLLOW_NOP_in_define_decl3980); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_define_decl3958); 
+                    match(input,NOP,FOLLOW_NOP_in_define_decl3960); 
                     init_marker = input.mark(); 
-                    pushFollow(FOLLOW_simple_expression_in_define_decl3983);
+                    pushFollow(FOLLOW_simple_expression_in_define_decl3963);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_define_decl3985); 
+                    match(input,NOP,FOLLOW_NOP_in_define_decl3965); 
                     cond_marker = input.mark(); 
-                    pushFollow(FOLLOW_simple_expression_in_define_decl3988);
+                    pushFollow(FOLLOW_simple_expression_in_define_decl3968);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_define_decl3990); 
+                    match(input,NOP,FOLLOW_NOP_in_define_decl3970); 
                     inc_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_define_decl3993);
+                    pushFollow(FOLLOW_simple_expression_in_define_decl3973);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_define_decl3995); 
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_define_decl3997); 
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_define_decl3999); 
+                    match(input,NOP,FOLLOW_NOP_in_define_decl3975); 
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_define_decl3977); 
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_define_decl3979); 
                     expr_marker = input.mark();
-                    pushFollow(FOLLOW_define_list_in_define_decl4002);
+                    pushFollow(FOLLOW_define_list_in_define_decl3982);
                     define_list();
                     _fsp--;
 
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_define_decl4004); 
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_define_decl3984); 
                     end_marker = input.mark(); 
 
                                      if(old_init_trans_phase_val)
@@ -7542,10 +7496,10 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:792:9: ( ^( TOK_ASSIGN assign_list ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:792:11: ^( TOK_ASSIGN assign_list )
             {
-            match(input,TOK_ASSIGN,FOLLOW_TOK_ASSIGN_in_assign4035); 
+            match(input,TOK_ASSIGN,FOLLOW_TOK_ASSIGN_in_assign4015); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_assign_list_in_assign4037);
+            pushFollow(FOLLOW_assign_list_in_assign4017);
             assign_list();
             _fsp--;
 
@@ -7573,7 +7527,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:794:13: ( one_assign ( one_assign )* )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:794:15: one_assign ( one_assign )*
             {
-            pushFollow(FOLLOW_one_assign_in_assign_list4048);
+            pushFollow(FOLLOW_one_assign_in_assign_list4028);
             one_assign();
             _fsp--;
 
@@ -7592,7 +7546,7 @@ public class SMVStmtWalker extends TreeParser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:794:28: one_assign
             	    {
-            	    pushFollow(FOLLOW_one_assign_in_assign_list4052);
+            	    pushFollow(FOLLOW_one_assign_in_assign_list4032);
             	    one_assign();
             	    _fsp--;
 
@@ -7680,14 +7634,14 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:804:7: ^( ASSIGN_DECL_T var_id simple_expression )
                     {
-                    match(input,ASSIGN_DECL_T,FOLLOW_ASSIGN_DECL_T_in_one_assign4074); 
+                    match(input,ASSIGN_DECL_T,FOLLOW_ASSIGN_DECL_T_in_one_assign4054); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_var_id_in_one_assign4076);
+                    pushFollow(FOLLOW_var_id_in_one_assign4056);
                     var_id71=var_id();
                     _fsp--;
 
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4078);
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4058);
                     simple_expression72=simple_expression();
                     _fsp--;
 
@@ -7700,14 +7654,14 @@ public class SMVStmtWalker extends TreeParser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:805:5: ^( INIT_ASSIGN_DECL_T var_id simple_expression )
                     {
-                    match(input,INIT_ASSIGN_DECL_T,FOLLOW_INIT_ASSIGN_DECL_T_in_one_assign4090); 
+                    match(input,INIT_ASSIGN_DECL_T,FOLLOW_INIT_ASSIGN_DECL_T_in_one_assign4070); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_var_id_in_one_assign4092);
+                    pushFollow(FOLLOW_var_id_in_one_assign4072);
                     var_id73=var_id();
                     _fsp--;
 
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4094);
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4074);
                     simple_expression74=simple_expression();
                     _fsp--;
 
@@ -7720,14 +7674,14 @@ public class SMVStmtWalker extends TreeParser {
                 case 3 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:806:5: ^( NEXT_ASSIGN_DECL_T var_id next_expression )
                     {
-                    match(input,NEXT_ASSIGN_DECL_T,FOLLOW_NEXT_ASSIGN_DECL_T_in_one_assign4106); 
+                    match(input,NEXT_ASSIGN_DECL_T,FOLLOW_NEXT_ASSIGN_DECL_T_in_one_assign4086); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_var_id_in_one_assign4108);
+                    pushFollow(FOLLOW_var_id_in_one_assign4088);
                     var_id75=var_id();
                     _fsp--;
 
-                    pushFollow(FOLLOW_next_expression_in_one_assign4110);
+                    pushFollow(FOLLOW_next_expression_in_one_assign4090);
                     next_expression76=next_expression();
                     _fsp--;
 
@@ -7740,7 +7694,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 4 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:807:5: ^( TOK_FOR TOK_LP TOK_ATOM NOP simple_expression NOP simple_expression NOP simple_expression NOP TOK_RP TOK_LCB assign_list TOK_RCB )
                     {
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_one_assign4122); 
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_one_assign4102); 
 
                     intr.startDummyPhase();
                     		
@@ -7749,36 +7703,36 @@ public class SMVStmtWalker extends TreeParser {
                                     
 
                     match(input, Token.DOWN, null); 
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_one_assign4125); 
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_one_assign4105); 
                     TOK_ATOM77=(CommonTree)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_one_assign4127); 
-                    match(input,NOP,FOLLOW_NOP_in_one_assign4129); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_one_assign4107); 
+                    match(input,NOP,FOLLOW_NOP_in_one_assign4109); 
                     init_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4132);
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4112);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_one_assign4134); 
+                    match(input,NOP,FOLLOW_NOP_in_one_assign4114); 
                     cond_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4137);
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4117);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_one_assign4139); 
+                    match(input,NOP,FOLLOW_NOP_in_one_assign4119); 
                     inc_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_one_assign4142);
+                    pushFollow(FOLLOW_simple_expression_in_one_assign4122);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_one_assign4144); 
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_one_assign4146); 
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_one_assign4148); 
+                    match(input,NOP,FOLLOW_NOP_in_one_assign4124); 
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_one_assign4126); 
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_one_assign4128); 
                     expr_marker = input.mark(); 
-                    pushFollow(FOLLOW_assign_list_in_one_assign4151);
+                    pushFollow(FOLLOW_assign_list_in_one_assign4131);
                     assign_list();
                     _fsp--;
 
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_one_assign4153); 
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_one_assign4133); 
                     end_marker = input.mark(); 
 
                                      if(old_init_trans_phase_val)
@@ -7817,10 +7771,10 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:824:7: ( ^( TOK_INIT simple_expression ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:824:9: ^( TOK_INIT simple_expression )
             {
-            match(input,TOK_INIT,FOLLOW_TOK_INIT_in_init4188); 
+            match(input,TOK_INIT,FOLLOW_TOK_INIT_in_init4168); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_simple_expression_in_init4190);
+            pushFollow(FOLLOW_simple_expression_in_init4170);
             simple_expression78=simple_expression();
             _fsp--;
 
@@ -7849,7 +7803,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:828:8: ( TOK_INVAR )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:828:10: TOK_INVAR
             {
-            match(input,TOK_INVAR,FOLLOW_TOK_INVAR_in_invar4208); 
+            match(input,TOK_INVAR,FOLLOW_TOK_INVAR_in_invar4188); 
 
             }
 
@@ -7875,10 +7829,10 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:832:8: ( ^( TOK_TRANS next_expression ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:832:10: ^( TOK_TRANS next_expression )
             {
-            match(input,TOK_TRANS,FOLLOW_TOK_TRANS_in_trans4223); 
+            match(input,TOK_TRANS,FOLLOW_TOK_TRANS_in_trans4203); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_next_expression_in_trans4225);
+            pushFollow(FOLLOW_next_expression_in_trans4205);
             next_expression79=next_expression();
             _fsp--;
 
@@ -7907,7 +7861,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:839:11: ( TOK_FAIRNESS )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:839:13: TOK_FAIRNESS
             {
-            match(input,TOK_FAIRNESS,FOLLOW_TOK_FAIRNESS_in_fairness4250); 
+            match(input,TOK_FAIRNESS,FOLLOW_TOK_FAIRNESS_in_fairness4230); 
 
             }
 
@@ -7930,10 +7884,10 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:842:10: ( ^( TOK_JUSTICE justice_list ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:842:12: ^( TOK_JUSTICE justice_list )
             {
-            match(input,TOK_JUSTICE,FOLLOW_TOK_JUSTICE_in_justice4264); 
+            match(input,TOK_JUSTICE,FOLLOW_TOK_JUSTICE_in_justice4244); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_justice_list_in_justice4266);
+            pushFollow(FOLLOW_justice_list_in_justice4246);
             justice_list();
             _fsp--;
 
@@ -7961,7 +7915,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:844:14: ( justice_decl ( justice_decl )* )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:844:16: justice_decl ( justice_decl )*
             {
-            pushFollow(FOLLOW_justice_decl_in_justice_list4277);
+            pushFollow(FOLLOW_justice_decl_in_justice_list4257);
             justice_decl();
             _fsp--;
 
@@ -7980,7 +7934,7 @@ public class SMVStmtWalker extends TreeParser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:844:31: justice_decl
             	    {
-            	    pushFollow(FOLLOW_justice_decl_in_justice_list4281);
+            	    pushFollow(FOLLOW_justice_decl_in_justice_list4261);
             	    justice_decl();
             	    _fsp--;
 
@@ -8044,10 +7998,10 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:854:7: ^( JUSTICE_DECL_T simple_expression )
                     {
-                    match(input,JUSTICE_DECL_T,FOLLOW_JUSTICE_DECL_T_in_justice_decl4303); 
+                    match(input,JUSTICE_DECL_T,FOLLOW_JUSTICE_DECL_T_in_justice_decl4283); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_simple_expression_in_justice_decl4305);
+                    pushFollow(FOLLOW_simple_expression_in_justice_decl4285);
                     simple_expression80=simple_expression();
                     _fsp--;
 
@@ -8060,7 +8014,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:855:5: ^( TOK_FOR TOK_LP TOK_ATOM NOP simple_expression NOP simple_expression NOP simple_expression NOP TOK_RP TOK_LCB justice_list TOK_RCB )
                     {
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_justice_decl4316); 
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_justice_decl4296); 
 
                     intr.startDummyPhase();
                     		
@@ -8069,36 +8023,36 @@ public class SMVStmtWalker extends TreeParser {
                                     
 
                     match(input, Token.DOWN, null); 
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_justice_decl4319); 
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_justice_decl4299); 
                     TOK_ATOM81=(CommonTree)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_justice_decl4321); 
-                    match(input,NOP,FOLLOW_NOP_in_justice_decl4323); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_justice_decl4301); 
+                    match(input,NOP,FOLLOW_NOP_in_justice_decl4303); 
                     init_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_justice_decl4326);
+                    pushFollow(FOLLOW_simple_expression_in_justice_decl4306);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_justice_decl4328); 
+                    match(input,NOP,FOLLOW_NOP_in_justice_decl4308); 
                     cond_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_justice_decl4331);
+                    pushFollow(FOLLOW_simple_expression_in_justice_decl4311);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_justice_decl4333); 
+                    match(input,NOP,FOLLOW_NOP_in_justice_decl4313); 
                     inc_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_justice_decl4336);
+                    pushFollow(FOLLOW_simple_expression_in_justice_decl4316);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_justice_decl4338); 
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_justice_decl4340); 
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_justice_decl4342); 
+                    match(input,NOP,FOLLOW_NOP_in_justice_decl4318); 
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_justice_decl4320); 
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_justice_decl4322); 
                     expr_marker = input.mark();
-                    pushFollow(FOLLOW_justice_list_in_justice_decl4345);
+                    pushFollow(FOLLOW_justice_list_in_justice_decl4325);
                     justice_list();
                     _fsp--;
 
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_justice_decl4347); 
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_justice_decl4327); 
                     end_marker = input.mark(); 
 
                                      if(old_init_trans_phase_val)
@@ -8134,10 +8088,10 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:870:12: ( ^( TOK_COMPASSION compassion_list ) )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:870:14: ^( TOK_COMPASSION compassion_list )
             {
-            match(input,TOK_COMPASSION,FOLLOW_TOK_COMPASSION_in_compassion4377); 
+            match(input,TOK_COMPASSION,FOLLOW_TOK_COMPASSION_in_compassion4357); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_compassion_list_in_compassion4379);
+            pushFollow(FOLLOW_compassion_list_in_compassion4359);
             compassion_list();
             _fsp--;
 
@@ -8165,7 +8119,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:872:17: ( compassion_decl ( compassion_decl )* )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:872:19: compassion_decl ( compassion_decl )*
             {
-            pushFollow(FOLLOW_compassion_decl_in_compassion_list4390);
+            pushFollow(FOLLOW_compassion_decl_in_compassion_list4370);
             compassion_decl();
             _fsp--;
 
@@ -8184,7 +8138,7 @@ public class SMVStmtWalker extends TreeParser {
             	case 1 :
             	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:872:37: compassion_decl
             	    {
-            	    pushFollow(FOLLOW_compassion_decl_in_compassion_list4394);
+            	    pushFollow(FOLLOW_compassion_decl_in_compassion_list4374);
             	    compassion_decl();
             	    _fsp--;
 
@@ -8250,15 +8204,15 @@ public class SMVStmtWalker extends TreeParser {
                 case 1 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:882:7: ^( COMPASSION_DECL_T f= simple_expression TOK_COMMA s= simple_expression )
                     {
-                    match(input,COMPASSION_DECL_T,FOLLOW_COMPASSION_DECL_T_in_compassion_decl4416); 
+                    match(input,COMPASSION_DECL_T,FOLLOW_COMPASSION_DECL_T_in_compassion_decl4396); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4421);
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4401);
                     f=simple_expression();
                     _fsp--;
 
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compassion_decl4423); 
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4428);
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compassion_decl4403); 
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4408);
                     s=simple_expression();
                     _fsp--;
 
@@ -8271,7 +8225,7 @@ public class SMVStmtWalker extends TreeParser {
                 case 2 :
                     // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:883:5: ^( TOK_FOR TOK_LP TOK_ATOM NOP simple_expression NOP simple_expression NOP simple_expression NOP TOK_RP TOK_LCB compassion_list TOK_RCB )
                     {
-                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_compassion_decl4440); 
+                    match(input,TOK_FOR,FOLLOW_TOK_FOR_in_compassion_decl4420); 
 
                     intr.startDummyPhase();
                     		
@@ -8280,36 +8234,36 @@ public class SMVStmtWalker extends TreeParser {
                                     
 
                     match(input, Token.DOWN, null); 
-                    match(input,TOK_LP,FOLLOW_TOK_LP_in_compassion_decl4443); 
+                    match(input,TOK_LP,FOLLOW_TOK_LP_in_compassion_decl4423); 
                     TOK_ATOM82=(CommonTree)input.LT(1);
-                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_compassion_decl4445); 
-                    match(input,NOP,FOLLOW_NOP_in_compassion_decl4447); 
+                    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_compassion_decl4425); 
+                    match(input,NOP,FOLLOW_NOP_in_compassion_decl4427); 
                     init_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4450);
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4430);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_compassion_decl4452); 
+                    match(input,NOP,FOLLOW_NOP_in_compassion_decl4432); 
                     cond_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4455);
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4435);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_compassion_decl4457); 
+                    match(input,NOP,FOLLOW_NOP_in_compassion_decl4437); 
                     inc_marker = input.mark();
-                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4460);
+                    pushFollow(FOLLOW_simple_expression_in_compassion_decl4440);
                     simple_expression();
                     _fsp--;
 
-                    match(input,NOP,FOLLOW_NOP_in_compassion_decl4462); 
-                    match(input,TOK_RP,FOLLOW_TOK_RP_in_compassion_decl4464); 
-                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_compassion_decl4466); 
+                    match(input,NOP,FOLLOW_NOP_in_compassion_decl4442); 
+                    match(input,TOK_RP,FOLLOW_TOK_RP_in_compassion_decl4444); 
+                    match(input,TOK_LCB,FOLLOW_TOK_LCB_in_compassion_decl4446); 
                     expr_marker = input.mark();
-                    pushFollow(FOLLOW_compassion_list_in_compassion_decl4469);
+                    pushFollow(FOLLOW_compassion_list_in_compassion_decl4449);
                     compassion_list();
                     _fsp--;
 
-                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_compassion_decl4471); 
+                    match(input,TOK_RCB,FOLLOW_TOK_RCB_in_compassion_decl4451); 
                     end_marker = input.mark(); 
 
                                      if(old_init_trans_phase_val)
@@ -8345,7 +8299,7 @@ public class SMVStmtWalker extends TreeParser {
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:899:12: ( TOK_INVARSPEC )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:899:14: TOK_INVARSPEC
             {
-            match(input,TOK_INVARSPEC,FOLLOW_TOK_INVARSPEC_in_invarspec4503); 
+            match(input,TOK_INVARSPEC,FOLLOW_TOK_INVARSPEC_in_invarspec4483); 
 
             }
 
@@ -8361,92 +8315,14 @@ public class SMVStmtWalker extends TreeParser {
     // $ANTLR end invarspec
 
 
-    // $ANTLR start ctlspec
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:903:1: ctlspec : ( TOK_SPEC | TOK_CTLSPEC );
-    public final void ctlspec() throws RecognitionException {
-        try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:903:10: ( TOK_SPEC | TOK_CTLSPEC )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:
-            {
-            if ( (input.LA(1)>=TOK_SPEC && input.LA(1)<=TOK_CTLSPEC) ) {
-                input.consume();
-                errorRecovery=false;
-            }
-            else {
-                MismatchedSetException mse =
-                    new MismatchedSetException(null,input);
-                recoverFromMismatchedSet(input,mse,FOLLOW_set_in_ctlspec0);    throw mse;
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end ctlspec
-
-
-    // $ANTLR start ltlspec
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:906:1: ltlspec : TOK_LTLSPEC ;
-    public final void ltlspec() throws RecognitionException {
-        try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:906:10: ( TOK_LTLSPEC )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:906:12: TOK_LTLSPEC
-            {
-            match(input,TOK_LTLSPEC,FOLLOW_TOK_LTLSPEC_in_ltlspec4534); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end ltlspec
-
-
-    // $ANTLR start pslspec
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:908:1: pslspec : TOK_PSLSPEC ;
-    public final void pslspec() throws RecognitionException {
-        try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:908:10: ( TOK_PSLSPEC )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:908:12: TOK_PSLSPEC
-            {
-            match(input,TOK_PSLSPEC,FOLLOW_TOK_PSLSPEC_in_pslspec4545); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end pslspec
-
-
     // $ANTLR start constants
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:910:1: constants : TOK_CONSTANTS ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:911:1: constants : TOK_CONSTANTS ;
     public final void constants() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:910:12: ( TOK_CONSTANTS )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:910:14: TOK_CONSTANTS
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:911:12: ( TOK_CONSTANTS )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:911:14: TOK_CONSTANTS
             {
-            match(input,TOK_CONSTANTS,FOLLOW_TOK_CONSTANTS_in_constants4556); 
+            match(input,TOK_CONSTANTS,FOLLOW_TOK_CONSTANTS_in_constants4499); 
 
             }
 
@@ -8463,10 +8339,10 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start constants_expression
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:916:1: constants_expression : ( | complex_atom ( TOK_COMMA complex_atom )* );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:917:1: constants_expression : ( | complex_atom ( TOK_COMMA complex_atom )* );
     public final void constants_expression() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:916:22: ( | complex_atom ( TOK_COMMA complex_atom )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:917:22: ( | complex_atom ( TOK_COMMA complex_atom )* )
             int alt71=2;
             int LA71_0 = input.LA(1);
 
@@ -8478,24 +8354,24 @@ public class SMVStmtWalker extends TreeParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("916:1: constants_expression : ( | complex_atom ( TOK_COMMA complex_atom )* );", 71, 0, input);
+                    new NoViableAltException("917:1: constants_expression : ( | complex_atom ( TOK_COMMA complex_atom )* );", 71, 0, input);
 
                 throw nvae;
             }
             switch (alt71) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:917:3: 
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:918:3: 
                     {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:917:5: complex_atom ( TOK_COMMA complex_atom )*
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:918:5: complex_atom ( TOK_COMMA complex_atom )*
                     {
-                    pushFollow(FOLLOW_complex_atom_in_constants_expression4576);
+                    pushFollow(FOLLOW_complex_atom_in_constants_expression4519);
                     complex_atom();
                     _fsp--;
 
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:917:18: ( TOK_COMMA complex_atom )*
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:918:18: ( TOK_COMMA complex_atom )*
                     loop70:
                     do {
                         int alt70=2;
@@ -8508,10 +8384,10 @@ public class SMVStmtWalker extends TreeParser {
 
                         switch (alt70) {
                     	case 1 :
-                    	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:917:19: TOK_COMMA complex_atom
+                    	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:918:19: TOK_COMMA complex_atom
                     	    {
-                    	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_constants_expression4579); 
-                    	    pushFollow(FOLLOW_complex_atom_in_constants_expression4581);
+                    	    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_constants_expression4522); 
+                    	    pushFollow(FOLLOW_complex_atom_in_constants_expression4524);
                     	    complex_atom();
                     	    _fsp--;
 
@@ -8542,10 +8418,10 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start player_num
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:920:1: player_num : ( TOK_PLAYER_1 | TOK_PLAYER_2 );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:921:1: player_num : ( TOK_PLAYER_1 | TOK_PLAYER_2 );
     public final void player_num() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:920:13: ( TOK_PLAYER_1 | TOK_PLAYER_2 )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:921:13: ( TOK_PLAYER_1 | TOK_PLAYER_2 )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:
             {
             if ( (input.LA(1)>=TOK_PLAYER_1 && input.LA(1)<=TOK_PLAYER_2) ) {
@@ -8574,13 +8450,13 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start predicate
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:925:1: predicate : TOK_PRED ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:926:1: predicate : TOK_PRED ;
     public final void predicate() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:925:12: ( TOK_PRED )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:925:14: TOK_PRED
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:926:12: ( TOK_PRED )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:926:14: TOK_PRED
             {
-            match(input,TOK_PRED,FOLLOW_TOK_PRED_in_predicate4615); 
+            match(input,TOK_PRED,FOLLOW_TOK_PRED_in_predicate4558); 
 
             }
 
@@ -8597,13 +8473,13 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start mirror
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:927:1: mirror : TOK_MIRROR ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:928:1: mirror : TOK_MIRROR ;
     public final void mirror() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:927:9: ( TOK_MIRROR )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:927:11: TOK_MIRROR
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:928:9: ( TOK_MIRROR )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:928:11: TOK_MIRROR
             {
-            match(input,TOK_MIRROR,FOLLOW_TOK_MIRROR_in_mirror4626); 
+            match(input,TOK_MIRROR,FOLLOW_TOK_MIRROR_in_mirror4569); 
 
             }
 
@@ -8620,20 +8496,20 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start reachtarget
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:931:1: reachtarget : ^( TOK_REACHTARGET player_num simple_expression ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:932:1: reachtarget : ^( TOK_REACHTARGET player_num simple_expression ) ;
     public final void reachtarget() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:931:14: ( ^( TOK_REACHTARGET player_num simple_expression ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:931:16: ^( TOK_REACHTARGET player_num simple_expression )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:932:14: ( ^( TOK_REACHTARGET player_num simple_expression ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:932:16: ^( TOK_REACHTARGET player_num simple_expression )
             {
-            match(input,TOK_REACHTARGET,FOLLOW_TOK_REACHTARGET_in_reachtarget4641); 
+            match(input,TOK_REACHTARGET,FOLLOW_TOK_REACHTARGET_in_reachtarget4584); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_player_num_in_reachtarget4643);
+            pushFollow(FOLLOW_player_num_in_reachtarget4586);
             player_num();
             _fsp--;
 
-            pushFollow(FOLLOW_simple_expression_in_reachtarget4645);
+            pushFollow(FOLLOW_simple_expression_in_reachtarget4588);
             simple_expression();
             _fsp--;
 
@@ -8655,20 +8531,20 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start avoidtarget
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:933:1: avoidtarget : ^( TOK_AVOIDTARGET player_num simple_expression ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:934:1: avoidtarget : ^( TOK_AVOIDTARGET player_num simple_expression ) ;
     public final void avoidtarget() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:933:14: ( ^( TOK_AVOIDTARGET player_num simple_expression ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:933:16: ^( TOK_AVOIDTARGET player_num simple_expression )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:934:14: ( ^( TOK_AVOIDTARGET player_num simple_expression ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:934:16: ^( TOK_AVOIDTARGET player_num simple_expression )
             {
-            match(input,TOK_AVOIDTARGET,FOLLOW_TOK_AVOIDTARGET_in_avoidtarget4658); 
+            match(input,TOK_AVOIDTARGET,FOLLOW_TOK_AVOIDTARGET_in_avoidtarget4601); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_player_num_in_avoidtarget4660);
+            pushFollow(FOLLOW_player_num_in_avoidtarget4603);
             player_num();
             _fsp--;
 
-            pushFollow(FOLLOW_simple_expression_in_avoidtarget4662);
+            pushFollow(FOLLOW_simple_expression_in_avoidtarget4605);
             simple_expression();
             _fsp--;
 
@@ -8690,16 +8566,16 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start reachdeadlock
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:935:1: reachdeadlock : ^( TOK_REACHDEADLOCK player_num ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:936:1: reachdeadlock : ^( TOK_REACHDEADLOCK player_num ) ;
     public final void reachdeadlock() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:935:15: ( ^( TOK_REACHDEADLOCK player_num ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:935:17: ^( TOK_REACHDEADLOCK player_num )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:936:15: ( ^( TOK_REACHDEADLOCK player_num ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:936:17: ^( TOK_REACHDEADLOCK player_num )
             {
-            match(input,TOK_REACHDEADLOCK,FOLLOW_TOK_REACHDEADLOCK_in_reachdeadlock4674); 
+            match(input,TOK_REACHDEADLOCK,FOLLOW_TOK_REACHDEADLOCK_in_reachdeadlock4617); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_player_num_in_reachdeadlock4676);
+            pushFollow(FOLLOW_player_num_in_reachdeadlock4619);
             player_num();
             _fsp--;
 
@@ -8721,16 +8597,16 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start avoiddeadlock
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:937:1: avoiddeadlock : ^( TOK_AVOIDDEADLOCK player_num ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:938:1: avoiddeadlock : ^( TOK_AVOIDDEADLOCK player_num ) ;
     public final void avoiddeadlock() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:937:15: ( ^( TOK_AVOIDDEADLOCK player_num ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:937:17: ^( TOK_AVOIDDEADLOCK player_num )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:938:15: ( ^( TOK_AVOIDDEADLOCK player_num ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:938:17: ^( TOK_AVOIDDEADLOCK player_num )
             {
-            match(input,TOK_AVOIDDEADLOCK,FOLLOW_TOK_AVOIDDEADLOCK_in_avoiddeadlock4688); 
+            match(input,TOK_AVOIDDEADLOCK,FOLLOW_TOK_AVOIDDEADLOCK_in_avoiddeadlock4631); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_player_num_in_avoiddeadlock4690);
+            pushFollow(FOLLOW_player_num_in_avoiddeadlock4633);
             player_num();
             _fsp--;
 
@@ -8752,20 +8628,20 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start buchigame
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:939:1: buchigame : ^( TOK_BUCHIGAME player_num simple_list_expression ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:940:1: buchigame : ^( TOK_BUCHIGAME player_num simple_list_expression ) ;
     public final void buchigame() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:939:12: ( ^( TOK_BUCHIGAME player_num simple_list_expression ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:939:14: ^( TOK_BUCHIGAME player_num simple_list_expression )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:940:12: ( ^( TOK_BUCHIGAME player_num simple_list_expression ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:940:14: ^( TOK_BUCHIGAME player_num simple_list_expression )
             {
-            match(input,TOK_BUCHIGAME,FOLLOW_TOK_BUCHIGAME_in_buchigame4703); 
+            match(input,TOK_BUCHIGAME,FOLLOW_TOK_BUCHIGAME_in_buchigame4646); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_player_num_in_buchigame4705);
+            pushFollow(FOLLOW_player_num_in_buchigame4648);
             player_num();
             _fsp--;
 
-            pushFollow(FOLLOW_simple_list_expression_in_buchigame4707);
+            pushFollow(FOLLOW_simple_list_expression_in_buchigame4650);
             simple_list_expression();
             _fsp--;
 
@@ -8787,25 +8663,25 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start genreactivity
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:941:1: genreactivity : ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:942:1: genreactivity : ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression ) ;
     public final void genreactivity() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:941:16: ( ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:941:18: ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:942:16: ( ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:942:18: ^( TOK_GENREACTIVITY player_num simple_list_expression TOK_IMPLIES simple_list_expression )
             {
-            match(input,TOK_GENREACTIVITY,FOLLOW_TOK_GENREACTIVITY_in_genreactivity4720); 
+            match(input,TOK_GENREACTIVITY,FOLLOW_TOK_GENREACTIVITY_in_genreactivity4663); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_player_num_in_genreactivity4722);
+            pushFollow(FOLLOW_player_num_in_genreactivity4665);
             player_num();
             _fsp--;
 
-            pushFollow(FOLLOW_simple_list_expression_in_genreactivity4724);
+            pushFollow(FOLLOW_simple_list_expression_in_genreactivity4667);
             simple_list_expression();
             _fsp--;
 
-            match(input,TOK_IMPLIES,FOLLOW_TOK_IMPLIES_in_genreactivity4726); 
-            pushFollow(FOLLOW_simple_list_expression_in_genreactivity4728);
+            match(input,TOK_IMPLIES,FOLLOW_TOK_IMPLIES_in_genreactivity4669); 
+            pushFollow(FOLLOW_simple_list_expression_in_genreactivity4671);
             simple_list_expression();
             _fsp--;
 
@@ -8827,13 +8703,13 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start compute
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:945:1: compute : TOK_COMPUTE ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:946:1: compute : TOK_COMPUTE ;
     public final void compute() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:945:10: ( TOK_COMPUTE )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:945:12: TOK_COMPUTE
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:946:10: ( TOK_COMPUTE )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:946:12: TOK_COMPUTE
             {
-            match(input,TOK_COMPUTE,FOLLOW_TOK_COMPUTE_in_compute4743); 
+            match(input,TOK_COMPUTE,FOLLOW_TOK_COMPUTE_in_compute4686); 
 
             }
 
@@ -8850,10 +8726,10 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start compute_expression
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:947:1: compute_expression : ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:948:1: compute_expression : ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB );
     public final void compute_expression() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:947:20: ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:948:20: ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB )
             int alt72=2;
             int LA72_0 = input.LA(1);
 
@@ -8865,44 +8741,44 @@ public class SMVStmtWalker extends TreeParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("947:1: compute_expression : ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB );", 72, 0, input);
+                    new NoViableAltException("948:1: compute_expression : ( TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB | TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB );", 72, 0, input);
 
                 throw nvae;
             }
             switch (alt72) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:947:22: TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:948:22: TOK_MMIN TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB
                     {
-                    match(input,TOK_MMIN,FOLLOW_TOK_MMIN_in_compute_expression4753); 
-                    match(input,TOK_LB,FOLLOW_TOK_LB_in_compute_expression4755); 
-                    pushFollow(FOLLOW_ctl_expression_in_compute_expression4757);
+                    match(input,TOK_MMIN,FOLLOW_TOK_MMIN_in_compute_expression4696); 
+                    match(input,TOK_LB,FOLLOW_TOK_LB_in_compute_expression4698); 
+                    pushFollow(FOLLOW_ctl_expression_in_compute_expression4700);
                     ctl_expression();
                     _fsp--;
 
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compute_expression4759); 
-                    pushFollow(FOLLOW_ctl_expression_in_compute_expression4761);
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compute_expression4702); 
+                    pushFollow(FOLLOW_ctl_expression_in_compute_expression4704);
                     ctl_expression();
                     _fsp--;
 
-                    match(input,TOK_RB,FOLLOW_TOK_RB_in_compute_expression4763); 
+                    match(input,TOK_RB,FOLLOW_TOK_RB_in_compute_expression4706); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:948:5: TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:949:5: TOK_MMAX TOK_LB ctl_expression TOK_COMMA ctl_expression TOK_RB
                     {
-                    match(input,TOK_MMAX,FOLLOW_TOK_MMAX_in_compute_expression4769); 
-                    match(input,TOK_LB,FOLLOW_TOK_LB_in_compute_expression4771); 
-                    pushFollow(FOLLOW_ctl_expression_in_compute_expression4773);
+                    match(input,TOK_MMAX,FOLLOW_TOK_MMAX_in_compute_expression4712); 
+                    match(input,TOK_LB,FOLLOW_TOK_LB_in_compute_expression4714); 
+                    pushFollow(FOLLOW_ctl_expression_in_compute_expression4716);
                     ctl_expression();
                     _fsp--;
 
-                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compute_expression4775); 
-                    pushFollow(FOLLOW_ctl_expression_in_compute_expression4777);
+                    match(input,TOK_COMMA,FOLLOW_TOK_COMMA_in_compute_expression4718); 
+                    pushFollow(FOLLOW_ctl_expression_in_compute_expression4720);
                     ctl_expression();
                     _fsp--;
 
-                    match(input,TOK_RB,FOLLOW_TOK_RB_in_compute_expression4779); 
+                    match(input,TOK_RB,FOLLOW_TOK_RB_in_compute_expression4722); 
 
                     }
                     break;
@@ -8921,13 +8797,13 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start isa
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:952:1: isa : TOK_ISA ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:953:1: isa : TOK_ISA ;
     public final void isa() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:952:6: ( TOK_ISA )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:952:8: TOK_ISA
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:953:6: ( TOK_ISA )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:953:8: TOK_ISA
             {
-            match(input,TOK_ISA,FOLLOW_TOK_ISA_in_isa4793); 
+            match(input,TOK_ISA,FOLLOW_TOK_ISA_in_isa4736); 
 
             }
 
@@ -8944,10 +8820,10 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start optsemi
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:957:1: optsemi : ( | TOK_SEMI );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:958:1: optsemi : ( | TOK_SEMI );
     public final void optsemi() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:957:10: ( | TOK_SEMI )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:958:10: ( | TOK_SEMI )
             int alt73=2;
             int LA73_0 = input.LA(1);
 
@@ -8959,20 +8835,20 @@ public class SMVStmtWalker extends TreeParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("957:1: optsemi : ( | TOK_SEMI );", 73, 0, input);
+                    new NoViableAltException("958:1: optsemi : ( | TOK_SEMI );", 73, 0, input);
 
                 throw nvae;
             }
             switch (alt73) {
                 case 1 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:958:3: 
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:959:3: 
                     {
                     }
                     break;
                 case 2 :
-                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:958:5: TOK_SEMI
+                    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:959:5: TOK_SEMI
                     {
-                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_optsemi4814); 
+                    match(input,TOK_SEMI,FOLLOW_TOK_SEMI_in_optsemi4757); 
 
                     }
                     break;
@@ -8991,7 +8867,7 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start var_id
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:981:1: var_id returns [StringArrayWA ret] : ^( REF_T var_id_helper ) ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:982:1: var_id returns [StringArrayWA ret] : ^( REF_T var_id_helper ) ;
     public final StringArrayWA var_id() throws RecognitionException {
         StringArrayWA ret = null;
 
@@ -8999,13 +8875,13 @@ public class SMVStmtWalker extends TreeParser {
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:981:36: ( ^( REF_T var_id_helper ) )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:981:38: ^( REF_T var_id_helper )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:982:36: ( ^( REF_T var_id_helper ) )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:982:38: ^( REF_T var_id_helper )
             {
-            match(input,REF_T,FOLLOW_REF_T_in_var_id4860); 
+            match(input,REF_T,FOLLOW_REF_T_in_var_id4803); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_var_id_helper_in_var_id4862);
+            pushFollow(FOLLOW_var_id_helper_in_var_id4805);
             var_id_helper83=var_id_helper();
             _fsp--;
 
@@ -9028,7 +8904,7 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start var_id_helper
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:984:1: var_id_helper returns [StringArrayWA ret] : f= TOK_ATOM (ra= TOK_ATOM | rn= TOK_NUMBER | TOK_LB rs= simple_expression TOK_RB )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:985:1: var_id_helper returns [StringArrayWA ret] : f= TOK_ATOM (ra= TOK_ATOM | rn= TOK_NUMBER | TOK_LB rs= simple_expression TOK_RB )* ;
     public final StringArrayWA var_id_helper() throws RecognitionException {
         StringArrayWA ret = null;
 
@@ -9039,13 +8915,13 @@ public class SMVStmtWalker extends TreeParser {
 
 
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:985:3: (f= TOK_ATOM (ra= TOK_ATOM | rn= TOK_NUMBER | TOK_LB rs= simple_expression TOK_RB )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:985:5: f= TOK_ATOM (ra= TOK_ATOM | rn= TOK_NUMBER | TOK_LB rs= simple_expression TOK_RB )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:986:3: (f= TOK_ATOM (ra= TOK_ATOM | rn= TOK_NUMBER | TOK_LB rs= simple_expression TOK_RB )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:986:5: f= TOK_ATOM (ra= TOK_ATOM | rn= TOK_NUMBER | TOK_LB rs= simple_expression TOK_RB )*
             {
             f=(CommonTree)input.LT(1);
-            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_id_helper4888); 
+            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_id_helper4831); 
             ret = new StringArrayWA(intr, f.getText(), "", null, "");
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:987:3: (ra= TOK_ATOM | rn= TOK_NUMBER | TOK_LB rs= simple_expression TOK_RB )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:988:3: (ra= TOK_ATOM | rn= TOK_NUMBER | TOK_LB rs= simple_expression TOK_RB )*
             loop74:
             do {
                 int alt74=4;
@@ -9070,34 +8946,34 @@ public class SMVStmtWalker extends TreeParser {
 
                 switch (alt74) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:987:4: ra= TOK_ATOM
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:988:4: ra= TOK_ATOM
             	    {
             	    ra=(CommonTree)input.LT(1);
-            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_id_helper4901); 
+            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_var_id_helper4844); 
             	    StringArrayWA temp = new StringArrayWA(intr, "." + ra.getText(), "", null, ""); 
             	                	 ret = ret.concat(temp); 
 
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:990:5: rn= TOK_NUMBER
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:991:5: rn= TOK_NUMBER
             	    {
             	    rn=(CommonTree)input.LT(1);
-            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_var_id_helper4915); 
+            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_var_id_helper4858); 
             	    StringArrayWA temp = new StringArrayWA(intr, "." + rn.getText(), "", null, ""); 
             	                	 ret = ret.concat(temp); 
 
             	    }
             	    break;
             	case 3 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:993:5: TOK_LB rs= simple_expression TOK_RB
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:994:5: TOK_LB rs= simple_expression TOK_RB
             	    {
-            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_var_id_helper4926); 
-            	    pushFollow(FOLLOW_simple_expression_in_var_id_helper4931);
+            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_var_id_helper4869); 
+            	    pushFollow(FOLLOW_simple_expression_in_var_id_helper4874);
             	    rs=simple_expression();
             	    _fsp--;
 
-            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_var_id_helper4933); 
+            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_var_id_helper4876); 
             	    StringArrayWA temp = new StringArrayWA(intr, "[" + input.getTokenStream().toString(
             	      input.getTreeAdaptor().getTokenStartIndex(rs.start),
             	      input.getTreeAdaptor().getTokenStopIndex(rs.start)) + "]", "[", rs.ret , "]"); 
@@ -9127,13 +9003,13 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start command
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1002:1: command : command_case ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1003:1: command : command_case ;
     public final void command() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1002:10: ( command_case )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1002:12: command_case
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1003:10: ( command_case )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1003:12: command_case
             {
-            pushFollow(FOLLOW_command_case_in_command4959);
+            pushFollow(FOLLOW_command_case_in_command4902);
             command_case();
             _fsp--;
 
@@ -9153,10 +9029,10 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start command_case
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1006:1: command_case : ( TOK_GOTO | TOK_INIT | TOK_FAIRNESS | TOK_TRANS | TOK_CONSTRAINT | TOK_SIMPWFF | TOK_CTLWFF | TOK_LTLWFF | TOK_COMPWFF );
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1007:1: command_case : ( TOK_GOTO | TOK_INIT | TOK_FAIRNESS | TOK_TRANS | TOK_CONSTRAINT | TOK_SIMPWFF | TOK_CTLWFF | TOK_LTLWFF | TOK_COMPWFF );
     public final void command_case() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1006:14: ( TOK_GOTO | TOK_INIT | TOK_FAIRNESS | TOK_TRANS | TOK_CONSTRAINT | TOK_SIMPWFF | TOK_CTLWFF | TOK_LTLWFF | TOK_COMPWFF )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1007:14: ( TOK_GOTO | TOK_INIT | TOK_FAIRNESS | TOK_TRANS | TOK_CONSTRAINT | TOK_SIMPWFF | TOK_CTLWFF | TOK_LTLWFF | TOK_COMPWFF )
             // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:
             {
             if ( input.LA(1)==TOK_INIT||(input.LA(1)>=TOK_TRANS && input.LA(1)<=TOK_FAIRNESS)||(input.LA(1)>=TOK_GOTO && input.LA(1)<=TOK_SIMPWFF)||(input.LA(1)>=TOK_CTLWFF && input.LA(1)<=TOK_COMPWFF) ) {
@@ -9185,14 +9061,14 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start context
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1017:1: context : TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1018:1: context : TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )* ;
     public final void context() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1017:10: ( TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1017:12: TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1018:10: ( TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1018:12: TOK_ATOM ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )*
             {
-            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_context5033); 
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1018:4: ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )*
+            match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_context4976); 
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1019:4: ( TOK_DOT TOK_ATOM | TOK_LB simple_expression TOK_RB )*
             loop75:
             do {
                 int alt75=3;
@@ -9208,22 +9084,22 @@ public class SMVStmtWalker extends TreeParser {
 
                 switch (alt75) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1018:6: TOK_DOT TOK_ATOM
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1019:6: TOK_DOT TOK_ATOM
             	    {
-            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_context5040); 
-            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_context5042); 
+            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_context4983); 
+            	    match(input,TOK_ATOM,FOLLOW_TOK_ATOM_in_context4985); 
 
             	    }
             	    break;
             	case 2 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1019:6: TOK_LB simple_expression TOK_RB
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1020:6: TOK_LB simple_expression TOK_RB
             	    {
-            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_context5050); 
-            	    pushFollow(FOLLOW_simple_expression_in_context5052);
+            	    match(input,TOK_LB,FOLLOW_TOK_LB_in_context4993); 
+            	    pushFollow(FOLLOW_simple_expression_in_context4995);
             	    simple_expression();
             	    _fsp--;
 
-            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_context5054); 
+            	    match(input,TOK_RB,FOLLOW_TOK_RB_in_context4997); 
 
             	    }
             	    break;
@@ -9249,14 +9125,14 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start trace
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1021:1: trace : TOK_NUMBER ( TOK_DOT TOK_NUMBER )* ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1022:1: trace : TOK_NUMBER ( TOK_DOT TOK_NUMBER )* ;
     public final void trace() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1021:8: ( TOK_NUMBER ( TOK_DOT TOK_NUMBER )* )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1021:10: TOK_NUMBER ( TOK_DOT TOK_NUMBER )*
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1022:8: ( TOK_NUMBER ( TOK_DOT TOK_NUMBER )* )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1022:10: TOK_NUMBER ( TOK_DOT TOK_NUMBER )*
             {
-            match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_trace5067); 
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1021:21: ( TOK_DOT TOK_NUMBER )*
+            match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_trace5010); 
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1022:21: ( TOK_DOT TOK_NUMBER )*
             loop76:
             do {
                 int alt76=2;
@@ -9281,10 +9157,10 @@ public class SMVStmtWalker extends TreeParser {
 
                 switch (alt76) {
             	case 1 :
-            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1021:22: TOK_DOT TOK_NUMBER
+            	    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1022:22: TOK_DOT TOK_NUMBER
             	    {
-            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_trace5070); 
-            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_trace5072); 
+            	    match(input,TOK_DOT,FOLLOW_TOK_DOT_in_trace5013); 
+            	    match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_trace5015); 
 
             	    }
             	    break;
@@ -9310,18 +9186,18 @@ public class SMVStmtWalker extends TreeParser {
 
 
     // $ANTLR start state
-    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1023:1: state : trace TOK_DOT TOK_NUMBER ;
+    // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1024:1: state : trace TOK_DOT TOK_NUMBER ;
     public final void state() throws RecognitionException {
         try {
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1023:8: ( trace TOK_DOT TOK_NUMBER )
-            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1023:10: trace TOK_DOT TOK_NUMBER
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1024:8: ( trace TOK_DOT TOK_NUMBER )
+            // /Users/lxy/Documents/Doc-LXY-iMac/RecentDoc/Development/JTLV/MCTK2/PARSERS/SMVStmtWalker.g:1024:10: trace TOK_DOT TOK_NUMBER
             {
-            pushFollow(FOLLOW_trace_in_state5085);
+            pushFollow(FOLLOW_trace_in_state5028);
             trace();
             _fsp--;
 
-            match(input,TOK_DOT,FOLLOW_TOK_DOT_in_state5087); 
-            match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_state5089); 
+            match(input,TOK_DOT,FOLLOW_TOK_DOT_in_state5030); 
+            match(input,TOK_NUMBER,FOLLOW_TOK_NUMBER_in_state5032); 
 
             }
 
@@ -9684,7 +9560,7 @@ public class SMVStmtWalker extends TreeParser {
     public static final BitSet FOLLOW_game_definition_in_module_list2980 = new BitSet(new long[]{0x0000000000000002L,0x04C0000000000000L});
     public static final BitSet FOLLOW_mas_agent_in_module_list2987 = new BitSet(new long[]{0x0000000000000002L,0x04C0000000000000L});
     public static final BitSet FOLLOW_TOK_MODULE_in_module3009 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_module_sign_in_module3014 = new BitSet(new long[]{0x0000000000000008L,0xE000000000000000L,0x000000000481FFFAL});
+    public static final BitSet FOLLOW_module_sign_in_module3014 = new BitSet(new long[]{0x0000000000000008L,0xE000000000000000L,0x000000000481C3FAL});
     public static final BitSet FOLLOW_declarations_in_module3025 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_MODULE_SIGN_T_in_module_sign3047 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_TOK_ATOM_in_module_sign3049 = new BitSet(new long[]{0x0000000000000008L});
@@ -9693,7 +9569,7 @@ public class SMVStmtWalker extends TreeParser {
     public static final BitSet FOLLOW_REF_LIST_T_in_module_sign3073 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_sign_atom_list_in_module_sign3075 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_TOK_ATOM_in_sign_atom_list3087 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_declaration_in_declarations3103 = new BitSet(new long[]{0x0000000000000002L,0xE000000000000000L,0x000000000481FFFAL});
+    public static final BitSet FOLLOW_declaration_in_declarations3103 = new BitSet(new long[]{0x0000000000000002L,0xE000000000000000L,0x000000000481C3FAL});
     public static final BitSet FOLLOW_var_in_declaration3115 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_isa_in_declaration3122 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_input_var_in_declaration3129 = new BitSet(new long[]{0x0000000000000002L});
@@ -9706,265 +9582,259 @@ public class SMVStmtWalker extends TreeParser {
     public static final BitSet FOLLOW_justice_in_declaration3174 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_compassion_in_declaration3180 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_invarspec_in_declaration3186 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ctlspec_in_declaration3193 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ltlspec_in_declaration3200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_pslspec_in_declaration3207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_compute_in_declaration3214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_constants_in_declaration3221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_predicate_in_declaration3228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_mirror_in_declaration3235 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_AGENT_in_mas_agent3250 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_agent_sign_in_mas_agent3255 = new BitSet(new long[]{0x0000000000000008L,0xE200000000000000L,0x00000000000001AAL});
-    public static final BitSet FOLLOW_agent_declarations_in_mas_agent3266 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AGENT_SIGN_T_in_agent_sign3291 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3293 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AGENT_SIGN_T_in_agent_sign3305 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3307 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_AGENT_REF_LIST_T_in_agent_sign3317 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_agent_sign_atom_list_in_agent_sign3319 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_agent_declaration_in_agent_declarations3335 = new BitSet(new long[]{0x0000000000000002L,0xE200000000000000L,0x00000000000001AAL});
-    public static final BitSet FOLLOW_agent_sign_atom_in_agent_sign_atom_list3346 = new BitSet(new long[]{0x0000200000000002L,0x0100000000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign_atom3357 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_VISIBLE_in_agent_sign_atom3366 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign_atom3368 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_var_in_agent_declaration3392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_agent_invisible_var_in_agent_declaration3403 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_input_var_in_agent_declaration3409 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_assign_in_agent_declaration3415 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_init_in_agent_declaration3422 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_trans_in_agent_declaration3428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_define_in_agent_declaration3434 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_justice_in_agent_declaration3440 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_compassion_in_agent_declaration3446 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3458 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3467 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_var_decl_list_in_agent_invisible_var3469 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_GAME_in_game_definition3489 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_game_body_in_game_definition3491 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_game_body_element_in_game_body3503 = new BitSet(new long[]{0x0000000000000002L,0x1800000000000000L,0x00000000007E0000L});
-    public static final BitSet FOLLOW_game_body_in_game_body3506 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PLAYER_1_in_game_body_element3518 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_player_body_in_game_body_element3520 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_PLAYER_2_in_game_body_element3528 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_player_body_in_game_body_element3530 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_reachtarget_in_game_body_element3542 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_avoidtarget_in_game_body_element3548 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_reachdeadlock_in_game_body_element3554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_avoiddeadlock_in_game_body_element3560 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_buchigame_in_game_body_element3566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_genreactivity_in_game_body_element3572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_player_body_element_in_player_body3586 = new BitSet(new long[]{0x0000000000000002L,0xA000000000000000L,0x000000000000003AL});
-    public static final BitSet FOLLOW_var_in_player_body_element3598 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_assign_in_player_body_element3605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_init_in_player_body_element3612 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_invar_in_player_body_element3618 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_trans_in_player_body_element3625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_define_in_player_body_element3631 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_VAR_in_var3649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_VAR_in_var3656 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_var_decl_list_in_var3658 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_var_decl_in_var_decl_list3672 = new BitSet(new long[]{0x0000000000000082L,0x0000000000000004L});
-    public static final BitSet FOLLOW_var_decl_in_var_decl_list3675 = new BitSet(new long[]{0x0000000000000082L,0x0000000000000004L});
-    public static final BitSet FOLLOW_VAR_DECL_T_in_var_decl3698 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_var_id_in_var_decl3700 = new BitSet(new long[]{0x0000000000078000L,0x0016000000000000L});
-    public static final BitSet FOLLOW_type_in_var_decl3703 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_FOR_in_var_decl3718 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_LP_in_var_decl3721 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_var_decl3723 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_var_decl3725 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_var_decl3728 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_var_decl3730 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_var_decl3733 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_var_decl3735 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_var_decl3738 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_var_decl3740 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_var_decl3742 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_var_decl3744 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000004L});
-    public static final BitSet FOLLOW_var_decl_list_in_var_decl3747 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_var_decl3749 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_IVAR_in_input_var3783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_IVAR_in_input_var3790 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_ivar_decl_list_in_input_var3792 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ivar_decl_in_ivar_decl_list3806 = new BitSet(new long[]{0x0000000000000102L,0x0000000000000004L});
-    public static final BitSet FOLLOW_ivar_decl_in_ivar_decl_list3809 = new BitSet(new long[]{0x0000000000000102L,0x0000000000000004L});
-    public static final BitSet FOLLOW_IVAR_DECL_T_in_ivar_decl3831 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_var_id_in_ivar_decl3833 = new BitSet(new long[]{0x0000000000078000L,0x0016000000000000L});
-    public static final BitSet FOLLOW_type_in_ivar_decl3835 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_FOR_in_ivar_decl3846 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_LP_in_ivar_decl3849 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_ivar_decl3851 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_ivar_decl3853 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3856 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_ivar_decl3858 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3861 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_ivar_decl3863 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3866 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_ivar_decl3868 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_ivar_decl3870 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_ivar_decl3872 = new BitSet(new long[]{0x0000000000000100L,0x0000000000000004L});
-    public static final BitSet FOLLOW_ivar_decl_list_in_ivar_decl3875 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_ivar_decl3877 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_DEFINE_in_define3910 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_define_list_in_define3912 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_define_decl_in_define_list3924 = new BitSet(new long[]{0x0000000000000202L,0x0000000000000004L});
-    public static final BitSet FOLLOW_define_decl_in_define_list3928 = new BitSet(new long[]{0x0000000000000202L,0x0000000000000004L});
-    public static final BitSet FOLLOW_DEFINE_DECL_T_in_define_decl3951 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_var_id_in_define_decl3954 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_define_decl3957 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_FOR_in_define_decl3973 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_LP_in_define_decl3976 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_define_decl3978 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_define_decl3980 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_define_decl3983 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_define_decl3985 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_define_decl3988 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_define_decl3990 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_define_decl3993 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_define_decl3995 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_define_decl3997 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_define_decl3999 = new BitSet(new long[]{0x0000000000000200L,0x0000000000000004L});
-    public static final BitSet FOLLOW_define_list_in_define_decl4002 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_define_decl4004 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_ASSIGN_in_assign4035 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_assign_list_in_assign4037 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_one_assign_in_assign_list4048 = new BitSet(new long[]{0x0000000000001C02L,0x0000000000000004L});
-    public static final BitSet FOLLOW_one_assign_in_assign_list4052 = new BitSet(new long[]{0x0000000000001C02L,0x0000000000000004L});
-    public static final BitSet FOLLOW_ASSIGN_DECL_T_in_one_assign4074 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_var_id_in_one_assign4076 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4078 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_INIT_ASSIGN_DECL_T_in_one_assign4090 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_var_id_in_one_assign4092 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4094 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_NEXT_ASSIGN_DECL_T_in_one_assign4106 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_var_id_in_one_assign4108 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_next_expression_in_one_assign4110 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_FOR_in_one_assign4122 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_LP_in_one_assign4125 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_one_assign4127 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_one_assign4129 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4132 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_one_assign4134 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4137 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_one_assign4139 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_one_assign4142 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_one_assign4144 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_one_assign4146 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_one_assign4148 = new BitSet(new long[]{0x0000000000001C00L,0x0000000000000004L});
-    public static final BitSet FOLLOW_assign_list_in_one_assign4151 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_one_assign4153 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_INIT_in_init4188 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_simple_expression_in_init4190 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_INVAR_in_invar4208 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_TRANS_in_trans4223 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_next_expression_in_trans4225 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_FAIRNESS_in_fairness4250 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_JUSTICE_in_justice4264 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_justice_list_in_justice4266 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_justice_decl_in_justice_list4277 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_justice_decl_in_justice_list4281 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_JUSTICE_DECL_T_in_justice_decl4303 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_simple_expression_in_justice_decl4305 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_FOR_in_justice_decl4316 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_LP_in_justice_decl4319 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_justice_decl4321 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_justice_decl4323 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_justice_decl4326 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_justice_decl4328 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_justice_decl4331 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_justice_decl4333 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_justice_decl4336 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_justice_decl4338 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_justice_decl4340 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_justice_decl4342 = new BitSet(new long[]{0x0000000000002000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_justice_list_in_justice_decl4345 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_justice_decl4347 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_COMPASSION_in_compassion4377 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_compassion_list_in_compassion4379 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_compassion_decl_in_compassion_list4390 = new BitSet(new long[]{0x0000000000004002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_compassion_decl_in_compassion_list4394 = new BitSet(new long[]{0x0000000000004002L,0x0000000000000004L});
-    public static final BitSet FOLLOW_COMPASSION_DECL_T_in_compassion_decl4416 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4421 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_compassion_decl4423 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4428 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_FOR_in_compassion_decl4440 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TOK_LP_in_compassion_decl4443 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_compassion_decl4445 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_compassion_decl4447 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4450 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_compassion_decl4452 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4455 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_compassion_decl4457 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4460 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_NOP_in_compassion_decl4462 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_TOK_RP_in_compassion_decl4464 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_TOK_LCB_in_compassion_decl4466 = new BitSet(new long[]{0x0000000000004000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_compassion_list_in_compassion_decl4469 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_TOK_RCB_in_compassion_decl4471 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_INVARSPEC_in_invarspec4503 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_ctlspec0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_LTLSPEC_in_ltlspec4534 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PSLSPEC_in_pslspec4545 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_CONSTANTS_in_constants4556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_complex_atom_in_constants_expression4576 = new BitSet(new long[]{0x0200000000000002L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_constants_expression4579 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_complex_atom_in_constants_expression4581 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_compute_in_declaration3194 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_constants_in_declaration3201 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_predicate_in_declaration3208 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_mirror_in_declaration3215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_AGENT_in_mas_agent3230 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_agent_sign_in_mas_agent3235 = new BitSet(new long[]{0x0000000000000008L,0xE200000000000000L,0x00000000000001AAL});
+    public static final BitSet FOLLOW_agent_declarations_in_mas_agent3246 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_AGENT_SIGN_T_in_agent_sign3271 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3273 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_AGENT_SIGN_T_in_agent_sign3285 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign3287 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_AGENT_REF_LIST_T_in_agent_sign3297 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_agent_sign_atom_list_in_agent_sign3299 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_agent_declaration_in_agent_declarations3315 = new BitSet(new long[]{0x0000000000000002L,0xE200000000000000L,0x00000000000001AAL});
+    public static final BitSet FOLLOW_agent_sign_atom_in_agent_sign_atom_list3326 = new BitSet(new long[]{0x0000200000000002L,0x0100000000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign_atom3337 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_VISIBLE_in_agent_sign_atom3346 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_agent_sign_atom3348 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_var_in_agent_declaration3372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_agent_invisible_var_in_agent_declaration3383 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_input_var_in_agent_declaration3389 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_assign_in_agent_declaration3395 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_init_in_agent_declaration3402 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_trans_in_agent_declaration3408 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_define_in_agent_declaration3414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_justice_in_agent_declaration3420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_compassion_in_agent_declaration3426 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3438 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_INVISIBLE_VAR_in_agent_invisible_var3447 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_var_decl_list_in_agent_invisible_var3449 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_GAME_in_game_definition3469 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_game_body_in_game_definition3471 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_game_body_element_in_game_body3483 = new BitSet(new long[]{0x0000000000000002L,0x1800000000000000L,0x00000000007E0000L});
+    public static final BitSet FOLLOW_game_body_in_game_body3486 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_PLAYER_1_in_game_body_element3498 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_player_body_in_game_body_element3500 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_PLAYER_2_in_game_body_element3508 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_player_body_in_game_body_element3510 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_reachtarget_in_game_body_element3522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_avoidtarget_in_game_body_element3528 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_reachdeadlock_in_game_body_element3534 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_avoiddeadlock_in_game_body_element3540 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_buchigame_in_game_body_element3546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_genreactivity_in_game_body_element3552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_player_body_element_in_player_body3566 = new BitSet(new long[]{0x0000000000000002L,0xA000000000000000L,0x000000000000003AL});
+    public static final BitSet FOLLOW_var_in_player_body_element3578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_assign_in_player_body_element3585 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_init_in_player_body_element3592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_invar_in_player_body_element3598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_trans_in_player_body_element3605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_define_in_player_body_element3611 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_VAR_in_var3629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_VAR_in_var3636 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_var_decl_list_in_var3638 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_var_decl_in_var_decl_list3652 = new BitSet(new long[]{0x0000000000000082L,0x0000000000000004L});
+    public static final BitSet FOLLOW_var_decl_in_var_decl_list3655 = new BitSet(new long[]{0x0000000000000082L,0x0000000000000004L});
+    public static final BitSet FOLLOW_VAR_DECL_T_in_var_decl3678 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_var_id_in_var_decl3680 = new BitSet(new long[]{0x0000000000078000L,0x0016000000000000L});
+    public static final BitSet FOLLOW_type_in_var_decl3683 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_FOR_in_var_decl3698 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_LP_in_var_decl3701 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_var_decl3703 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_var_decl3705 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_var_decl3708 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_var_decl3710 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_var_decl3713 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_var_decl3715 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_var_decl3718 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_var_decl3720 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_var_decl3722 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_var_decl3724 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000004L});
+    public static final BitSet FOLLOW_var_decl_list_in_var_decl3727 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_var_decl3729 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_IVAR_in_input_var3763 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_IVAR_in_input_var3770 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ivar_decl_list_in_input_var3772 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ivar_decl_in_ivar_decl_list3786 = new BitSet(new long[]{0x0000000000000102L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ivar_decl_in_ivar_decl_list3789 = new BitSet(new long[]{0x0000000000000102L,0x0000000000000004L});
+    public static final BitSet FOLLOW_IVAR_DECL_T_in_ivar_decl3811 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_var_id_in_ivar_decl3813 = new BitSet(new long[]{0x0000000000078000L,0x0016000000000000L});
+    public static final BitSet FOLLOW_type_in_ivar_decl3815 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_FOR_in_ivar_decl3826 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_LP_in_ivar_decl3829 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_ivar_decl3831 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_ivar_decl3833 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3836 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_ivar_decl3838 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3841 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_ivar_decl3843 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_ivar_decl3846 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_ivar_decl3848 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_ivar_decl3850 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_ivar_decl3852 = new BitSet(new long[]{0x0000000000000100L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ivar_decl_list_in_ivar_decl3855 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_ivar_decl3857 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_DEFINE_in_define3890 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_define_list_in_define3892 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_define_decl_in_define_list3904 = new BitSet(new long[]{0x0000000000000202L,0x0000000000000004L});
+    public static final BitSet FOLLOW_define_decl_in_define_list3908 = new BitSet(new long[]{0x0000000000000202L,0x0000000000000004L});
+    public static final BitSet FOLLOW_DEFINE_DECL_T_in_define_decl3931 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_var_id_in_define_decl3934 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_define_decl3937 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_FOR_in_define_decl3953 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_LP_in_define_decl3956 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_define_decl3958 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_define_decl3960 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_define_decl3963 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_define_decl3965 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_define_decl3968 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_define_decl3970 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_define_decl3973 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_define_decl3975 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_define_decl3977 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_define_decl3979 = new BitSet(new long[]{0x0000000000000200L,0x0000000000000004L});
+    public static final BitSet FOLLOW_define_list_in_define_decl3982 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_define_decl3984 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_ASSIGN_in_assign4015 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_assign_list_in_assign4017 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_one_assign_in_assign_list4028 = new BitSet(new long[]{0x0000000000001C02L,0x0000000000000004L});
+    public static final BitSet FOLLOW_one_assign_in_assign_list4032 = new BitSet(new long[]{0x0000000000001C02L,0x0000000000000004L});
+    public static final BitSet FOLLOW_ASSIGN_DECL_T_in_one_assign4054 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_var_id_in_one_assign4056 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4058 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_INIT_ASSIGN_DECL_T_in_one_assign4070 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_var_id_in_one_assign4072 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4074 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_NEXT_ASSIGN_DECL_T_in_one_assign4086 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_var_id_in_one_assign4088 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_next_expression_in_one_assign4090 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_FOR_in_one_assign4102 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_LP_in_one_assign4105 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_one_assign4107 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_one_assign4109 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4112 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_one_assign4114 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4117 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_one_assign4119 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_one_assign4122 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_one_assign4124 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_one_assign4126 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_one_assign4128 = new BitSet(new long[]{0x0000000000001C00L,0x0000000000000004L});
+    public static final BitSet FOLLOW_assign_list_in_one_assign4131 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_one_assign4133 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_INIT_in_init4168 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_simple_expression_in_init4170 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_INVAR_in_invar4188 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_TRANS_in_trans4203 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_next_expression_in_trans4205 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_FAIRNESS_in_fairness4230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_JUSTICE_in_justice4244 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_justice_list_in_justice4246 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_justice_decl_in_justice_list4257 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_justice_decl_in_justice_list4261 = new BitSet(new long[]{0x0000000000002002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_JUSTICE_DECL_T_in_justice_decl4283 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_simple_expression_in_justice_decl4285 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_FOR_in_justice_decl4296 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_LP_in_justice_decl4299 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_justice_decl4301 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_justice_decl4303 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_justice_decl4306 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_justice_decl4308 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_justice_decl4311 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_justice_decl4313 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_justice_decl4316 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_justice_decl4318 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_justice_decl4320 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_justice_decl4322 = new BitSet(new long[]{0x0000000000002000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_justice_list_in_justice_decl4325 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_justice_decl4327 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_COMPASSION_in_compassion4357 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_compassion_list_in_compassion4359 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_compassion_decl_in_compassion_list4370 = new BitSet(new long[]{0x0000000000004002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_compassion_decl_in_compassion_list4374 = new BitSet(new long[]{0x0000000000004002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_COMPASSION_DECL_T_in_compassion_decl4396 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4401 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_compassion_decl4403 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4408 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_FOR_in_compassion_decl4420 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TOK_LP_in_compassion_decl4423 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_compassion_decl4425 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_compassion_decl4427 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4430 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_compassion_decl4432 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4435 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_compassion_decl4437 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_compassion_decl4440 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_NOP_in_compassion_decl4442 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_TOK_RP_in_compassion_decl4444 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
+    public static final BitSet FOLLOW_TOK_LCB_in_compassion_decl4446 = new BitSet(new long[]{0x0000000000004000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_compassion_list_in_compassion_decl4449 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_TOK_RCB_in_compassion_decl4451 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_INVARSPEC_in_invarspec4483 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_CONSTANTS_in_constants4499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_complex_atom_in_constants_expression4519 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_constants_expression4522 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_complex_atom_in_constants_expression4524 = new BitSet(new long[]{0x0200000000000002L});
     public static final BitSet FOLLOW_set_in_player_num0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_PRED_in_predicate4615 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_MIRROR_in_mirror4626 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_REACHTARGET_in_reachtarget4641 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_player_num_in_reachtarget4643 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_reachtarget4645 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_AVOIDTARGET_in_avoidtarget4658 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_player_num_in_avoidtarget4660 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_avoidtarget4662 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_REACHDEADLOCK_in_reachdeadlock4674 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_player_num_in_reachdeadlock4676 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_AVOIDDEADLOCK_in_avoiddeadlock4688 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_player_num_in_avoiddeadlock4690 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_BUCHIGAME_in_buchigame4703 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_player_num_in_buchigame4705 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_simple_list_expression_in_buchigame4707 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_GENREACTIVITY_in_genreactivity4720 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_player_num_in_genreactivity4722 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_simple_list_expression_in_genreactivity4724 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
-    public static final BitSet FOLLOW_TOK_IMPLIES_in_genreactivity4726 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_simple_list_expression_in_genreactivity4728 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_COMPUTE_in_compute4743 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_MMIN_in_compute_expression4753 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_TOK_LB_in_compute_expression4755 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_ctl_expression_in_compute_expression4757 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_compute_expression4759 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_ctl_expression_in_compute_expression4761 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_compute_expression4763 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_MMAX_in_compute_expression4769 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_TOK_LB_in_compute_expression4771 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_ctl_expression_in_compute_expression4773 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_TOK_COMMA_in_compute_expression4775 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_ctl_expression_in_compute_expression4777 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_compute_expression4779 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ISA_in_isa4793 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_SEMI_in_optsemi4814 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_REF_T_in_var_id4860 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_var_id_helper_in_var_id4862 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_var_id_helper4888 = new BitSet(new long[]{0x2000220000000002L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_var_id_helper4901 = new BitSet(new long[]{0x2000220000000002L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_var_id_helper4915 = new BitSet(new long[]{0x2000220000000002L});
-    public static final BitSet FOLLOW_TOK_LB_in_var_id_helper4926 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_var_id_helper4931 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_var_id_helper4933 = new BitSet(new long[]{0x2000220000000002L});
-    public static final BitSet FOLLOW_command_case_in_command4959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_PRED_in_predicate4558 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_MIRROR_in_mirror4569 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_REACHTARGET_in_reachtarget4584 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_player_num_in_reachtarget4586 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_reachtarget4588 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_AVOIDTARGET_in_avoidtarget4601 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_player_num_in_avoidtarget4603 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_avoidtarget4605 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_REACHDEADLOCK_in_reachdeadlock4617 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_player_num_in_reachdeadlock4619 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_AVOIDDEADLOCK_in_avoiddeadlock4631 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_player_num_in_avoiddeadlock4633 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_BUCHIGAME_in_buchigame4646 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_player_num_in_buchigame4648 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_simple_list_expression_in_buchigame4650 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_GENREACTIVITY_in_genreactivity4663 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_player_num_in_genreactivity4665 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_simple_list_expression_in_genreactivity4667 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
+    public static final BitSet FOLLOW_TOK_IMPLIES_in_genreactivity4669 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_simple_list_expression_in_genreactivity4671 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_COMPUTE_in_compute4686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_MMIN_in_compute_expression4696 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_TOK_LB_in_compute_expression4698 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_ctl_expression_in_compute_expression4700 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_compute_expression4702 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_ctl_expression_in_compute_expression4704 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_compute_expression4706 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_MMAX_in_compute_expression4712 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_TOK_LB_in_compute_expression4714 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_ctl_expression_in_compute_expression4716 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_TOK_COMMA_in_compute_expression4718 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_ctl_expression_in_compute_expression4720 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_compute_expression4722 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ISA_in_isa4736 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_SEMI_in_optsemi4757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_REF_T_in_var_id4803 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_var_id_helper_in_var_id4805 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_var_id_helper4831 = new BitSet(new long[]{0x2000220000000002L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_var_id_helper4844 = new BitSet(new long[]{0x2000220000000002L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_var_id_helper4858 = new BitSet(new long[]{0x2000220000000002L});
+    public static final BitSet FOLLOW_TOK_LB_in_var_id_helper4869 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_var_id_helper4874 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_var_id_helper4876 = new BitSet(new long[]{0x2000220000000002L});
+    public static final BitSet FOLLOW_command_case_in_command4902 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_command_case0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_context5033 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_DOT_in_context5040 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_TOK_ATOM_in_context5042 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_LB_in_context5050 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
-    public static final BitSet FOLLOW_simple_expression_in_context5052 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_TOK_RB_in_context5054 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_trace5067 = new BitSet(new long[]{0x1000000000000002L});
-    public static final BitSet FOLLOW_TOK_DOT_in_trace5070 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_trace5072 = new BitSet(new long[]{0x1000000000000002L});
-    public static final BitSet FOLLOW_trace_in_state5085 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_TOK_DOT_in_state5087 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_TOK_NUMBER_in_state5089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_context4976 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_DOT_in_context4983 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_TOK_ATOM_in_context4985 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_LB_in_context4993 = new BitSet(new long[]{0x05380C07E3888000L,0x0001C078101FFF8BL});
+    public static final BitSet FOLLOW_simple_expression_in_context4995 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_TOK_RB_in_context4997 = new BitSet(new long[]{0x3000000000000002L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_trace5010 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_TOK_DOT_in_trace5013 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_trace5015 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_trace_in_state5028 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_TOK_DOT_in_state5030 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_TOK_NUMBER_in_state5032 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -657,7 +657,10 @@ public final class Env {
 	public static Spec[] loadSpecString(String to_parse) {
 		try {
 			CharStream input = new ANTLRStringStream(to_parse);
-			return convertSpecToAPI(loadSpec(input, false));
+			InternalSpec[] intSpecs = loadSpec(input, false);
+			if(intSpecs==null) return null;
+			else
+				return convertSpecToAPI(intSpecs);
 		} catch (RecognitionException re) {
 			Env.doError(re, re.getMessage());
 		} catch (Exception e) {
@@ -872,6 +875,10 @@ public final class Env {
 		CommonTokenStream tokens = new CommonTokenStream(lex);
 		SPCParser parser = new SPCParser(tokens);
 		SPCParser.spec_return r = parser.spec();
+		if(r.ret==null) {
+			return null;
+		}
+
 		// //////////////////////////////////////////
 		// debugging... /////////////////////////////
 		// //////////////////////////////////////////
