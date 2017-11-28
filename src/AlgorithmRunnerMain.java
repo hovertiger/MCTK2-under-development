@@ -18,10 +18,10 @@ import edu.wis.jtlv.lib.mc.LTL.LTLValidAlg;
 /**
  * @version {@value edu.wis.jtlv.env.Env#version}
  * @author yaniv sa'ar.
- * 
+ *
  */
 public class AlgorithmRunnerMain {
-	
+
 	public static void main(String[] args) throws IOException {
 /*		simpleCheckDeadlock();
 		Env.resetEnv();
@@ -36,8 +36,8 @@ public class AlgorithmRunnerMain {
 		ctlCheck();
 */
 		Env.resetEnv();
-		rtctlkCheck();
-
+		//rtctlkCheck();
+		rtctlCheck();
 		System.out.println("DONE");
 	}
 
@@ -309,7 +309,8 @@ public class AlgorithmRunnerMain {
 
 	public static void rtctlkCheck() throws IOException {
 		// System.setProperty("bdd", "buddy");
-		Env.loadModule("testcases/bit_transmission.smv");
+		//Env.loadModule("testcases/bit_transmission.smv");
+		Env.loadModule("testcases/dc3.smv");
 		SMVModule main = (SMVModule) Env.getModule("main");
 		main.setFullPrintingMode(true);
 		System.out.println("========= DONE Loading Modules ==========");
@@ -319,9 +320,9 @@ public class AlgorithmRunnerMain {
 		// dc3.smv
 //		to_parse = "SPEC !dc1.paid -> AG( (dc1 KNOW (!dc1.paid & !dc2.paid & !dc3.paid)) | " +
 //				"( (dc1 KNOW (dc2.paid | dc3.paid)) & !(dc1 KNOW dc2.paid) & !(dc1 KNOW dc3.paid) ) ) \n";
-//		to_parse = "SPEC (AX coin1) | (AX coin2) | (AX coin3)\n";
-//		to_parse = "SPEC !E[TRUE U coin1]";
-
+		to_parse = "SPEC (AX coin1) | (AX coin2) | (AX coin3) & !E[TRUE U coin1]\n";
+		to_parse = "SPEC E[TRUE U coin1]";
+		to_parse = "SPEC EX coin1";
 		//mwOven.smv
 //		to_parse = "SPEC !E[TRUE U (start & close & heat & !error)]";
 //		to_parse = "SPEC !EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )";
@@ -332,8 +333,8 @@ public class AlgorithmRunnerMain {
 		//bit_transmission.smv
 //		to_parse = "SPEC AF((receiver.state=r0 | receiver.state=r1) -> AF sender.ack)";
 //		to_parse = "SPEC EF(EG((receiver.state=r0 | receiver.state=r1) & !sender.ack))";
-//		to_parse = "SPEC AF(sender.ack -> (sender KNOW (receiver.state=r0 | receiver.state=r1)))";
-		to_parse = "SPEC AG((sender.bit=1 & sender.ack) -> (sender KNOW (receiver.state=r0)))";
+		//to_parse = "SPEC !AF(sender.ack -> (sender KNOW (receiver.state=r0 | receiver.state=r1)))";
+//		to_parse = "SPEC AG((sender.bit=1 & sender.ack) -> (sender KNOW (receiver.state=r0)))";
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");
@@ -354,7 +355,46 @@ public class AlgorithmRunnerMain {
 		}
 		// ///////////////////////////////////////
 	}
+	public static void rtctlCheck()  {
+		// System.setProperty("bdd", "buddy");
+		try {
+			Env.loadModule("testcases/mwOven.smv");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		SMVModule main = (SMVModule) Env.getModule("main");
+		main.setFullPrintingMode(true);
+		System.out.println("========= DONE Loading Modules ==========");
 
+		String to_parse;
+
+		//mwOven.smv
+		to_parse = "SPEC !E[TRUE BU 3..12 (start & close & heat & !error)]";
+		//to_parse = "SPEC !EBG  0..6 ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )";
+//		to_parse = "SPEC !EG !heat";
+//		to_parse = "SPEC (!EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )) | !EG !heat";
+//		to_parse = "SPEC ABG 3..8 (start -> AF heat)";
+
+
+		Spec[] all_specs = Env.loadSpecString(to_parse);
+		System.out.println("========= DONE Loading Specs ============");
+
+		AlgRunnerThread runner;
+		// ///////////////////////////////////////
+		// model checking a module
+		for (int i = 0; i < all_specs.length; i++) {
+			// 17, 18, 19, 20, and 21 fails.
+			runner = new AlgRunnerThread(new RTCTLKModelCheckAlg(main,
+					all_specs[i]));
+			runner.runSequential();
+			if (runner.getDoResult() != null)
+				System.out.println(runner.getDoResult().resultString());
+			if (runner.getDoException() != null)
+				System.err.println(runner.getDoException().getMessage());
+
+		}
+		// ///////////////////////////////////////
+	}
 	public static void ltlCheck() throws IOException {
 		// System.setProperty("bdd", "buddy");
 		Env.loadModule("testcases/simple_mc.smv");

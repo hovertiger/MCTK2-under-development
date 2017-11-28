@@ -1,5 +1,9 @@
 package edu.wis.jtlv.lib;
 
+import org.graphstream.graph.Graph;
+
+import javax.swing.*;
+
 /**
  * <p>
  * Implement your algorithm, use or ignore what ever phases that you'd like.
@@ -32,7 +36,6 @@ public interface AlgI {
 	 *             Wherever the algorithm implementor choose to.
 	 */
 	public AlgResultI doAlgorithm() throws AlgExceptionI;
-
 	/**
 	 * <p>
 	 * Post algorithm phase.

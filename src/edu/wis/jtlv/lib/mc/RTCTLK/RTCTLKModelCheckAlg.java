@@ -14,21 +14,25 @@ import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 import org.graphstream.graph.Edge;
+import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
-import org.graphstream.ui.spriteManager.SpriteManager;
+import swing.GraphThread;
+import swing.ViewGraphThread;
 
+import javax.swing.*;
 import java.util.*;
 
 public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     // variables for counterexamples generation
     private static int createdPathNumber=0; // the number of the paths currently created
     int specExplainToLevel = 1; // 0: trunk and all branches at all levels
-                                // 1: trunk only
-                                // 2: trunk and the branch at level 2
-                                // i: trunk and all branches at the levels not larger than i
+    // 1: trunk only
+    // 2: trunk and the branch at level 2
+    // i: trunk and all branches at the levels not larger than i
 
     private static int createdEpistemicEdgeNumber=0;
-
+    JTextPane ctext;
+    GraphExplainRTCTLK graph;
     @Override
     public AlgResultI preAlgorithm() throws AlgExceptionI {
         if (!getProperty().isRealTimeCTLKSpec())
@@ -213,8 +217,8 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         {
             if (child[1] instanceof SpecRange)
             { range = (SpecRange) child[1];
-                left=satRTCTLK(child[0]);//xxxxxxxx
-                right=satRTCTLK(child[2]);//xxxxxxxxx
+                left=satRTCTLK(child[0]);
+                right=satRTCTLK(child[2]);
             }
         }
 
@@ -277,158 +281,16 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                 "Cannot identify root operator for sub specification: " + property);
     }
 
-    /*
-    // delete the redundant negations in "property"
-    // return true if there exists some negations were deleted, return false otherwise.
-    public boolean del_redundant_negation(Spec property) {
-        if (property instanceof SpecBDD)
-            return false;
-        // else it is SpecExp since this cannot be a Real Time CTL.
-        // and it also cannot be a triplet operator.
-        SpecExp propExp = (SpecExp) property;
-        Operator op = propExp.getOperator();
-        Spec[] child = propExp.getChildren();
 
-        BDD left, right;
-        if(op == Operator.KNOW) {
-            left = null;
-            right = satRTCTLK(child[1]);
-        }else {
-            left = satRTCTLK(child[0]);
-            right = (op.isBinary()) ? satRTCTLK(child[1]) : null;
-        }
-
-        // propositional
-        if (op == Operator.NOT) {
-            SpecExp leftExp = (SpecExp) child[0];
-            if(leftExp.getOperator() == Operator.NOT) {
-                Spec leftLeft = leftExp.getChildren()[0];
-                property = leftLeft;
-                return true;
-            }
-            return false;
-        }
-        if (op == Operator.AND)
-            return left.and(right);
-        if (op == Operator.OR)
-            return left.or(right);
-        if (op == Operator.XOR)
-            return left.xor(right);
-        if (op == Operator.XNOR)
-            return left.xor(right).not();
-        if (op == Operator.IFF)
-            return left.biimp(right);
-        if (op == Operator.IMPLIES)
-            return left.imp(right);
-
-        // unbounded CTL temporal
-        if (op == Operator.EX)
-            return EfX(left);
-        if (op == Operator.AX)
-            return AfX(left);
-        if (op == Operator.EF)
-            return EfF(left);
-        if (op == Operator.AF)
-            return AfF(left);
-        if (op == Operator.EG)
-            return EfG(left);
-        if (op == Operator.AG)
-            return AfG(left);
-        if (op == Operator.AU)
-            return AfU(left, right);
-        if (op == Operator.EU)
-            return EfU(left, right);
-
-        // bounded CTL temporal
-
-        // epistemic
-        if (op == Operator.KNOW) {
-            String agentName;
-            agentName = child[0].toString();
-            return know(agentName, right);
-        }
-
-        // something is wrong.
-        throw new ModelCheckAlgException(
-                "Cannot identify root operator for sub specification: " + property);
-
-
+    public void SetText(JTextPane ctext) {
+        this.ctext=ctext;
     }
-*/
-
-/*    // return the negation normal form of "property"
-    public Spec nnf(Spec property) {
-        if (property instanceof SpecBDD)
-            return property;
-        // else it is SpecExp since this cannot be a Real Time CTL.
-        // and it also cannot be a triplet operator.
-        SpecExp propExp = (SpecExp) property;
-        Operator op = propExp.getOperator();
-        Spec[] child = propExp.getChildren();
-
-
-
-        BDD left, right;
-        if(op == Operator.KNOW) {
-            left = null;
-            right = satRTCTLK(child[1]);
-        }else {
-            left = satRTCTLK(child[0]);
-            right = (op.isBinary()) ? satRTCTLK(child[1]) : null;
-        }
-
-        // propositional
-        if (op == Operator.NOT)
-            return left.not();
-        if (op == Operator.AND)
-            return left.and(right);
-        if (op == Operator.OR)
-            return left.or(right);
-        if (op == Operator.XOR)
-            return left.xor(right);
-        if (op == Operator.XNOR)
-            return left.xor(right).not();
-        if (op == Operator.IFF)
-            return left.biimp(right);
-        if (op == Operator.IMPLIES)
-            return left.imp(right);
-
-        // unbounded CTL temporal
-        if (op == Operator.EX)
-            return EfX(left);
-        if (op == Operator.AX)
-            return AfX(left);
-        if (op == Operator.EF)
-            return EfF(left);
-        if (op == Operator.AF)
-            return AfF(left);
-        if (op == Operator.EG)
-            return EfG(left);
-        if (op == Operator.AG)
-            return AfG(left);
-        if (op == Operator.AU)
-            return AfU(left, right);
-        if (op == Operator.EU)
-            return EfU(left, right);
-
-        // bounded CTL temporal
-
-        // epistemic
-        if (op == Operator.KNOW) {
-            String agentName;
-            agentName = child[0].toString();
-            return know(agentName, right);
-        }
-
-        // something is wrong.
-        throw new ModelCheckAlgException(
-                "Cannot identify root operator for sub specification: " + property);
+    public GraphExplainRTCTLK GetGraph() {
+        return  this.graph;
     }
-*/
 
-
-    @Override
-    public AlgResultI doAlgorithm() throws AlgExceptionI {
+    //@Override
+    public AlgResultI GdoAlgorithm() throws AlgExceptionI {
         Spec origSpec = getProperty();
         System.out.println("model checking RTCTLK: " + origSpec);
         if (origSpec == null)
@@ -462,6 +324,39 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
     }
 
+    //Using swing to show
+    public AlgResultI doAlgorithm() throws AlgExceptionI {
+        Spec origSpec = getProperty();
+        //System.out.println("model checking RTCTLK: " + origSpec);
+        ctext.setText(ctext.getText()+"\nmodel checking RTCTLK: " + origSpec);
+        if (origSpec == null)
+            ctext.setText(ctext.getText()+"\n Cannot model check a null specification." );
+        if (!origSpec.isRealTimeCTLKSpec())
+            ctext.setText(ctext.getText()+"\nCannot model check non RTCTLK specification: " + origSpec);
+        // could throw an exception...
+        BDD satStates = satRTCTLK(origSpec);
+        BDD fairInitStates = getDesign().initial().and(getFairStates());
+        BDD fairInit_unSat = fairInitStates.and(satStates.not());
+        if(fairInit_unSat.isZero()){
+            ctext.setText(ctext.getText()+"\n*** Property is VALID ***");
+            return new AlgResultString(true, "*** Property is VALID ***");
+        }else{
+            GraphExplainRTCTLK G = new GraphExplainRTCTLK("A counterexample of " + simplifySpecString(origSpec.toString(),false), this);
+            G.addAttribute("ui.label",G.getId());
+            boolean ok = mainExplainRTCTLK(origSpec, fairInit_unSat, G);
+            String returned_msg = "";
+            if(ok) {
+                ctext.setText(ctext.getText()+"\n*** Property is NOT VALID and its counterexample is as follows ***\n ");
+                returned_msg = "*** Property is NOT VALID and its counterexample is as follows ***\n ";
+                this.graph=G;
+                //new ViewerExplainRTCTLK(G);
+            }else{
+                ctext.setText(ctext.getText()+"\n*** Property is NOT VALID ***\n ");
+                returned_msg = "*** Property is NOT VALID ***\n ";
+            }
+            return new AlgResultString(false, returned_msg);
+        }
+    }
     private BDDVarSet getRelevantVars(Module m, Spec p) {
         // p.releventVars();
         BDDVarSet vars = Env.getEmptySet();
@@ -508,12 +403,11 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     }
 
     public boolean mainExplainRTCTLK(
-        Spec spec,                          // the spec. under checked
-        BDD FairInitStates_unsat_spec,       // the set of fair initial states that does not satisfy spec
-        GraphExplainRTCTLK G                 // the graph that explains spec
+            Spec spec,                          // the spec. under checked
+            BDD FairInitStates_unsat_spec,       // the set of fair initial states that does not satisfy spec
+            GraphExplainRTCTLK G                 // the graph that explains spec
     ) throws ModelCheckAlgException {
         createdPathNumber = 0;
-
         //create a new node as the first state of the counterexample
         BDD fromState = FairInitStates_unsat_spec.satOne(getDesign().moduleUnprimeVars(), false);
         Node n = G.addStateNode( 1, 0, fromState, null); // create the first state 1.0 of G
@@ -528,7 +422,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     //-------------------------------------------------------------------------------------------------------
     public boolean explainRTCTLK(
             boolean getWitness,     // getWitness=true and pathNo.stateNo|=spec: get witness of spec,
-                                    // getWitness=false and pathNo.stateNo=/=spec: get counterexample of spec
+            // getWitness=false and pathNo.stateNo=/=spec: get counterexample of spec
             Spec spec,              // the spec. under checked
             GraphExplainRTCTLK G,   // the graph that explains spec
             int pathNo,             // pathNo is the No. of the current path
@@ -629,7 +523,12 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             if(op==Operator.EG) {
                 witnessEG(spec, G, pathNo, stateNo);
             }
-
+            if(op==Operator.EBG) {//   new SpecExp(Operator.EBG, child[0],new SpecExp(Operator.NOT, child[1])), G, pathNo, stateNo);
+                witnessEBG(spec, G, pathNo, stateNo);
+            }
+            if(op==Operator.EBU) {//   new SpecExp(Operator.EBU, trueSpec,child[0],new SpecExp(Operator.NOT, child[1]))
+                witnessEBU(spec, G, pathNo, stateNo);
+            }
         }else{ // getWitness=false: generating a counterexample of spec
             if (op == Operator.NOT) {
                 return explainRTCTLK(!getWitness, child[0], G, pathNo, stateNo);
@@ -683,6 +582,23 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             if(op==Operator.AG) {
                 return explainRTCTLK(!getWitness, new SpecExp(Operator.EF, new SpecExp(Operator.NOT, child[0])), G, pathNo, stateNo);
             }
+            if(op==Operator.ABF) {
+                return explainRTCTLK(!getWitness, new SpecExp(Operator.EBG, child[0],new SpecExp(Operator.NOT, child[1])), G, pathNo, stateNo);
+            }
+            if(op==Operator.ABG) {
+                SpecBDD trueSpec = new SpecBDD(Env.TRUE());
+                return explainRTCTLK(!getWitness, new SpecExp(Operator.EBU, trueSpec,child[0],new SpecExp(Operator.NOT, child[1])), G, pathNo, stateNo);
+            }
+            if(op==Operator.ABU) { //  CE(s, A[f U a..b g]) = WIT(s, E[!g U a..b (!f & !g)] \/ EG a..b (!g))
+                SpecExp EBGng = new SpecExp(Operator.EBG,child[1],
+                        new SpecExp(Operator.NOT, child[2]));
+                SpecExp EBUspec = new SpecExp(Operator.EBU,
+                        new SpecExp(Operator.NOT,child[2]),child[1],
+                        new SpecExp(Operator.AND, new SpecExp(Operator.NOT,child[0]), new SpecExp(Operator.NOT,child[2])));
+                return explainRTCTLK(!getWitness, new SpecExp(Operator.OR, EBGng, EBUspec), G, pathNo, stateNo);
+                //return explainRTCTLK(!getWitness,  EBUspec, G, pathNo, stateNo);
+            }
+
             if(op==Operator.KNOW) {
                 return explainRTCTLK(!getWitness, new SpecExp(Operator.NOT, spec), G, pathNo, stateNo);
             }
@@ -792,8 +708,6 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             }
 
         }
-
-
         return true;
     }
 
@@ -1194,6 +1108,271 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         return true;
     }
 
+    public boolean witnessEBG(
+            Spec spec,              // the spec. under checked
+            GraphExplainRTCTLK G,   // the graph that explains spec
+            int pathNo,             // pathNo is the No. of the current path
+            int stateNo             // stateNo is the No. of the current state
+    ) throws ModelCheckAlgException {
+        String stateID = pathNo + "." + stateNo;
+        BDD fromState = G.getNodeBDD(stateID);
+        if (fromState == null || fromState.isZero()) return false;
+
+        SpecExp origPropExp = (SpecExp) spec;
+        Operator op = origPropExp.getOperator();
+        Spec[] child = origPropExp.getChildren();
+        SpecRange range = (SpecRange) child[0];
+        ModuleWithStrongFairness design = getDesign();
+
+        if (spec instanceof SpecBDD) return false;
+        if (op != Operator.EBG) return false;
+        BDD f = satRTCTLK(child[1]); // spec = EBG a..b f
+        if(f==null) return false;
+        int from=range.getFrom(),to=range.getTo();
+
+        BDD[] Z = new BDD[to+1];
+        int m=0,n=0;
+        BDD oldZ=null;
+        Z[to]=f.id().and(design.feasible());
+        for(int i=to-1;i>=from;i--)
+        {
+            Z[i] = Z[i+1].or(f.and(design.pred(Z[i+1])));
+            if(Z[i].equals(Z[i+1])) {n=i;break;}
+            n=i;
+        }
+        oldZ=Z[n];
+        for(int i=from-1;i>=0;i--)
+        {
+            Z[i] = design.pred(oldZ);
+            if(Z[i].equals(oldZ)) {m=i;break;}
+            oldZ=Z[i];
+            m=i;
+        }//from 为0跳过此步
+        BDD [] path=new BDD[to+1];
+        path[0] = fromState;
+        SpecBDD trueSpec = new SpecBDD(Env.TRUE());
+        G.addNodeSatSpec(stateID, trueSpec, true);
+        createdPathNumber++;
+        BDD c=fromState,next;
+        String nid1, nid2;
+        Edge e;
+        if(Z[m]==null)//0..n
+        {
+            m=n;
+            for(int i=1;i<=to ;i++)
+            {
+
+                path[i]=c.and(Z[m]).satOne(getDesign().moduleUnprimeVars(),false);
+                next=getDesign().succ(c);
+                c=next;
+                //System.out.println(i+"---"+path[i]);
+                if(i<=from) G.addStateNode(createdPathNumber, i, path[i], trueSpec);
+                else G.addStateNode(createdPathNumber, i, path[i], child[1]);
+                if(i==1) {
+                    nid1=stateID; nid2=createdPathNumber+".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "EBG" +"["+child[0].toString()+"]" +  child[1].toString(), nid1, nid2, true);
+                    e.addAttribute("ui.label", e.getId());
+                }else{
+                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                    //e.addAttribute("ui.label", e.getId());
+                }
+            }
+            return true;
+        }
+        else
+        {
+            if (fromState.and(Z[m]).equals(Env.FALSE()))return false;
+            for(int i=1;i<=m ;i++)//补齐0 ---- m
+            {
+                path[i]=c.and(Z[m]).satOne(getDesign().moduleUnprimeVars(),false);
+                next=getDesign().succ(c);
+                c=next;
+                System.out.println(i+"---"+path[i]);
+                G.addStateNode(createdPathNumber, i, path[i], trueSpec);
+                if(i==1) {
+                    nid1=stateID; nid2=createdPathNumber+".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= "  + "EBG" +"["+child[0].toString()+"]" +   child[1].toString(), nid1, nid2, true);
+                    e.addAttribute("ui.label", e.getId());
+                }else{
+                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                    //e.addAttribute("ui.label", e.getId());
+                }
+            }
+            for(int i=m+1;i<=from-1;i++)//补齐m+1 ---- from-1
+            {
+                path[i]=getDesign().succ(path[i-1]).and(Z[i]).satOne(getDesign().moduleUnprimeVars(),false);
+                System.out.println(i+"---"+path[i]);
+                G.addStateNode(createdPathNumber, i, path[i], trueSpec);
+                if(i==1) {
+                    nid1=stateID; nid2=createdPathNumber+".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= "  + "EBG" +"["+child[0].toString()+"]" +   child[1].toString(), nid1, nid2, true);
+                    e.addAttribute("ui.label", e.getId());
+                }else{
+                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                    //e.addAttribute("ui.label", e.getId());
+                }
+            }
+            for(int i=from;i<=n  ;i++)//补齐from ---- n
+            {
+                path[i]=getDesign().succ(path[i-1]).and(Z[n]).satOne(getDesign().moduleUnprimeVars(),false);
+                System.out.println(i+"---"+path[i]);
+                G.addStateNode(createdPathNumber, i, path[i], child[1]);
+                if(i==1) {
+                    nid1=stateID; nid2=createdPathNumber+".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= "  + "EBG" +"["+child[0].toString()+"]" +   child[1].toString(), nid1, nid2, true);
+                    e.addAttribute("ui.label", e.getId());
+                }else{
+                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                    //e.addAttribute("ui.label", e.getId());
+                }
+            }
+            for(int i=n;i<=to-1;i++)//补齐n ---- to
+            {
+                path[i+1]=getDesign().succ(path[i]).and(Z[i+1]).satOne(getDesign().moduleUnprimeVars(),false);
+                System.out.println(i+"---"+path[i+1]);
+                G.addStateNode(createdPathNumber, i+1, path[i+1], child[1]);
+                nid1=createdPathNumber+"."+i; nid2=createdPathNumber+"."+(i+1);
+                e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+            }
+            return true;
+        }
+    }
+
+
+    public boolean witnessEBU(
+            Spec spec,              // the spec. under checked
+            GraphExplainRTCTLK G,   // the graph that explains spec
+            int pathNo,             // pathNo is the No. of the current path
+            int stateNo             // stateNo is the No. of the current state
+    ) throws ModelCheckAlgException {
+        String stateID = pathNo + "." + stateNo;
+        BDD fromState = G.getNodeBDD(stateID);
+        if (fromState == null || fromState.isZero()) return false;
+
+        SpecExp origPropExp = (SpecExp) spec;
+        Operator op = origPropExp.getOperator();
+        Spec[] child = origPropExp.getChildren();
+        SpecRange range = (SpecRange) child[1];
+        ModuleWithStrongFairness design = getDesign();
+
+        if (spec instanceof SpecBDD) return false;
+        if (op != Operator.EBU) return false;
+        BDD f = satRTCTLK(child[0]);
+        BDD g = satRTCTLK(child[2]);
+        int from=range.getFrom(),to=range.getTo();
+        System.out.println(child[0]+" "+child[1]+child[2]);
+        BDD[] Z = new BDD[to+1];
+        int m=0,n=from;
+        BDD oldZ=null;
+        Z[to]=g.id().and(design.feasible());
+        for(int i=to-1;i>=from;i--)
+        {
+            Z[i] = Z[i+1].or(f.and(design.pred(Z[i+1])));
+            if(Z[i].equals(Z[i+1])) {n=i;break;}
+            n=i;
+        }
+        oldZ=Z[n];
+        for(int i=from-1;i>=0;i--)
+        {
+            Z[i] = f.and(design.pred(oldZ));
+            if(Z[i].equals(oldZ)) {m=i;break;}
+            oldZ=Z[i];
+            m=i;
+        }
+        BDD [] path=new BDD[to+1];
+        path[0] = fromState;
+        G.addNodeSatSpec(stateID, child[0], true);
+
+        createdPathNumber++;
+
+        String nid1, nid2;
+        Edge e;
+
+        BDD c=fromState,next;
+        if (Z[m]==null)
+        {
+            return true;
+        }
+        else
+        {
+            for(int i=1;i<=m ;i++)//补齐0 ---- m
+            {
+                path[i]=c.and(f).and(Z[m]).satOne(getDesign().moduleUnprimeVars(),false);
+                next=getDesign().succ(c);
+                c=next;
+                System.out.println(i+"---"+path[i]);
+                G.addStateNode(createdPathNumber, i, path[i], child[0]);
+
+                if(i==1) {
+                    nid1=stateID; nid2=createdPathNumber+".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
+                    e.addAttribute("ui.label", e.getId());
+                }else{
+                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                    //e.addAttribute("ui.label", e.getId());
+                }
+
+            }
+            for(int i=m+1;i<=from-1;i++)//补齐m+1 ---- from-1
+            {
+                path[i]=getDesign().succ(path[i-1]).and(Z[i]).satOne(getDesign().moduleUnprimeVars(),false);
+                //System.out.println(i+"---"+path[i]);
+                G.addStateNode(createdPathNumber, i, path[i], child[0]);
+                if(i==1) {
+                    nid1=stateID; nid2=createdPathNumber+".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
+                    e.addAttribute("ui.label", e.getId());
+                }else{
+                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                    //e.addAttribute("ui.label", e.getId());
+                }
+            }
+            if (from>0){
+                BDD nextZ,nextg;
+                for(int i=from;i<=to  ;i++)//补齐from ---- n --- to
+                {
+                    if(i<=n) nextZ=Z[n];
+                    else nextZ=Z[i];
+                    nextg=getDesign().succ(path[i-1]).and(nextZ).and(g.id());
+                    if (!nextg.equals(Env.FALSE())) {
+                        path[i]=nextg.satOne(getDesign().moduleUnprimeVars(),false);
+                        //System.out.println(i+"---"+path[i]);
+                        G.addStateNode(createdPathNumber, i, path[i], child[0]);
+                        if(i==1) {
+                            nid1=stateID; nid2=createdPathNumber+".1";
+                            e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
+                            e.addAttribute("ui.label", e.getId());
+                        }else{
+                            nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                            e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                            //e.addAttribute("ui.label", e.getId());
+                        }
+                        break;
+                    }
+                    path[i]=getDesign().succ(path[i-1]).and(nextZ);
+                    //System.out.println(i+"---"+path[i]);
+                    G.addStateNode(createdPathNumber, i, path[i], child[2]);
+                    if(i==1) {
+                        nid1=stateID; nid2=createdPathNumber+".1";
+                        e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
+                        e.addAttribute("ui.label", e.getId());
+                    }else{
+                        nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                        e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                        //e.addAttribute("ui.label", e.getId());
+                    }
+                }
+            }
+            return true;
+        }
+    }
+
 
     public boolean explainOneGraphNode(GraphExplainRTCTLK G, String nodeId) throws ModelCheckAlgException {
         Node n = G.getNode(nodeId); if(n==null) return false;
@@ -1260,13 +1439,13 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                     return EG;}
                 return EU;
             case ABF:
-                return witnessEBG(s,range.getFrom(), range.getTo(),left.not());
+                return LS_witnessEBG(s,range.getFrom(), range.getTo(),left.not());
             case ABG:
-                return witnessEBU(s,range.getFrom(), range.getTo(),Env.TRUE(),left.not());
+                return LS_witnessEBU(s,range.getFrom(), range.getTo(),Env.TRUE(),left.not());
             case ABU:
-                BDD[] EBU= witnessEBU(s,range.getFrom(), range.getTo(),right.not(),left.not().and(right.not()));
+                BDD[] EBU= LS_witnessEBU(s,range.getFrom(), range.getTo(),right.not(),left.not().and(right.not()));
                 if (EBU==null){
-                    BDD[] EBG= witnessEBG(s,range.getFrom(), range.getTo(),right.not());
+                    BDD[] EBG= LS_witnessEBG(s,range.getFrom(), range.getTo(),right.not());
                     return EBG;}
                 return EBU;
 //				System.out.println("EBG-----------------------------------------------------------");
@@ -1507,7 +1686,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         return returned_path;
     }
 
-    public BDD[] witnessEBU(BDD s, int from, int to, BDD f, BDD g){
+    public BDD[] LS_witnessEBU(BDD s, int from, int to, BDD f, BDD g){
         BDD[] Z = new BDD[100];
         int m=0,n=from;
         BDD oldZ=null;
@@ -1586,7 +1765,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             return return_path;
         }
     }
-    public BDD[] witnessEBG(BDD s, int from, int to, BDD f){
+    public BDD[] LS_witnessEBG(BDD s, int from, int to, BDD f){
         BDD[] Z = new BDD[100];
         int m=0,n=0;
         BDD oldZ=null;

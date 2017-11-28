@@ -90,6 +90,7 @@ public class AlgResultPath implements AlgResultI {
 		res += "   Counter Example \n";
 		res += "=====================\n";
 		for (int i = 0; i < this.result.length; i++) {
+			if(this.result[i]==null) break;
 			res += "[" + i + "] " + Env.toNiceString(this.result[i]);
 			res += ((i == (this.result.length - 1)) ? "" : "\n");
 		}
