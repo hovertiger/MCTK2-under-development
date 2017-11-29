@@ -38,8 +38,8 @@ public class AlgorithmRunnerMain {
 		ctlCheck();
 */
 		Env.resetEnv();
-//		rtctlkCheck();
-		rtctlCheck();
+		rtctlkCheck();
+//		rtctlCheck();
 
 //		System.out.println("DONE");
 	}

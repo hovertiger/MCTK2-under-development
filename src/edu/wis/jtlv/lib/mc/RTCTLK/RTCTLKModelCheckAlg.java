@@ -326,6 +326,8 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
     //Using swing to show
     public AlgResultI doAlgorithm() throws AlgExceptionI {
+        return GdoAlgorithm();
+/*
         Spec origSpec = getProperty();
         //System.out.println("model checking RTCTLK: " + origSpec);
         ctext.setText(ctext.getText()+"\nmodel checking RTCTLK: " + origSpec);
@@ -355,7 +357,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                 returned_msg = "*** Property is NOT VALID ***\n ";
             }
             return new AlgResultString(false, returned_msg);
-        }
+        } */
     }
 
     private BDDVarSet getRelevantVars(Module m, Spec p) {
@@ -1022,121 +1024,62 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         if (spec instanceof SpecBDD) return false;
         if (op != Operator.EBG) return false;
         BDD f = satRTCTLK(child[1]); // spec = EBG a..b f
-        if(f==null) return false;
-        int from=range.getFrom(),to=range.getTo();
+        if(f==null || f.isZero()) return false;
+        int from=range.getFrom(), to=range.getTo();
 
-        BDD[] Z = new BDD[to+1];
-        int m=0,n=0;
-        BDD oldZ=null;
-        Z[to]=f.id().and(design.feasible());
-        for(int i=to-1;i>=from;i--)
-        {
-            Z[i] = Z[i+1].or(f.and(design.pred(Z[i+1])));
-            if(Z[i].equals(Z[i+1])) {n=i;break;}
-            n=i;
+        HashMap<Integer, BDD> Z = new HashMap<Integer, BDD>();
+
+        if(isUsingReachableStates()) Z.put(to, getFairReachableStates().and(f));
+        else Z.put(to, getFairStates().and(f));
+
+        int n=from, m=0;
+        for (int i=to-1;i>=from;i--){
+            Z.put(i, f.and(EX(Z.get(i+1))));
+            if (Z.get(i).equals(Z.get(i+1))) {n=i; break;}
         }
-        oldZ=Z[n];
-        for(int i=from-1;i>=0;i--)
-        {
-            Z[i] = design.pred(oldZ);
-            if(Z[i].equals(oldZ)) {m=i;break;}
-            oldZ=Z[i];
-            m=i;
-        }//from 为0跳过此步
-        BDD [] path=new BDD[to+1];
-        path[0] = fromState;
-        SpecBDD trueSpec = new SpecBDD(Env.TRUE());
-        G.addNodeSatSpec(stateID, trueSpec, true);
+
+        BDD preZ = Z.get(n);
+        for (int i=from-1;i>=0;i--){
+            Z.put(i, EX(preZ));
+            if (Z.get(i).equals(preZ)) {m=i; break;}
+            preZ = Z.get(i);
+        }
+        if(!fromState.imp(Z.get(m)).isOne()) return false;
+
         createdPathNumber++;
-        BDD c=fromState,next;
-        String nid1, nid2;
-        Edge e;
-        if(Z[m]==null)//0..n
-        {
-            m=n;
-            for(int i=1;i<=to ;i++)
-            {
+        BDD pre_state = fromState, cur_state;
+        for(int i=1; i<=to; i++) {
+            if(i<m){
+                cur_state = design.succ(pre_state).and(Z.get(m)).satOne(design.moduleUnprimeVars(), false);
+                G.addStateNode(createdPathNumber, i, cur_state, null);
+            }else if(i>=m && i<=(from-1)){
+                cur_state = design.succ(pre_state).and(Z.get(i)).satOne(design.moduleUnprimeVars(), false);
+                G.addStateNode(createdPathNumber, i, cur_state, null);
+            }else if(i>=from && i<n){
+                cur_state = design.succ(pre_state).and(Z.get(n)).satOne(design.moduleUnprimeVars(), false);
+                G.addStateNode(createdPathNumber, i, cur_state, child[1]);
+            }else{ // i>=n && i<=to
+                cur_state = design.succ(pre_state).and(Z.get(i)).satOne(design.moduleUnprimeVars(), false);
+                G.addStateNode(createdPathNumber, i, cur_state, child[1]);
+            }
 
-                path[i]=c.and(Z[m]).satOne(getDesign().moduleUnprimeVars(),false);
-                next=getDesign().succ(c);
-                c=next;
-                //System.out.println(i+"---"+path[i]);
-                if(i<=from) G.addStateNode(createdPathNumber, i, path[i], trueSpec);
-                else G.addStateNode(createdPathNumber, i, path[i], child[1]);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "EBG" +"["+child[0].toString()+"]" +  child[1].toString(), nid1, nid2, true);
-                    e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
-                    //e.addAttribute("ui.label", e.getId());
-                }
-            }
-            return true;
-        }
-        else
-        {
-            if (fromState.and(Z[m]).equals(Env.FALSE()))return false;
-            for(int i=1;i<=m ;i++)//补齐0 ---- m
-            {
-                path[i]=c.and(Z[m]).satOne(getDesign().moduleUnprimeVars(),false);
-                next=getDesign().succ(c);
-                c=next;
-                System.out.println(i+"---"+path[i]);
-                G.addStateNode(createdPathNumber, i, path[i], trueSpec);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= "  + "EBG" +"["+child[0].toString()+"]" +   child[1].toString(), nid1, nid2, true);
-                    e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
-                    //e.addAttribute("ui.label", e.getId());
-                }
-            }
-            for(int i=m+1;i<=from-1;i++)//补齐m+1 ---- from-1
-            {
-                path[i]=getDesign().succ(path[i-1]).and(Z[i]).satOne(getDesign().moduleUnprimeVars(),false);
-                System.out.println(i+"---"+path[i]);
-                G.addStateNode(createdPathNumber, i, path[i], trueSpec);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= "  + "EBG" +"["+child[0].toString()+"]" +   child[1].toString(), nid1, nid2, true);
-                    e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
-                    //e.addAttribute("ui.label", e.getId());
-                }
-            }
-            for(int i=from;i<=n  ;i++)//补齐from ---- n
-            {
-                path[i]=getDesign().succ(path[i-1]).and(Z[n]).satOne(getDesign().moduleUnprimeVars(),false);
-                System.out.println(i+"---"+path[i]);
-                G.addStateNode(createdPathNumber, i, path[i], child[1]);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= "  + "EBG" +"["+child[0].toString()+"]" +   child[1].toString(), nid1, nid2, true);
-                    e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
-                    //e.addAttribute("ui.label", e.getId());
-                }
-            }
-            for(int i=n;i<=to-1;i++)//补齐n ---- to
-            {
-                path[i+1]=getDesign().succ(path[i]).and(Z[i+1]).satOne(getDesign().moduleUnprimeVars(),false);
-                System.out.println(i+"---"+path[i+1]);
-                G.addStateNode(createdPathNumber, i+1, path[i+1], child[1]);
-                nid1=createdPathNumber+"."+i; nid2=createdPathNumber+"."+(i+1);
+            String nid1,nid2;
+            Edge e;
+            if(i==1) {
+                nid1=stateID; nid2=createdPathNumber+".1";
+                e = G.addEdge("Path #" + createdPathNumber + " |= EBG ["+child[0].toString()+"] " +  simplifySpecString(child[1].toString(),false), nid1, nid2, true);
+                e.addAttribute("ui.label", e.getId());
+            }else{
+                nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
                 e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                //e.addAttribute("ui.label", e.getId());
             }
-            return true;
-        }
-    }
 
+            pre_state = cur_state;
+        }
+
+        return true;
+    }
 
     public boolean witnessEBU(
             Spec spec,              // the spec. under checked
@@ -1158,114 +1101,68 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         if (op != Operator.EBU) return false;
         BDD f = satRTCTLK(child[0]);
         BDD g = satRTCTLK(child[2]);
-        int from=range.getFrom(),to=range.getTo();
-        System.out.println(child[0]+" "+child[1]+child[2]);
-        BDD[] Z = new BDD[to+1];
-        int m=0,n=from;
-        BDD oldZ=null;
-        Z[to]=g.id().and(design.feasible());
-        for(int i=to-1;i>=from;i--)
-        {
-            Z[i] = Z[i+1].or(f.and(design.pred(Z[i+1])));
-            if(Z[i].equals(Z[i+1])) {n=i;break;}
-            n=i;
+        int from = range.getFrom(), to = range.getTo();
+
+        HashMap<Integer, BDD> Z = new HashMap<>();
+        if(isUsingReachableStates()) Z.put(to, getFairReachableStates().and(g));
+        else Z.put(to, getFairStates().and(g));
+
+        int n=from, m=0;
+        for (int i=to-1; i>=from; i--){
+            Z.put(i, Z.get(i+1).or(f.and(EX(Z.get(i+1)))));
+            if (Z.get(i).equals(Z.get(i+1))) {n=i; break;}
         }
-        oldZ=Z[n];
-        for(int i=from-1;i>=0;i--)
-        {
-            Z[i] = f.and(design.pred(oldZ));
-            if(Z[i].equals(oldZ)) {m=i;break;}
-            oldZ=Z[i];
-            m=i;
+
+        BDD preZ = Z.get(n);
+        for (int i=from-1;i>=0;i--){
+            Z.put(i, f.and(EX(preZ)));
+            if (Z.get(i).equals(preZ)) {m=i; break;}
+            preZ = Z.get(i);
         }
-        BDD [] path=new BDD[to+1];
-        path[0] = fromState;
-        G.addNodeSatSpec(stateID, child[0], true);
+        if(!fromState.imp(Z.get(m)).isOne()) return false;
 
         createdPathNumber++;
+        BDD pre_state = fromState, cur_state;
+        boolean finished=false;
+        for(int i=1; i<=to; i++) {
+            if(i<m){
+                cur_state = design.succ(pre_state).and(Z.get(m)).satOne(design.moduleUnprimeVars(), false);
+                G.addStateNode(createdPathNumber, i, cur_state, child[0]);
+            }else if(i>=m && i<=(from-1)){
+                cur_state = design.succ(pre_state).and(Z.get(i)).satOne(design.moduleUnprimeVars(), false);
+                G.addStateNode(createdPathNumber, i, cur_state, child[0]);
+            }else{
+                BDD cur_Z;
+                if(i>=from && i<n) cur_Z=Z.get(n);
+                else cur_Z = Z.get(i); // i>=n && i<=to
+                BDD cur_to_g = design.succ(pre_state).and(cur_Z.and(g));
+                if(!cur_to_g.isZero()) {
+                    cur_state = cur_to_g.satOne(design.moduleUnprimeVars(), false);
+                    G.addStateNode(createdPathNumber, i, cur_state, child[2]);
+                    finished=true;
+                } else { // g states can not reach from pre_state by one transition step
+                    cur_state = design.succ(pre_state).and(cur_Z).satOne(design.moduleUnprimeVars(), false);
+                    G.addStateNode(createdPathNumber, i, cur_state, child[0]);
+                }
+            }
 
-        String nid1, nid2;
-        Edge e;
-
-        BDD c=fromState,next;
-        if (Z[m]==null)
-        {
-            return true;
+            String nid1,nid2;
+            Edge e;
+            if(i==1) {
+                nid1=stateID; nid2=createdPathNumber+".1";
+                e = G.addEdge("Path #" + createdPathNumber + " |= E["+ simplifySpecString(child[0].toString(),false) +
+                        " BU "+ child[1].toString() +  simplifySpecString(child[2].toString(),false), nid1, nid2, true);
+                e.addAttribute("ui.label", e.getId());
+            }else{
+                nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
+                e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                //e.addAttribute("ui.label", e.getId());
+            }
+            if(finished) return true;
+            pre_state = cur_state;
         }
-        else
-        {
-            for(int i=1;i<=m ;i++)//补齐0 ---- m
-            {
-                path[i]=c.and(f).and(Z[m]).satOne(getDesign().moduleUnprimeVars(),false);
-                next=getDesign().succ(c);
-                c=next;
-                System.out.println(i+"---"+path[i]);
-                G.addStateNode(createdPathNumber, i, path[i], child[0]);
 
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
-                    e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
-                    //e.addAttribute("ui.label", e.getId());
-                }
-
-            }
-            for(int i=m+1;i<=from-1;i++)//补齐m+1 ---- from-1
-            {
-                path[i]=getDesign().succ(path[i-1]).and(Z[i]).satOne(getDesign().moduleUnprimeVars(),false);
-                //System.out.println(i+"---"+path[i]);
-                G.addStateNode(createdPathNumber, i, path[i], child[0]);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
-                    e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
-                    //e.addAttribute("ui.label", e.getId());
-                }
-            }
-            if (from>0){
-                BDD nextZ,nextg;
-                for(int i=from;i<=to  ;i++)//补齐from ---- n --- to
-                {
-                    if(i<=n) nextZ=Z[n];
-                    else nextZ=Z[i];
-                    nextg=getDesign().succ(path[i-1]).and(nextZ).and(g.id());
-                    if (!nextg.equals(Env.FALSE())) {
-                        path[i]=nextg.satOne(getDesign().moduleUnprimeVars(),false);
-                        //System.out.println(i+"---"+path[i]);
-                        G.addStateNode(createdPathNumber, i, path[i], child[0]);
-                        if(i==1) {
-                            nid1=stateID; nid2=createdPathNumber+".1";
-                            e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
-                            e.addAttribute("ui.label", e.getId());
-                        }else{
-                            nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                            e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
-                            //e.addAttribute("ui.label", e.getId());
-                        }
-                        break;
-                    }
-                    path[i]=getDesign().succ(path[i-1]).and(nextZ);
-                    //System.out.println(i+"---"+path[i]);
-                    G.addStateNode(createdPathNumber, i, path[i], child[2]);
-                    if(i==1) {
-                        nid1=stateID; nid2=createdPathNumber+".1";
-                        e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
-                        e.addAttribute("ui.label", e.getId());
-                    }else{
-                        nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                        e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
-                        //e.addAttribute("ui.label", e.getId());
-                    }
-                }
-            }
-            return true;
-        }
+        return true;
     }
 
     // generating a witness for pathNo.stateNo |= agentId NKnow spec
@@ -1364,7 +1261,6 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
         return true;
     }
-
 
     public boolean explainOneGraphNode(GraphExplainRTCTLK G, String nodeId) throws ModelCheckAlgException {
         Node n = G.getNode(nodeId); if(n==null) return false;

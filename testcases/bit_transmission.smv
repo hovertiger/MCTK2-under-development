@@ -8,8 +8,10 @@ SPECIFICATIONS
 --      SPEC AG((receiver.state=r0 | receiver.state=r1) -> AF sender.ack);
 --      SPEC EF(EG((receiver.state=r0 | receiver.state=r1) & !sender.ack));
 --      SPEC AF(sender.ack -> (sender KNOW (receiver.state=r0 | receiver.state=r1)));
+--      SPEC !E[TRUE BU 10..15 ((sender.bit=1 & sender.ack) -> (sender KNOW (receiver.state=r0)))];
+      SPEC !EBG 10..15 ((sender.bit=1 & sender.ack) -> (sender KNOW (receiver.state=r0)));
 --      SPEC AG((sender.bit=1 & sender.ack) -> (sender KNOW (receiver.state=r0)));
-SPEC AF((receiver KNOW receiver.state=r0) | (receiver KNOW receiver.state=r1));
+--SPEC AF((receiver KNOW receiver.state=r0) | (receiver KNOW receiver.state=r1));
 END
 
 --JUSTICE Act=SR;
