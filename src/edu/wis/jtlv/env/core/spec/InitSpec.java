@@ -137,6 +137,15 @@ public class InitSpec {
 
 	}
 
+	public static InternalSpec mk_ctl_sknow(TokenStream input, Token start, String exp_str, InternalSpec l, InternalSpec r)
+			throws SpecParseException {
+		if(l.toString().equals(""))
+			throw new SpecParseException("The knowledge formula " + exp_str + " has a NULL agent name.",
+					input, start, null );
+
+		return new InternalSpecExp(exp_str, InternalOp.SKNOW, l, r, start);
+	}
+
 	public static InternalSpec mk_ltl_know(TokenStream input, Token start, String exp_str, InternalSpec l, InternalSpec r)
 			throws SpecParseException {
 

@@ -20,7 +20,7 @@ public enum InternalOp {
 	// RTLTL
 	B_FINALLY, B_GLOBALLY, B_UNTIL,
 	//Knowledge
-	KNOW,
+	KNOW, SKNOW,
 
 	// TRIPLET............
 	// Prop
@@ -38,7 +38,7 @@ public enum InternalOp {
 	public static final InternalOp[] unaryOp = { NOT, FINALLY, GLOBALLY, HISTORICALLY,
 			NEXT, NOT_PREV_NOT, ONCE, PREV, EX, EF, EG, AX, AF, AG };
 	public static final InternalOp[] binaryOp = { AND, OR, XOR, XNOR, IFF, IMPLIES,
-			RELEASES, SINCE, TRIGGERED, UNTIL, ABF, ABG, EBF, EBG, AU, EU, B_FINALLY, B_GLOBALLY, KNOW };
+			RELEASES, SINCE, TRIGGERED, UNTIL, ABF, ABG, EBF, EBG, AU, EU, B_FINALLY, B_GLOBALLY, KNOW, SKNOW };
 	public static final InternalOp[] tripletOp = { ABU, EBU, B_UNTIL };
 
 	// is it propositional, or TL operator.
@@ -51,7 +51,8 @@ public enum InternalOp {
 			EBG, AU, EU, ABU, EBU };
 	public static final InternalOp[] RealTimeCTLOp = { ABF, ABG, EBF, EBG, ABU, EBU };
 	public static final InternalOp[] RealTimeLTLOp = { B_FINALLY, B_GLOBALLY, B_UNTIL };
-	public static final InternalOp[] EpistemicOp = { KNOW };
+	public static final InternalOp[] EpistemicOp = { KNOW, SKNOW };
+	public static final InternalOp[] SynEpistemicOp = { SKNOW };
 
 	private boolean in(InternalOp[] set) {
 		for (InternalOp op : set)
@@ -92,6 +93,10 @@ public enum InternalOp {
 
 	public boolean isEpistemicOp() {
 		return this.in(EpistemicOp);
+	}
+
+	public boolean isSynEpistemicOp() {
+		return this.in(SynEpistemicOp);
 	}
 
 	public boolean isTemporalOp() {

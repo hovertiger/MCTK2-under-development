@@ -15,7 +15,6 @@ import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
-import org.graphstream.ui.spriteManager.SpriteManager;
 
 import javax.swing.*;
 import java.util.*;
@@ -32,6 +31,11 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     JTextPane ctext;
     GraphExplainRTCTLK graph;
 
+
+    // for clock semantics computations
+    private Vector<BDD> postImages;
+
+
     @Override
     public AlgResultI preAlgorithm() throws AlgExceptionI {
         if (!getProperty().isRealTimeCTLKSpec())
@@ -46,6 +50,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
     public RTCTLKModelCheckAlg(ModuleWithStrongFairness design, Spec property) {
         super(design, property);
+        postImages = new Vector<>();
     }
 
     // agentName KNOW p
@@ -183,15 +188,6 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         Operator op = propExp.getOperator();
         Spec[] child = propExp.getChildren();
 
-/*        BDD left, right;
-        if(op == Operator.KNOW) {
-            left = null;
-            right = satRTCTLK(child[1]);
-        }else {
-            left = satRTCTLK(child[0]);
-            right = (op.isBinary()) ? satRTCTLK(child[1]) : null;
-        }
-*/
         int noo = op.numOfOperands();
         SpecRange range = null;
         SpecAgentIdentifier agentId = null;
@@ -288,7 +284,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     }
 
     //@Override
-    public AlgResultI GdoAlgorithm() throws AlgExceptionI {
+    public AlgResultI test_doAlgorithm() throws AlgExceptionI {
 //    @Override
 //    public AlgResultI doAlgorithm() throws AlgExceptionI {
         Spec origSpec = getProperty();
@@ -326,7 +322,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
     //Using swing to show
     public AlgResultI doAlgorithm() throws AlgExceptionI {
-        return GdoAlgorithm();
+        return test_doAlgorithm();
 /*
         Spec origSpec = getProperty();
         //System.out.println("model checking RTCTLK: " + origSpec);
@@ -1067,7 +1063,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             Edge e;
             if(i==1) {
                 nid1=stateID; nid2=createdPathNumber+".1";
-                e = G.addEdge("Path #" + createdPathNumber + " |= EBG ["+child[0].toString()+"] " +  simplifySpecString(child[1].toString(),false), nid1, nid2, true);
+                e = G.addEdge("Path #" + createdPathNumber + " |= BG ["+child[0].toString()+"] " +  simplifySpecString(child[1].toString(),false), nid1, nid2, true);
                 e.addAttribute("ui.label", e.getId());
             }else{
                 nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
@@ -1150,7 +1146,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             Edge e;
             if(i==1) {
                 nid1=stateID; nid2=createdPathNumber+".1";
-                e = G.addEdge("Path #" + createdPathNumber + " |= E["+ simplifySpecString(child[0].toString(),false) +
+                e = G.addEdge("Path #" + createdPathNumber + " |= "+ simplifySpecString(child[0].toString(),false) +
                         " BU "+ child[1].toString() +  simplifySpecString(child[2].toString(),false), nid1, nid2, true);
                 e.addAttribute("ui.label", e.getId());
             }else{
@@ -1279,4 +1275,206 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         return ret;
     }
 
+    public BDD synSatRTCTLK(int tick, Spec spec) throws ModelCheckAlgException {
+        if (spec instanceof SpecBDD)
+            return ((SpecBDD) spec).getVal();
+        // else it is SpecExp since this cannot be a Real Time CTL.
+        // and it also cannot be a triplet operator.
+        SpecExp propExp = (SpecExp) spec;
+        Operator op = propExp.getOperator();
+        Spec[] child = propExp.getChildren();
+
+        int noo = op.numOfOperands();
+        SpecRange range = null;
+        SpecAgentIdentifier agentId = null;
+        BDD left=null;
+        BDD right=null;
+
+        if (noo==1) //EX, EF, EG, AX, AF, AG left
+            left= synSatRTCTLK(tick, child[0]);
+        if (noo==2) {//ABF, ABG, EBF, EBG, KNOW
+            if (child[0] instanceof SpecRange)
+            {   range = (SpecRange) child[0];
+                left= synSatRTCTLK(tick, child[1]);
+            }else if(child[0] instanceof SpecAgentIdentifier) { //KNOW
+                agentId = (SpecAgentIdentifier) child[0];
+                left = synSatRTCTLK(tick, child[1]);
+            }else{
+                left= synSatRTCTLK(tick, child[0]);//AU, EU
+                right= synSatRTCTLK(tick, child[1]);
+            }
+        }
+        if (noo==3)// ABU, EBU, ABG, EBG
+        {
+            if (child[1] instanceof SpecRange)
+            { range = (SpecRange) child[1];
+                left= synSatRTCTLK(tick, child[0]);
+                right= synSatRTCTLK(tick, child[2]);
+            }
+        }
+
+        // propositional
+        if (op == Operator.NOT)
+            return left.not();
+        if (op == Operator.AND)
+            return left.and(right);
+        if (op == Operator.OR)
+            return left.or(right);
+        if (op == Operator.XOR)
+            return left.xor(right);
+        if (op == Operator.XNOR)
+            return left.xor(right).not();
+        if (op == Operator.IFF)
+            return left.biimp(right);
+        if (op == Operator.IMPLIES)
+            return left.imp(right);
+
+        // unbounded CTL temporal
+        if (op == Operator.EX)
+            return synEfX(tick, child[0]);
+        if (op == Operator.AX)
+            return AfX(left);
+        if (op == Operator.EF)
+            return EfF(left);
+        if (op == Operator.AF)
+            return AfF(left);
+        if (op == Operator.EG)
+            return EfG(left);
+        if (op == Operator.AG)
+            return AfG(left);
+        if (op == Operator.AU)
+            return AfU(left, right);
+        if (op == Operator.EU)
+            return EfU(left, right);
+
+        // bounded CTL temporal
+        if (op == Operator.EBU)
+            return EfBU(range.getFrom(), range.getTo(), left, right);//EfBU(int from, int to, BDD p, BDD q)
+        if (op == Operator.ABU)//AfBU(int from, int to, BDD p, BDD q)
+            return AfBU(range.getFrom(), range.getTo(), left, right);
+        if (op == Operator.EBF)//EfBF(int from, int to, BDD p)
+            return EfBF(range.getFrom(), range.getTo(), left);
+        if (op == Operator.ABF)//(int from, int to, BDD p)
+            return AfBF(range.getFrom(), range.getTo(), left);
+        if (op == Operator.EBG)//(int from, int to, BDD p)
+            return EfBG(range.getFrom(), range.getTo(), left);
+        if (op == Operator.ABG)//AfBG(int from, int to, BDD p)
+            return AfBG(range.getFrom(), range.getTo(), left);
+
+        // epistemic
+        if (op == Operator.KNOW) {
+            String agentName = agentId.toString();
+            return know(agentName, left);
+        }
+
+        // something is wrong.
+        throw new ModelCheckAlgException(
+                "Cannot identify root operator for sub specification: " + spec);
+    }
+
+
+    // return the set of states r(from) such that (r,from)|= EX f
+    public BDD synEfX(int tick, Spec f) throws ModelCheckAlgException {
+        BDD fs;
+        BDD f_bdd = synSatRTCTLK(tick+1, f);
+        if(isUsingReachableStates()) {
+            fs = getFairReachableStates();
+            return getDesign().pred(f_bdd.and(fs)).and(getReachableStates());
+        } else {
+            fs = getFairStates();
+            return getDesign().pred(f_bdd.and(fs));
+        }
+    }
+
+    public BDD synAfX(int tick, Spec f) throws ModelCheckAlgException {
+        return synEfX(tick, new SpecExp(Operator.NOT, f)).not();
+    }  	// AX f = !EX(!f) under fairness
+
+    // r,from |= E[f BU from..to g] under fairness
+    public BDD synEfBU(int tick, int from, int to, Spec f, Spec g) throws ModelCheckAlgException {
+        if(tick<0 || from<0 || to<0 || from>to) return null;
+        boolean f_isSyn = f.hasSynEpistemicOperators(), g_isSyn = g.hasSynEpistemicOperators();
+        BDD f_bdd, g_bdd;
+
+        if(from==0 && to==0) {
+            return g_isSyn ? synSatRTCTLK(tick, g) : satRTCTLK(g);
+        }else if(from==0) { // from=0 & to>0
+            if(!f_isSyn && !g_isSyn) return EfBU(from, to, satRTCTLK(f), satRTCTLK(g));
+            f_bdd = f_isSyn ? synSatRTCTLK(tick, f) : satRTCTLK(f);
+            g_bdd = g_isSyn ? synSatRTCTLK(tick, g) : satRTCTLK(g);
+            return g_bdd.or(f_bdd.and(EX(synEfBU(tick+1, from, to-1, f, g))));
+        }else{ // from>0 & to>=from
+            if(!f_isSyn && !g_isSyn) return EfBU(from, to, satRTCTLK(f), satRTCTLK(g));
+            f_bdd = f_isSyn ? synSatRTCTLK(tick, f) : satRTCTLK(f);
+            return f_bdd.and(EX(synEfBU(tick+1, from-1, to-1, f, g)));
+        }
+    }
+
+    // r,from |= EBG from..to f] under fairness
+    public BDD synEfBG(int tick, int from, int to, Spec f) throws ModelCheckAlgException {
+        if(tick<0 || from<0 || to<0 || from>to) return null;
+        boolean f_isSyn = f.hasSynEpistemicOperators();
+        BDD f_bdd;
+
+        if(from==0 && to==0) {
+            return f_isSyn ? synSatRTCTLK(tick, f) : satRTCTLK(f);
+        }else if(from==0) { // from=0 & to>0
+            if(!f_isSyn) return EfBG(from, to, satRTCTLK(f));
+            f_bdd = synSatRTCTLK(tick, f);
+            return f_bdd.and(EX(synEfBG(tick+1, from, to-1, f)));
+        }else{ // from>0 & to>=from
+            if(!f_isSyn) return EfBG(from, to, satRTCTLK(f));
+            f_bdd = synSatRTCTLK(tick, f);
+            return f_bdd.and(EX(synEfBG(tick+1, from-1, to-1, f)));
+        }
+    }
+
+    BDD getPostImage(int tick) {
+        if(tick<0) return null;
+        BDD res = this.postImages.get(tick);
+        if(res!=null) return res;
+
+        //compute the post image at clock "from", allow "null" image to be stored in postImages
+        BDD image = getDesign().initial();
+        postImages.add(image);
+        int i=0;
+        while(i<tick && image!=null) {
+            image = getDesign().succ(image.id());
+            postImages.add(image);
+            i++;
+        }
+
+        return image;
+    }
+
+    // return the set of states (r,from) such that r,from |= agentName KNOW f
+    // forall(system_global_variables - agentName's visible_variables).((postimage(from) & fair_states) -> p)
+    public BDD synKnow(int tick, String agentName, Spec f) throws ModelCheckAlgException {
+        if(agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
+
+        int idx_dot = agentName.indexOf('.');
+        if(idx_dot==-1)
+            agentName = "main." + agentName;
+        else if (!agentName.substring(0, idx_dot).equals("main"))
+            throw new ModelCheckAlgException("The agent's name " + agentName + " is illegal.");
+
+        SMVAgentInfo agentInfo = Env.getAll_agent_modules().get(agentName);
+        if(agentInfo==null) throw new ModelCheckAlgException("Cannot find the information of agent " + agentName + ".");
+
+        BDDVarSet visVars = agentInfo.getVisVars_BDDVarSet();
+        // V - agentName's visible variables
+        BDDVarSet allInvisVars = Env.globalUnprimeVarsMinus(visVars);
+
+
+        BDD fairImageAtFrom = getPostImage(tick);
+        if(fairImageAtFrom==null) {
+            fairImageAtFrom = Env.FALSE();
+        }else {
+            fairImageAtFrom = fairImageAtFrom.id().and(getFairReachableStates());
+        }
+
+        return fairImageAtFrom.imp(synSatRTCTLK(tick, f)).forAll(allInvisVars);
+    }
+
 }
+

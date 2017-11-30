@@ -158,6 +158,10 @@ public class SpecBDD implements Spec {
 		return false;
 	}
 
+	public boolean hasSynEpistemicOperators() {
+		return false;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 

@@ -24,6 +24,8 @@ tokens {
 	PURE_CTL_EPISTEMIC_T;
 	CTL_KNOW_T;
 	TOK_CTL_KNOW_T;
+	CTL_SKNOW_T;
+	TOK_CTL_SKNOW_T;
 	TOK_AGENT_NAME_T;
 } // an imaginary node
 
@@ -644,6 +646,10 @@ ctl_primary_expr_helper1	returns[InternalSpec ret]
 								{ if(!er()) $ret = $ctl_know.ret; } // primary_expr_select should be null...
 								-> ^(CTL_KNOW_T ctl_know NOP primary_expr_select)
 
+								| ctl_sknow primary_expr_select
+								{ if(!er()) $ret = $ctl_sknow.ret; } // primary_expr_select should be null...
+								-> ^(CTL_SKNOW_T ctl_sknow NOP primary_expr_select)
+
 								/* simple paren are the only case where we should start over
 								from the "real" begining of the parsed expression... */
 								| TOK_LP ctl_root_expr TOK_RP primary_expr_select
@@ -689,6 +695,16 @@ ctl_know						returns[InternalSpec ret]
 								{ if (!er()) exp_str = $agent.text + " " + $opk.text + " " + $f.text; 
 								  if(!er()) append_end = true; 
 								  if(!er()) $ret = InitSpec.mk_ctl_know(input, $start, exp_str, $agent.ret, $f.ret); 
+								} 
+								//-> ^(TOK_CTL_KNOW_T agent_name TOK_KNOW ctl_root_expr)
+								;			
+ctl_sknow						returns[InternalSpec ret]
+@init {boolean append_end = false; String exp_str = ""; }
+@after { if(append_end) $ret.setEndToken($stop); if(!er()) $ret.evalBDDChildrenExp(input); }
+								: TOK_LP! agent=agent_name opk=TOK_SKNOW^ f=ctl_root_expr TOK_RP!
+								{ if (!er()) exp_str = $agent.text + " " + $opk.text + " " + $f.text; 
+								  if(!er()) append_end = true; 
+								  if(!er()) $ret = InitSpec.mk_ctl_sknow(input, $start, exp_str, $agent.ret, $f.ret); 
 								} 
 								//-> ^(TOK_CTL_KNOW_T agent_name TOK_KNOW ctl_root_expr)
 								;			
@@ -1420,6 +1436,7 @@ TOK_OP_NOTPREVNOT			: 'Z';
 
 //epistemic
 TOK_KNOW				: 'K' | 'KNOW' | 'Know';
+TOK_SKNOW				: 'SK' | 'SKNOW' | 'Sknow';
 
 //TOK_MMIN					: 'MIN';// !!!
 //TOK_MMAX					: 'MAX';// !!!
