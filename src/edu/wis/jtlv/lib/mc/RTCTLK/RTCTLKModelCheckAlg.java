@@ -297,7 +297,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         //setFairStates(Env.TRUE());
 
         // could throw an exception...
-        BDD satStates = satRTCTLK(origSpec);
+        BDD satStates = synSatRTCTLK(0, origSpec); // satRTCTLK(origSpec);
         BDD fairInitStates = getDesign().initial().and(getFairStates());
         BDD fairInit_unSat = fairInitStates.and(satStates.not());
         if(fairInit_unSat.isZero()){
@@ -1258,6 +1258,18 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         return true;
     }
 
+    // generating a witness for pathNo.stateNo |= agentId NSKnow spec
+    public boolean witnessNSKnow(
+            String agentId,         // the name of the agent
+            Spec spec,              // the spec. under checked
+            GraphExplainRTCTLK G,   // the graph that explains spec
+            int pathNo,             // pathNo is the No. of the current path
+            int stateNo             // stateNo is the No. of the current state
+    ) throws ModelCheckAlgException {
+        //TODO
+        return true;
+    }
+
     public boolean explainOneGraphNode(GraphExplainRTCTLK G, String nodeId) throws ModelCheckAlgException {
         Node n = G.getNode(nodeId); if(n==null) return false;
         Queue<Spec> Q = n.getAttribute("queue_satSpec"); if(Q==null) return false;
@@ -1287,84 +1299,115 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         int noo = op.numOfOperands();
         SpecRange range = null;
         SpecAgentIdentifier agentId = null;
-        BDD left=null;
-        BDD right=null;
+        Spec left=null;
+        Spec right=null;
+        boolean left_isSyn, right_isSyn=false;
 
-        if (noo==1) //EX, EF, EG, AX, AF, AG left
-            left= synSatRTCTLK(tick, child[0]);
-        if (noo==2) {//ABF, ABG, EBF, EBG, KNOW
-            if (child[0] instanceof SpecRange)
+        if (noo==1) {//EX, EF, EG, AX, AF, AG left
+            left = child[0];
+            left_isSyn = left.hasSynEpistemicOperators();
+        }else if (noo==2) {//AU, EU, ABF, ABG, EBF, EBG, KNOW, SKNOW
+            if (child[0] instanceof SpecRange) //ABF, ABG, EBF, EBG
             {   range = (SpecRange) child[0];
-                left= synSatRTCTLK(tick, child[1]);
-            }else if(child[0] instanceof SpecAgentIdentifier) { //KNOW
+                left = child[1];
+                left_isSyn = left.hasSynEpistemicOperators();
+            }else if(child[0] instanceof SpecAgentIdentifier) { //KNOW, SKNOW
                 agentId = (SpecAgentIdentifier) child[0];
-                left = synSatRTCTLK(tick, child[1]);
-            }else{
-                left= synSatRTCTLK(tick, child[0]);//AU, EU
-                right= synSatRTCTLK(tick, child[1]);
+                left = child[1];
+                left_isSyn = left.hasSynEpistemicOperators();
+            }else{ //AU, EU
+                left = child[0];    left_isSyn = left.hasSynEpistemicOperators();
+                right = child[1];   right_isSyn = right.hasSynEpistemicOperators();
             }
-        }
-        if (noo==3)// ABU, EBU, ABG, EBG
-        {
-            if (child[1] instanceof SpecRange)
-            { range = (SpecRange) child[1];
-                left= synSatRTCTLK(tick, child[0]);
-                right= synSatRTCTLK(tick, child[2]);
-            }
+        }else if (noo==3) { // ABU, EBU
+            range = (SpecRange) child[1];
+            left = child[0];    left_isSyn = left.hasSynEpistemicOperators();
+            right = child[2];   right_isSyn = right.hasSynEpistemicOperators();
+        }else {
+            throw new ModelCheckAlgException(
+                    "Cannot check a specification with more than 2 operands: " + spec);
         }
 
         // propositional
         if (op == Operator.NOT)
-            return left.not();
+            return synSatRTCTLK(tick, left).not();
         if (op == Operator.AND)
-            return left.and(right);
+            return synSatRTCTLK(tick, left).and(synSatRTCTLK(tick, right));
         if (op == Operator.OR)
-            return left.or(right);
+            return synSatRTCTLK(tick, left).or(synSatRTCTLK(tick, right));
         if (op == Operator.XOR)
-            return left.xor(right);
+            return synSatRTCTLK(tick, left).xor(synSatRTCTLK(tick, right));
         if (op == Operator.XNOR)
-            return left.xor(right).not();
+            return synSatRTCTLK(tick, left).xor(synSatRTCTLK(tick, right)).not();
         if (op == Operator.IFF)
-            return left.biimp(right);
+            return synSatRTCTLK(tick, left).biimp(synSatRTCTLK(tick, right));
         if (op == Operator.IMPLIES)
-            return left.imp(right);
+            return synSatRTCTLK(tick, left).imp(synSatRTCTLK(tick, right));
 
         // unbounded CTL temporal
         if (op == Operator.EX)
-            return synEfX(tick, child[0]);
+            return synEfX(tick, left);
         if (op == Operator.AX)
-            return AfX(left);
-        if (op == Operator.EF)
-            return EfF(left);
-        if (op == Operator.AF)
-            return AfF(left);
-        if (op == Operator.EG)
-            return EfG(left);
-        if (op == Operator.AG)
-            return AfG(left);
-        if (op == Operator.AU)
-            return AfU(left, right);
-        if (op == Operator.EU)
-            return EfU(left, right);
+            return synAfX(tick, left);
+
+
+        if (op == Operator.EF) {
+            if(left_isSyn) throw new ModelCheckAlgException(
+                    "Cannot check EF operator because there exists synchronous epistemic modality in its sub specification: " + left);
+            return EfF(satRTCTLK(left));
+        }
+        if (op == Operator.AF) {
+            if(left_isSyn) throw new ModelCheckAlgException(
+                    "Cannot check AF operator because there exists synchronous epistemic modality in its sub specification: " + left);
+            return AfF(satRTCTLK(left));
+        }
+        if (op == Operator.EG) {
+            if(left_isSyn) throw new ModelCheckAlgException(
+                    "Cannot check EG operator because there exists synchronous epistemic modality in its sub specification: " + left);
+            return EfG(satRTCTLK(left));
+        }
+        if (op == Operator.AG) {
+            if(left_isSyn) throw new ModelCheckAlgException(
+                    "Cannot check AG operator because there exists synchronous epistemic modality in its sub specification: " + left);
+            return AfG(satRTCTLK(left));
+        }
+        if (op == Operator.EU) {
+            if(left_isSyn || right_isSyn) throw new ModelCheckAlgException(
+                    "Cannot check EU operator because there exists synchronous epistemic modality in its sub specifications: " + left);
+            return EfU(satRTCTLK(left), satRTCTLK(right));
+        }
+        if (op == Operator.AU) {
+            if(left_isSyn || right_isSyn) throw new ModelCheckAlgException(
+                    "Cannot check AU operator because there exists synchronous epistemic modality in its sub specifications: " + left);
+            return AfU(satRTCTLK(left), satRTCTLK(right));
+        }
 
         // bounded CTL temporal
         if (op == Operator.EBU)
-            return EfBU(range.getFrom(), range.getTo(), left, right);//EfBU(int from, int to, BDD p, BDD q)
-        if (op == Operator.ABU)//AfBU(int from, int to, BDD p, BDD q)
-            return AfBU(range.getFrom(), range.getTo(), left, right);
+            return synEfBU(tick, range.getFrom(), range.getTo(), left, right);//EfBU(int from, int to, BDD p, BDD q)
+        if (op == Operator.ABU)  //AfBU(int from, int to, BDD p, BDD q)
+            return synAfBU(tick, range.getFrom(), range.getTo(), left, right);
         if (op == Operator.EBF)//EfBF(int from, int to, BDD p)
-            return EfBF(range.getFrom(), range.getTo(), left);
+            return synEfBF(tick, range.getFrom(), range.getTo(), left);
         if (op == Operator.ABF)//(int from, int to, BDD p)
-            return AfBF(range.getFrom(), range.getTo(), left);
+            return synAfBF(tick, range.getFrom(), range.getTo(), left);
         if (op == Operator.EBG)//(int from, int to, BDD p)
-            return EfBG(range.getFrom(), range.getTo(), left);
+            return synEfBG(tick, range.getFrom(), range.getTo(), left);
         if (op == Operator.ABG)//AfBG(int from, int to, BDD p)
-            return AfBG(range.getFrom(), range.getTo(), left);
+            return synAfBG(tick, range.getFrom(), range.getTo(), left);
 
         // epistemic
         if (op == Operator.KNOW) {
             String agentName = agentId.toString();
-            return know(agentName, left);
+            if(left_isSyn)
+                throw new ModelCheckAlgException(
+                    "Cannot check KNOW modality because there exists synchronous epistemic modality in its sub specifications: " + left);
+            else
+                return know(agentName, satRTCTLK(left));
+        }
+        if (op == Operator.SKNOW) {
+            String agentName = agentId.toString();
+            return synKnow(tick, agentName, left);
         }
 
         // something is wrong.
@@ -1376,21 +1419,16 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     // return the set of states r(from) such that (r,from)|= EX f
     public BDD synEfX(int tick, Spec f) throws ModelCheckAlgException {
         BDD fs;
-        BDD f_bdd = synSatRTCTLK(tick+1, f);
-        if(isUsingReachableStates()) {
-            fs = getFairReachableStates();
-            return getDesign().pred(f_bdd.and(fs)).and(getReachableStates());
-        } else {
-            fs = getFairStates();
-            return getDesign().pred(f_bdd.and(fs));
-        }
+        boolean f_isSyn = f.hasSynEpistemicOperators();
+        BDD f_bdd = f_isSyn ? synSatRTCTLK(tick+1, f) : satRTCTLK(f);
+        return EfX(f_bdd);
     }
 
     public BDD synAfX(int tick, Spec f) throws ModelCheckAlgException {
         return synEfX(tick, new SpecExp(Operator.NOT, f)).not();
     }  	// AX f = !EX(!f) under fairness
 
-    // r,from |= E[f BU from..to g] under fairness
+    // r,tick |= E[f BU from..to g] under fairness
     public BDD synEfBU(int tick, int from, int to, Spec f, Spec g) throws ModelCheckAlgException {
         if(tick<0 || from<0 || to<0 || from>to) return null;
         boolean f_isSyn = f.hasSynEpistemicOperators(), g_isSyn = g.hasSynEpistemicOperators();
@@ -1410,7 +1448,38 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         }
     }
 
-    // r,from |= EBG from..to f] under fairness
+    // r,tick |= A[f BU from..to g] under fairness
+    public BDD synAfBU(int tick, int from, int to, Spec f, Spec g) throws ModelCheckAlgException {
+        if(tick<0 || from<0 || to<0 || from>to) return null;
+        boolean f_isSyn = f.hasSynEpistemicOperators(), g_isSyn = g.hasSynEpistemicOperators();
+        BDD f_bdd, g_bdd;
+
+        if(from==0 && to==0) {
+            return g_isSyn ? synSatRTCTLK(tick, g) : satRTCTLK(g);
+        }else if(from==0) { // from=0 & to>0
+            if(!f_isSyn && !g_isSyn) return AfBU(from, to, satRTCTLK(f), satRTCTLK(g));
+            f_bdd = f_isSyn ? synSatRTCTLK(tick, f) : satRTCTLK(f);
+            g_bdd = g_isSyn ? synSatRTCTLK(tick, g) : satRTCTLK(g);
+            return g_bdd.or(f_bdd.and(AX(synAfBU(tick+1, from, to-1, f, g))));
+        }else{ // from>0 & to>=from
+            if(!f_isSyn && !g_isSyn) return AfBU(from, to, satRTCTLK(f), satRTCTLK(g));
+            f_bdd = f_isSyn ? synSatRTCTLK(tick, f) : satRTCTLK(f);
+            return f_bdd.and(AX(synAfBU(tick+1, from-1, to-1, f, g)));
+        }
+    }
+
+    // r,tick |= EBF from..to f under fairness
+    public BDD synEfBF(int tick, int from, int to, Spec f) throws ModelCheckAlgException {
+        SpecBDD trueSpec = new SpecBDD(Env.TRUE());
+        return synEfBU(tick, from, to, trueSpec, f);
+    }
+
+    // r,tick |= ABF from..to f under fairness
+    public BDD synAfBF(int tick, int from, int to, Spec f) throws ModelCheckAlgException {
+        return synEfBG(tick, from, to, new SpecExp(Operator.NOT, f)).not();
+    }
+
+    // r,tick |= EBG from..to f under fairness
     public BDD synEfBG(int tick, int from, int to, Spec f) throws ModelCheckAlgException {
         if(tick<0 || from<0 || to<0 || from>to) return null;
         boolean f_isSyn = f.hasSynEpistemicOperators();
@@ -1429,10 +1498,18 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         }
     }
 
+    // r,tick |= ABG from..to f under fairness
+    public BDD synAfBG(int tick, int from, int to, Spec f) throws ModelCheckAlgException {
+        return synEfBF(tick, from, to, new SpecExp(Operator.NOT, f)).not();
+    }
+
     BDD getPostImage(int tick) {
         if(tick<0) return null;
-        BDD res = this.postImages.get(tick);
-        if(res!=null) return res;
+        BDD res;
+        if(tick<this.postImages.size()) {
+            res = this.postImages.get(tick);
+            if(res==null) return Env.FALSE(); else return res;
+        }
 
         //compute the post image at clock "from", allow "null" image to be stored in postImages
         BDD image = getDesign().initial();
@@ -1447,7 +1524,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         return image;
     }
 
-    // return the set of states (r,from) such that r,from |= agentName KNOW f
+    // return the set of states (r,tick) such that r,tick |= agentName KNOW f
     // forall(system_global_variables - agentName's visible_variables).((postimage(from) & fair_states) -> p)
     public BDD synKnow(int tick, String agentName, Spec f) throws ModelCheckAlgException {
         if(agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
