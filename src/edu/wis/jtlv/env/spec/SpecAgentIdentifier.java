@@ -98,6 +98,10 @@ public class SpecAgentIdentifier implements Spec {
 		return false;
 	}
 
+	public boolean hasSynEpistemicOperators() {
+		return false;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

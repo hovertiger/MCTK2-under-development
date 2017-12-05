@@ -31,7 +31,7 @@ public enum Operator {
 	// CTL, RTCTL
 	ABF, ABG, EBF, EBG, AU, EU,
 	// EPISTEMIC
-	KNOW,
+	KNOW, SKNOW,
 
 	// TRIPLET............
 	// Prop
@@ -51,7 +51,7 @@ public enum Operator {
 			AG };
 	public static final Operator[] binaryOp = { AND, OR, XOR, XNOR, IFF,
 			IMPLIES, RELEASES, SINCE, TRIGGERED, UNTIL, ABF, ABG, EBF, EBG, AU,
-			EU, B_FINALLY, B_GLOBALLY, KNOW };
+			EU, B_FINALLY, B_GLOBALLY, KNOW, SKNOW };
 	public static final Operator[] tripletOp = { ABU, EBU, B_UNTIL, B_UNTIL0 };
 
 	// is it propositional, or TL operator.
@@ -65,7 +65,8 @@ public enum Operator {
 	public static final Operator[] RealTimeCTLOp = { ABF, ABG, EBF, EBG, ABU,
 			EBU };
 	public static final Operator[] RealTimeLTLOp = { B_FINALLY, B_GLOBALLY, B_UNTIL, B_UNTIL0 };
-	public static final Operator[] EpistemicOp = { KNOW };
+	public static final Operator[] EpistemicOp = { KNOW, SKNOW };
+	public static final Operator[] SynEpistemicOp = { SKNOW };
 
 	private boolean in(Operator[] set) {
 		for (Operator op : set)
@@ -164,6 +165,9 @@ public enum Operator {
 		return this.in(EpistemicOp);
 	}
 
+	public boolean isSynEpistemicOp() {
+		return this.in(SynEpistemicOp);
+	}
 
 	/**
 	 * <p>

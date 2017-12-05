@@ -117,6 +117,8 @@ public interface Spec {
 
 	public abstract boolean hasEpistemicOperators();
 
+	public abstract boolean hasSynEpistemicOperators();
+
 	/**
 	 * <p>
 	 * Get the domain of this specification.

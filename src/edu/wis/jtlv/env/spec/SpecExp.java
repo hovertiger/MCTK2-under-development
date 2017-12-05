@@ -282,6 +282,15 @@ public class SpecExp implements Spec {
 		return this.theOp.isEpistemicOp();
 	}
 
+	public boolean hasSynEpistemicOperators() {
+		// if one of my elements is syn epistemic.
+		for (Spec s : this.getChildren())
+			if (s.hasSynEpistemicOperators())
+				return true;
+		// or I'm syn epistemic.
+		return this.theOp.isSynEpistemicOp();
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
