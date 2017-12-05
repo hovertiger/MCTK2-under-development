@@ -11,6 +11,7 @@ import org.graphstream.ui.view.ViewerListener;
 import org.graphstream.ui.view.ViewerPipe;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class SetGraphThread implements Runnable, ViewerListener {
     GraphExplainRTCTLK graph;
@@ -81,13 +82,11 @@ public class SetGraphThread implements Runnable, ViewerListener {
     public void buttonPushed(String id) {
         //Node n = graph.getNode(id);
         //System.out.println("-------- State "+id+" --------");
-        ctext.setText(ctext.getText().toString() + "\n" + "-------- State " + id + " --------");
+            GExample.insertDocument(ctext,  "\n" + "-------- State " + id + " --------" , Color.BLACK,1);
         String str = graph.getNodeSatSpec(id);
         if (str != null && !str.equals(""))
-            //System.out.println("[satisfies " + str + "]");
-            ctext.setText(ctext.getText().toString() + "\n" + "[satisfies " + str + "]");
-        //System.out.println( graph.getNodeStateDetails(id));
-        ctext.setText(ctext.getText().toString() + "\n" + graph.getNodeStateDetails(id));
+            GExample.insertDocument(ctext,  "\n" + "[satisfies " + str + "]" , Color.BLACK,1);
+            GExample.insertDocument(ctext,  "\n" + graph.getNodeStateDetails(id), Color.BLACK,1);
         try {
             graph.getChecker().explainOneGraphNode(graph, id);
         } catch (ModelCheckAlgException e) {

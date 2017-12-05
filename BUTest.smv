@@ -14,4 +14,3 @@ ASSIGN
 	next(rangeValue):=case rangeValue<=14:rangeValue+1;
 		rangeValue=15:rangeValue;
 	esac;
-

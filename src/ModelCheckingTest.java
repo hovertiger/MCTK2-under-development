@@ -38,8 +38,8 @@ public class ModelCheckingTest {
 		Env.resetEnv();
 		//rtctlCheck();
 		//ltlCheck();
-		rtctlkCheck();
-		//CTLCounterExample();
+		//rtctlkCheck();
+		CTLCounterExample();
 		System.out.println("DONE");
 	}
 
@@ -485,6 +485,7 @@ public class ModelCheckingTest {
 		}
 		SMVModule main = (SMVModule) Env.getModule("main");
 		main.setFullPrintingMode(true);
+
 		System.out.println("========= DONE Loading Modules ==========");
 		String to_parse = "";
 //		to_parse += "CTLSPEC AX a=2 \n"; // 0 F
@@ -495,8 +496,8 @@ public class ModelCheckingTest {
 		//to_parse += "CTLSPEC AF a=20;\n";
 
 		//RTCTL EU、EG
-		//to_parse += "CTLSPEC ABG 0..10 a=20;\n";
-		to_parse += "CTLSPEC ABF 0..6 a=10;\n";
+		to_parse += "CTLSPEC ABG 0..10 a=20;\n";
+		//to_parse += "LTLSPEC B_GLOBALLY [3,8] a=10;\n";
 		//to_parse += "CTLSPEC ABG 7..11 a=2;\n";
 		//to_parse += "CTLSPEC ABG 12..16 a=3;\n";
 		//to_parse += "CTLSPEC ABF 0..15 a=1;\n";
@@ -508,22 +509,25 @@ public class ModelCheckingTest {
 
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		for (int i = 0; i < all_specs.length; i++) {
-			CTLModelCheckAlg checker = new CTLModelCheckAlg(main,all_specs[i]);
-			// model checking a module
-			try {
-				checker.preAlgorithm();
-			} catch (AlgExceptionI algExceptionI) {
-				algExceptionI.printStackTrace();
-			}
-			try {
-				String s=checker.doAlgorithm().resultString();
-				if(!s.contains("*** Property is VALID ***"))
-					System.err.println(i+"---"+s);
-				else
-					System.out.println(i+"---"+s);
-			} catch (AlgExceptionI algExceptionI) {
-				algExceptionI.printStackTrace();
-			}
+
+			System.out.println(all_specs[i].isRealTimeLTLSpec());
+
+	//		LTLModelCheckAlg checker = new LTLModelCheckAlg(main,all_specs[i]);
+//			// model checking a module
+//			try {
+//				checker.preAlgorithm();
+//			} catch (AlgExceptionI algExceptionI) {
+//				algExceptionI.printStackTrace();
+//			}
+//			try {
+//				String s=checker.doAlgorithm().resultString();
+//				if(!s.contains("*** Property is VALID ***"))
+//					System.err.println(i+"---"+s);
+//				else
+//					System.out.println(i+"---"+s);
+//			} catch (AlgExceptionI algExceptionI) {
+//				algExceptionI.printStackTrace();
+//			}
 		}
 	}
 	public static void Check_test() {

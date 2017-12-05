@@ -34,6 +34,8 @@ public class ContralPanel extends JPanel implements ActionListener{
 	private JButton cutButton;
 	private JButton copyButton;
 	private JButton pasteButton;
+	private JButton runButton;
+	private JButton frontButton;
 
 	public ContralPanel(TextEditor textEditor)
 	{
@@ -49,7 +51,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 		JMenu file=new JMenu("File");
 		JMenu edit=new JMenu("Edit");
 		JMenu style=new JMenu("Style");
-		//JMenu language=new JMenu("语言");
 		JMenu about=new JMenu("Help");
 		JMenu run=new JMenu("Run");
 
@@ -88,8 +89,8 @@ public class ContralPanel extends JPanel implements ActionListener{
 
 		JMenuItem about1=new JMenuItem("About information");
 		JMenuItem about2=new JMenuItem("Useage Introduction");
-		JMenuItem smvRun=new JMenuItem("Verify SMV Property");
-		setShortcut(smvRun, KeyEvent.VK_F11);
+//		JMenuItem smvRun=new JMenuItem("Verify SMV Property");
+//		setShortcut(smvRun, KeyEvent.VK_F11);
 		JMenuItem graphexamp= new JMenuItem("Graph Counter-example");
 		setShortcut(graphexamp, KeyEvent.VK_W);
 
@@ -121,7 +122,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 		about.add(about1);
 		about.addSeparator();
 		about.add(about2);
-		run.add(smvRun);
 		run.add(graphexamp);
 
 		textEditor.addWindowListener (new WindowAdapter ()
@@ -158,25 +158,44 @@ public class ContralPanel extends JPanel implements ActionListener{
 		toolBar.setLayout(new FlowLayout(FlowLayout.LEFT));
 //		URL newUrl=getClass().getResource("swing/Icons/New.gif");
 //		ImageIcon newIcon=new ImageIcon(getToolkit().getImage(newUrl));
-		Icon newIcon=new ImageIcon("swing/Icons/New.gif");
-		Icon openIcon=new ImageIcon("swing/Icons/Open.gif");
-		Icon saveIcon=new ImageIcon("swing/Icons/Save.gif");
-		Icon saveAsIcon=new ImageIcon("swing/Icons/SaveAs.gif");
-		Icon undoIcon=new ImageIcon("swing/Icons/Undo.gif");
-		Icon redoIcon=new ImageIcon("swing/Icons/Redo.gif");
-		Icon cutIcon=new ImageIcon("swing/Icons/Cut.gif");
-		Icon copyIcon=new ImageIcon("swing/Icons/Copy.gif");
-		Icon pasteIcon=new ImageIcon("swing/Icons/Paste.gif");
+
+
+		Icon newIcon=new ImageIcon(ContralPanel.class.getResource("Icons/New.gif"));
+		Icon openIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Open.gif"));
+		Icon saveIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Save.gif"));
+		Icon saveAsIcon=new ImageIcon(ContralPanel.class.getResource("Icons/SaveAs.gif"));
+		Icon undoIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Undo.gif"));
+		Icon redoIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Redo.gif"));
+		Icon cutIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Cut.gif"));
+		Icon copyIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Copy.gif"));
+		Icon pasteIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Paste.gif"));
+		Icon frontIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Front.gif"));
+		Icon runIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Run.gif"));
+
 
 		newButton= new JButton(newIcon);
+		newButton.setBorderPainted(false);
 		openButton=new JButton(openIcon);
+		openButton.setBorderPainted(false);
 		saveButton= new JButton(saveIcon);
+		saveButton.setBorderPainted(false);
 		saveAsButton=new JButton(saveAsIcon);
+		saveAsButton.setBorderPainted(false);
 		undoButton=new JButton(undoIcon);
+		undoButton.setBorderPainted(false);
 		redoButton=new JButton(redoIcon);
+		redoButton.setBorderPainted(false);
 		cutButton=new JButton(cutIcon);
+		cutButton.setBorderPainted(false);
 		copyButton=new JButton(copyIcon);
+		copyButton.setBorderPainted(false);
 		pasteButton=new JButton(pasteIcon);
+		pasteButton.setBorderPainted(false);
+		frontButton=new JButton(frontIcon);
+		frontButton.setBorderPainted(false);
+		runButton=new JButton(runIcon);
+		runButton.setBorderPainted(false);
+
 
 		newButton.setPreferredSize(new Dimension(22,22));
 		openButton.setPreferredSize(new Dimension(22,22));
@@ -187,7 +206,8 @@ public class ContralPanel extends JPanel implements ActionListener{
 		cutButton.setPreferredSize(new Dimension(22,22));
 		copyButton.setPreferredSize(new Dimension(22,22));
 		pasteButton.setPreferredSize(new Dimension(22,22));
-
+		frontButton.setPreferredSize(new Dimension(22,22));
+		runButton.setPreferredSize(new Dimension(22,22));
 		//注册工具栏按钮事件
 		newButton.addActionListener(this);
 		openButton.addActionListener(this);
@@ -198,6 +218,8 @@ public class ContralPanel extends JPanel implements ActionListener{
 		cutButton.addActionListener(this);
 		copyButton.addActionListener(this);
 		pasteButton.addActionListener(this);
+		frontButton.addActionListener(this);
+		runButton.addActionListener(this);
 
 		//设置按钮提示文字
 		newButton.setToolTipText("New File");
@@ -209,6 +231,8 @@ public class ContralPanel extends JPanel implements ActionListener{
 		cutButton.setToolTipText("Cut");
 		copyButton.setToolTipText("Copy");
 		pasteButton.setToolTipText("Paste");
+		frontButton.setToolTipText("Set Front");
+		runButton.setToolTipText("Run SMV");
 		//向工具栏添加按钮
 		toolBar.add(newButton);
 		toolBar.add(openButton);
@@ -219,14 +243,13 @@ public class ContralPanel extends JPanel implements ActionListener{
 		toolBar.add(cutButton);
 		toolBar.add(copyButton);
 		toolBar.add(pasteButton);
+		toolBar.add(frontButton);
+		toolBar.add(runButton);
 
 		//改变标题栏窗口左侧默认图标
 		Toolkit tk=Toolkit.getDefaultToolkit();
-		Image   image=tk.createImage("swing/Icons/Notepad.gif");
+		Image   image=tk.createImage(ContralPanel.class.getResource("Icons/MCTK.gif"));
 		this.textEditor.setIconImage(image);
-
-
-
 
 
 		uo = new UndoManager();
@@ -240,13 +263,8 @@ public class ContralPanel extends JPanel implements ActionListener{
 		});
 
 		setFont.addActionListener(this);
-//		c.addActionListener(this);
-//		java.addActionListener(this);
-//		html.addActionListener(this);
-//		smv.addActionListener(this);
 		about1.addActionListener(this);
 		about2.addActionListener(this);
-		smvRun.addActionListener(this);
 		graphexamp.addActionListener(this);
 	}
 
@@ -288,7 +306,7 @@ public class ContralPanel extends JPanel implements ActionListener{
 		{
 			textEditor.dispose();
 		}
-		if(e.getActionCommand().equals("Set Front"))
+		if(e.getActionCommand().equals("Set Front")||e.getSource()==frontButton)
 		{
 			new SetFont(textEditor);
 		}
@@ -326,14 +344,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 			textEditor.text.selectAll();// 全选
 			System.out.println("Select All");
 		}
-//		if(e.getActionCommand().equals("Java"))
-//		{
-//			textEditor.setLanguage("java");
-//		}
-//		if(e.getActionCommand().equals("SMV"))
-//		{
-//			textEditor.setLanguage("smv");
-//		}
 
 		if(e.getActionCommand().equals("About information"))
 		{
@@ -346,31 +356,22 @@ public class ContralPanel extends JPanel implements ActionListener{
 //					+ "\n2.目前仅支持Java语言编译"
 //					+"\n3.运行HTML文档请设置好默认浏览器","使用说明",JOptionPane.PLAIN_MESSAGE);
 		}
-		if(e.getActionCommand().equals("Verify SMV Property"))
+		if(e.getActionCommand().equals("Graph Counter-example")||e.getSource()==runButton)
 		{
-			//System.out.println("Verify smv Property...");
-			textEditor.jtext.setText(textEditor.jtext.getText().toString()+"\nVerify SMV Property");
-			fileOperation.save();
-			//String src=fileOperation.getPath();
-			//String name=fileOperation.getFileName();
-			//TextEditor currentText=this.textEditor;
-			try {
-				new Run().smvRun(this.textEditor);
-			} catch (AlgExceptionI algExceptionI) {
-				algExceptionI.printStackTrace();
-			}
-		}
-		if(e.getActionCommand().equals("Graph Counter-example"))
-		{
-				//textEditor.jtext.setText(textEditor.jtext.getText().toString()+"\ngraphexamp.isSelected()");
+//			Run a=new Run();
+//			try {
+//				a.smvRun(this.textEditor);
+//			} catch (AlgExceptionI algExceptionI) {
+//				algExceptionI.printStackTrace();
+//			}
+
+
+//				//textEditor.jtext.setText(textEditor.jtext.getText().toString()+"\ngraphexamp.isSelected()");
 				textEditor.setEnabled(false);
 				GraphThread r = new GraphThread(this.textEditor);
 				Thread t = new Thread(r);
 				t.start();
 		}
 	}
-
-
-
 
 }

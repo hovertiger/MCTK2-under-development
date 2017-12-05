@@ -21,12 +21,12 @@ import java.awt.event.*;
 public class TextEditor extends JFrame implements KeyListener, TreeSelectionListener, ActionListener, ChangeListener{
 	JTextPane text; //定义编辑区
 	
-	JTextPane jtext;//控制台
+	//JTextPane jtext;//控制台
 	JTextPane row;
 	JScrollPane scroll;
 	JScrollPane rowScroll;
 	
-	JScrollPane jscroll;
+	//JScrollPane jscroll;
 	JLabel stateBar;//底部状态栏
 	JPopupMenu menu;
 	ContralPanel contralPanel;
@@ -52,10 +52,8 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		clipboard=getToolkit().getSystemClipboard();
 		editArea=new JPanel(new BorderLayout());
 		text=new JTextPane();
-	    jtext=new JTextPane();
 		contralPanel=new ContralPanel(this);
 		scroll=new JScrollPane(text);
-		jscroll=new JScrollPane(jtext);
 		
 		row=new JTextPane();
 		rowScroll=new JScrollPane(row);
@@ -70,8 +68,8 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		winInit();
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setMinimumSize(new Dimension(850, 700));
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setDefaultCloseOperation (JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation (JFrame.DO_NOTHING_ON_CLOSE);
 		setVisible(true);
 	}
 	public void winInit()
@@ -96,14 +94,6 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		//关键字高亮显示
 		//text.getDocument().addDocumentListener(h);
 
-		jtext.setFont(font);//设置字体
-		jtext.add(cPopMenu);
-		jtext.setBorder(BorderFactory.createTitledBorder("Console"));
-		//jtext.setBorder(BorderFactory.createLineBorder(Color.red));//设置面板边框颜色
-		//jtext.setDragEnabled(true);
-		//jtext.setMinimumSize(new Dimension(300, 200));
-		jtext.setEditable(false);//设置为不可编辑
-		jtext.addMouseListener(new JMouseListener());
 
 
 		row.setFont(font);
@@ -120,14 +110,8 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		editArea.add("Center",scroll);
 		//editArea.add("South",jscroll);
 
-		sp=new JSplitPane();
-		sp.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		
-		sp.setLeftComponent(editArea);
-		sp.setRightComponent(jscroll);
-		sp.setDividerLocation(800);
 
-		jsp=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,fileList.getTree(),sp);
+		jsp=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,fileList.getTree(),editArea);
 		jsp.setDividerSize(5);
 		jsp.setDividerLocation(150);
 		Container con=getContentPane();
@@ -143,8 +127,6 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		model = scroll.getVerticalScrollBar().getModel();
 		model.addChangeListener(this);
 
-		jmodel = jscroll.getVerticalScrollBar().getModel();
-		jmodel.addChangeListener(this);
 	}
 	public void setLeftSplitPane(FileList fl)
 	{
@@ -322,10 +304,6 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 			StringSelection content = new StringSelection(temp);
 			clipboard.setContents(content,null);
 		}
-		if(name.equals("Clear"))
-		{
-			jtext.setText("");
-		}
 	}
 	
 	private class MyMouseListener extends MouseAdapter
@@ -334,14 +312,6 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 			if (e.getButton() == MouseEvent.BUTTON3) {
 			     jPopMenu.show(text, e.getX(), e.getY());
 			    }
-		}
-	}
-	private class JMouseListener extends MouseAdapter
-	{
-		public void mouseClicked(MouseEvent e) {
-			if (e.getButton() == MouseEvent.BUTTON3) {
-				cPopMenu.show(jtext, e.getX(), e.getY());
-			}
 		}
 	}
 	@Override

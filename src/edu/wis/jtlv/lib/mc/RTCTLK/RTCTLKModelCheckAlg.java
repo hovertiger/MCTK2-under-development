@@ -16,21 +16,24 @@ import net.sf.javabdd.BDDVarSet;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
 import org.graphstream.ui.spriteManager.SpriteManager;
+import swing.GExample;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 
-public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
+public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
     // variables for counterexamples generation
-    private static int createdPathNumber=0; // the number of the paths currently created
+    private static int createdPathNumber = 0; // the number of the paths currently created
     int specExplainToLevel = 1; // 0: trunk and all branches at all levels
-                                // 1: trunk only
-                                // 2: trunk and the branch at level 2
-                                // i: trunk and all branches at the levels not larger than i
+    // 1: trunk only
+    // 2: trunk and the branch at level 2
+    // i: trunk and all branches at the levels not larger than i
 
-    private static int createdEpistemicEdgeNumber=0;
+    private static int createdEpistemicEdgeNumber = 0;
     JTextPane ctext;
     GraphExplainRTCTLK graph;
+    boolean isShowGraph;
 
     @Override
     public AlgResultI preAlgorithm() throws AlgExceptionI {
@@ -46,21 +49,23 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
     public RTCTLKModelCheckAlg(ModuleWithStrongFairness design, Spec property) {
         super(design, property);
+        this.isShowGraph=false;
     }
 
     // agentName KNOW p
     // forall(system_global_variables - agentName's visible_variables).((global_reachable_states & fair_states) -> p)
     public BDD know(String agentName, BDD p) throws ModelCheckAlgException {
-        if(agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
+        if (agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
 
         int idx_dot = agentName.indexOf('.');
-        if(idx_dot==-1)
+        if (idx_dot == -1)
             agentName = "main." + agentName;
         else if (!agentName.substring(0, idx_dot).equals("main"))
             throw new ModelCheckAlgException("The agent's name " + agentName + " is illegal.");
 
         SMVAgentInfo agentInfo = Env.getAll_agent_modules().get(agentName);
-        if(agentInfo==null) throw new ModelCheckAlgException("Cannot find the information of agent " + agentName + ".");
+        if (agentInfo == null)
+            throw new ModelCheckAlgException("Cannot find the information of agent " + agentName + ".");
 
         BDDVarSet visVars = agentInfo.getVisVars_BDDVarSet();
         // V - agentName's visible variables
@@ -74,16 +79,17 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     // s |= agentName NKNOW p : agentName consider that it is possible that p holds on s
     // forall(system_global_variables - agentName's visible_variables).((global_reachable_states & fair_states) -> p)
     public BDD nknow(String agentName, BDD p) throws ModelCheckAlgException {
-        if(agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
+        if (agentName.equals("")) throw new ModelCheckAlgException("The agent name of the knowledge formula is null.");
 
         int idx_dot = agentName.indexOf('.');
-        if(idx_dot==-1)
+        if (idx_dot == -1)
             agentName = "main." + agentName;
         else if (!agentName.substring(0, idx_dot).equals("main"))
             throw new ModelCheckAlgException("The agent's name " + agentName + " is illegal.");
 
         SMVAgentInfo agentInfo = Env.getAll_agent_modules().get(agentName);
-        if(agentInfo==null) throw new ModelCheckAlgException("Cannot find the information of agent " + agentName + ".");
+        if (agentInfo == null)
+            throw new ModelCheckAlgException("Cannot find the information of agent " + agentName + ".");
 
         BDDVarSet visVars = agentInfo.getVisVars_BDDVarSet();
         // V - agentName's visible variables
@@ -96,19 +102,19 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
     // E[f BU from..to g] under fairness
     public BDD EfBU(int from, int to, BDD f, BDD g) {//****************
-        BDD Z, oldZ=null;
-        if(isUsingReachableStates()) Z = getFairReachableStates().and(g);
+        BDD Z, oldZ = null;
+        if (isUsingReachableStates()) Z = getFairReachableStates().and(g);
         else Z = getFairStates().and(g);
 
-        for (int i=to-1; i>=from; i--){
-            oldZ=Z;
-            Z=Z.id().or(f.and(EX(Z.id())));
+        for (int i = to - 1; i >= from; i--) {
+            oldZ = Z;
+            Z = Z.id().or(f.and(EX(Z.id())));
             if (Z.equals(oldZ)) break;
         }
 
-        for (int i=from-1;i>=0;i--){
-            oldZ=Z;
-            Z=f.and(EX(Z.id()));
+        for (int i = from - 1; i >= 0; i--) {
+            oldZ = Z;
+            Z = f.and(EX(Z.id()));
             if (Z.equals(oldZ)) break;
         }
         return Z;
@@ -116,44 +122,46 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
     // A[f BU from..to g] under fairness
     public BDD AfBU(int from, int to, BDD f, BDD g) {//****************
-        BDD Z, oldZ=null;
-        if(isUsingReachableStates()) Z = getFairReachableStates().and(g);
+        BDD Z, oldZ = null;
+        if (isUsingReachableStates()) Z = getFairReachableStates().and(g);
         else Z = getFairStates().and(g);
 
-        for (int i=to-1; i>=from; i--){
-            oldZ=Z;
-            Z=Z.id().or(f.and(AX(Z.id())));
+        for (int i = to - 1; i >= from; i--) {
+            oldZ = Z;
+            Z = Z.id().or(f.and(AX(Z.id())));
             if (Z.equals(oldZ)) break;
         }
 
-        for (int i=from-1;i>=0;i--){
-            oldZ=Z;
-            Z=f.and(AX(Z.id()));
+        for (int i = from - 1; i >= 0; i--) {
+            oldZ = Z;
+            Z = f.and(AX(Z.id()));
             if (Z.equals(oldZ)) break;
         }
         return Z;
     }
-    /**A[p BU f..t q] is equivalent to
-     ! ((EBF 0..(f - 1) !p)
-     | EBG f..f ((EBG 0..(t - f) !q)
-     | E[!q BU 0..(t - f) (!q & !p)]))
+
+    /**
+     * A[p BU f..t q] is equivalent to
+     * ! ((EBF 0..(f - 1) !p)
+     * | EBG f..f ((EBG 0..(t - f) !q)
+     * | E[!q BU 0..(t - f) (!q & !p)]))
      **/
 
     // E[BG from..to f] under fairness
     public BDD EfBG(int from, int to, BDD f) {//****************
-        BDD Z, oldZ=null;
-        if(isUsingReachableStates()) Z = getFairReachableStates().and(f);
+        BDD Z, oldZ = null;
+        if (isUsingReachableStates()) Z = getFairReachableStates().and(f);
         else Z = getFairStates().and(f);
 
-        for (int i=to-1;i>=from;i--){
-            oldZ=Z;
-            Z=f.and(EX(Z.id()));
+        for (int i = to - 1; i >= from; i--) {
+            oldZ = Z;
+            Z = f.and(EX(Z.id()));
             if (Z.equals(oldZ)) break;
         }
 
-        for (int i=from-1;i>=0;i--){
-            oldZ=Z;
-            Z=EX(Z.id());
+        for (int i = from - 1; i >= 0; i--) {
+            oldZ = Z;
+            Z = EX(Z.id());
             if (Z.equals(oldZ)) break;
         }
         return Z;
@@ -171,7 +179,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
     // ABG from..to p under fairness
     public BDD AfBG(int from, int to, BDD f) {//rrrrrrrrr
-        return EfBF(from,to,f.not()).not();
+        return EfBF(from, to, f.not()).not();
     }
 
     public BDD satRTCTLK(Spec property) throws ModelCheckAlgException {
@@ -195,29 +203,29 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         int noo = op.numOfOperands();
         SpecRange range = null;
         SpecAgentIdentifier agentId = null;
-        BDD left=null;
-        BDD right=null;
+        BDD left = null;
+        BDD right = null;
 
-        if (noo==1) //EX, EF, EG, AX, AF, AG left
-            left=satRTCTLK(child[0]);
-        if (noo==2) {//ABF, ABG, EBF, EBG, KNOW
-            if (child[0] instanceof SpecRange)
-            {   range = (SpecRange) child[0];
-                left= satRTCTLK(child[1]);
-            }else if(child[0] instanceof SpecAgentIdentifier) { //KNOW
+        if (noo == 1) //EX, EF, EG, AX, AF, AG left
+            left = satRTCTLK(child[0]);
+        if (noo == 2) {//ABF, ABG, EBF, EBG, KNOW
+            if (child[0] instanceof SpecRange) {
+                range = (SpecRange) child[0];
+                left = satRTCTLK(child[1]);
+            } else if (child[0] instanceof SpecAgentIdentifier) { //KNOW
                 agentId = (SpecAgentIdentifier) child[0];
                 left = satRTCTLK(child[1]);
-            }else{
-                left=satRTCTLK(child[0]);//AU, EU
-                right=satRTCTLK(child[1]);
+            } else {
+                left = satRTCTLK(child[0]);//AU, EU
+                right = satRTCTLK(child[1]);
             }
         }
-        if (noo==3)// ABU, EBU, ABG, EBG
+        if (noo == 3)// ABU, EBU, ABG, EBG
         {
-            if (child[1] instanceof SpecRange)
-            { range = (SpecRange) child[1];
-                left=satRTCTLK(child[0]);
-                right=satRTCTLK(child[2]);
+            if (child[1] instanceof SpecRange) {
+                range = (SpecRange) child[1];
+                left = satRTCTLK(child[0]);
+                right = satRTCTLK(child[2]);
             }
         }
 
@@ -281,80 +289,48 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     }
 
     public void SetText(JTextPane ctext) {
-        this.ctext=ctext;
+        this.ctext = ctext;
     }
+
+    public void SetShowGraph(boolean isShowGraph) {
+        this.isShowGraph = isShowGraph;
+    }
+
     public GraphExplainRTCTLK GetGraph() {
-        return  this.graph;
-    }
-
-    //@Override
-    public AlgResultI GdoAlgorithm() throws AlgExceptionI {
-//    @Override
-//    public AlgResultI doAlgorithm() throws AlgExceptionI {
-        Spec origSpec = getProperty();
-        System.out.println("model checking RTCTLK: " + simplifySpecString(origSpec.toString(),false));
-        if (origSpec == null)
-            return new AlgResultString(false, "Cannot model check a null specification.");
-        if (!origSpec.isRealTimeCTLKSpec())
-            return new AlgResultString("Cannot model check non RTCTLK specification: " + simplifySpecString(origSpec.toString(),false));
-
-        //setFairStates(Env.TRUE());
-
-        // could throw an exception...
-        BDD satStates = satRTCTLK(origSpec);
-        BDD fairInitStates = getDesign().initial().and(getFairStates());
-        BDD fairInit_unSat = fairInitStates.and(satStates.not());
-        if(fairInit_unSat.isZero()){
-            return new AlgResultString(true, "*** Property is VALID ***");
-        }else{
-            GraphExplainRTCTLK G = new GraphExplainRTCTLK("A counterexample of " + simplifySpecString(origSpec.toString(),false), this);
-            G.addAttribute("ui.label",G.getId());
-
-            boolean ok = mainExplainRTCTLK(origSpec, fairInit_unSat, G);
-
-            String returned_msg = "";
-            if(ok) {
-                returned_msg = "*** Property is NOT VALID and its counterexample is as follows ***\n ";
-                new ViewerExplainRTCTLK(G);
-            }else{
-                returned_msg = "*** Property is NOT VALID ***\n ";
-            }
-            return new AlgResultString(false, returned_msg);
-        }
-
+        return this.graph;
     }
 
     //Using swing to show
     public AlgResultI doAlgorithm() throws AlgExceptionI {
         Spec origSpec = getProperty();
-        //System.out.println("model checking RTCTLK: " + origSpec);
-        ctext.setText(ctext.getText()+"\nmodel checking RTCTLK: " + origSpec);
+            GExample.insertDocument(ctext,  "\nmodel checking RTCTLK: " , Color.BLACK,1);
         if (origSpec == null)
-            ctext.setText(ctext.getText()+"\n Cannot model check a null specification." );
+            GExample.insertDocument(ctext,  "\n Cannot model check a null specification.", Color.BLACK,1);
         if (!origSpec.isRealTimeCTLKSpec())
-            ctext.setText(ctext.getText()+"\nCannot model check non RTCTLK specification: " + origSpec);
+              GExample.insertDocument(ctext,  "\nCannot model check non RTCTLK specification: " + origSpec, Color.BLACK,1);
         // could throw an exception...
         BDD satStates = satRTCTLK(origSpec);
         BDD fairInitStates = getDesign().initial().and(getFairStates());
         BDD fairInit_unSat = fairInitStates.and(satStates.not());
-        if(fairInit_unSat.isZero()){
-            ctext.setText(ctext.getText()+"\n*** Property is VALID ***");
+        if (fairInit_unSat.isZero()) {
             return new AlgResultString(true, "*** Property is VALID ***");
-        }else{
-            GraphExplainRTCTLK G = new GraphExplainRTCTLK("A counterexample of " + simplifySpecString(origSpec.toString(),false), this);
-            G.addAttribute("ui.label",G.getId());
-            boolean ok = mainExplainRTCTLK(origSpec, fairInit_unSat, G);
+        } else {
             String returned_msg = "";
-            if(ok) {
-                ctext.setText(ctext.getText()+"\n*** Property is NOT VALID and its counterexample is as follows ***\n ");
-                returned_msg = "*** Property is NOT VALID and its counterexample is as follows ***\n ";
-                this.graph=G;
-                //new ViewerExplainRTCTLK(G);
-            }else{
-                ctext.setText(ctext.getText()+"\n*** Property is NOT VALID ***\n ");
+            if (isShowGraph == false) {
                 returned_msg = "*** Property is NOT VALID ***\n ";
+                return new AlgResultString(false, returned_msg);
+            } else {
+                GraphExplainRTCTLK G = new GraphExplainRTCTLK("A counterexample of " + simplifySpecString(origSpec.toString(), false), this);
+                G.addAttribute("ui.label", G.getId());
+                boolean ok = mainExplainRTCTLK(origSpec, fairInit_unSat, G);
+                if (ok) {
+                    returned_msg = "*** Property is NOT VALID and its counterexample is as follows ***\n ";
+                    this.graph = G;
+                } else {
+                    returned_msg = "*** Property is NOT VALID ***\n ";
+                }
+                return new AlgResultString(false, returned_msg);
             }
-            return new AlgResultString(false, returned_msg);
         }
     }
 
@@ -396,7 +372,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
     public String simplifySpecString(String spec, boolean delTrue) {
         String res = spec.replaceAll("main.", "");
-        if(delTrue){
+        if (delTrue) {
             res = res.replace("#[TRUE], \n", "");
             res = res.replace("#[TRUE]", "");
         }
@@ -404,15 +380,15 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     }
 
     public boolean mainExplainRTCTLK(
-        Spec spec,                          // the spec. under checked
-        BDD FairInitStates_unsat_spec,       // the set of fair initial states that does not satisfy spec
-        GraphExplainRTCTLK G                 // the graph that explains spec
+            Spec spec,                          // the spec. under checked
+            BDD FairInitStates_unsat_spec,       // the set of fair initial states that does not satisfy spec
+            GraphExplainRTCTLK G                 // the graph that explains spec
     ) throws ModelCheckAlgException {
         createdPathNumber = 0;
 
         //create a new node as the first state of the counterexample
         BDD fromState = FairInitStates_unsat_spec.satOne(getDesign().moduleUnprimeVars(), false);
-        Node n = G.addStateNode( 1, 0, fromState, null); // create the first state 1.0 of G
+        Node n = G.addStateNode(1, 0, fromState, null); // create the first state 1.0 of G
         n.setAttribute("ui.class", "initialState");
         boolean ok = explainRTCTLK(false, spec, G, 1, 0);
 
@@ -424,19 +400,19 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
     //-------------------------------------------------------------------------------------------------------
     public boolean explainRTCTLK(
             boolean getWitness,     // getWitness=true and pathNo.stateNo|=spec: get witness of spec,
-                                    // getWitness=false and pathNo.stateNo=/=spec: get counterexample of spec
+            // getWitness=false and pathNo.stateNo=/=spec: get counterexample of spec
             Spec spec,              // the spec. under checked
             GraphExplainRTCTLK G,   // the graph that explains spec
             int pathNo,             // pathNo is the No. of the current path
             int stateNo             // stateNo is the No. of the current state
     ) throws ModelCheckAlgException {
-        String stateID = pathNo+"."+stateNo;
+        String stateID = pathNo + "." + stateNo;
         BDD fromState = G.getNodeBDD(stateID);
-        if(fromState==null || fromState.isZero()) return false;
+        if (fromState == null || fromState.isZero()) return false;
 
         if (spec instanceof SpecBDD) { // prop is an assertion
             //BDD specVal = ((SpecBDD) spec).getVal();
-            if(getWitness) // generating a witness for an assertion
+            if (getWitness) // generating a witness for an assertion
                 G.addNodeSatSpec(stateID, spec, false);
             else // generating a counterexample for an assertion
                 G.addNodeSatSpec(stateID, new SpecExp(Operator.NOT, spec), false);
@@ -449,33 +425,33 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
         //----------- erase operators IMPLIES, IFF, XOR, XNOR ----------
         if (op == Operator.IMPLIES) { // L->R == !L | R
-            SpecExp newSpec = new SpecExp(  Operator.OR,
+            SpecExp newSpec = new SpecExp(Operator.OR,
                     new SpecExp(Operator.NOT, child[0]),
-                    child[1]  );
+                    child[1]);
             return explainRTCTLK(getWitness, newSpec, G, pathNo, stateNo);
         }
         if (op == Operator.IFF) { // L<->R == (L & R) | (!L & !R)
-            SpecExp newSpec = new SpecExp(  Operator.OR,
+            SpecExp newSpec = new SpecExp(Operator.OR,
                     new SpecExp(Operator.AND, child[0], child[1]),
                     new SpecExp(Operator.AND,
                             new SpecExp(Operator.NOT, child[0]),
-                            new SpecExp(Operator.NOT, child[1]))  );
+                            new SpecExp(Operator.NOT, child[1])));
             return explainRTCTLK(getWitness, newSpec, G, pathNo, stateNo);
         }
-        if(op == Operator.XOR) {
+        if (op == Operator.XOR) {
             SpecExp newSpec = new SpecExp(Operator.NOT, new SpecExp(Operator.IFF, child[0], child[1]));
             return explainRTCTLK(getWitness, newSpec, G, pathNo, stateNo);
         }
-        if(op == Operator.XNOR) {
+        if (op == Operator.XNOR) {
             SpecExp newSpec = new SpecExp(Operator.NOT, new SpecExp(Operator.XOR, child[0], child[1]));
             return explainRTCTLK(getWitness, newSpec, G, pathNo, stateNo);
         }
 
-        if(getWitness) { // getWitness=true: generating a witness of spec
+        if (getWitness) { // getWitness=true: generating a witness of spec
             if (op == Operator.NOT) {
-                if(!(child[0] instanceof SpecBDD)) {
+                if (!(child[0] instanceof SpecBDD)) {
                     SpecExp leftExp = (SpecExp) child[0];
-                    if(leftExp.getOperator() == Operator.KNOW) {
+                    if (leftExp.getOperator() == Operator.KNOW) {
                         Spec knowChild[] = leftExp.getChildren();
                         SpecAgentIdentifier agentId = (SpecAgentIdentifier) knowChild[0];
                         return witnessNKnow(agentId.toString(), new SpecExp(Operator.NOT, knowChild[1]), G, pathNo, stateNo);
@@ -484,125 +460,125 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                 return explainRTCTLK(!getWitness, child[0], G, pathNo, stateNo);
             }
             if (op == Operator.AND) {
-                boolean ret1=true, ret2=true;
+                boolean ret1 = true, ret2 = true;
                 ret1 = explainRTCTLK(getWitness, child[0], G, pathNo, stateNo);
                 ret2 = explainRTCTLK(getWitness, child[1], G, pathNo, stateNo);
                 return ret1 && ret2;
             }
             if (op == Operator.OR) {
-                boolean ret1=true, ret2=true;
-                if(child[0] instanceof SpecBDD) {
+                boolean ret1 = true, ret2 = true;
+                if (child[0] instanceof SpecBDD) {
                     //BDD leftVal = ((SpecBDD) child[0]).getVal();
                     G.addNodeSatSpec(stateID, child[0], true); //leftVal.toString());
                     return true;
                 }
-                if(child[1] instanceof SpecBDD) {
+                if (child[1] instanceof SpecBDD) {
                     //BDD rightVal = ((SpecBDD) child[1]).getVal();
                     G.addNodeSatSpec(stateID, child[1], true); //rightVal.toString());
                     return true;
                 }
                 BDD satLeft = satRTCTLK(child[0]);
-                if(fromState.imp(satLeft).isOne())
+                if (fromState.imp(satLeft).isOne())
                     return explainRTCTLK(getWitness, child[0], G, pathNo, stateNo);
                 else
                     return explainRTCTLK(getWitness, child[1], G, pathNo, stateNo);
             }
-            if(op==Operator.AX || op==Operator.AF || op==Operator.AU || op==Operator.AG ||
-                    op==Operator.ABF || op==Operator.ABU || op==Operator.ABG) {
+            if (op == Operator.AX || op == Operator.AF || op == Operator.AU || op == Operator.AG ||
+                    op == Operator.ABF || op == Operator.ABU || op == Operator.ABG) {
                 G.addNodeSatSpec(stateID, spec, false);
                 return true;
             }
-            if(op==Operator.EX) {
+            if (op == Operator.EX) {
                 return witnessEX(spec, G, pathNo, stateNo);
             }
-            if(op==Operator.EU) {
+            if (op == Operator.EU) {
                 witnessEU(spec, G, pathNo, stateNo);
             }
-            if(op==Operator.EF) {
+            if (op == Operator.EF) {
                 SpecBDD trueSpec = new SpecBDD(Env.TRUE());
                 witnessEU(new SpecExp(Operator.EU, trueSpec, child[0]), G, pathNo, stateNo);
             }
-            if(op==Operator.EG) {
+            if (op == Operator.EG) {
                 witnessEG(spec, G, pathNo, stateNo);
             }
-            if(op==Operator.EBG) {//   new SpecExp(Operator.EBG, child[0],new SpecExp(Operator.NOT, child[1])), G, pathNo, stateNo);
+            if (op == Operator.EBG) {//   new SpecExp(Operator.EBG, child[0],new SpecExp(Operator.NOT, child[1])), G, pathNo, stateNo);
                 witnessEBG(spec, G, pathNo, stateNo);
             }
-            if(op==Operator.EBU) {//   new SpecExp(Operator.EBU, trueSpec,child[0],new SpecExp(Operator.NOT, child[1]))
+            if (op == Operator.EBU) {//   new SpecExp(Operator.EBU, trueSpec,child[0],new SpecExp(Operator.NOT, child[1]))
                 witnessEBU(spec, G, pathNo, stateNo);
             }
 
-        }else{ // getWitness=false: generating a counterexample of spec
+        } else { // getWitness=false: generating a counterexample of spec
             if (op == Operator.NOT) {
                 return explainRTCTLK(!getWitness, child[0], G, pathNo, stateNo);
             }
             if (op == Operator.OR) {
-                boolean ret1=true, ret2=true;
+                boolean ret1 = true, ret2 = true;
                 ret1 = explainRTCTLK(!getWitness, new SpecExp(Operator.NOT, child[0]), G, pathNo, stateNo);
                 ret2 = explainRTCTLK(!getWitness, new SpecExp(Operator.NOT, child[1]), G, pathNo, stateNo);
                 return ret1 && ret2;
             }
             if (op == Operator.AND) {
-                boolean ret1=true, ret2=true;
-                if(child[0] instanceof SpecBDD) {
+                boolean ret1 = true, ret2 = true;
+                if (child[0] instanceof SpecBDD) {
                     //BDD not_leftVal = ((SpecBDD) child[0]).getVal().not();
                     G.addNodeSatSpec(stateID, new SpecExp(Operator.NOT, child[0]), false); //not_leftVal.toString());
                     return true;
                 }
-                if(child[1] instanceof SpecBDD) {
+                if (child[1] instanceof SpecBDD) {
                     //BDD not_rightVal = ((SpecBDD) child[1]).getVal().not();
                     G.addNodeSatSpec(stateID, new SpecExp(Operator.NOT, child[1]), false); //not_rightVal.toString());
                     return true;
                 }
                 BDD not_satLeft = getFairReachableStates().and(satRTCTLK(child[0]).not()); // fairReach - satLeft
-                if(fromState.imp(not_satLeft).isOne())
+                if (fromState.imp(not_satLeft).isOne())
                     return explainRTCTLK(!getWitness, new SpecExp(Operator.NOT, child[0]), G, pathNo, stateNo);
                 else
                     return explainRTCTLK(!getWitness, new SpecExp(Operator.NOT, child[1]), G, pathNo, stateNo);
             }
-            if(op==Operator.EX || op==Operator.EF || op==Operator.EU || op==Operator.EG ||
-                    op==Operator.EBF || op==Operator.EBU || op==Operator.EBG) {
+            if (op == Operator.EX || op == Operator.EF || op == Operator.EU || op == Operator.EG ||
+                    op == Operator.EBF || op == Operator.EBU || op == Operator.EBG) {
                 G.addNodeSatSpec(stateID, new SpecExp(Operator.NOT, spec), false);
                 return true;
             }
-            if(op==Operator.AX) {
+            if (op == Operator.AX) {
                 SpecExp neg_spec = new SpecExp(Operator.EX,
                         new SpecExp(Operator.NOT, child[0]));
                 return witnessEX(neg_spec, G, pathNo, stateNo);
             }
-            if(op==Operator.AU) { // CE(s, A[f U g]) = WIT(s, E[!g U (!f & !g)] \/ EG(!g))
+            if (op == Operator.AU) { // CE(s, A[f U g]) = WIT(s, E[!g U (!f & !g)] \/ EG(!g))
                 SpecExp EGng = new SpecExp(Operator.EG,
                         new SpecExp(Operator.NOT, child[1]));
                 SpecExp EUspec = new SpecExp(Operator.EU,
-                        new SpecExp(Operator.NOT,child[1]),
+                        new SpecExp(Operator.NOT, child[1]),
                         new SpecExp(Operator.NOT,
                                 new SpecExp(Operator.OR, child[0], child[1])));
                 return explainRTCTLK(!getWitness, new SpecExp(Operator.OR, EGng, EUspec), G, pathNo, stateNo);
             }
-            if(op==Operator.AF) {
+            if (op == Operator.AF) {
                 return explainRTCTLK(!getWitness, new SpecExp(Operator.EG, new SpecExp(Operator.NOT, child[0])), G, pathNo, stateNo);
             }
-            if(op==Operator.AG) {
+            if (op == Operator.AG) {
                 return explainRTCTLK(!getWitness, new SpecExp(Operator.EF, new SpecExp(Operator.NOT, child[0])), G, pathNo, stateNo);
             }
-            if(op==Operator.ABF) {
-                return explainRTCTLK(!getWitness, new SpecExp(Operator.EBG, child[0],new SpecExp(Operator.NOT, child[1])), G, pathNo, stateNo);
+            if (op == Operator.ABF) {
+                return explainRTCTLK(!getWitness, new SpecExp(Operator.EBG, child[0], new SpecExp(Operator.NOT, child[1])), G, pathNo, stateNo);
             }
-            if(op==Operator.ABG) {
+            if (op == Operator.ABG) {
                 SpecBDD trueSpec = new SpecBDD(Env.TRUE());
-                return explainRTCTLK(!getWitness, new SpecExp(Operator.EBU, trueSpec,child[0],new SpecExp(Operator.NOT, child[1])), G, pathNo, stateNo);
+                return explainRTCTLK(!getWitness, new SpecExp(Operator.EBU, trueSpec, child[0], new SpecExp(Operator.NOT, child[1])), G, pathNo, stateNo);
             }
-            if(op==Operator.ABU) { //  CE(s, A[f U a..b g]) = WIT(s, E[!g U a..b (!f & !g)] \/ EG a..b (!g))
-                SpecExp EBGng = new SpecExp(Operator.EBG,child[1],
+            if (op == Operator.ABU) { //  CE(s, A[f U a..b g]) = WIT(s, E[!g U a..b (!f & !g)] \/ EG a..b (!g))
+                SpecExp EBGng = new SpecExp(Operator.EBG, child[1],
                         new SpecExp(Operator.NOT, child[2]));
                 SpecExp EBUspec = new SpecExp(Operator.EBU,
-                        new SpecExp(Operator.NOT,child[2]),child[1],
-                        new SpecExp(Operator.AND, new SpecExp(Operator.NOT,child[0]), new SpecExp(Operator.NOT,child[2])));
+                        new SpecExp(Operator.NOT, child[2]), child[1],
+                        new SpecExp(Operator.AND, new SpecExp(Operator.NOT, child[0]), new SpecExp(Operator.NOT, child[2])));
                 return explainRTCTLK(!getWitness, new SpecExp(Operator.OR, EBGng, EBUspec), G, pathNo, stateNo);
                 //return explainRTCTLK(!getWitness,  EBUspec, G, pathNo, stateNo);
             }
 
-            if(op==Operator.KNOW) {
+            if (op == Operator.KNOW) {
                 return explainRTCTLK(!getWitness, new SpecExp(Operator.NOT, spec), G, pathNo, stateNo);
             }
         }
@@ -616,9 +592,9 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             int pathNo,             // pathNo is the No. of the current path
             int stateNo             // stateNo is the No. of the current state
     ) throws ModelCheckAlgException {
-        String stateID = pathNo+"."+stateNo;
+        String stateID = pathNo + "." + stateNo;
         BDD fromState = G.getNodeBDD(stateID);
-        if(fromState==null || fromState.isZero()) return false;
+        if (fromState == null || fromState.isZero()) return false;
 
         SpecExp origPropExp = (SpecExp) spec;
         Operator op = origPropExp.getOperator();
@@ -630,11 +606,11 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         BDD satLeft = satRTCTLK(child[0]);
         BDD nextState = getDesign().succ(fromState).and(satLeft).and(getFairReachableStates())
                 .satOne(getDesign().moduleUnprimeVars(), false);
-        if(nextState.isZero()) return false;
+        if (nextState.isZero()) return false;
 
         createdPathNumber++;
         String nextStateId = createdPathNumber + "." + (stateNo + 1);
-        G.addStateNode(createdPathNumber, stateNo+1, nextState, child[0]);
+        G.addStateNode(createdPathNumber, stateNo + 1, nextState, child[0]);
         Edge e = G.addEdge("Path #" + createdPathNumber + " |= X " + child[0], stateID, nextStateId, true);
         e.addAttribute("ui.label", e.getId());
 
@@ -673,10 +649,9 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
         // the path has at least 2 states, including fromState
         int i = 0, n = -1;
-        while (true)
-        {
+        while (true) {
             BDD predZ = f.and(design.pred(Z.get(i))); // predZ is the frontier of Z[i]
-            if(fromState.imp(predZ).isOne()) { // fromState in predZ
+            if (fromState.imp(predZ).isOne()) { // fromState in predZ
                 n = i;  // n is the nextZ of fromState
                 break;
             }
@@ -685,7 +660,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             i++;
         }
 
-        BDD[] path = new BDD[n+2];
+        BDD[] path = new BDD[n + 2];
         path[0] = fromState;
         G.addNodeSatSpec(stateID, child[0], true);
 
@@ -693,20 +668,22 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
         String nid1, nid2;
         Edge e;
-        for(i=1; i<=n+1; i++) {
+        for (i = 1; i <= n + 1; i++) {
             path[i] = design.succ(path[i - 1]).and(Z.get(n + 1 - i)).satOne(getDesign().moduleUnprimeVars(), false);
 
-            if(i<=n) G.addStateNode(createdPathNumber, i, path[i], child[0]);
+            if (i <= n) G.addStateNode(createdPathNumber, i, path[i], child[0]);
             else G.addStateNode(createdPathNumber, i, path[i], child[1]);
 
-            if(i==1) {
-                nid1=stateID; nid2=createdPathNumber+".1";
-                e = G.addEdge("Path #" + createdPathNumber + " |= " + simplifySpecString(child[0].toString(),false) + " U " +
-                        simplifySpecString(child[1].toString(),false), nid1, nid2, true);
+            if (i == 1) {
+                nid1 = stateID;
+                nid2 = createdPathNumber + ".1";
+                e = G.addEdge("Path #" + createdPathNumber + " |= " + simplifySpecString(child[0].toString(), false) + " U " +
+                        simplifySpecString(child[1].toString(), false), nid1, nid2, true);
                 e.addAttribute("ui.label", e.getId());
-            }else{
-                nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+            } else {
+                nid1 = createdPathNumber + "." + (i - 1);
+                nid2 = createdPathNumber + "." + i;
+                e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
                 //e.addAttribute("ui.label", e.getId());
             }
 
@@ -724,7 +701,6 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
      * The line numbers are the line numbers of that algorithm. Read the article
      * for further details.
      * </p>
-     *
      */
     public boolean witnessEG(
             Spec spec,              // the spec. under checked
@@ -745,11 +721,11 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         if (op != Operator.EG) return false;
 
         BDD f = satRTCTLK(child[0]); // spec = EG f
-        if(f==null) return false;
+        if (f == null) return false;
         BDD EGf = EfG(f);
-        if(EGf.isZero()) return false;
+        if (EGf.isZero()) return false;
         BDD feasible = EGf.and(getReachableStates()); //ce_fair_g(f).and(getReachableStates()); // feasible is the set of states satisfying f & fair
-        if(fromState.and(feasible).isZero()) // fromState not in feasible
+        if (fromState.and(feasible).isZero()) // fromState not in feasible
             return false;
 
 
@@ -799,10 +775,10 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         boolean NotYetCreateEdge = true;
         createdPathNumber++;
         if (path.length >= 1) prefix.add(path[0]);
-        if(path.length<=1) { // only include one state: fromState
+        if (path.length <= 1) { // only include one state: fromState
             G.addNodeSatSpec(stateID, child[0], true);
-            prefix_last_nodeId=stateID;
-        }else { //path.length > 1
+            prefix_last_nodeId = stateID;
+        } else { //path.length > 1
             pred_nid = stateID;
             G.addNodeSatSpec(stateID, child[0], true);
             for (int i = 1; i < path.length; i++) {
@@ -810,7 +786,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
                 G.addStateNode(createdPathNumber, i, path[i], child[0]);
 
                 if (NotYetCreateEdge) {
-                    e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),false), pred_nid, cur_nid, true);
+                    e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(), false), pred_nid, cur_nid, true);
                     e.addAttribute("ui.label", e.getId());
                     NotYetCreateEdge = false;
                 } else {
@@ -943,29 +919,29 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
         // LXY: Now period = { period[0]=prefix_last_node, ..., period[length-1]}, and
         // there is a transition from period[length-1] to period[0]
-        pred_nid=prefix_last_nodeId;
-        int state_idx = prefix.size()+1;
-        for (int i=1; i<=period.size()-1; i++) {
-            cur_nid=createdPathNumber+"."+state_idx;
-            G.addStateNode(createdPathNumber,  state_idx, period.get(i), child[0]);
+        pred_nid = prefix_last_nodeId;
+        int state_idx = prefix.size() + 1;
+        for (int i = 1; i <= period.size() - 1; i++) {
+            cur_nid = createdPathNumber + "." + state_idx;
+            G.addStateNode(createdPathNumber, state_idx, period.get(i), child[0]);
 
             if (NotYetCreateEdge) {
-                e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),false), pred_nid, cur_nid, true);
+                e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(), false), pred_nid, cur_nid, true);
                 e.addAttribute("ui.label", e.getId());
-                NotYetCreateEdge=false;
+                NotYetCreateEdge = false;
             } else {
-                G.addEdge(pred_nid+"->"+cur_nid, pred_nid, cur_nid, true);
+                G.addEdge(pred_nid + "->" + cur_nid, pred_nid, cur_nid, true);
             }
 
             state_idx++;
-            pred_nid=cur_nid;
+            pred_nid = cur_nid;
         }
-        if(NotYetCreateEdge) { // period only has period[0], i.e., prefix_last_node
-            e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(),false), pred_nid, prefix_last_nodeId, true);
+        if (NotYetCreateEdge) { // period only has period[0], i.e., prefix_last_node
+            e = G.addEdge("Path #" + createdPathNumber + " |= G " + simplifySpecString(child[0].toString(), false), pred_nid, prefix_last_nodeId, true);
             e.addAttribute("ui.label", e.getId());
-            NotYetCreateEdge=false;
-        }else
-            G.addEdge(pred_nid+"->"+prefix_last_nodeId, pred_nid, prefix_last_nodeId, true); // close period
+            NotYetCreateEdge = false;
+        } else
+            G.addEdge(pred_nid + "->" + prefix_last_nodeId, pred_nid, prefix_last_nodeId, true); // close period
 
 
         // Yaniv - the last one is for closing the cycle. He won't be printed.
@@ -1022,116 +998,126 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         if (spec instanceof SpecBDD) return false;
         if (op != Operator.EBG) return false;
         BDD f = satRTCTLK(child[1]); // spec = EBG a..b f
-        if(f==null) return false;
-        int from=range.getFrom(),to=range.getTo();
+        if (f == null) return false;
+        int from = range.getFrom(), to = range.getTo();
 
-        BDD[] Z = new BDD[to+1];
-        int m=0,n=0;
-        BDD oldZ=null;
-        Z[to]=f.id().and(design.feasible());
-        for(int i=to-1;i>=from;i--)
-        {
-            Z[i] = Z[i+1].or(f.and(design.pred(Z[i+1])));
-            if(Z[i].equals(Z[i+1])) {n=i;break;}
-            n=i;
+        BDD[] Z = new BDD[to + 1];
+        int m = 0, n = 0;
+        BDD oldZ = null;
+        Z[to] = f.id().and(design.feasible());
+        for (int i = to - 1; i >= from; i--) {
+            Z[i] = Z[i + 1].or(f.and(design.pred(Z[i + 1])));
+            if (Z[i].equals(Z[i + 1])) {
+                n = i;
+                break;
+            }
+            n = i;
         }
-        oldZ=Z[n];
-        for(int i=from-1;i>=0;i--)
-        {
+        oldZ = Z[n];
+        for (int i = from - 1; i >= 0; i--) {
             Z[i] = design.pred(oldZ);
-            if(Z[i].equals(oldZ)) {m=i;break;}
-            oldZ=Z[i];
-            m=i;
+            if (Z[i].equals(oldZ)) {
+                m = i;
+                break;
+            }
+            oldZ = Z[i];
+            m = i;
         }//from 为0跳过此步
-        BDD [] path=new BDD[to+1];
+        BDD[] path = new BDD[to + 1];
         path[0] = fromState;
         SpecBDD trueSpec = new SpecBDD(Env.TRUE());
         G.addNodeSatSpec(stateID, trueSpec, true);
         createdPathNumber++;
-        BDD c=fromState,next;
+        BDD c = fromState, next;
         String nid1, nid2;
         Edge e;
-        if(Z[m]==null)//0..n
+        if (Z[m] == null)//0..n
         {
-            m=n;
-            for(int i=1;i<=to ;i++)
-            {
+            m = n;
+            for (int i = 1; i <= to; i++) {
 
-                path[i]=c.and(Z[m]).satOne(getDesign().moduleUnprimeVars(),false);
-                next=getDesign().succ(c);
-                c=next;
+                path[i] = c.and(Z[m]).satOne(getDesign().moduleUnprimeVars(), false);
+                next = getDesign().succ(c);
+                c = next;
                 //System.out.println(i+"---"+path[i]);
-                if(i<=from) G.addStateNode(createdPathNumber, i, path[i], trueSpec);
+                if (i <= from) G.addStateNode(createdPathNumber, i, path[i], trueSpec);
                 else G.addStateNode(createdPathNumber, i, path[i], child[1]);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "EBG" +"["+child[0].toString()+"]" +  child[1].toString(), nid1, nid2, true);
+                if (i == 1) {
+                    nid1 = stateID;
+                    nid2 = createdPathNumber + ".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "EBG" + "[" + child[0].toString() + "]" + child[1].toString(), nid1, nid2, true);
                     e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                } else {
+                    nid1 = createdPathNumber + "." + (i - 1);
+                    nid2 = createdPathNumber + "." + i;
+                    e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
                     //e.addAttribute("ui.label", e.getId());
                 }
             }
             return true;
-        }
-        else
-        {
-            if (fromState.and(Z[m]).equals(Env.FALSE()))return false;
-            for(int i=1;i<=m ;i++)//补齐0 ---- m
+        } else {
+            if (fromState.and(Z[m]).equals(Env.FALSE())) return false;
+            for (int i = 1; i <= m; i++)//补齐0 ---- m
             {
-                path[i]=c.and(Z[m]).satOne(getDesign().moduleUnprimeVars(),false);
-                next=getDesign().succ(c);
-                c=next;
-                System.out.println(i+"---"+path[i]);
+                path[i] = c.and(Z[m]).satOne(getDesign().moduleUnprimeVars(), false);
+                next = getDesign().succ(c);
+                c = next;
+                System.out.println(i + "---" + path[i]);
                 G.addStateNode(createdPathNumber, i, path[i], trueSpec);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= "  + "EBG" +"["+child[0].toString()+"]" +   child[1].toString(), nid1, nid2, true);
+                if (i == 1) {
+                    nid1 = stateID;
+                    nid2 = createdPathNumber + ".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "EBG" + "[" + child[0].toString() + "]" + child[1].toString(), nid1, nid2, true);
                     e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                } else {
+                    nid1 = createdPathNumber + "." + (i - 1);
+                    nid2 = createdPathNumber + "." + i;
+                    e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
                     //e.addAttribute("ui.label", e.getId());
                 }
             }
-            for(int i=m+1;i<=from-1;i++)//补齐m+1 ---- from-1
+            for (int i = m + 1; i <= from - 1; i++)//补齐m+1 ---- from-1
             {
-                path[i]=getDesign().succ(path[i-1]).and(Z[i]).satOne(getDesign().moduleUnprimeVars(),false);
-                System.out.println(i+"---"+path[i]);
+                path[i] = getDesign().succ(path[i - 1]).and(Z[i]).satOne(getDesign().moduleUnprimeVars(), false);
+                System.out.println(i + "---" + path[i]);
                 G.addStateNode(createdPathNumber, i, path[i], trueSpec);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= "  + "EBG" +"["+child[0].toString()+"]" +   child[1].toString(), nid1, nid2, true);
+                if (i == 1) {
+                    nid1 = stateID;
+                    nid2 = createdPathNumber + ".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "EBG" + "[" + child[0].toString() + "]" + child[1].toString(), nid1, nid2, true);
                     e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                } else {
+                    nid1 = createdPathNumber + "." + (i - 1);
+                    nid2 = createdPathNumber + "." + i;
+                    e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
                     //e.addAttribute("ui.label", e.getId());
                 }
             }
-            for(int i=from;i<=n  ;i++)//补齐from ---- n
+            for (int i = from; i <= n; i++)//补齐from ---- n
             {
-                path[i]=getDesign().succ(path[i-1]).and(Z[n]).satOne(getDesign().moduleUnprimeVars(),false);
-                System.out.println(i+"---"+path[i]);
+                path[i] = getDesign().succ(path[i - 1]).and(Z[n]).satOne(getDesign().moduleUnprimeVars(), false);
+                System.out.println(i + "---" + path[i]);
                 G.addStateNode(createdPathNumber, i, path[i], child[1]);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= "  + "EBG" +"["+child[0].toString()+"]" +   child[1].toString(), nid1, nid2, true);
+                if (i == 1) {
+                    nid1 = stateID;
+                    nid2 = createdPathNumber + ".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "EBG" + "[" + child[0].toString() + "]" + child[1].toString(), nid1, nid2, true);
                     e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                } else {
+                    nid1 = createdPathNumber + "." + (i - 1);
+                    nid2 = createdPathNumber + "." + i;
+                    e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
                     //e.addAttribute("ui.label", e.getId());
                 }
             }
-            for(int i=n;i<=to-1;i++)//补齐n ---- to
+            for (int i = n; i <= to - 1; i++)//补齐n ---- to
             {
-                path[i+1]=getDesign().succ(path[i]).and(Z[i+1]).satOne(getDesign().moduleUnprimeVars(),false);
-                System.out.println(i+"---"+path[i+1]);
-                G.addStateNode(createdPathNumber, i+1, path[i+1], child[1]);
-                nid1=createdPathNumber+"."+i; nid2=createdPathNumber+"."+(i+1);
-                e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                path[i + 1] = getDesign().succ(path[i]).and(Z[i + 1]).satOne(getDesign().moduleUnprimeVars(), false);
+                System.out.println(i + "---" + path[i + 1]);
+                G.addStateNode(createdPathNumber, i + 1, path[i + 1], child[1]);
+                nid1 = createdPathNumber + "." + i;
+                nid2 = createdPathNumber + "." + (i + 1);
+                e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
             }
             return true;
         }
@@ -1158,27 +1144,31 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         if (op != Operator.EBU) return false;
         BDD f = satRTCTLK(child[0]);
         BDD g = satRTCTLK(child[2]);
-        int from=range.getFrom(),to=range.getTo();
-        System.out.println(child[0]+" "+child[1]+child[2]);
-        BDD[] Z = new BDD[to+1];
-        int m=0,n=from;
-        BDD oldZ=null;
-        Z[to]=g.id().and(design.feasible());
-        for(int i=to-1;i>=from;i--)
-        {
-            Z[i] = Z[i+1].or(f.and(design.pred(Z[i+1])));
-            if(Z[i].equals(Z[i+1])) {n=i;break;}
-            n=i;
+        int from = range.getFrom(), to = range.getTo();
+        System.out.println(child[0] + " " + child[1] + child[2]);
+        BDD[] Z = new BDD[to + 1];
+        int m = 0, n = from;
+        BDD oldZ = null;
+        Z[to] = g.id().and(design.feasible());
+        for (int i = to - 1; i >= from; i--) {
+            Z[i] = Z[i + 1].or(f.and(design.pred(Z[i + 1])));
+            if (Z[i].equals(Z[i + 1])) {
+                n = i;
+                break;
+            }
+            n = i;
         }
-        oldZ=Z[n];
-        for(int i=from-1;i>=0;i--)
-        {
+        oldZ = Z[n];
+        for (int i = from - 1; i >= 0; i--) {
             Z[i] = f.and(design.pred(oldZ));
-            if(Z[i].equals(oldZ)) {m=i;break;}
-            oldZ=Z[i];
-            m=i;
+            if (Z[i].equals(oldZ)) {
+                m = i;
+                break;
+            }
+            oldZ = Z[i];
+            m = i;
         }
-        BDD [] path=new BDD[to+1];
+        BDD[] path = new BDD[to + 1];
         path[0] = fromState;
         G.addNodeSatSpec(stateID, child[0], true);
 
@@ -1187,79 +1177,84 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         String nid1, nid2;
         Edge e;
 
-        BDD c=fromState,next;
-        if (Z[m]==null)
-        {
+        BDD c = fromState, next;
+        if (Z[m] == null) {
             return true;
-        }
-        else
-        {
-            for(int i=1;i<=m ;i++)//补齐0 ---- m
+        } else {
+            for (int i = 1; i <= m; i++)//补齐0 ---- m
             {
-                path[i]=c.and(f).and(Z[m]).satOne(getDesign().moduleUnprimeVars(),false);
-                next=getDesign().succ(c);
-                c=next;
-                System.out.println(i+"---"+path[i]);
+                path[i] = c.and(f).and(Z[m]).satOne(getDesign().moduleUnprimeVars(), false);
+                next = getDesign().succ(c);
+                c = next;
+                System.out.println(i + "---" + path[i]);
                 G.addStateNode(createdPathNumber, i, path[i], child[0]);
 
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
+                if (i == 1) {
+                    nid1 = stateID;
+                    nid2 = createdPathNumber + ".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "E" + child[0].toString() + "U" + "[" + child[1].toString() + "]" + child[2].toString(), nid1, nid2, true);
                     e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                } else {
+                    nid1 = createdPathNumber + "." + (i - 1);
+                    nid2 = createdPathNumber + "." + i;
+                    e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
                     //e.addAttribute("ui.label", e.getId());
                 }
 
             }
-            for(int i=m+1;i<=from-1;i++)//补齐m+1 ---- from-1
+            for (int i = m + 1; i <= from - 1; i++)//补齐m+1 ---- from-1
             {
-                path[i]=getDesign().succ(path[i-1]).and(Z[i]).satOne(getDesign().moduleUnprimeVars(),false);
+                path[i] = getDesign().succ(path[i - 1]).and(Z[i]).satOne(getDesign().moduleUnprimeVars(), false);
                 //System.out.println(i+"---"+path[i]);
                 G.addStateNode(createdPathNumber, i, path[i], child[0]);
-                if(i==1) {
-                    nid1=stateID; nid2=createdPathNumber+".1";
-                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
+                if (i == 1) {
+                    nid1 = stateID;
+                    nid2 = createdPathNumber + ".1";
+                    e = G.addEdge("Path #" + createdPathNumber + " |= " + "E" + child[0].toString() + "U" + "[" + child[1].toString() + "]" + child[2].toString(), nid1, nid2, true);
                     e.addAttribute("ui.label", e.getId());
-                }else{
-                    nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                    e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                } else {
+                    nid1 = createdPathNumber + "." + (i - 1);
+                    nid2 = createdPathNumber + "." + i;
+                    e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
                     //e.addAttribute("ui.label", e.getId());
                 }
             }
-            if (from>0){
-                BDD nextZ,nextg;
-                for(int i=from;i<=to  ;i++)//补齐from ---- n --- to
+            if (from > 0) {
+                BDD nextZ, nextg;
+                for (int i = from; i <= to; i++)//补齐from ---- n --- to
                 {
-                    if(i<=n) nextZ=Z[n];
-                    else nextZ=Z[i];
-                    nextg=getDesign().succ(path[i-1]).and(nextZ).and(g.id());
+                    if (i <= n) nextZ = Z[n];
+                    else nextZ = Z[i];
+                    nextg = getDesign().succ(path[i - 1]).and(nextZ).and(g.id());
                     if (!nextg.equals(Env.FALSE())) {
-                        path[i]=nextg.satOne(getDesign().moduleUnprimeVars(),false);
+                        path[i] = nextg.satOne(getDesign().moduleUnprimeVars(), false);
                         //System.out.println(i+"---"+path[i]);
                         G.addStateNode(createdPathNumber, i, path[i], child[0]);
-                        if(i==1) {
-                            nid1=stateID; nid2=createdPathNumber+".1";
-                            e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
+                        if (i == 1) {
+                            nid1 = stateID;
+                            nid2 = createdPathNumber + ".1";
+                            e = G.addEdge("Path #" + createdPathNumber + " |= " + "E" + child[0].toString() + "U" + "[" + child[1].toString() + "]" + child[2].toString(), nid1, nid2, true);
                             e.addAttribute("ui.label", e.getId());
-                        }else{
-                            nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                            e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                        } else {
+                            nid1 = createdPathNumber + "." + (i - 1);
+                            nid2 = createdPathNumber + "." + i;
+                            e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
                             //e.addAttribute("ui.label", e.getId());
                         }
                         break;
                     }
-                    path[i]=getDesign().succ(path[i-1]).and(nextZ);
+                    path[i] = getDesign().succ(path[i - 1]).and(nextZ);
                     //System.out.println(i+"---"+path[i]);
                     G.addStateNode(createdPathNumber, i, path[i], child[2]);
-                    if(i==1) {
-                        nid1=stateID; nid2=createdPathNumber+".1";
-                        e = G.addEdge("Path #" + createdPathNumber + " |= " + "E"+child[0].toString() + "U" + "["+child[1].toString()+"]"+child[2].toString(), nid1, nid2, true);
+                    if (i == 1) {
+                        nid1 = stateID;
+                        nid2 = createdPathNumber + ".1";
+                        e = G.addEdge("Path #" + createdPathNumber + " |= " + "E" + child[0].toString() + "U" + "[" + child[1].toString() + "]" + child[2].toString(), nid1, nid2, true);
                         e.addAttribute("ui.label", e.getId());
-                    }else{
-                        nid1=createdPathNumber+"."+(i-1); nid2=createdPathNumber+"."+i;
-                        e = G.addEdge(nid1+"->"+nid2, nid1, nid2, true);
+                    } else {
+                        nid1 = createdPathNumber + "." + (i - 1);
+                        nid2 = createdPathNumber + "." + i;
+                        e = G.addEdge(nid1 + "->" + nid2, nid1, nid2, true);
                         //e.addAttribute("ui.label", e.getId());
                     }
                 }
@@ -1276,14 +1271,14 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             int pathNo,             // pathNo is the No. of the current path
             int stateNo             // stateNo is the No. of the current state
     ) throws ModelCheckAlgException {
-        String stateId = pathNo+"."+stateNo;
+        String stateId = pathNo + "." + stateNo;
         BDD fromState = G.getNodeBDD(stateId);
-        if(fromState==null || fromState.isZero()) return false;
+        if (fromState == null || fromState.isZero()) return false;
 
         BDD specStates = satRTCTLK(spec).and(getFairReachableStates());
-        if(specStates==null || specStates.isZero()) return false;
+        if (specStates == null || specStates.isZero()) return false;
 
-        if(fromState.imp(specStates).isOne()) { // fromState in specStates, don't need to extend the witness
+        if (fromState.imp(specStates).isOne()) { // fromState in specStates, don't need to extend the witness
             G.addNodeSatSpec(stateId, spec, true);
             return true;
         }
@@ -1294,12 +1289,13 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
         // get agentId's invisible variables
         int idx_dot = agentId.indexOf('.');
-        if(idx_dot==-1)
+        if (idx_dot == -1)
             agentId = "main." + agentId;
         else if (!agentId.substring(0, idx_dot).equals("main"))
             throw new ModelCheckAlgException("The agent's name " + agentId + " is illegal.");
         SMVAgentInfo agentInfo = Env.getAll_agent_modules().get(agentId);
-        if(agentInfo==null) throw new ModelCheckAlgException("Cannot find the information of agent " + agentId + ".");
+        if (agentInfo == null)
+            throw new ModelCheckAlgException("Cannot find the information of agent " + agentId + ".");
         BDDVarSet visVars = agentInfo.getVisVars_BDDVarSet();
         BDDVarSet allInvisVars = Env.globalUnprimeVarsMinus(visVars);
 
@@ -1307,7 +1303,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
         // on these states agentId consider spec can be true
         BDD nknowStates_neg_s0 = nknow(agentId, specStates);
         nknowStates_neg_s0 = nknowStates_neg_s0.id().and(fromState.exist(allInvisVars)).and(specStates).and(getFairReachableStates()).and(fromState.not());
-        if(nknowStates_neg_s0.isZero()) return false;
+        if (nknowStates_neg_s0.isZero()) return false;
 
         //(1)
         //(1.1) collect all states within G into startStates
@@ -1317,49 +1313,49 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
             startStates = startStates.id().or(state);
         }
         startStates = startStates.id().or(getDesign().initial()).and(getFairReachableStates());
-        if(startStates==null || startStates.isZero()) return false;
+        if (startStates == null || startStates.isZero()) return false;
 
         //(1.2) generating the path
         BDD[] path = getDesign().shortestPath(startStates, nknowStates_neg_s0);
-        if(path.length<=0) return false;
+        if (path.length <= 0) return false;
         String fromNodeId = null;
         for (Node n : G) {
             BDD bdd = n.getAttribute("BDD");
-            if(path[0].equals(bdd)) {
-                fromNodeId=n.getId();
+            if (path[0].equals(bdd)) {
+                fromNodeId = n.getId();
                 break;
             }
         }
 
         createdPathNumber++;
-        if(fromNodeId==null) { // the starting state path[0] is not in G and must be another initial state
+        if (fromNodeId == null) { // the starting state path[0] is not in G and must be another initial state
             Node n = G.addStateNode(createdPathNumber, 0, path[0], null);
             n.setAttribute("ui.class", "initialState");
             fromNodeId = createdPathNumber + ".0";
         }
         // generating the path: fromNodeId(in G) -> path[1] -> ... -> path[length-1]
         String pred_nodeId = fromNodeId, cur_nodeId;
-        for(int i=1; i<path.length; i++) {
-            if(i==path.length-1) { // path[length-1] is the epistemic reachability state from stateId
+        for (int i = 1; i < path.length; i++) {
+            if (i == path.length - 1) { // path[length-1] is the epistemic reachability state from stateId
                 Node n = G.addStateNode(createdPathNumber, i, path[i], spec);
                 n.setAttribute("ui.class", "epistemicState");
-            }else
+            } else
                 G.addStateNode(createdPathNumber, i, path[i], null);
 
-            cur_nodeId = createdPathNumber+"."+i;
-            Edge e = G.addEdge(pred_nodeId+"->"+cur_nodeId, pred_nodeId, cur_nodeId, true);
-            if(i==1) {
+            cur_nodeId = createdPathNumber + "." + i;
+            Edge e = G.addEdge(pred_nodeId + "->" + cur_nodeId, pred_nodeId, cur_nodeId, true);
+            if (i == 1) {
                 e.addAttribute("ui.label", "goes to state " +
-                        createdPathNumber+"."+(path.length-1)+" where "+simplifySpecString(agentId,true)
-                        +" consider "+simplifySpecString(spec.toString(),false)+" holds" );
+                        createdPathNumber + "." + (path.length - 1) + " where " + simplifySpecString(agentId, true)
+                        + " consider " + simplifySpecString(spec.toString(), false) + " holds");
             }
 
             pred_nodeId = cur_nodeId;
         }
 
         //(2)
-        Edge e = G.addEdge("Agent " + simplifySpecString(agentId,true) + " [" + (++createdEpistemicEdgeNumber) + "]", stateId, pred_nodeId, false);
-        e.addAttribute("ui.label", "Agent " + simplifySpecString(agentId,true));
+        Edge e = G.addEdge("Agent " + simplifySpecString(agentId, true) + " [" + (++createdEpistemicEdgeNumber) + "]", stateId, pred_nodeId, false);
+        e.addAttribute("ui.label", "Agent " + simplifySpecString(agentId, true));
         e.setAttribute("ui.class", "epistemicEdge");
 
         return true;
@@ -1367,15 +1363,17 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg{
 
 
     public boolean explainOneGraphNode(GraphExplainRTCTLK G, String nodeId) throws ModelCheckAlgException {
-        Node n = G.getNode(nodeId); if(n==null) return false;
-        Queue<Spec> Q = n.getAttribute("queue_satSpec"); if(Q==null) return false;
-        int pathNo=n.getAttribute("pathNo");
-        int stateNo=n.getAttribute("stateNo");
+        Node n = G.getNode(nodeId);
+        if (n == null) return false;
+        Queue<Spec> Q = n.getAttribute("queue_satSpec");
+        if (Q == null) return false;
+        int pathNo = n.getAttribute("pathNo");
+        int stateNo = n.getAttribute("stateNo");
 
-        boolean ret=true;
-        while(!Q.isEmpty()) {
+        boolean ret = true;
+        while (!Q.isEmpty()) {
             Spec spec = Q.poll();
-            if(spec!=null)
+            if (spec != null)
                 ret = explainRTCTLK(true, spec, G, pathNo, stateNo);
             ret = ret && ret;
         }

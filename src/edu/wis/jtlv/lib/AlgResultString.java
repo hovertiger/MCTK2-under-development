@@ -10,8 +10,8 @@ package edu.wis.jtlv.lib;
  * 
  */
 public class AlgResultString implements AlgResultI {
-	private ResultStatus stat;
-	private String result;
+	 ResultStatus stat;
+	 String result;
 
 	/**
 	 * <p>
