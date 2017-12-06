@@ -15,12 +15,12 @@ import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
+import org.graphstream.ui.spriteManager.SpriteManager;
 import swing.GExample;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Queue;
-import java.util.Vector;
+import java.util.*;
 
 public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
     // variables for counterexamples generation
@@ -871,6 +871,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
         //
         // Close cycle
         //
+
         // A period of length 1 may be fair, but it might be the case that
         // period[1] is not a successor of itself. The routine path
         // will add nothing. To solve this
@@ -941,6 +942,7 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
             NotYetCreateEdge = false;
         } else
             G.addEdge(pred_nid + "->" + prefix_last_nodeId, pred_nid, prefix_last_nodeId, true); // close period
+
 
         // Yaniv - the last one is for closing the cycle. He won't be printed.
         period.add(period.firstElement());

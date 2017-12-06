@@ -2,18 +2,17 @@
 
 package edu.wis.jtlv.env.core.smv;
 
+import java.util.Vector;
 import edu.wis.jtlv.env.Env;
 import edu.wis.jtlv.env.core.smv.Initiator.CaseElement;
 import edu.wis.jtlv.env.core.smv.schema.SMVAbstractElementInfo;
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.CommonTree;
-import org.antlr.runtime.tree.TreeNodeStream;
-import org.antlr.runtime.tree.TreeParser;
-import org.antlr.runtime.tree.TreeRuleReturnScope;
-
-import java.util.Vector;
-
 //import java.lang.Boolean;
+
+
+import org.antlr.runtime.*;
+import org.antlr.runtime.tree.*;import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 public class SMVStmtWalker extends TreeParser {
     public static final String[] tokenNames = new String[] {
@@ -303,6 +302,7 @@ public class SMVStmtWalker extends TreeParser {
 
                     }
                     break;
+
             }
         }
         catch (RecognitionException re) {

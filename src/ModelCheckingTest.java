@@ -1,18 +1,21 @@
+import java.io.IOException;
+
+import edu.wis.jtlv.lib.AlgExceptionI;
+import edu.wis.jtlv.lib.AlgRunnerThread;
+import edu.wis.jtlv.lib.mc.CTL.CTLModelCheckAlg;
+import edu.wis.jtlv.lib.mc.LTL.LTLModelCheckAlg;
+import edu.wis.jtlv.lib.mc.RTCTLK.RTCTLKModelCheckAlg;
+
+
+import edu.wis.jtlv.old_lib.mc.LTLModelChecker;
+import edu.wis.jtlv.old_lib.mc.CTLModelChecker;
+import edu.wis.jtlv.old_lib.mc.ModelCheckException;
+import edu.wis.jtlv.old_lib.mc.SimpleModelChecker;
+import net.sf.javabdd.BDD;
 import edu.wis.jtlv.env.Env;
 import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.SMVModule;
 import edu.wis.jtlv.env.spec.Spec;
-import edu.wis.jtlv.lib.AlgExceptionI;
-import edu.wis.jtlv.lib.AlgRunnerThread;
-import edu.wis.jtlv.lib.mc.LTL.LTLModelCheckAlg;
-import edu.wis.jtlv.lib.mc.RTCTLK.RTCTLKModelCheckAlg;
-import edu.wis.jtlv.old_lib.mc.CTLModelChecker;
-import edu.wis.jtlv.old_lib.mc.LTLModelChecker;
-import edu.wis.jtlv.old_lib.mc.ModelCheckException;
-import edu.wis.jtlv.old_lib.mc.SimpleModelChecker;
-import net.sf.javabdd.BDD;
-
-import java.io.IOException;
 
 /**
  * @version {@value edu.wis.jtlv.env.Env#version}
@@ -509,7 +512,7 @@ public class ModelCheckingTest {
 
 			System.out.println(all_specs[i].isRealTimeLTLSpec());
 
-			//		LTLModelCheckAlg checker = new LTLModelCheckAlg(main,all_specs[i]);
+	//		LTLModelCheckAlg checker = new LTLModelCheckAlg(main,all_specs[i]);
 //			// model checking a module
 //			try {
 //				checker.preAlgorithm();

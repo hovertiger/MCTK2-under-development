@@ -1,20 +1,5 @@
 package swing;
 
-import edu.wis.jtlv.env.Env;
-import edu.wis.jtlv.env.module.SMVModule;
-import edu.wis.jtlv.env.spec.Spec;
-import edu.wis.jtlv.lib.AlgExceptionI;
-import edu.wis.jtlv.lib.AlgRunnerThread;
-import edu.wis.jtlv.lib.mc.LTL.LTLModelCheckAlg;
-import edu.wis.jtlv.lib.mc.RTCTLK.GraphExplainRTCTLK;
-import edu.wis.jtlv.lib.mc.RTCTLK.RTCTLKModelCheckAlg;
-import org.graphstream.graph.Graph;
-
-import javax.swing.*;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Document;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -26,7 +11,40 @@ import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+
+import edu.wis.jtlv.env.Env;
+import edu.wis.jtlv.env.module.SMVModule;
+import edu.wis.jtlv.env.spec.Spec;
+import edu.wis.jtlv.lib.AlgExceptionI;
+import edu.wis.jtlv.lib.AlgResultI;
+import edu.wis.jtlv.lib.AlgRunnerThread;
+import edu.wis.jtlv.lib.mc.LTL.LTLModelCheckAlg;
+import edu.wis.jtlv.lib.mc.RTCTLK.GraphExplainRTCTLK;
+import edu.wis.jtlv.lib.mc.RTCTLK.RTCTLKModelCheckAlg;
+import edu.wis.jtlv.lib.mc.RTLTLK.RTLTLKModelCheckAlg;
+import org.graphstream.graph.Graph;
+import sun.plugin2.util.ColorUtil;
+
 import static edu.wis.jtlv.lib.AlgResultI.ResultStatus.failed;
+import static edu.wis.jtlv.lib.AlgResultI.ResultStatus.succeed;
+
 
 public class GExample implements ActionListener {
 
@@ -201,6 +219,7 @@ public class GExample implements ActionListener {
                     ltlText.setText("");
                 }
             }
+
             @Override
             public void focusLost(FocusEvent e) {
                 if ("".equals(ltlText.getText())) {
@@ -208,6 +227,7 @@ public class GExample implements ActionListener {
                 }
             }
         });
+
 
         RTCTLstarSPEC = new JPanel();
         RTCTLstarSPEC.setLayout(new BoxLayout(RTCTLstarSPEC, BoxLayout.Y_AXIS));
@@ -249,6 +269,7 @@ public class GExample implements ActionListener {
                     rtctlText.setText("");
                 }
             }
+
             @Override
             public void focusLost(FocusEvent e) {
                 if ("".equals(rtctlText.getText())) {
@@ -299,8 +320,8 @@ public class GExample implements ActionListener {
         vp.setDividerSize(6);//设置分隔条大小，以像素为单位
         vp.setDividerLocation(0.8);
 
-        //=========================================================================================
-        //ReadSMVSpec();//读取SMV中文本属性
+         //=========================================================================================
+         //ReadSMVSpec();//读取SMV中文本属性
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 textEditor.setEnabled(true);
@@ -374,6 +395,7 @@ public class GExample implements ActionListener {
                 } catch (AlgExceptionI algExceptionI) {
                     algExceptionI.printStackTrace();
                 }
+
         }
         if (e.getSource() == ClearButton) {
             while (SPECVertor.size() > 1) {
@@ -427,7 +449,6 @@ public class GExample implements ActionListener {
             }
         }
     }
-
     // 动态添加组件*****************
     protected void NewSpec(String property) {
         JPanel specp = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -442,7 +463,7 @@ public class GExample implements ActionListener {
         JTextPane specT = new JTextPane();// 文本窗格
         specT.setPreferredSize(new Dimension(650, 50));
         if (property.equals(""))
-            specT.setText(tips);
+          specT.setText(tips);
         else
             specT.setText(property);
         specT.setFont(new Font("标楷体", Font.TRUETYPE_FONT | Font.ITALIC, 15));
@@ -707,19 +728,19 @@ public class GExample implements ActionListener {
 
         for (int i = 0; i < all_specs.length; i++){
             System.out.println(i+"------" + all_specs[i]);
-            if (all_specs[i].isCTLSpec() || all_specs[i].isRealTimeCTLSpec() || all_specs[i].isCTLKSpec() || all_specs[i].isRealTimeCTLKSpec()) {
-                if (i == 0)
-                    specText.setText(all_specs[i].toString());
-                else
-                    NewSpec(all_specs[i].toString());
-            } else if (all_specs[i].isLTLSpec() || all_specs[i].isRealTimeLTLSpec() || all_specs[i].isRealTimeLTLKSpec()) {
-                if (i == 0)
-                    ltlText.setText(all_specs[i].toString());
-                else
-                    NewLTLSpec(all_specs[i].toString());
-            }
-            //RTCTL star 补充
+        if (all_specs[i].isCTLSpec() || all_specs[i].isRealTimeCTLSpec() || all_specs[i].isCTLKSpec() || all_specs[i].isRealTimeCTLKSpec()) {
+            if (i == 0)
+                specText.setText(all_specs[i].toString());
+            else
+                NewSpec(all_specs[i].toString());
+        } else if (all_specs[i].isLTLSpec() || all_specs[i].isRealTimeLTLSpec() || all_specs[i].isRealTimeLTLKSpec()) {
+            if (i == 0)
+                ltlText.setText(all_specs[i].toString());
+            else
+                NewLTLSpec(all_specs[i].toString());
         }
+        //RTCTL star 补充
+    }
     }
 
     public String GetProperty(String spec) {
@@ -765,8 +786,6 @@ public class GExample implements ActionListener {
         String name = this.textEditor.contralPanel.fileOperation.getFileName();
         String url = src + name + ".smv";
         Env.resetEnv();
-        long timebefore = System.currentTimeMillis();
-
         Env.loadModule(url);
         SMVModule main = (SMVModule) Env.getModule("main");
         main.setFullPrintingMode(true);
@@ -786,12 +805,10 @@ public class GExample implements ActionListener {
                     runner = new AlgRunnerThread(algorithm);
                     runner.runSequential();
 
-                    long useTime = System.currentTimeMillis() - timebefore;
-
                     if (runner.getDoResult() != null)
-                        insertDocument(ctext, "\n" + runner.getDoResult().resultString()+"\ncost time:   " + (useTime / 1000) + "." + (useTime % 1000) + "s", Color.BLACK, 1);
+                        insertDocument(ctext, "\n" + runner.getDoResult().resultString(), Color.BLACK, 1);
                     if (runner.getDoException() != null)
-                        insertDocument(ctext, "\n" + runner.getDoException().getMessage()+"\ncost time:   " + (useTime / 1000) + "." + (useTime % 1000) + "s", Color.BLACK, 1);
+                        insertDocument(ctext, "\n" + runner.getDoException().getMessage(), Color.BLACK, 1);
 
                     if (runner.getDoResult().getResultStat() == failed) {//property结果为真 没有图形反例
                         this.graph = algorithm.GetGraph();
@@ -803,12 +820,10 @@ public class GExample implements ActionListener {
                 {
                     runner = new AlgRunnerThread(algorithm);
                     runner.runSequential();
-                    long useTime = System.currentTimeMillis() - timebefore;
                     if (runner.getDoResult() != null)
-                        insertDocument(ctext, "\n" + runner.getDoResult().resultString()+"\ncost time:   " + (useTime / 1000) + "." + (useTime % 1000) + "s", Color.BLACK, 1);
+                        insertDocument(ctext, "\n" + runner.getDoResult().resultString(), Color.BLACK, 1);
                     if (runner.getDoException() != null)
-                        insertDocument(ctext, "\n" + runner.getDoException().getMessage()+"\ncost time:   " + (useTime / 1000) + "." + (useTime % 1000) + "s", Color.BLACK, 1);
-                    timebefore = System.currentTimeMillis();
+                        insertDocument(ctext, "\n" + runner.getDoException().getMessage(), Color.BLACK, 1);
                 }
             } else if (all_specs[i].isLTLSpec() || all_specs[i].isRealTimeLTLSpec() || all_specs[i].isRealTimeLTLKSpec()) {
                 LTLModelCheckAlg checker = new LTLModelCheckAlg(main, all_specs[0]);
@@ -818,6 +833,7 @@ public class GExample implements ActionListener {
                 ctext.setText(ctext.getText().toString() + "\n" + checker.doAlgorithm().resultString());
             }
             //RTCTL star 补充
+
 
         }
         return null;

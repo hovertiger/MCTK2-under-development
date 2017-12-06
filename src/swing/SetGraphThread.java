@@ -2,6 +2,8 @@ package swing;
 
 import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
 import edu.wis.jtlv.lib.mc.RTCTLK.GraphExplainRTCTLK;
+import edu.wis.jtlv.lib.mc.RTCTLK.ViewerExplainRTCTLK;
+import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.Viewer;
@@ -72,6 +74,7 @@ public class SetGraphThread implements Runnable, ViewerListener {
             }
         }
     }
+
     public void viewClosed(String id) {
         loop = false;
     }
