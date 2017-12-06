@@ -1,8 +1,6 @@
 package swing;
 
 
-import edu.wis.jtlv.lib.AlgExceptionI;
-
 import javax.swing.*;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
@@ -10,17 +8,13 @@ import javax.swing.text.Document;
 import javax.swing.undo.UndoManager;
 import java.awt.*;
 import java.awt.event.*;
-import java.net.URL;
 
 public class ContralPanel extends JPanel implements ActionListener{
-
 	TextEditor textEditor;
 	FileOperation fileOperation;
 	JMenuBar menubar;
-	TextEditor ConsoleEditor;
 	UndoManager uo;
 	Document doc;
-
 
 	//创建工具栏
 	JPanel toolBar=new JPanel();
@@ -110,15 +104,7 @@ public class ContralPanel extends JPanel implements ActionListener{
 		edit.add(cut);
 		edit.add(selall);
 
-
 		style.add(setFont);
-//		language.add(java);
-//		language.addSeparator();
-//		language.add(c);
-//		language.addSeparator();
-//		language.add(html);
-		//language.add(smv);
-		//language.addSeparator();
 		about.add(about1);
 		about.addSeparator();
 		about.add(about2);
@@ -156,9 +142,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 		selall.addActionListener(this);
 
 		toolBar.setLayout(new FlowLayout(FlowLayout.LEFT));
-//		URL newUrl=getClass().getResource("swing/Icons/New.gif");
-//		ImageIcon newIcon=new ImageIcon(getToolkit().getImage(newUrl));
-
 
 		Icon newIcon=new ImageIcon(ContralPanel.class.getResource("Icons/New.gif"));
 		Icon openIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Open.gif"));
@@ -195,7 +178,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 		frontButton.setBorderPainted(false);
 		runButton=new JButton(runIcon);
 		runButton.setBorderPainted(false);
-
 
 		newButton.setPreferredSize(new Dimension(22,22));
 		openButton.setPreferredSize(new Dimension(22,22));
@@ -250,7 +232,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 		Toolkit tk=Toolkit.getDefaultToolkit();
 		Image   image=tk.createImage(ContralPanel.class.getResource("Icons/MCTK.gif"));
 		this.textEditor.setIconImage(image);
-
 
 		uo = new UndoManager();
 		doc=textEditor.text.getDocument();
@@ -353,8 +334,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 		if(e.getActionCommand().equals("Useage Introduction"))
 		{
 			JOptionPane.showMessageDialog(null,"1.Please make sure that the JAVA environment is configured correctly, otherwise it cannot be compiled and run."+ "\n2.JDK1.8.0 and above.","Useage Introduction",JOptionPane.PLAIN_MESSAGE);
-//					+ "\n2.目前仅支持Java语言编译"
-//					+"\n3.运行HTML文档请设置好默认浏览器","使用说明",JOptionPane.PLAIN_MESSAGE);
 		}
 		if(e.getActionCommand().equals("Graph Counter-example")||e.getSource()==runButton)
 		{
@@ -364,8 +343,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 //			} catch (AlgExceptionI algExceptionI) {
 //				algExceptionI.printStackTrace();
 //			}
-
-
 //				//textEditor.jtext.setText(textEditor.jtext.getText().toString()+"\ngraphexamp.isSelected()");
 				textEditor.setEnabled(false);
 				GraphThread r = new GraphThread(this.textEditor);

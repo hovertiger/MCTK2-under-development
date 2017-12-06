@@ -1,21 +1,18 @@
-import java.io.IOException;
-import java.util.Stack;
-import java.util.Vector;
-
-import edu.wis.jtlv.lib.mc.RTCTLK.RTCTLKModelCheckAlg;
-import net.sf.javabdd.BDD;
-
 import edu.wis.jtlv.env.Env;
 import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.SMVModule;
 import edu.wis.jtlv.env.spec.Spec;
 import edu.wis.jtlv.lib.AlgRunnerThread;
-import edu.wis.jtlv.lib.mc.SimpleDeadlockAlg;
-import edu.wis.jtlv.lib.mc.SimpleInvarianceAlg;
-import edu.wis.jtlv.lib.mc.SimpleTempEntailAlg;
 import edu.wis.jtlv.lib.mc.CTL.CTLModelCheckAlg;
 import edu.wis.jtlv.lib.mc.LTL.LTLModelCheckAlg;
 import edu.wis.jtlv.lib.mc.LTL.LTLValidAlg;
+import edu.wis.jtlv.lib.mc.RTCTLK.RTCTLKModelCheckAlg;
+import edu.wis.jtlv.lib.mc.SimpleDeadlockAlg;
+import edu.wis.jtlv.lib.mc.SimpleInvarianceAlg;
+import edu.wis.jtlv.lib.mc.SimpleTempEntailAlg;
+import net.sf.javabdd.BDD;
+
+import java.io.IOException;
 
 /**
  * @version {@value edu.wis.jtlv.env.Env#version}

@@ -17,7 +17,6 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.event.*;
 
-
 public class TextEditor extends JFrame implements KeyListener, TreeSelectionListener, ActionListener, ChangeListener{
 	JTextPane text; //定义编辑区
 	
@@ -33,7 +32,6 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 	Font font;//当前字体
 	ColorKeyWords h;
 	JSplitPane jsp;
-	JSplitPane sp;
 	
 	FileList fileList;
 	JTree tree;
@@ -43,7 +41,6 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 	Clipboard clipboard;
 	StringBuffer rowContent;
 	BoundedRangeModel model;
-	BoundedRangeModel jmodel;
 	JPanel editArea;
 
 	public TextEditor()
@@ -92,9 +89,7 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		text.add(jPopMenu);
 		text.addMouseListener(new MyMouseListener());
 		//关键字高亮显示
-		//text.getDocument().addDocumentListener(h);
-
-
+		text.getDocument().addDocumentListener(h);
 
 		row.setFont(font);
 		row.setForeground(Color.lightGray);
@@ -109,7 +104,6 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		editArea.add("West",rowScroll);
 		editArea.add("Center",scroll);
 		//editArea.add("South",jscroll);
-
 
 		jsp=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,fileList.getTree(),editArea);
 		jsp.setDividerSize(5);
@@ -126,7 +120,6 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		tree.addTreeSelectionListener(this);
 		model = scroll.getVerticalScrollBar().getModel();
 		model.addChangeListener(this);
-
 	}
 	public void setLeftSplitPane(FileList fl)
 	{
@@ -143,12 +136,7 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		row.setFont(font);
 		setRowContent();
 	}
-	
-	public void setLanguage(String lan)
-	{
-		h.lan=lan;
-	}
-	
+
 	public String getContent()
 	{
 		return text.getText();
@@ -304,6 +292,17 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 			StringSelection content = new StringSelection(temp);
 			clipboard.setContents(content,null);
 		}
+
+
+
+
+
+
+
+
+
+
+
 	}
 	
 	private class MyMouseListener extends MouseAdapter

@@ -1,9 +1,5 @@
 package edu.wis.jtlv.old_lib.mc;
 
-import java.util.Vector;
-
-import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
-import net.sf.javabdd.BDD;
 import edu.wis.jtlv.env.Env;
 import edu.wis.jtlv.env.module.SMVModule;
 import edu.wis.jtlv.env.spec.Operator;
@@ -11,6 +7,10 @@ import edu.wis.jtlv.env.spec.Spec;
 import edu.wis.jtlv.env.spec.SpecBDD;
 import edu.wis.jtlv.env.spec.SpecExp;
 import edu.wis.jtlv.lib.FixPoint;
+import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
+import net.sf.javabdd.BDD;
+
+import java.util.Vector;
 
 /**
  * <p>

@@ -1,11 +1,7 @@
 package edu.wis.jtlv.lib.mc.RTCTLK;
 
 import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
-import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
-import org.graphstream.graph.implementations.SingleGraph;
-import org.graphstream.ui.graphicGraph.stylesheet.StyleConstants;
-import org.graphstream.ui.spriteManager.Sprite;
 import org.graphstream.ui.spriteManager.SpriteManager;
 import org.graphstream.ui.view.Viewer;
 import org.graphstream.ui.view.ViewerListener;
@@ -28,33 +24,6 @@ public class ViewerExplainRTCTLK implements ViewerListener {
     public ViewerExplainRTCTLK(GraphExplainRTCTLK G) {
         System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
         graph = G;
-
-/*
-        spriteMgr = new SpriteManager(graph);
-        Sprite s = spriteMgr.addSprite("S1");
-        s.addAttribute("ui.label", "S1's label");
-        s.setPosition(StyleConstants.Units.PX, 30, 180, 0);
-        s.attachToNode("1.0");
-*/
-
-        // We do as usual to display a graph. This
-        // connect the graph outputs to the viewer.
-        // The viewer is a sink of the graph.
-/*
-        graph = new SingleGraph("ViewerExplainRTCTLK");
-        Node initNode;
-        initNode = graph.addNode("A" );
-        graph.addNode("B" );
-        graph.addNode("C" );
-        graph.addNode("D" );
-        //  graph.addNode("E");
-
-        graph.addEdge("AB", "A", "B", true);
-        graph.addEdge("BC", "B", "C", true);
-        graph.addEdge("CD", "C", "D", true);
-        graph.addEdge("DC","D", "C", true);
-*/
-
         graph.addAttribute("ui.label", graph.getId());
 
         for (Node n: graph) {

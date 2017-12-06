@@ -19,10 +19,8 @@ public class FileOperation {
 		jc.setAcceptAllFileFilterUsed(false);
 		jc.addChoosableFileFilter(new MyFileFilter("SMV Code(.smv)",".smv"));//添加文件过滤器
 
-//		jc.addChoosableFileFilter(new MyFileFilter("Java代码(.java)",".java"));//添加文件过滤器
 		FileSystemView fsv = FileSystemView.getFileSystemView();
 		jc.setCurrentDirectory(fsv.getHomeDirectory());//设置默认路径为桌面路径
-
 	}
 	public void treeOpen(String fileName)
 	{
@@ -242,15 +240,6 @@ public class FileOperation {
 	{
 		String name=file.getName();
 		textEditor.setTitle("MCTK2-"+file.getAbsolutePath());
-		if(name.indexOf("smv")!=-1)
-		{
-			textEditor.setLanguage("smv");
-		}
-		//textEditor.setTitle("代码编辑器-"+name);
-//		if(name.indexOf("java")!=-1)
-//		{
-//			textEditor.setLanguage("java");
-//		}
 	}
 	
 	public String getPath()

@@ -10,14 +10,12 @@ class ColorKeyWords implements DocumentListener {
 	private KeyWord keywords;//定义KeyWord对象，用于判断是否是关键词
 	private Style keywordStyle;
 	private Style normalStyle;
-	String lan;
 	public ColorKeyWords(JTextPane text) {
 		keywordStyle = ((StyledDocument) text.getDocument()).addStyle("keyStyle", null);
 		normalStyle = ((StyledDocument) text.getDocument()).addStyle("normalStyle", null);
 		StyleConstants.setForeground(keywordStyle, Color.RED);//设置关键字显示为红色
 		StyleConstants.setForeground(normalStyle, Color.BLACK);
 		keywords=new KeyWord();
-		lan="";
 	}
 
 	public void color(StyledDocument doc, int pos, int len) throws BadLocationException 
@@ -43,7 +41,7 @@ class ColorKeyWords implements DocumentListener {
 		int wordEnd = wordEnd(doc, pos);
 		String word = doc.getText(pos, wordEnd - pos);
 
-		if (keywords.isKeyWord(word, lan)) 
+		if (keywords.isKeyWord(word))
 		{
 			SwingUtilities.invokeLater(new Coloring(doc, pos, wordEnd - pos, keywordStyle));
 		} 
