@@ -89,8 +89,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 
 		JMenuItem about1=new JMenuItem("About information");
 		JMenuItem about2=new JMenuItem("Useage Introduction");
-//		JMenuItem smvRun=new JMenuItem("Verify SMV Property");
-//		setShortcut(smvRun, KeyEvent.VK_F11);
 		JMenuItem graphexamp= new JMenuItem("Graph Counter-example");
 		setShortcut(graphexamp, KeyEvent.VK_W);
 
@@ -112,13 +110,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 
 
 		style.add(setFont);
-//		language.add(java);
-//		language.addSeparator();
-//		language.add(c);
-//		language.addSeparator();
-//		language.add(html);
-		//language.add(smv);
-		//language.addSeparator();
 		about.add(about1);
 		about.addSeparator();
 		about.add(about2);
@@ -156,10 +147,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 		selall.addActionListener(this);
 
 		toolBar.setLayout(new FlowLayout(FlowLayout.LEFT));
-//		URL newUrl=getClass().getResource("swing/Icons/New.gif");
-//		ImageIcon newIcon=new ImageIcon(getToolkit().getImage(newUrl));
-
-
 		Icon newIcon=new ImageIcon(ContralPanel.class.getResource("Icons/New.gif"));
 		Icon openIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Open.gif"));
 		Icon saveIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Save.gif"));
@@ -171,7 +158,6 @@ public class ContralPanel extends JPanel implements ActionListener{
 		Icon pasteIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Paste.gif"));
 		Icon frontIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Front.gif"));
 		Icon runIcon=new ImageIcon(ContralPanel.class.getResource("Icons/Run.gif"));
-
 
 		newButton= new JButton(newIcon);
 		newButton.setBorderPainted(false);
@@ -353,20 +339,9 @@ public class ContralPanel extends JPanel implements ActionListener{
 		if(e.getActionCommand().equals("Useage Introduction"))
 		{
 			JOptionPane.showMessageDialog(null,"1.Please make sure that the JAVA environment is configured correctly, otherwise it cannot be compiled and run."+ "\n2.JDK1.8.0 and above.","Useage Introduction",JOptionPane.PLAIN_MESSAGE);
-//					+ "\n2.目前仅支持Java语言编译"
-//					+"\n3.运行HTML文档请设置好默认浏览器","使用说明",JOptionPane.PLAIN_MESSAGE);
 		}
 		if(e.getActionCommand().equals("Graph Counter-example")||e.getSource()==runButton)
 		{
-//			Run a=new Run();
-//			try {
-//				a.smvRun(this.textEditor);
-//			} catch (AlgExceptionI algExceptionI) {
-//				algExceptionI.printStackTrace();
-//			}
-
-
-//				//textEditor.jtext.setText(textEditor.jtext.getText().toString()+"\ngraphexamp.isSelected()");
 				textEditor.setEnabled(false);
 				GraphThread r = new GraphThread(this.textEditor);
 				Thread t = new Thread(r);

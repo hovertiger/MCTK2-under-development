@@ -48,7 +48,7 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 
 	public TextEditor()
 	{
-		super("MCTK2-1.0.0");
+		super("MCTK 2.0.0");
 		clipboard=getToolkit().getSystemClipboard();
 		editArea=new JPanel(new BorderLayout());
 		text=new JTextPane();
@@ -92,9 +92,7 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		text.add(jPopMenu);
 		text.addMouseListener(new MyMouseListener());
 		//¹Ø¼ü×Ö¸ßÁÁÏÔÊ¾
-		//text.getDocument().addDocumentListener(h);
-
-
+		text.getDocument().addDocumentListener(h);
 
 		row.setFont(font);
 		row.setForeground(Color.lightGray);
@@ -118,7 +116,7 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		con.add("Center",jsp);
 
 		// ×´Ì¬À¸
-		stateBar = new JLabel("MCTK-1.0.0");
+		stateBar = new JLabel("MCTK 2.0.0");
 		stateBar.setHorizontalAlignment(SwingConstants.LEFT);
 		stateBar.setBorder(BorderFactory.createEtchedBorder());
 		con.add(stateBar, BorderLayout.SOUTH);
@@ -142,11 +140,6 @@ public class TextEditor extends JFrame implements KeyListener, TreeSelectionList
 		text.setFont(font);
 		row.setFont(font);
 		setRowContent();
-	}
-	
-	public void setLanguage(String lan)
-	{
-		h.lan=lan;
 	}
 	
 	public String getContent()

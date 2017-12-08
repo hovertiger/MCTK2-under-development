@@ -14,3 +14,11 @@ ASSIGN
 	next(rangeValue):=case rangeValue<=14:rangeValue+1;
 		rangeValue=15:rangeValue;
 	esac;
+
+
+SPEC AF a=5;
+LTLSPEC F a=100;
+--SPEC AF a=5;
+LTLSPEC F a=100;
+--CTLSPEC AF a=100;
+CTLSPEC AF a=100;

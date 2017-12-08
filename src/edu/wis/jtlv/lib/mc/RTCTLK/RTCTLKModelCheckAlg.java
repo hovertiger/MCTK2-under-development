@@ -303,11 +303,13 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
     //Using swing to show
     public AlgResultI doAlgorithm() throws AlgExceptionI {
         Spec origSpec = getProperty();
-            GExample.insertDocument(ctext,  "\nmodel checking RTCTLK: " , Color.BLACK,1);
+
+        if (origSpec.isRealTimeCTLKSpec())
+             GExample.insertDocument(ctext,  "\nmodel checking RTCTLK: "+origSpec , Color.BLACK,1);
         if (origSpec == null)
             GExample.insertDocument(ctext,  "\n Cannot model check a null specification.", Color.BLACK,1);
         if (!origSpec.isRealTimeCTLKSpec())
-              GExample.insertDocument(ctext,  "\nCannot model check non RTCTLK specification: " + origSpec, Color.BLACK,1);
+            GExample.insertDocument(ctext,  "\nCannot model check non RTCTLK specification: " + origSpec, Color.BLACK,1);
         // could throw an exception...
         BDD satStates = satRTCTLK(origSpec);
         BDD fairInitStates = getDesign().initial().and(getFairStates());

@@ -312,34 +312,35 @@ public class AlgorithmRunnerMain {
 
 	public static void rtctlkCheck() throws IOException {
 		// System.setProperty("bdd", "buddy");
-		Env.loadModule("testcases/bit_transmission.smv");
-//		Env.loadModule("testcases/test.smv");
+		//Env.loadModule("testcases/bit_transmission.smv");
+	    Env.loadModule("BUTest.smv");
 
 		SMVModule main = (SMVModule) Env.getModule("main");
 		main.setFullPrintingMode(true);
 		System.out.println("========= DONE Loading Modules ==========");
 
-		String to_parse = Env.getAllSpecsString();
-		Spec[] all_specs = Env.loadSpecString(to_parse);
-		if(all_specs==null || all_specs.length==0) {
-			System.out.println("========= No Specs loaded =========");
-			return;
-		}else
-			System.out.println("========= DONE Loading Specs ============");
+		//String to_parse = Env.getAllSpecsString();
+		//System.out.println("to----parse"+to_parse);
 
-		AlgRunnerThread runner;
-		// ///////////////////////////////////////
-		// model checking a module
-		for (int i = 0; i < all_specs.length; i++) {
-			runner = new AlgRunnerThread(new RTCTLKModelCheckAlg(main,
-					all_specs[i]));
-			runner.runSequential();
-			if (runner.getDoResult() != null)
-				System.out.println(runner.getDoResult().resultString());
-			if (runner.getDoException() != null)
-				System.err.println(runner.getDoException().getMessage());
-
-		}
+//		Spec[] all_specs = Env.loadSpecString(to_parse);
+//		if(all_specs==null || all_specs.length==0) {
+//			System.out.println("========= No Specs loaded =========");
+//			return;
+//		}else
+//			System.out.println("========= DONE Loading Specs ============");
+//		AlgRunnerThread runner;
+//		// ///////////////////////////////////////
+//		// model checking a module
+//		for (int i = 0; i < all_specs.length; i++) {
+//			runner = new AlgRunnerThread(new RTCTLKModelCheckAlg(main,
+//					all_specs[i]));
+//			runner.runSequential();
+//			if (runner.getDoResult() != null)
+//				System.out.println(runner.getDoResult().resultString());
+//			if (runner.getDoException() != null)
+//				System.err.println(runner.getDoException().getMessage());
+//
+//		}
 		// ///////////////////////////////////////
 	}
 

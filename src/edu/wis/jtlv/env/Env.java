@@ -56,7 +56,6 @@ import edu.wis.jtlv.env.module.ModuleBDDField;
 import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.ModuleVariableException;
 import edu.wis.jtlv.env.module.SMVModule;
-
 /**
  * <p>
  * The main JTLV environment Facade, which supplies the API to basic
@@ -135,15 +134,15 @@ public final class Env {
 		return all_agent_modules;
 	}
 
-	public static String getAllSpecsString() {
+	public static String[] getAllSpecsString() {
 		return all_specifications_string;
 	}
 
-	public static void setAllSpecsString(String allSpecsString) {
+	public static void setAllSpecsString(String[] allSpecsString) {
 		Env.all_specifications_string = allSpecsString;
 	}
 
-	private static String all_specifications_string;
+	private static String[] all_specifications_string;
 
 	/**
 	 * <p>
@@ -251,7 +250,7 @@ public final class Env {
 		stringer = new JTLVBDDToString();
 
 		all_agent_modules = new HashMap<String, SMVAgentInfo>(10);
-		all_specifications_string = "";
+		//all_specifications_string = "";
 
 		// /////////////////////////////////
 		// other resets...
@@ -1001,9 +1000,11 @@ public final class Env {
 				return loadFDSModule(new ANTLRFileStream(filename), false,
 						false, order);
 			} else if (filename.toLowerCase().endsWith("smv")) {
-				MCTKANTLRFileStream input_smv = new MCTKANTLRFileStream(filename);
-				Env.setAllSpecsString(input_smv.seperateSpecsFromModules());
+				 MCTKANTLRFileStream input_smv = new MCTKANTLRFileStream(filename);
+				 Env.setAllSpecsString(input_smv.seperateSpecsFromModules());
 				return loadSMVModule(input_smv, false,false, order);
+//				return loadSMVModule(new ANTLRFileStream(filename), false,
+//						false, order);
 			}
 		} catch (RecognitionException e) {
 			//Env.doError(e, e.getMessage());

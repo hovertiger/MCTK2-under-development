@@ -219,7 +219,6 @@ public class GExample implements ActionListener {
                     ltlText.setText("");
                 }
             }
-
             @Override
             public void focusLost(FocusEvent e) {
                 if ("".equals(ltlText.getText())) {
@@ -238,7 +237,6 @@ public class GExample implements ActionListener {
         JLabel rtctlBar = new JLabel("RTCTLstarSPEC");
         rtctlvButton = new JButton("Verify");
         rtctlwButton = new JButton("Witness");
-
 
         rtctlText.setPreferredSize(new Dimension(650, 50));
         rtctlText.setText(rtctltips);
@@ -259,6 +257,8 @@ public class GExample implements ActionListener {
         rtctlpanel.setPreferredSize(new Dimension(200, 100)); // 设置容器的大小
         rtctlaButton.addActionListener(this);
         rtctlmButton.addActionListener(this);
+        rtctlvButton.addActionListener(this);
+        rtctlwButton.addActionListener(this);
         RTCTLstarSPEC.add(rtctlpanel);
         RTCTLSVertor.add(ltlpanel);
         RTCTLText.add(rtctlText);
@@ -319,9 +319,11 @@ public class GExample implements ActionListener {
         vp.setBottomComponent(hp);
         vp.setDividerSize(6);//设置分隔条大小，以像素为单位
         vp.setDividerLocation(0.8);
-
-         //=========================================================================================
-         //ReadSMVSpec();//读取SMV中文本属性
+        try {
+            ReadSMVSpec();//读取SMV中文本属性
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 textEditor.setEnabled(true);
@@ -348,13 +350,33 @@ public class GExample implements ActionListener {
                 || e.getActionCommand().equals("specADD")) {
             NewSpec("");
         }
+        if (e.getSource() == ltlaButton
+                || e.getActionCommand().equals("ltlADD")) {
+            NewLTLSpec("");
+        }
+        if (e.getSource() == rtctlaButton
+                || e.getActionCommand().equals("rtctlADD")) {
+            NewRTCTLSpec("");
+        }
+        if (e.getSource() == specmButton) {
+            specText.setText("");
+        }
+        if (e.getSource() == ltlmButton) {
+            ltlText.setText("");
+        }
+        if (e.getSource() == rtctlmButton) {
+            rtctlText.setText("");
+        }
         if (e.getSource() == specvButton) {
             String specific = specText.getText();
             if (tips.equalsIgnoreCase(specific) || specific.equals(""))
                 insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
             else
                 try {
-                    GRun("SPEC ".concat(specific), false);
+                    if (specific.endsWith(";"))
+                        GRun("SPEC ".concat(specific), false);
+                    else
+                        GRun("SPEC ".concat(specific)+";", false);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 } catch (AlgExceptionI algExceptionI) {
@@ -367,26 +389,49 @@ public class GExample implements ActionListener {
                 insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
             else
                 try {
-                    GRun("SPEC ".concat(specific), true);
+                    if (specific.endsWith(";"))
+                        GRun("SPEC ".concat(specific), true);
+                    else
+                        GRun("SPEC ".concat(specific)+";", true);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 } catch (AlgExceptionI algExceptionI) {
                     algExceptionI.printStackTrace();
                 }
         }
-        if (e.getSource() == ltlaButton
-                || e.getActionCommand().equals("ltlADD")) {
-            NewLTLSpec("");
+        if (e.getSource() == ltlvButton) {
+            String specific = ltlText.getText();
+            if (ltltips.equalsIgnoreCase(specific) || specific.equals(""))
+                insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
+            else
+                insertDocument(ctext, "\n Sorry, part of the LTLSPEC is being developed.", new Color(60, 179, 113), 2);
         }
-        if (e.getSource() == rtctlaButton
-                || e.getActionCommand().equals("rtctlADD")) {
-            NewRTCTLSpec("");
+        if (e.getSource() == ltlwButton) {
+            String specific = ltlText.getText();
+            if (ltltips.equalsIgnoreCase(specific) || specific.equals(""))
+                insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
+            else
+                insertDocument(ctext, "\n Sorry, part of the LTLSPEC is being developed", new Color(60, 179, 113), 2);
         }
+        if (e.getSource() == rtctlvButton) {
+            String specific = rtctlText.getText();
+            if (rtctltips.equalsIgnoreCase(specific) || specific.equals(""))
+                insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
+            else
+                insertDocument(ctext, "\n Sorry, part of the RTCTLstarSPEC is being developed.", new Color(60, 179, 113), 2);
+        }
+        if (e.getSource() == rtctlwButton) {
+            String specific = rtctlText.getText();
+            if (rtctltips.equalsIgnoreCase(specific) || specific.equals(""))
+                insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
+            else
+                insertDocument(ctext, "\n Sorry, part of the RTCTLstarSPEC is being developed.", new Color(60, 179, 113), 2);
+        }
+
         if (e.getSource() == VerifyButton) {
             String parse = GetAllSpec();
             if ("".equals(parse))
                 insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
-                //ctext.setText(ctext.getText() + "\n Sorry,please input a specification !");
             else
                 try {
                     GRun(parse, false);
@@ -395,7 +440,6 @@ public class GExample implements ActionListener {
                 } catch (AlgExceptionI algExceptionI) {
                     algExceptionI.printStackTrace();
                 }
-
         }
         if (e.getSource() == ClearButton) {
             while (SPECVertor.size() > 1) {
@@ -429,15 +473,6 @@ public class GExample implements ActionListener {
             this.textEditor.text.setText(this.textEditor.text.getText() + parse);
             if (this.textEditor.contralPanel.fileOperation.save())
                 textEditor.setLeftSplitPane(this.textEditor.contralPanel.fileOperation.setFileList());
-        }
-        if (e.getSource() == specmButton) {
-            specText.setText("");
-        }
-        if (e.getSource() == ltlmButton) {
-            ltlText.setText("");
-        }
-        if (e.getSource() == rtctlmButton) {
-            rtctlText.setText("");
         }
 
     }
@@ -519,7 +554,10 @@ public class GExample implements ActionListener {
                         insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
                     else
                         try {
-                            GRun("SPEC ".concat(specific), false);
+                            if (specific.endsWith(";"))
+                                GRun("SPEC ".concat(specific), false);
+                            else
+                                GRun("SPEC ".concat(specific)+";", false);
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         } catch (AlgExceptionI algExceptionI) {
@@ -537,7 +575,10 @@ public class GExample implements ActionListener {
                         insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
                     else
                         try {
-                            GRun("SPEC ".concat(specific), true);
+                            if (specific.endsWith(";"))
+                                GRun("SPEC ".concat(specific), true);
+                            else
+                                GRun("SPEC ".concat(specific)+";", true);
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         } catch (AlgExceptionI algExceptionI) {
@@ -609,8 +650,30 @@ public class GExample implements ActionListener {
                 }
             }
         });
-    }
+        specvB.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == specvB) {
+                    String specific = specT.getText();
+                    if (tips.equalsIgnoreCase(specific) || specific.equals(""))
+                    insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
+                else
+                    insertDocument(ctext, "\n Sorry, part of the LTLSPEC is being developed.", new Color(60, 179, 113), 2);
+            }
+            }
+        });
 
+        specwB.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == specwB) {
+                    String specific = specT.getText();
+                    if (tips.equalsIgnoreCase(specific) || specific.equals(""))
+                        insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
+                    else
+                        insertDocument(ctext, "\n Sorry, part of the LTLSPEC is being developed.", new Color(60, 179, 113), 2);
+                }
+            }
+        });
+    }
     // 动态添加组件*****************
     protected void NewRTCTLSpec(String property) {
 
@@ -671,6 +734,29 @@ public class GExample implements ActionListener {
                 }
             }
         });
+
+        specvB.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == specvB) {
+                    String specific = specT.getText();
+                    if (tips.equalsIgnoreCase(specific) || specific.equals(""))
+                        insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
+                    else
+                        insertDocument(ctext, "\n Sorry, part of the RTCTLstarSPEC is being developed.", new Color(60, 179, 113), 2);
+                }
+            }
+        });
+        specwB.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == specwB) {
+                    String specific = specT.getText();
+                    if (tips.equalsIgnoreCase(specific) || specific.equals(""))
+                        insertDocument(ctext, "\n Sorry,please input a specification !", new Color(60, 179, 113), 2);
+                    else
+                        insertDocument(ctext, "\n Sorry, part of the RTCTLstarSPEC is being developed.", new Color(60, 179, 113), 2);
+                }
+            }
+        });
     }
 
 
@@ -680,85 +766,69 @@ public class GExample implements ActionListener {
         Iterator<JTextPane> itspec = SPECText.iterator();
         while (itspec.hasNext()) {
             String s = itspec.next().getText();
-            if (!"".equals(s) && !s.equals("Please input a SPEC...") && !!s.trim().startsWith("--"))//除去注释
-                specstr += "\nSPEC " + s;
+            if (!"".equals(s) && !s.equals("Please input a SPEC...") && !s.trim().startsWith("--"))//除去注释
+                if (!s.endsWith(";"))
+                    specstr += "\nSPEC " + s+";";
+                else
+                    specstr += "\nSPEC " + s;
         }
 
         String ltlstr = "";
         Iterator<JTextPane> itltl = LTLText.iterator();
         while (itltl.hasNext()) {
             String s = itltl.next().getText();
-            if (!"".equals(s) && !s.equals("Please input a LTLSPEC...") && !!s.trim().startsWith("--"))
-                ltlstr += s;
+            if (!"".equals(s) && !s.equals("Please input a LTLSPEC...") && !s.trim().startsWith("--"))
+                if (!s.endsWith(";"))
+                    specstr += "\nLTLSPEC "  + s+";";
+                else
+                    specstr += "\nLTLSPEC "  + s;
         }
         //System.out.println("VerifyButton!"+ltlstr);
-
 
         String rtctlstr = "";
         Iterator<JTextPane> itrtctll = RTCTLText.iterator();
         while (itrtctll.hasNext()) {
             String s = itrtctll.next().getText();
             if (!"".equals(s) && !s.equals("Please input a RTCTLstarSPEC...") && !s.trim().startsWith("--"))
-                rtctlstr += s;
+                if (!s.endsWith(";"))
+                    specstr += "\nSPEC "  + s+";";
+                else
+                    specstr += "\nSPEC "  + s;
         }
-        //System.out.println("VerifyButton!"+rtctlstr);
-
         return specstr + ltlstr + rtctlstr;
     }
 
-    protected void ReadSMVSpec() {
+    protected void ReadSMVSpec() throws IOException {
         String src=textEditor.contralPanel.fileOperation.getPath();
         String name=textEditor.contralPanel.fileOperation.getFileName();
         String	url=src+name+".smv";
         Env.resetEnv();
-        try {
-            Env.loadModule(url);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return;
-        }
+        Env.loadModule(url);
         SMVModule main = (SMVModule) Env.getModule("main");
         main.setFullPrintingMode(true);
         System.out.println("\n========= DONE Loading Modules ============");
-
-        String parse = GetProperty(textEditor.text.getText().toString());
-        System.out.println("parse---" + parse);
-
-        Spec[] all_specs = Env.loadSpecString(parse);
-
+        String[] all_specs = Env.getAllSpecsString();
+        if(all_specs==null || all_specs.length==0) {
+            System.out.println("========= No Specs loaded =========");
+            return;
+        }else
+            System.out.println("========= DONE Loading Specs ============");
         for (int i = 0; i < all_specs.length; i++){
-            System.out.println(i+"------" + all_specs[i]);
-        if (all_specs[i].isCTLSpec() || all_specs[i].isRealTimeCTLSpec() || all_specs[i].isCTLKSpec() || all_specs[i].isRealTimeCTLKSpec()) {
-            if (i == 0)
-                specText.setText(all_specs[i].toString());
+        if (all_specs[i].startsWith("SPEC") || all_specs[i].startsWith("CTLSPEC")) {
+            if (tips.equals(specText.getText()))
+                specText.setText(all_specs[i].replaceAll("(CTLSPEC|SPEC)","").toString());
             else
-                NewSpec(all_specs[i].toString());
-        } else if (all_specs[i].isLTLSpec() || all_specs[i].isRealTimeLTLSpec() || all_specs[i].isRealTimeLTLKSpec()) {
-            if (i == 0)
-                ltlText.setText(all_specs[i].toString());
+                NewSpec(all_specs[i].replaceAll("(CTLSPEC|SPEC)","").toString());
+        } else if (all_specs[i].startsWith("LTLSPEC")) {
+            if (ltltips.equals(ltlText.getText()))
+                ltlText.setText(all_specs[i].replaceAll("LTLSPEC","").toString());
             else
-                NewLTLSpec(all_specs[i].toString());
+                NewLTLSpec(all_specs[i].replaceAll("LTLSPEC","").toString());
         }
         //RTCTL star 补充
     }
     }
 
-    public String GetProperty(String spec) {
-        String ms=spec.replaceAll("[-]+[\\s\\S&&[^\n]]*[\r\n]+", "");
-        String regEx = "(CTLSPEC|LTLSPEC|SPEC)[\\s\\S&&[^\n]]*\\;[\\s]*$";
-        // 编译正则表达式
-        Pattern pattern = Pattern.compile(regEx,Pattern.MULTILINE);  ;
-        Matcher matcher = pattern.matcher(ms);
-        ArrayList<String> tempList = new ArrayList<String>();
-        while(matcher.find()){
-            tempList.add(matcher.group());
-        }
-        String s="";
-        for(String temp : tempList){
-            s=s + temp;
-        }
-        return s;
-    }
     public static void insertDocument(JTextPane JTP, String str, Color textColor, int setFont)// 根据传入的颜色及文字，将文字插入控制台
     {
         SimpleAttributeSet set = new SimpleAttributeSet();
@@ -782,33 +852,32 @@ public class GExample implements ActionListener {
     }
 
     public Graph GRun(String parse, Boolean isgraph) throws IOException, AlgExceptionI {
-        String src = this.textEditor.contralPanel.fileOperation.getPath();
-        String name = this.textEditor.contralPanel.fileOperation.getFileName();
-        String url = src + name + ".smv";
-        Env.resetEnv();
-        Env.loadModule(url);
         SMVModule main = (SMVModule) Env.getModule("main");
-        main.setFullPrintingMode(true);
-        insertDocument(ctext, "\n========= DONE Loading Modules ============", Color.ORANGE, 1);
-
         Spec[] all_specs = Env.loadSpecString(parse);
-        insertDocument(ctext, "\n========= DONE Loading Specs ============", Color.ORANGE, 1);
 
+        String [] SpecStr=parse.split(";");
+        insertDocument(ctext, "\n========= DONE Loading Specs ============", Color.ORANGE, 1);
         AlgRunnerThread runner;
         for (int i = 0; i < all_specs.length; i++) {
             if (all_specs[i].isCTLSpec() || all_specs[i].isRealTimeCTLSpec() || all_specs[i].isCTLKSpec() || all_specs[i].isRealTimeCTLKSpec()) {
+                long timebefore = System.currentTimeMillis();
                 RTCTLKModelCheckAlg algorithm = new RTCTLKModelCheckAlg(main, all_specs[i]);
                 algorithm.SetText(ctext);
+                insertDocument(ctext, "\n"+SpecStr[i], Color.BLACK, 1);
 
                 if (isgraph) {//带图的反例
                     algorithm.SetShowGraph(true);
                     runner = new AlgRunnerThread(algorithm);
                     runner.runSequential();
 
+                    long useTime = System.currentTimeMillis() - timebefore;
+
                     if (runner.getDoResult() != null)
-                        insertDocument(ctext, "\n" + runner.getDoResult().resultString(), Color.BLACK, 1);
+                        insertDocument(ctext, "\n" + runner.getDoResult().resultString()+
+                                "cost time: " + (useTime / 1000) + "." + (useTime % 1000) + "s", Color.BLACK, 1);
                     if (runner.getDoException() != null)
-                        insertDocument(ctext, "\n" + runner.getDoException().getMessage(), Color.BLACK, 1);
+                        insertDocument(ctext, "\n" + runner.getDoException().getMessage()+
+                                "cost time: " + (useTime / 1000) + "." + (useTime % 1000) + "s", Color.BLACK, 1);
 
                     if (runner.getDoResult().getResultStat() == failed) {//property结果为真 没有图形反例
                         this.graph = algorithm.GetGraph();
@@ -820,10 +889,13 @@ public class GExample implements ActionListener {
                 {
                     runner = new AlgRunnerThread(algorithm);
                     runner.runSequential();
+                    long useTime = System.currentTimeMillis() - timebefore;
                     if (runner.getDoResult() != null)
-                        insertDocument(ctext, "\n" + runner.getDoResult().resultString(), Color.BLACK, 1);
+                        insertDocument(ctext,  runner.getDoResult().resultString()+
+                                "cost time: " + (useTime / 1000) + "." + (useTime % 1000) + "s", Color.BLACK, 1);
                     if (runner.getDoException() != null)
-                        insertDocument(ctext, "\n" + runner.getDoException().getMessage(), Color.BLACK, 1);
+                        insertDocument(ctext, runner.getDoException().getMessage()+
+                                "cost time: " + (useTime / 1000) + "." + (useTime % 1000) + "s", Color.BLACK, 1);
                 }
             } else if (all_specs[i].isLTLSpec() || all_specs[i].isRealTimeLTLSpec() || all_specs[i].isRealTimeLTLKSpec()) {
                 LTLModelCheckAlg checker = new LTLModelCheckAlg(main, all_specs[0]);
@@ -833,8 +905,6 @@ public class GExample implements ActionListener {
                 ctext.setText(ctext.getText().toString() + "\n" + checker.doAlgorithm().resultString());
             }
             //RTCTL star 补充
-
-
         }
         return null;
     }

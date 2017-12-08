@@ -43,7 +43,7 @@ class ColorKeyWords implements DocumentListener {
 		int wordEnd = wordEnd(doc, pos);
 		String word = doc.getText(pos, wordEnd - pos);
 
-		if (keywords.isKeyWord(word, lan)) 
+		if (keywords.isKeyWord(word))
 		{
 			SwingUtilities.invokeLater(new Coloring(doc, pos, wordEnd - pos, keywordStyle));
 		} 

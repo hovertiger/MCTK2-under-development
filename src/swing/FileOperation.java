@@ -242,15 +242,6 @@ public class FileOperation {
 	{
 		String name=file.getName();
 		textEditor.setTitle("MCTK2-"+file.getAbsolutePath());
-		if(name.indexOf("smv")!=-1)
-		{
-			textEditor.setLanguage("smv");
-		}
-		//textEditor.setTitle("´úÂë±à¼­Æ÷-"+name);
-//		if(name.indexOf("java")!=-1)
-//		{
-//			textEditor.setLanguage("java");
-//		}
 	}
 	
 	public String getPath()
