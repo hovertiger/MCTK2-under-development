@@ -92,15 +92,16 @@ public class LTLModelCheckAlg extends ModelCheckAlgI {
 	@Override
 	public AlgResultI preAlgorithm() throws AlgExceptionI {
 		if (mk_tester) {
-			System.out.println("model checking property: " + property);
+			//
+//			System.out.println("model checking property: " + property);
 			Spec negp = new SpecExp(Operator.NOT, property);
 			LTLTester builder = new LTLTester(negp, true);
 			visibleVars = this.getRelevantVars(getDesign(), property);
 			tester = builder.getTester();
 			tester_initials = builder.getSpec2BDD(property).not();
 		} else {
-			System.out.println("model checking property user tester "
-					+ tester.getFullInstName());
+//			System.out.println("model checking property user tester "
+//					+ tester.getFullInstName());
 			visibleVars = this.getRelevantVars(getDesign(), null);
 			// user_tester = user_tester;
 			tester_initials = tester.initial();
