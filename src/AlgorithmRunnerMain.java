@@ -308,14 +308,14 @@ public class AlgorithmRunnerMain {
 		System.out.println("========= DONE Loading Modules ==========");
 		String to_parse="";
 //		to_parse += "LTLSPEC !dc2.paid -> G(dc1 KNOW dc2.paid) \n";
-//		to_parse += "LTLSPEC dc2.paid -> F (dc1 KNOW dc2.paid) \n";
-//		to_parse += "LTLSPEC BF 8..12 (dc1 KNOW dc2.paid);\n";
-//		to_parse += "LTLSPEC BG 8..12 (dc1 KNOW dc2.paid);\n";
-//		to_parse += "LTLSPEC dc2.paid BU 8..12 (dc1 KNOW dc2.paid);\n";
-		//to_parse += "LTLSPEC dc3.said -> (dc1 KNOW dc3.said);\n";
-		//to_parse += "LTLSPEC dc2.paid -> F (dc1 KNOW dc3.said);\n";
+		to_parse += "LTLSPEC dc2.paid -> F (dc1 KNOW dc2.paid) \n";
+		to_parse += "LTLSPEC BF 8..12 (dc1 KNOW dc2.paid);\n";
+		to_parse += "LTLSPEC BG 8..12 (dc1 KNOW dc2.paid);\n";
+		to_parse += "LTLSPEC dc2.paid BU 8..12 (dc1 KNOW dc2.paid);\n";
+		to_parse += "LTLSPEC dc3.said -> (dc1 KNOW dc3.said);\n";
+		to_parse += "LTLSPEC dc2.paid -> F (dc1 KNOW dc3.said);\n";
 		to_parse += "LTLSPEC dc3.paid -> F (dc1 KNOW dc3.paid);\n";
-		//to_parse += "LTLSPEC coin1;\n";
+		to_parse += "LTLSPEC coin1;\n";
 		//to_parse += "LTLSPEC  X (dc1 KNOW !(dc1 KNOW dc2.paid));\n";
 		//to_parse += "LTLSPEC dc2.paid BU 8..12 !(dc1 KNOW dc2.paid);\n";
 
