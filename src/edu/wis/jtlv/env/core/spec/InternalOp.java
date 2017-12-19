@@ -18,7 +18,7 @@ public enum InternalOp {
 	// CTL
 	ABF, ABG, EBF, EBG, AU, EU,
 	// RTLTL
-	B_FINALLY, B_GLOBALLY, B_UNTIL,
+	B_FINALLY, B_GLOBALLY, B_UNTIL,B_RELEASE,
 	//Knowledge
 	KNOW, SKNOW,
 
@@ -39,18 +39,18 @@ public enum InternalOp {
 			NEXT, NOT_PREV_NOT, ONCE, PREV, EX, EF, EG, AX, AF, AG };
 	public static final InternalOp[] binaryOp = { AND, OR, XOR, XNOR, IFF, IMPLIES,
 			RELEASES, SINCE, TRIGGERED, UNTIL, ABF, ABG, EBF, EBG, AU, EU, B_FINALLY, B_GLOBALLY, KNOW, SKNOW };
-	public static final InternalOp[] tripletOp = { ABU, EBU, B_UNTIL };
+	public static final InternalOp[] tripletOp = { ABU, EBU, B_UNTIL,B_RELEASE };
 
 	// is it propositional, or TL operator.
 	public static final InternalOp[] propOp = { NOT, AND, OR, XOR, XNOR, IFF, IMPLIES };
 	public static final InternalOp[] FutureLTLOp = { FINALLY, GLOBALLY, NEXT, RELEASES,
-			UNTIL, B_FINALLY, B_GLOBALLY, B_UNTIL };
+			UNTIL, B_FINALLY, B_GLOBALLY, B_UNTIL,B_RELEASE  };
 	public static final InternalOp[] PastLTLOp = { HISTORICALLY, NOT_PREV_NOT, ONCE,
 			PREV, SINCE, TRIGGERED };
 	public static final InternalOp[] CTLOp = { EX, EF, EG, AX, AF, AG, ABF, ABG, EBF,
 			EBG, AU, EU, ABU, EBU };
 	public static final InternalOp[] RealTimeCTLOp = { ABF, ABG, EBF, EBG, ABU, EBU };
-	public static final InternalOp[] RealTimeLTLOp = { B_FINALLY, B_GLOBALLY, B_UNTIL };
+	public static final InternalOp[] RealTimeLTLOp = { B_FINALLY, B_GLOBALLY, B_UNTIL,B_RELEASE  };
 	public static final InternalOp[] EpistemicOp = { KNOW, SKNOW };
 	public static final InternalOp[] SynEpistemicOp = { SKNOW };
 

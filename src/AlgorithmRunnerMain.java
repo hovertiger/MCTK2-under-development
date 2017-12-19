@@ -3,6 +3,7 @@ import java.util.Stack;
 import java.util.Vector;
 
 import edu.wis.jtlv.lib.mc.RTCTLK.RTCTLKModelCheckAlg;
+import edu.wis.jtlv.lib.mc.RTLTLK.RTLTLKModelCheckAlg;
 import net.sf.javabdd.BDD;
 
 import edu.wis.jtlv.env.Env;
@@ -22,39 +23,7 @@ import edu.wis.jtlv.lib.mc.LTL.LTLValidAlg;
  * @author yaniv sa'ar.
  * 
  */
-public class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-AlgorithmRunnerMain {
+public class AlgorithmRunnerMain {
 	
 	public static void main(String[] args) throws IOException {
 /*		simpleCheckDeadlock();
@@ -70,13 +39,12 @@ AlgorithmRunnerMain {
 		ctlCheck();
 */
 		Env.resetEnv();
+	    //rtltlCheck();
+		rtltlkCheck();
 //		rtctlkCheck();
 //		rtctlCheck();
-
 //		System.out.println("DONE");
 	}
-
-
 	public static void simpleCheckDeadlock() throws IOException {
 		// System.setProperty("bdd", "buddy");
 		SMVModule.initModulesWithoutRunningVar();
@@ -268,26 +236,105 @@ AlgorithmRunnerMain {
 		// ///////////////////////////////////////
 	}
 
-	public static void simpleCheckReact() throws IOException {
-		// System.setProperty("bdd", "buddy");
-		SMVModule.initModulesWithoutRunningVar();
-		Env.loadModule("testcases/simple_mc.smv");
+	public static void rtltlCheck() throws IOException {
+		try {
+			Env.loadModule("testcases/mwOven.smv");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		SMVModule main = (SMVModule) Env.getModule("main");
 		main.setFullPrintingMode(true);
-		for (SMVModule m : main.getAllInstances()) {
-			m.setFullPrintingMode(true);
-		}
 		System.out.println("========= DONE Loading Modules ==========");
 
-		// SimpleModelChecker checker;
-		// try {
-		// checker = new SimpleModelChecker(main, true);
-		// } catch (ModelCheckException e) {
-		// e.printStackTrace();
-		// return;
-		// }
+		String to_parse="";
+		//-----test NNF test NNF test NNF test NNF test NNF test NNF test NNF
+		//to_parse += "LTLSPEC !!!!(TRUE BU 3..12 start);\n";
+		//to_parse += "LTLSPEC !( start & close );\n";
+		//to_parse += "LTLSPEC ! X (! X start);\n";
+		//to_parse += "LTLSPEC !(start RELEASES heat);\n";
+		//to_parse += "LTLSPEC !((start RELEASES heat) RELEASES (start RELEASES heat));\n";
+		//to_parse += "LTLSPEC !((TRUE BU 3..10 start) BU 6..8 (TRUE BU 3..12 start));\n";
+		//to_parse += "LTLSPEC !(TRUE BU 3..10 start);\n";
+		//to_parse += "LTLSPEC !(start BR 3..10 close);\n";
+		//to_parse += "LTLSPEC (start BR 0..10 close);\n";
+		//to_parse += "LTLSPEC (start BR 5..5 close);\n";
+		//to_parse += "LTLSPEC start BU 0..12 close;\n";
+		//to_parse += "LTLSPEC error U close;\n";
+		 // to_parse += "LTLSPEC X (start);\n";
+
+		//to_parse += "LTLSPEC BF 3..8 !( start RELEASES close );\n";
+		//to_parse += "LTLSPEC TRUE BU 8..12 !error;\n";
+		to_parse += "LTLSPEC BF 5..8  ! X close;\n";
+		//to_parse += "LTLSPEC TRUE  BR 5..8  close;\n";
+
+
+		//to_parse += "LTLSPEC !(start & close );\n";
+	    //to_parse += "LTLSPEC  X !( start RELEASES close );\n";
+		//to_parse += "LTLSPEC  (! X start) U (! X close);\n";
+		//to_parse += "LTLSPEC start BU 8..12 !(X close);\n";
+		//to_parse += "LTLSPEC  start & close;\n";
+
+		//to_parse += "LTLSPEC  close;\n";
+		//to_parse += "LTLSPEC TRUE U close;\n";
+
+		//to_parse += "LTLSPEC  G close;\n";
+		//to_parse += "LTLSPEC !(TRUE U !close);\n";
+
+		Spec[] all_specs = Env.loadSpecString(to_parse);
+		System.out.println("========= DONE Loading Specs ============");
+		AlgRunnerThread runner;
+		// model checking a module
+		for (int i = 0; i < all_specs.length; i++) {
+			//System.out.println(i+"--------"+all_specs[i]);
+			runner = new AlgRunnerThread(new RTLTLKModelCheckAlg(main,
+					all_specs[i]));
+			runner.runSequential();
+			if (runner.getDoResult() != null)
+				System.out.println(runner.getDoResult().resultString());
+			if (runner.getDoException() != null)
+				System.err.println(runner.getDoException().getMessage());
+		}
+		// ///////////////////////////////////////
 	}
 
+	private static void rtltlkCheck() throws IOException {
+		try {
+			Env.loadModule("testcases/dc3.smv");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		SMVModule main = (SMVModule) Env.getModule("main");
+		main.setFullPrintingMode(true);
+		System.out.println("========= DONE Loading Modules ==========");
+		String to_parse="";
+//		to_parse += "LTLSPEC !dc2.paid -> G(dc1 KNOW dc2.paid) \n";
+//		to_parse += "LTLSPEC dc2.paid -> F (dc1 KNOW dc2.paid) \n";
+//		to_parse += "LTLSPEC BF 8..12 (dc1 KNOW dc2.paid);\n";
+//		to_parse += "LTLSPEC BG 8..12 (dc1 KNOW dc2.paid);\n";
+//		to_parse += "LTLSPEC dc2.paid BU 8..12 (dc1 KNOW dc2.paid);\n";
+		//to_parse += "LTLSPEC dc3.said -> (dc1 KNOW dc3.said);\n";
+		//to_parse += "LTLSPEC dc2.paid -> F (dc1 KNOW dc3.said);\n";
+		to_parse += "LTLSPEC dc3.paid -> F (dc1 KNOW dc3.paid);\n";
+		//to_parse += "LTLSPEC coin1;\n";
+		//to_parse += "LTLSPEC  X (dc1 KNOW !(dc1 KNOW dc2.paid));\n";
+		//to_parse += "LTLSPEC dc2.paid BU 8..12 !(dc1 KNOW dc2.paid);\n";
+
+		Spec[] all_specs = Env.loadSpecString(to_parse);
+		System.out.println("========= DONE Loading Specs ============");
+		AlgRunnerThread runner;
+		// model checking a module
+		for (int i = 0; i < all_specs.length; i++) {
+			//System.out.println(i+"--------"+all_specs[i]);
+			runner = new AlgRunnerThread(new RTLTLKModelCheckAlg(main,
+					all_specs[i]));
+			runner.runSequential();
+			if (runner.getDoResult() != null)
+				System.out.println(runner.getDoResult().resultString());
+			if (runner.getDoException() != null)
+				System.err.println(runner.getDoException().getMessage());
+		}
+		// ///////////////////////////////////////
+	}
 	public static void ctlCheck() throws IOException {
 		// System.setProperty("bdd", "buddy");
 //		Env.loadModule("testcases/simple_mc.smv");
@@ -341,8 +388,6 @@ AlgorithmRunnerMain {
 		}
 		// ///////////////////////////////////////
 	}
-
-
 	public static void rtctlCheck()  {
 		// System.setProperty("bdd", "buddy");
 		try {
@@ -363,7 +408,6 @@ AlgorithmRunnerMain {
 //		to_parse = "SPEC (!EG ( (!start & !close & !heat & !error) |  (start & !close & !heat & error) | (start & close & !heat & error) )) | !EG !heat";
 //		to_parse = "SPEC ABG 3..8 (start -> AF heat)";
 
-
 		Spec[] all_specs = Env.loadSpecString(to_parse);
 		System.out.println("========= DONE Loading Specs ============");
 
@@ -379,7 +423,6 @@ AlgorithmRunnerMain {
 				System.out.println(runner.getDoResult().resultString());
 			if (runner.getDoException() != null)
 				System.err.println(runner.getDoException().getMessage());
-
 		}
 		// ///////////////////////////////////////
 	}

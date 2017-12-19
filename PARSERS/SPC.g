@@ -21,6 +21,9 @@ tokens {
 	PURE_CTL_T;
 	PURE_LTL_T;
 
+        LTL_KNOW_T;
+
+
 	PURE_CTL_EPISTEMIC_T;
 	CTL_KNOW_T;
 	TOK_CTL_KNOW_T;
@@ -782,9 +785,14 @@ ltl_binary_expr				returns[InternalSpec ret]
 								//RTLTL binary operator
 								| op=TOK_BUNTIL^ fsr=subrange s=ltl_unary_expr
 								{ if (!er()) exp_str += " " + $op.text + " " + $fsr.text + " " + $s.text; if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_bound_until(input, $start, exp_str, $fsr.ret, $f.ret, $s.ret); }
+
+								| op=TOK_BRELEASES^ fsr=subrange s=ltl_unary_expr
+								{ if (!er()) exp_str += " " + $op.text + " " + $fsr.text + " " + $s.text; if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_bound_release(input, $start, exp_str, $fsr.ret, $f.ret, $s.ret); }
+
+								/*
 								// epistemic
 								| op=TOK_KNOW^ s=ltl_unary_expr
-								{ if (!er()) exp_str += " " + $op.text + " " + $s.text; if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_ltl_know(input, $start, exp_str, $ret, $s.ret); }
+								{ if (!er()) exp_str += " " + $op.text + " " + $s.text; if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_ltl_know(input, $start, exp_str, $ret, $s.ret); } */
 								)*
 								;
 ltl_unary_expr				returns[InternalSpec ret]
@@ -825,6 +833,8 @@ ltl_pure_unary_expr			returns[InternalSpec ret]
 								{ if (!er()) exp_str = $op.text + " " + $fsr.text + " " + $s.text; if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_bound_finally(input, $start, exp_str, $fsr.ret, $s.ret); }
 								| op=TOK_OP_BOUND_GLOBALLY^ fsr=subrange s=ltl_unary_expr
 								{ if (!er()) exp_str = $op.text + " " + $fsr.text + " " + $s.text; if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_bound_globally(input, $start, exp_str, $fsr.ret, $s.ret); }
+
+
 								/* NOT is required here to allow such expr as "! X a" */
 								| op=TOK_NOT^ fp=ltl_pure_unary_expr
 								{ if (!er()) exp_str = $op.text + " " + $fp.text; if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_not(input, $start, exp_str, $fp.ret); }
@@ -954,6 +964,12 @@ ltl_primary_expr_helper1	returns[InternalSpec ret]
 //								{ if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_ref(input, $start, $ltl_primary_expr_helper1.text); }
 //								//{ if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_ref(input, $start, $primary_expr_helper1_pointer2.text); }
 
+
+								| ltl_know primary_expr_select
+								{ if(!er()) $ret = $ltl_know.ret; } // primary_expr_select should be null...
+								-> ^(LTL_KNOW_T ltl_know NOP primary_expr_select)
+
+
 								/* simple paren are the only case where we should start over
 								from the "real" begining of the parsed expression... */
 								| TOK_LP ltl_root_expr TOK_RP primary_expr_select
@@ -991,6 +1007,19 @@ ltl_primary_expr_helper1	returns[InternalSpec ret]
 								//{ if(!er()) append_end = true; if(!er()) $ret = InitSpec.mk_ref(input, $start, $TOK_WAWRITE.text + $TOK_LP.text + $f.text + $tc1.text + $m.text + $tc2.text + $s.text + $TOK_RP.text + $primary_expr_select.text); }
 								-> ^(TOK_WAWRITE $f $m $s NOP primary_expr_select)
 								;
+
+
+ltl_know						returns[InternalSpec ret]
+@init {boolean append_end = false; String exp_str = ""; }
+@after { if(append_end) $ret.setEndToken($stop); if(!er()) $ret.evalBDDChildrenExp(input); }
+								: TOK_LP! agent=agent_name opk=TOK_KNOW^ f=ltl_root_expr TOK_RP!
+								{ if (!er()) exp_str = $agent.text + " " + $opk.text + " " + $f.text;
+								  if(!er()) append_end = true;
+								  if(!er()) $ret = InitSpec.mk_ltl_know(input, $start, exp_str, $agent.ret, $f.ret);
+								}
+								//-> ^(TOK_CTL_KNOW_T agent_name TOK_KNOW ctl_root_expr)
+								;
+
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1446,6 +1475,8 @@ TOK_OP_NOTPREVNOT			: 'Z';
 //RTLTL
 TOK_OP_BOUND_FINALLY			: 'BF' ;
 TOK_OP_BOUND_GLOBALLY			: 'BG' ;
+TOK_BRELEASES			        : 'BR' ;
+
 
 //epistemic
 TOK_KNOW				: 'K' | 'KNOW' | 'Know';

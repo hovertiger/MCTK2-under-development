@@ -299,7 +299,6 @@ public class SpecExp implements Spec {
 	public String toString() {
 		Operator op = this.getOperator();
 		Spec[] ch = this.getChildren();
-
 		// special cases
 		if (op == Operator.AU)
 			return "(A[" + ch[0] + " UNTIL " + ch[1] + ")";
@@ -329,6 +328,8 @@ public class SpecExp implements Spec {
 			return "(BG " + ch[0] + " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
 		if (op == Operator.B_UNTIL)
 			return "("+((SpecRange)ch[0]).getOriginLeftSpec()+" BU " +ch[0]+ " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
+		if (op == Operator.B_RELEASE)
+			return "("+((SpecRange)ch[0]).getOriginLeftSpec()+" BR " +ch[0]+ " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
 
 		// simple unary
 		if (op.isUnary())

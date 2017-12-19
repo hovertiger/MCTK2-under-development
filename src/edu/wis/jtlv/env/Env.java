@@ -668,7 +668,6 @@ public final class Env {
 		}
 		return null;
 	}
-
 	/**
 	 * <p>
 	 * Load any kind of specification from a file.
@@ -696,7 +695,6 @@ public final class Env {
 		}
 		return null;
 	}
-
 	private static Spec[] convertSpecToAPI(InternalSpec[] orig) {
 		Spec[] res = new Spec[orig.length];
 		for (int i = 0; i < res.length; i++) {
@@ -726,7 +724,7 @@ public final class Env {
 		Spec[] children = convertSpecToAPI(cast_orig.getChildren());
 		Spec res = null;
 
-		//UPDATING20170428(add supporter for Transfer work)
+//		//Uppdate by LS on : 2017/12/19
 		SpecRange range;
 		Spec baseSpec,leftBaseSpec;
 		switch (op){
@@ -734,13 +732,13 @@ public final class Env {
 				range=(SpecRange)children[0];
 				baseSpec=children[1];
                 range.setOriginSpec(baseSpec);
-                children[1]=transBFToLTLSPec(baseSpec,range.getFrom(),range.getTo()-range.getFrom());
+                //children[1]=transBFToLTLSPec(baseSpec,range.getFrom(),range.getTo()-range.getFrom());
 				break;
 			case B_GLOBALLY:
 				range=(SpecRange)children[0];
 				baseSpec=children[1];
 				range.setOriginSpec(baseSpec);
-				children[1]=transBGToLTLSPec(baseSpec, range.getFrom(), range.getTo() - range.getFrom());
+				//children[1]=transBGToLTLSPec(baseSpec, range.getFrom(), range.getTo() - range.getFrom());
 				break;
 			case B_UNTIL:
 				range=(SpecRange)children[0];
@@ -748,12 +746,18 @@ public final class Env {
 				baseSpec=children[2];
 				range.setOriginLeftSpec(leftBaseSpec);
 				range.setOriginSpec(baseSpec);
-				children[1]=transBUToLTLSPecUsedBU0Op(leftBaseSpec, baseSpec, range.getFrom(), range.getTo() - range.getFrom());
+				//children[1]=transBUToLTLSPecUsedBU0Op(leftBaseSpec, baseSpec, range.getFrom(), range.getTo() - range.getFrom());
 				break;
-			//case KNOW:
-
+			case B_RELEASE:
+				range=(SpecRange)children[0];
+				leftBaseSpec=children[1];
+				baseSpec=children[2];
+				range.setOriginLeftSpec(leftBaseSpec);
+				range.setOriginSpec(baseSpec);
+				//children[1]=transBUToLTLSPecUsedBU0Op(leftBaseSpec, baseSpec, range.getFrom(), range.getTo() - range.getFrom());
+				break;
+			//case KNOW: 不需要解析
 		}
-
 		try {
 			res = new SpecExp(op, children);
 		} catch (SpecException e) {
@@ -766,7 +770,6 @@ public final class Env {
 	private static Operator convertOperatorToAPI(InternalOp orig) {
 		return Operator.operatorFromString(orig.toString());
 	}
-
     /**
      * UPDATING20170428(translation algorithm BF)
      */
@@ -785,10 +788,8 @@ public final class Env {
                 return null;
             }
         }
-
         return null;
 	}
-
 	/**
 	 * UPDATING20170428(translation algorithm BG)
 	 */
@@ -807,61 +808,6 @@ public final class Env {
 				return null;
 			}
 		}
-
-		return null;
-	}
-
-	/**
-	 * UPDATING20170429(translation algorithm BU)
-	 */
-	private static Spec transBUToLTLSPec(Spec leftBaseSpec,Spec baseSpec,int a,int b){
-		if(a==0&b==0)
-			return baseSpec;
-
-		if(a>0)
-			try {
-				return new SpecExp(Operator.AND, new Spec[]{leftBaseSpec, new SpecExp(Operator.NEXT,transBUToLTLSPec(leftBaseSpec, baseSpec, a - 1, b))});
-			} catch (SpecException e) {
-				e.printStackTrace();
-				return null;
-			}
-
-		if(b>0) {
-			try {
-				return new SpecExp(Operator.OR, new Spec[]{baseSpec,new SpecExp(Operator.AND,new Spec[]{leftBaseSpec,new SpecExp(Operator.NEXT,transBUToLTLSPec(leftBaseSpec, baseSpec, a, b - 1))})});
-			} catch (SpecException e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * UPDATING20170523(translation algorithm BU used BU0 operator)
-	 */
-	private static Spec transBUToLTLSPecUsedBU0Op(Spec leftBaseSpec,Spec baseSpec,int a,int b){
-		if(a==0&b==0)
-			return baseSpec;
-
-		if(a>0)
-			try {
-				return new SpecExp(Operator.AND, new Spec[]{leftBaseSpec, new SpecExp(Operator.NEXT,transBUToLTLSPecUsedBU0Op(leftBaseSpec, baseSpec, a - 1, b))});
-			} catch (SpecException e) {
-				e.printStackTrace();
-				return null;
-			}
-
-		if(b>0) {
-			try {
-				return new SpecExp(Operator.OR, new Spec[]{baseSpec,new SpecExp(Operator.B_UNTIL0,new Spec[]{new SpecRange(1,b),leftBaseSpec,baseSpec})});
-			} catch (SpecException e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
-
 		return null;
 	}
 
@@ -1016,7 +962,6 @@ public final class Env {
 		throw new IOException("Cannot load module with formats other then"
 				+ " .fds or .smv");
 	}
-
 	/**
 	 * <p>
 	 * Parse the given file and add it to the system. Currently two file

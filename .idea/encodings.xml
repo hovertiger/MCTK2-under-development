@@ -5,8 +5,9 @@
     <file url="file://$PROJECT_DIR$/src/swing/FileList.java" charset="GB18030" />
     <file url="file://$PROJECT_DIR$/src/swing/FileOperation.java" charset="GB18030" />
     <file url="file://$PROJECT_DIR$/src/swing/GExample.java" charset="GB18030" />
+    <file url="file://$PROJECT_DIR$/src/swing/GExample.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/swing/SetFont.java" charset="GB18030" />
+    <file url="file://$PROJECT_DIR$/src/swing/TextEditor.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/swing/TextEditor.java" charset="GB18030" />
-    <file url="file://$PROJECT_DIR$/src/test/GExample.java" charset="GB18030" />
   </component>
 </project>

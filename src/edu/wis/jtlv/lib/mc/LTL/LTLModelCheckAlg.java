@@ -2,6 +2,7 @@ package edu.wis.jtlv.lib.mc.LTL;
 
 import java.util.Vector;
 
+import edu.wis.jtlv.env.spec.*;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 import edu.wis.jtlv.env.Env;
@@ -9,15 +10,11 @@ import edu.wis.jtlv.env.module.Module;
 import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.ModuleWithStrongFairness;
 import edu.wis.jtlv.env.module.ModuleWithWeakFairness;
-import edu.wis.jtlv.env.spec.Operator;
-import edu.wis.jtlv.env.spec.Spec;
-import edu.wis.jtlv.env.spec.SpecExp;
 import edu.wis.jtlv.lib.AlgExceptionI;
 import edu.wis.jtlv.lib.AlgResultI;
 import edu.wis.jtlv.lib.AlgResultPath;
 import edu.wis.jtlv.lib.AlgResultString;
 import edu.wis.jtlv.lib.mc.ModelCheckAlgI;
-
 /**
  * There are two methods to use this algorithms:
  * <p>
@@ -40,7 +37,6 @@ public class LTLModelCheckAlg extends ModelCheckAlgI {
 	private BDD tester_initials;
 	private boolean mk_tester;
 	private BDDVarSet visibleVars;
-
 	/**
 	 * <p>
 	 * Constructor for a given specification \phi (as a formula in temporal
@@ -92,13 +88,17 @@ public class LTLModelCheckAlg extends ModelCheckAlgI {
 	@Override
 	public AlgResultI preAlgorithm() throws AlgExceptionI {
 		if (mk_tester) {
-			//
-//			System.out.println("model checking property: " + property);
-			Spec negp = new SpecExp(Operator.NOT, property);
-			LTLTester builder = new LTLTester(negp, true);
+		System.out.println("model checking property: -------" + property);
+			//Get the NNF formula of property
+		    property=GetNNF(property);
+			System.out.println("NNF------"+property);
+			//Spec negp = new SpecExp(Operator.NOT, property);
+			LTLTester builder = new LTLTester(property, true);
 			visibleVars = this.getRelevantVars(getDesign(), property);
 			tester = builder.getTester();
-			tester_initials = builder.getSpec2BDD(property).not();
+
+			//tester_initials = builder.getSpec2BDD(property).not();
+			tester_initials = builder.getSpec2BDD(property);
 		} else {
 //			System.out.println("model checking property user tester "
 //					+ tester.getFullInstName());
@@ -113,13 +113,58 @@ public class LTLModelCheckAlg extends ModelCheckAlgI {
 		return null;
 	}
 
+	public Spec GetNNF(Spec spec)  {
+		if (! (spec instanceof SpecExp))
+        	return  spec;
+		SpecExp propExp = (SpecExp) spec;
+		Operator op = propExp.getOperator();
+		Spec[] child = propExp.getChildren();
+		  if (op.equals(Operator.NOT)) {
+			  if (! (child[0] instanceof SpecExp))//---!f
+				  return  spec;
+			  SpecExp prop = (SpecExp) child[0];
+			  Operator ops = prop.getOperator();
+			  Spec[] childs = prop.getChildren();
+             // System.out.println("ops-"+ops+" 0-"+childs[0]+" 1-"+childs[1]+" 2-"+childs[2]);
+			  if (ops.equals(Operator.NOT)) {
+				  spec = GetNNF(childs[0]);
+			  }
+			  if (ops.equals(Operator.NEXT)) {
+				  spec = new SpecExp(ops, new SpecExp(op, GetNNF(childs[0])));
+			  }
+			  if (ops.equals(Operator.RELEASES)) {
+			  	  spec = new SpecExp(Operator.UNTIL, GetNNF(new SpecExp(op, childs[0])),GetNNF(new SpecExp(op, childs[1]))   );
+			  }
+              // !(f R a..b g)
+			  if (ops.equals(Operator.B_RELEASE)) {
+				  SpecRange range=(SpecRange)childs[0];
+				  SpecExp p1 = new SpecExp(op, childs[1]);
+				  SpecExp p2 = new SpecExp(op, childs[2]);
+				  range.setOriginLeftSpec(p1);
+				  range.setOriginSpec(p2);
+				  spec = new SpecExp(Operator.B_UNTIL, range,GetNNF(p1),GetNNF(p2));
+			  }
+			  if (ops.equals(Operator.UNTIL)) {
+				  spec = new SpecExp(Operator.RELEASES, GetNNF(new SpecExp(op, childs[0])),GetNNF(new SpecExp(op, childs[1]))   );
+			  }
+			  // !(f U a..b g)
+			  if (ops.equals(Operator.B_UNTIL)) {
+				  SpecRange range=(SpecRange)childs[0];
+				  SpecExp p1 = new SpecExp(op, childs[1]);
+				  SpecExp p2 = new SpecExp(op, childs[2]);
+				  range.setOriginLeftSpec(p1);
+				  range.setOriginSpec(p2);
+				  spec = new SpecExp(Operator.B_RELEASE, range,GetNNF(p1),GetNNF(p2));
+			  }
+		  }
+		return spec;
+	}
 	/**
 	 * <p>
 	 * Compose the design with the tester (user's or the one built from the LTL
 	 * specification), and check feasible states.
 	 * </p>
-	 * 
-	 * @throws Noting.
+	 *
 	 * 
 	 * @return A counter example if the algorithm fails (i.e.
 	 *         {@link edu.wis.jtlv.lib.AlgResultPath}), or a string with
@@ -131,10 +176,8 @@ public class LTLModelCheckAlg extends ModelCheckAlgI {
 	public AlgResultI doAlgorithm() throws AlgExceptionI {
 		Module design = getDesign(); // with the composed tester...
 		design.syncComposition(tester);
-
 		// saving to the previous restriction state
 		Vector<BDD> ini_restrictions = design.getAllIniRestrictions();
-
 		design.restrictIni(tester_initials);
 		BDD feas = design.feasible();
 		// the initial_condition seems redundant
@@ -152,7 +195,7 @@ public class LTLModelCheckAlg extends ModelCheckAlgI {
 		return new AlgResultString(true, "*** Property is VALID ***");
 	}
 
-	private BDDVarSet getRelevantVars(Module m, Spec p) {
+	public BDDVarSet getRelevantVars(Module m, Spec p) {
 		// p.releventVars();
 		BDDVarSet vars = Env.getEmptySet();
 		if (p != null) {

@@ -84,8 +84,7 @@ public class AlgResultPath implements AlgResultI {
 	/* (non-Javadoc)
 	 * @see edu.wis.jtlv.lib.AlgResultI#resultString()
 	 */
-	@Override
-	public String resultString() {
+	public String resultString_old() {
 		String res = "";
 		res += "   Counter Example \n";
 		res += "=====================\n";
@@ -96,4 +95,36 @@ public class AlgResultPath implements AlgResultI {
 		}
 		return res;
 	}
+
+
+	public String resultString() {
+		String res ="";
+		if ((this.result == null) || (this.result.length == 0))
+			return res + "No Counter Example Exists.";
+		res += " Counter Example\n";
+		res += "=================\n";
+		// the last is not printed. It is only to point to the cycle.
+		BDD last = this.result[this.result.length - 1];
+		int loop_index = -1;
+		boolean loop_exists = false;
+		for (int i = 0; i < this.result.length - 1; i++) {
+			boolean loop_here = this.result[i].biimp(last).isOne();
+			if ((loop_here) && (loop_index == -1)) {
+				loop_index = i + 1;
+				res += "[[" + (i + 1) + "]]";
+				loop_exists = true;
+			} else {
+				res += "  " + (i + 1) + "  ";
+			}
+			res += " \t: " + this.result[i].toString() + "\n";
+		}
+		if (loop_exists)
+			res += "Loop back to state " + loop_index;
+		else
+			res += "  " + this.result.length + "   \t: "
+					+ this.result[this.result.length - 1].toString() + "\n";
+
+		return res;
+	}
+
 }

@@ -336,42 +336,6 @@ public class RTCTLKModelCheckAlg extends CTLModelCheckAlg {
         }
     }
 
-    private BDDVarSet getRelevantVars(Module m, Spec p) {
-        // p.releventVars();
-        BDDVarSet vars = Env.getEmptySet();
-        if (p != null) {
-            vars = vars.id().union(p.releventVars());
-        }
-        if (m != null) {
-            // these are usually too much...
-            // vars = vars.id().union(m.moduleUnprimeVars());
-
-            // // removing running
-            // ModuleBDDField r = m.getVar("running", false);
-            // if (r != null) {
-            // BDDVarSet rmR = Env.globalPrimeVarsMinus(r.other().support());
-            // BDDVarSet rmPR = Env.globalUnprimeVarsMinus(r.support());
-            // vars = Env.intersect(vars, rmR.union(rmPR));
-            // }
-
-            // fairness variables are important to illustrate feasibility.
-            if (m instanceof ModuleWithWeakFairness) {
-                ModuleWithStrongFairness weakM = (ModuleWithStrongFairness) m;
-                for (int i = 0; i < weakM.justiceNum(); i++) {
-                    vars = vars.id().union(weakM.justiceAt(i).support());
-                }
-            }
-            if (m instanceof ModuleWithStrongFairness) {
-                ModuleWithStrongFairness strongM = (ModuleWithStrongFairness) m;
-                for (int i = 0; i < strongM.compassionNum(); i++) {
-                    vars = vars.id().union(strongM.pCompassionAt(i).support());
-                    vars = vars.id().union(strongM.qCompassionAt(i).support());
-                }
-            }
-        }
-        return vars;
-    }
-
     public String simplifySpecString(String spec, boolean delTrue) {
         String res = spec.replaceAll("main.", "");
         if (delTrue) {

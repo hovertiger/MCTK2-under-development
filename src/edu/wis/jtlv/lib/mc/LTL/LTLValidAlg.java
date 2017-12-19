@@ -189,6 +189,7 @@ public class LTLValidAlg extends ModelCheckAlgI {
 	 */
 	private static BDD[] extractWithness(BDD feasible, Module designWithTester,
 			BDDVarSet relevantVars) {
+
 		BDD temp, fulfill;
 		// saving to the previous restriction state
 		Vector<BDD> trans_restrictions = designWithTester

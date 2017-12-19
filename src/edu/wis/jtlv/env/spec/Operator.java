@@ -26,12 +26,12 @@ public enum Operator {
 	AND, OR, XOR, XNOR, IFF, IMPLIES,
 	// LTL
 	RELEASES, SINCE, TRIGGERED, UNTIL,
-	// RTLTL
-	B_UNTIL, B_UNTIL0,
+	// RTLTL 除去B_UNTIL0
+	B_UNTIL,B_RELEASE,
 	// CTL, RTCTL
 	ABF, ABG, EBF, EBG, AU, EU,
 	// EPISTEMIC
-	KNOW, SKNOW,
+	KNOW, NKNOW,SKNOW,
 
 	// TRIPLET............
 	// Prop
@@ -51,21 +51,21 @@ public enum Operator {
 			AG };
 	public static final Operator[] binaryOp = { AND, OR, XOR, XNOR, IFF,
 			IMPLIES, RELEASES, SINCE, TRIGGERED, UNTIL, ABF, ABG, EBF, EBG, AU,
-			EU, B_FINALLY, B_GLOBALLY, KNOW, SKNOW };
-	public static final Operator[] tripletOp = { ABU, EBU, B_UNTIL, B_UNTIL0 };
+			EU, B_FINALLY, B_GLOBALLY, KNOW, NKNOW,SKNOW };
+	public static final Operator[] tripletOp = { ABU, EBU, B_UNTIL, B_RELEASE };
 
 	// is it propositional, or TL operator.
 	public static final Operator[] propOp = { NOT, AND, OR, XOR, XNOR, IFF,
 			IMPLIES };
 	public static final Operator[] FutureLTLOp = { FINALLY, GLOBALLY, NEXT,
-			RELEASES, UNTIL, B_FINALLY, B_GLOBALLY, B_UNTIL, B_UNTIL0 };
+			RELEASES, UNTIL, B_FINALLY, B_GLOBALLY, B_UNTIL, B_RELEASE};
 	public static final Operator[] PastLTLOp = { HISTORICALLY, NOT_PREV_NOT,
 			ONCE, PREV, SINCE, TRIGGERED };
 	public static final Operator[] CTLOp = { EX, EF, EG, AX, AF, AG, AU, EU };
 	public static final Operator[] RealTimeCTLOp = { ABF, ABG, EBF, EBG, ABU,
 			EBU };
-	public static final Operator[] RealTimeLTLOp = { B_FINALLY, B_GLOBALLY, B_UNTIL, B_UNTIL0 };
-	public static final Operator[] EpistemicOp = { KNOW, SKNOW };
+	public static final Operator[] RealTimeLTLOp = { B_FINALLY, B_GLOBALLY, B_UNTIL, B_RELEASE};
+	public static final Operator[] EpistemicOp = { KNOW,NKNOW,SKNOW };
 	public static final Operator[] SynEpistemicOp = { SKNOW };
 
 	private boolean in(Operator[] set) {

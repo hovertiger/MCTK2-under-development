@@ -148,11 +148,9 @@ public class InitSpec {
 
 	public static InternalSpec mk_ltl_know(TokenStream input, Token start, String exp_str, InternalSpec l, InternalSpec r)
 			throws SpecParseException {
-
 		if(l.toString().equals(""))
 			throw new SpecParseException("The knowledge formula " + exp_str + " has a NULL agent name.",
 					input, start, null );
-
 		return new InternalSpecExp(exp_str, InternalOp.KNOW, l, r, start);
 	}
 
@@ -216,7 +214,10 @@ public class InitSpec {
 			throws SpecParseException {
 		return mk_triplet_temporal_op(input, start, exp_str, InternalOp.B_UNTIL, range, l, r);
 	}
-
+	public static InternalSpec mk_bound_release(TokenStream input, Token start, String exp_str, InternalSpecRange range, InternalSpec l, InternalSpec r)
+			throws SpecParseException {
+		return mk_triplet_temporal_op(input, start, exp_str, InternalOp.B_RELEASE, range, l, r);
+	}
 	// //////////////////
 	// CTL unary
 	public static InternalSpec mk_EX(TokenStream input, Token start, String exp_str, InternalSpec v)

@@ -32,12 +32,19 @@ public class RTLTLTest {
         //spec
         TimeCount timeCount_spec = new TimeCount("Loading SPEC");
         timeCount_spec.markBegin();
-        String to_parse = "LTLSPEC gear=1 BU 5..10 gear=2;\n";//valid
-        to_parse += "LTLSPEC BG 6..10 gear=2;\n";//valid
-        to_parse += "LTLSPEC BF 5..10 gear=2;\n";//valid
-        to_parse += "LTLSPEC gear=2 BU 6..15 gear=3;\n";//invalid
-        to_parse += "LTLSPEC BG 5..10 gear=2;\n";//invalid
-        to_parse += "LTLSPEC BF 5..10 gear=3;\n";//invalid
+        String to_parse="";// = "LTLSPEC gear=1 BU 5..10 gear=2;\n";//valid
+//        to_parse += "LTLSPEC BG 6..10 gear=2;\n";//valid
+//        to_parse += "LTLSPEC BF 5..10 gear=2;\n";//valid
+       //to_parse += "LTLSPEC gear=2 BU 0..12 gear=3;\n";//invalid
+//        to_parse += "LTLSPEC BG 5..10 gear=2;\n";//invalid
+//        to_parse += "LTLSPEC BF 5..10 gear=3;\n";//invalid
+//        to_parse += "LTLSPEC BF 5..10 gear=3;\n";//invalid
+         to_parse += "LTLSPEC gear=200 RELEASES gear=30;\n";//invalid
+         to_parse += "LTLSPEC gear=200;\n";//invalid
+         to_parse += "LTLSPEC gear=200 & gear=30;\n";//invalid
+         to_parse += "LTLSPEC X gear=200;\n";//invalid
+
+
         Spec[] all_specs = Env.loadSpecString(to_parse);
         timeCount_spec.markEnd().print();
 
@@ -52,8 +59,8 @@ public class RTLTLTest {
         String[] toParsers = to_parse.split("\n");
         for (int i = 0; i < all_specs.length; i++) {
             TimeCount tempTimeCount=new TimeCount("Check Property");
-            System.out.println((i + 1) + " checking property:" + toParsers[i]);
-
+            //System.out.println((i + 1) + " checking property:" + toParsers[i]);
+            //System.out.println((i + 1) + " checking property:" + all_specs[i]);
             tempTimeCount.markBegin();
             runner = new AlgRunnerThread(new LTLModelCheckAlg(main, all_specs[i]));
             runner.runSequential();
