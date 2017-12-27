@@ -1,4 +1,4 @@
-package edu.wis.jtlv.lib.mc.RTLTLK;
+package edu.wis.jtlv.lib.mc.RTCTLstarK;
 
 import edu.wis.jtlv.env.Env;
 import edu.wis.jtlv.env.module.Module;
@@ -13,20 +13,20 @@ import edu.wis.jtlv.lib.AlgExceptionI;
 import edu.wis.jtlv.lib.AlgResultI;
 import edu.wis.jtlv.lib.AlgResultPath;
 import edu.wis.jtlv.lib.AlgResultString;
-import edu.wis.jtlv.lib.mc.LTL.LTLModelCheckAlg;
+import edu.wis.jtlv.lib.mc.RTLTLK.RTLTLKModelCheckAlg;
+import edu.wis.jtlv.lib.mc.RTLTLK.RTLTLKTester;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 
 import java.util.Vector;
 
-public class RTLTLKModelCheckAlg extends LTLModelCheckAlg {
+public class RTCTLstarKModelCheckAlg extends RTLTLKModelCheckAlg{
     private Spec property;
     private Module tester;
     private BDD tester_initials;
     private boolean mk_tester;
     private BDDVarSet visibleVars;
-    //private  Module design;
-    public RTLTLKModelCheckAlg(Module design, Spec property) {
+    public RTCTLstarKModelCheckAlg(Module design, Spec property) {
         super(design, property);
         this.property = property;
         mk_tester = true;
@@ -40,7 +40,7 @@ public class RTLTLKModelCheckAlg extends LTLModelCheckAlg {
             System.out.println("NNF------"+property);
 
             Spec negp = new SpecExp(Operator.NOT, property);
-            RTLTLKTester builder = new RTLTLKTester(this.getDesign(),negp, true);
+            RTCTLstarKTester builder = new RTCTLstarKTester(this.getDesign(),negp, true);
             visibleVars = this.getRelevantVars(getDesign(), property);
             tester = builder.getTester();
             tester_initials = builder.getSpec2BDD(property).not();
@@ -58,170 +58,169 @@ public class RTLTLKModelCheckAlg extends LTLModelCheckAlg {
         }
         return null;
     }
-
     public Spec GetNNF(Spec spec)  {
-    //System.out.println("spec--------"+spec);
-    if (! (spec instanceof SpecExp))
-        return  spec;
-    SpecExp propExp = (SpecExp) spec;
-    Operator op = propExp.getOperator();
-    Spec[] child = propExp.getChildren();
-    int noo = op.numOfOperands();
-    //System.out.println("-------------"+op);
+        //System.out.println("spec--------"+spec);
+        if (! (spec instanceof SpecExp))
+            return  spec;
+        SpecExp propExp = (SpecExp) spec;
+        Operator op = propExp.getOperator();
+        Spec[] child = propExp.getChildren();
+        int noo = op.numOfOperands();
+        System.out.println("-------------"+op);
 
-    // unaryOp of LTL except for Not
-    if(op.equals(Operator.FINALLY)||op.equals(Operator.GLOBALLY)||op.equals(Operator.HISTORICALLY)
-            ||op.equals(Operator.NEXT)||op.equals(Operator.NOT_PREV_NOT)||op.equals(Operator.ONCE)
-            ||op.equals(Operator.PREV)){
-        spec=new SpecExp(op, GetNNF(child[0]));
-    }
+        // unaryOp of LTL except for Not
+        if(op.equals(Operator.FINALLY)||op.equals(Operator.GLOBALLY)||op.equals(Operator.HISTORICALLY)
+                ||op.equals(Operator.NEXT)||op.equals(Operator.NOT_PREV_NOT)||op.equals(Operator.ONCE)
+                ||op.equals(Operator.PREV)){
+            spec=new SpecExp(op, GetNNF(child[0]));
+        }
 
-    // binaryOp of LTL except for KNOW,SKNOW,NKNOW
-    if(op.equals(Operator.OR)||op.equals(Operator.AND)||op.equals(Operator.IFF)||op.equals(Operator.XOR)
-            ||op.equals(Operator.XOR)||op.equals(Operator.XNOR)||op.equals(Operator.UNTIL)||op.equals(Operator.RELEASES)
-            ||op.equals(Operator.SINCE)||op.equals(Operator.TRIGGERED)){
-        spec=new SpecExp(op, GetNNF(child[0]),GetNNF(child[1]));
-    }
-    if(op.equals(Operator.KNOW)||op.equals(Operator.SKNOW)||op.equals(Operator.NKNOW)){
-        spec=new SpecExp(op, child[0],GetNNF(child[1]));
-    }
-    // F a..b f = T U a..b f
-    if(op.equals(Operator.B_FINALLY)){
-        SpecRange range=(SpecRange)child[0];
-        if(range.getTo()>=0){
-            Spec p1=GetNNF(child[1]);
-            range.setOriginLeftSpec(getTRUE());
-            range.setOriginSpec(p1);
-            spec = new SpecExp(Operator.B_UNTIL, range,getTRUE(),p1);
+        // binaryOp of LTL except for KNOW,SKNOW,NKNOW
+        if(op.equals(Operator.OR)||op.equals(Operator.AND)||op.equals(Operator.IFF)||op.equals(Operator.XOR)
+                ||op.equals(Operator.XOR)||op.equals(Operator.XNOR)||op.equals(Operator.UNTIL)||op.equals(Operator.RELEASES)
+                ||op.equals(Operator.SINCE)||op.equals(Operator.TRIGGERED)){
+            spec=new SpecExp(op, GetNNF(child[0]),GetNNF(child[1]));
         }
-        else//F a..-1 f  -> T U a..a ( F f)
-        {
-            Spec p1=GetNNF(new SpecExp(Operator.FINALLY, child[1]));
-            range=new SpecRange(range.getFrom(),range.getFrom());
-            range.setOriginLeftSpec(getTRUE());
-            range.setOriginSpec(p1);
-            spec = new SpecExp(Operator.B_UNTIL, range,getTRUE(),p1);
+        if(op.equals(Operator.KNOW)||op.equals(Operator.SKNOW)||op.equals(Operator.NKNOW)){
+            spec=new SpecExp(op, child[0],GetNNF(child[1]));
         }
+        // F a..b f = T U a..b f
+        if(op.equals(Operator.B_FINALLY)){
+            SpecRange range=(SpecRange)child[0];
+            if(range.getTo()>=0){
+                Spec p1=GetNNF(child[1]);
+                range.setOriginLeftSpec(getTRUE());
+                range.setOriginSpec(p1);
+                spec = new SpecExp(Operator.B_UNTIL, range,getTRUE(),p1);
+            }
+            else//F a..-1 f  -> T U a..a ( F f)
+            {
+                Spec p1=GetNNF(new SpecExp(Operator.FINALLY, child[1]));
+                range=new SpecRange(range.getFrom(),range.getFrom());
+                range.setOriginLeftSpec(getTRUE());
+                range.setOriginSpec(p1);
+                spec = new SpecExp(Operator.B_UNTIL, range,getTRUE(),p1);
+            }
 
 //                SpecRange range=(SpecRange)child[0];
 //                Spec p1 = GetNNF(child[1]);
 //                range.setOriginSpec(p1);
 //                spec=new SpecExp(op, range,p1);
-    }
-    // G a..b f -> ! F a..b !f -> ! ( T U a..b !f ) -> ! T R a..b f
-    if(op.equals(Operator.B_GLOBALLY)){
-        //----------方法一 使用多次迭代 求出 R
+        }
+        // G a..b f -> ! F a..b !f -> ! ( T U a..b !f ) -> ! T R a..b f
+        if(op.equals(Operator.B_GLOBALLY)){
+            //----------方法一 使用多次迭代 求出 R
 //            SpecRange range=(SpecRange)child[0];
 //            Spec p1=GetNNF(new SpecExp(Operator.NOT,child[1]));
 //            range.setOriginSpec(p1);
 //            SpecExp exp= new SpecExp(Operator.NOT, GetNNF(new SpecExp(Operator.B_FINALLY,range,p1)));
 //            spec=GetNNF(exp);
 
-        //----------方法二 直接构造R形式
-        SpecRange range=(SpecRange)child[0];
-        if(range.getTo()>=0){
-            Spec p1=GetNNF(child[1]);
-            range.setOriginLeftSpec(getFALSE());
-            range.setOriginSpec(p1);
-            spec= new SpecExp(Operator.B_RELEASE, range,getFALSE(),p1);
-        }
-        else
-        {
-            Spec p1=GetNNF(new SpecExp(Operator.GLOBALLY, child[1]));
-            range=new SpecRange(range.getFrom(),range.getFrom());
-            range.setOriginLeftSpec(getTRUE());
-            range.setOriginSpec(p1);
-            spec = new SpecExp(Operator.B_UNTIL, range,getTRUE(),p1);
-        }
-    }
-
-    // tripletOp of LTL
-    if(op.equals(Operator.B_UNTIL)||op.equals(Operator.B_RELEASE)){
-        SpecRange range=(SpecRange)child[0];
-        //System.out.println(""+child[0]+child[1]+child[2]);
-        if(range.getTo()>=0){
-            Spec p1 = GetNNF(child[1]);
-            Spec p2 = GetNNF(child[2]);
-            range.setOriginLeftSpec(p1);
-            range.setOriginSpec(p2);
-            spec = new SpecExp(op, range,p1,p2);
-        }
-        else
-        {
-            Spec p1 = GetNNF(child[1]);
-            Spec p2 = GetNNF(new SpecExp(Operator.UNTIL, child[1],child[2]));;
-            range=new SpecRange(range.getFrom(),range.getFrom());
-            range.setOriginLeftSpec(p1);
-            range.setOriginSpec(p2);
-            spec = new SpecExp(op, range,p1,p2);
-        }
-    }
-    if (op.equals(Operator.NOT)) {
-        if (! (child[0] instanceof SpecExp))//---!f
-            return  spec;
-        SpecExp prop = (SpecExp) child[0];
-        Operator ops = prop.getOperator();
-        Spec[] childs = prop.getChildren();
-        // System.out.println("ops-"+ops+" 0-"+childs[0]+" 1-"+childs[1]+" 2-"+childs[2]);
-        if (ops.equals(Operator.NOT)) {
-            spec = GetNNF(childs[0]);
-        }
-        if (ops.equals(Operator.NEXT)) {
-            spec = new SpecExp(ops, GetNNF(new SpecExp(op, childs[0])));
-        }
-        if (ops.equals(Operator.RELEASES)) {
-            spec = new SpecExp(Operator.UNTIL, GetNNF(new SpecExp(op, childs[0])),GetNNF(new SpecExp(op, childs[1]))   );
-        }
-        // !(f R a..b g)
-        if (ops.equals(Operator.B_RELEASE)) {
-            SpecRange range=(SpecRange)childs[0];
-            if (range.getTo()>=0){
-                Spec p1 = GetNNF(new SpecExp(op, childs[1]));
-                Spec p2 = GetNNF(new SpecExp(op, childs[2]));
-                range.setOriginLeftSpec(p1);
-                range.setOriginSpec(p2);
-                spec = new SpecExp(Operator.B_UNTIL, range,p1,p2);
+            //----------方法二 直接构造R形式
+            SpecRange range=(SpecRange)child[0];
+            if(range.getTo()>=0){
+                Spec p1=GetNNF(child[1]);
+                range.setOriginLeftSpec(getFALSE());
+                range.setOriginSpec(p1);
+                spec= new SpecExp(Operator.B_RELEASE, range,getFALSE(),p1);
             }
             else
             {
-                Spec p1 =  GetNNF(new SpecExp(op, childs[1]));
-                Spec p2 =  GetNNF(new SpecExp(op, childs[2]));
-                p2=new SpecExp(Operator.UNTIL, p1,p2);
+                Spec p1=GetNNF(new SpecExp(Operator.GLOBALLY, child[1]));
                 range=new SpecRange(range.getFrom(),range.getFrom());
-                range.setOriginLeftSpec(p1);
-                range.setOriginSpec(p2);
-                spec = new SpecExp(Operator.B_UNTIL, range,p1,p2);
+                range.setOriginLeftSpec(getTRUE());
+                range.setOriginSpec(p1);
+                spec = new SpecExp(Operator.B_UNTIL, range,getTRUE(),p1);
             }
         }
-        if (ops.equals(Operator.UNTIL)) {
-            spec = new SpecExp(Operator.RELEASES, GetNNF(new SpecExp(op, childs[0])),GetNNF(new SpecExp(op, childs[1]))   );
-        }
-        // !(f U a..b g)
-        if (ops.equals(Operator.B_UNTIL)) {
-            SpecRange range=(SpecRange)childs[0];
-            if (range.getTo()>=0){
-                Spec p1 =  GetNNF(new SpecExp(op, childs[1]));
-                Spec p2 =  GetNNF(new SpecExp(op, childs[2]));
+
+        // tripletOp of LTL
+        if(op.equals(Operator.B_UNTIL)||op.equals(Operator.B_RELEASE)){
+            SpecRange range=(SpecRange)child[0];
+            //System.out.println(""+child[0]+child[1]+child[2]);
+            if(range.getTo()>=0){
+                Spec p1 = GetNNF(child[1]);
+                Spec p2 = GetNNF(child[2]);
                 range.setOriginLeftSpec(p1);
                 range.setOriginSpec(p2);
-                spec = new SpecExp(Operator.B_RELEASE, range,p1,p2);
+                spec = new SpecExp(op, range,p1,p2);
             }
             else
             {
-                Spec p1 =  GetNNF(new SpecExp(op, childs[1]));
-                Spec p2 =  GetNNF(new SpecExp(op, childs[2]));
-                p2=new SpecExp(Operator.RELEASES, p1,p2);
+                Spec p1 = GetNNF(child[1]);
+                Spec p2 = GetNNF(new SpecExp(Operator.UNTIL, child[1],child[2]));;
                 range=new SpecRange(range.getFrom(),range.getFrom());
                 range.setOriginLeftSpec(p1);
                 range.setOriginSpec(p2);
-                spec = new SpecExp(Operator.B_RELEASE, range,p1,p2);
+                spec = new SpecExp(op, range,p1,p2);
             }
         }
-        if (ops.equals(Operator.KNOW)) {
-            spec = new SpecExp(Operator.NKNOW, childs[0],GetNNF(new SpecExp(op, childs[1])));
-        }
+        if (op.equals(Operator.NOT)) {
+            if (! (child[0] instanceof SpecExp))//---!f
+                return  spec;
+            SpecExp prop = (SpecExp) child[0];
+            Operator ops = prop.getOperator();
+            Spec[] childs = prop.getChildren();
+            // System.out.println("ops-"+ops+" 0-"+childs[0]+" 1-"+childs[1]+" 2-"+childs[2]);
+            if (ops.equals(Operator.NOT)) {
+                spec = GetNNF(childs[0]);
+            }
+            if (ops.equals(Operator.NEXT)) {
+                spec = new SpecExp(ops, GetNNF(new SpecExp(op, childs[0])));
+            }
+            if (ops.equals(Operator.RELEASES)) {
+                spec = new SpecExp(Operator.UNTIL, GetNNF(new SpecExp(op, childs[0])),GetNNF(new SpecExp(op, childs[1]))   );
+            }
+            // !(f R a..b g)
+            if (ops.equals(Operator.B_RELEASE)) {
+                SpecRange range=(SpecRange)childs[0];
+                if (range.getTo()>=0){
+                    Spec p1 = GetNNF(new SpecExp(op, childs[1]));
+                    Spec p2 = GetNNF(new SpecExp(op, childs[2]));
+                    range.setOriginLeftSpec(p1);
+                    range.setOriginSpec(p2);
+                    spec = new SpecExp(Operator.B_UNTIL, range,p1,p2);
+                }
+                else
+                {
+                    Spec p1 =  GetNNF(new SpecExp(op, childs[1]));
+                    Spec p2 =  GetNNF(new SpecExp(op, childs[2]));
+                    p2=new SpecExp(Operator.UNTIL, p1,p2);
+                    range=new SpecRange(range.getFrom(),range.getFrom());
+                    range.setOriginLeftSpec(p1);
+                    range.setOriginSpec(p2);
+                    spec = new SpecExp(Operator.B_UNTIL, range,p1,p2);
+                }
+            }
+            if (ops.equals(Operator.UNTIL)) {
+                spec = new SpecExp(Operator.RELEASES, GetNNF(new SpecExp(op, childs[0])),GetNNF(new SpecExp(op, childs[1]))   );
+            }
+            // !(f U a..b g)
+            if (ops.equals(Operator.B_UNTIL)) {
+                SpecRange range=(SpecRange)childs[0];
+                if (range.getTo()>=0){
+                    Spec p1 =  GetNNF(new SpecExp(op, childs[1]));
+                    Spec p2 =  GetNNF(new SpecExp(op, childs[2]));
+                    range.setOriginLeftSpec(p1);
+                    range.setOriginSpec(p2);
+                    spec = new SpecExp(Operator.B_RELEASE, range,p1,p2);
+                }
+                else
+                {
+                    Spec p1 =  GetNNF(new SpecExp(op, childs[1]));
+                    Spec p2 =  GetNNF(new SpecExp(op, childs[2]));
+                    p2=new SpecExp(Operator.RELEASES, p1,p2);
+                    range=new SpecRange(range.getFrom(),range.getFrom());
+                    range.setOriginLeftSpec(p1);
+                    range.setOriginSpec(p2);
+                    spec = new SpecExp(Operator.B_RELEASE, range,p1,p2);
+                }
+            }
+            if (ops.equals(Operator.KNOW)) {
+                spec = new SpecExp(Operator.NKNOW, childs[0],GetNNF(new SpecExp(op, childs[1])));
+            }
 
-        if(ops.equals(Operator.B_FINALLY)){
+            if(ops.equals(Operator.B_FINALLY)){
                 /*
                 多次迭代
                  */
@@ -232,50 +231,50 @@ public class RTLTLKModelCheckAlg extends LTLModelCheckAlg {
 //                SpecExp exp = new SpecExp(Operator.B_UNTIL, range,getTRUE(),p1);
 //                spec=GetNNF(new SpecExp(op,exp));
 
-            //直接构造出 R 表达
-            SpecRange range=(SpecRange)childs[0];
-            if (range.getTo()>=0){
-                Spec p1=GetNNF(new SpecExp(op,childs[1]));
-                range.setOriginLeftSpec(getFALSE());
-                range.setOriginSpec(p1);
-                spec= new SpecExp(Operator.B_RELEASE, range,getFALSE(),p1);
+                //直接构造出 R 表达
+                SpecRange range=(SpecRange)childs[0];
+                if (range.getTo()>=0){
+                    Spec p1=GetNNF(new SpecExp(op,childs[1]));
+                    range.setOriginLeftSpec(getFALSE());
+                    range.setOriginSpec(p1);
+                    spec= new SpecExp(Operator.B_RELEASE, range,getFALSE(),p1);
+                }
+                else
+                {
+                    Spec p1=GetNNF(new SpecExp(op,new SpecExp(Operator.FINALLY,childs[1])));
+                    range=new SpecRange(range.getFrom(),range.getFrom());
+                    range.setOriginLeftSpec(getFALSE());
+                    range.setOriginSpec(p1);
+                    spec= new SpecExp(Operator.B_RELEASE, range,getFALSE(),p1);
+                }
             }
-            else
-            {
-                Spec p1=GetNNF(new SpecExp(op,new SpecExp(Operator.FINALLY,childs[1])));
-                range=new SpecRange(range.getFrom(),range.getFrom());
-                range.setOriginLeftSpec(getFALSE());
-                range.setOriginSpec(p1);
-                spec= new SpecExp(Operator.B_RELEASE, range,getFALSE(),p1);
-            }
-        }
-        if(ops.equals(Operator.B_GLOBALLY)){
+            if(ops.equals(Operator.B_GLOBALLY)){
 //                SpecRange range=(SpecRange)childs[0];
 //                Spec p1=GetNNF(new SpecExp(Operator.NOT,childs[1]));
 //                range.setOriginSpec(p1);
 //                SpecExp exp =new SpecExp(Operator.NOT, GetNNF(new SpecExp(Operator.B_FINALLY,range,p1)));
 //                spec=GetNNF(new SpecExp(op,exp));
 
-            //直接构造出 U 表达
-            SpecRange range=(SpecRange)childs[0];
-            if (range.getTo()>=0){
-                Spec p1=GetNNF(new SpecExp(op,childs[1]));
-                range.setOriginLeftSpec(getTRUE());
-                range.setOriginSpec(p1);
-                spec= new SpecExp(Operator.B_RELEASE, range,getTRUE(),p1);
-            }
-            else
-            {
-                Spec p1=GetNNF(new SpecExp(op,new SpecExp(Operator.GLOBALLY,childs[1])));
-                range=new SpecRange(range.getFrom(),range.getFrom());
-                range.setOriginLeftSpec(getFALSE());
-                range.setOriginSpec(p1);
-                spec= new SpecExp(Operator.B_RELEASE, range,getFALSE(),p1);
+                //直接构造出 U 表达
+                SpecRange range=(SpecRange)childs[0];
+                if (range.getTo()>=0){
+                    Spec p1=GetNNF(new SpecExp(op,childs[1]));
+                    range.setOriginLeftSpec(getTRUE());
+                    range.setOriginSpec(p1);
+                    spec= new SpecExp(Operator.B_RELEASE, range,getTRUE(),p1);
+                }
+                else
+                {
+                    Spec p1=GetNNF(new SpecExp(op,new SpecExp(Operator.GLOBALLY,childs[1])));
+                    range=new SpecRange(range.getFrom(),range.getFrom());
+                    range.setOriginLeftSpec(getFALSE());
+                    range.setOriginSpec(p1);
+                    spec= new SpecExp(Operator.B_RELEASE, range,getFALSE(),p1);
+                }
             }
         }
+        return spec;
     }
-    return spec;
-}
     /**
      * @return The TRUE specification.
      */

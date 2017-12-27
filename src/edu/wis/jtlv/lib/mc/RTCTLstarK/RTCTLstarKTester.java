@@ -1,4 +1,4 @@
-package edu.wis.jtlv.lib.mc.RTLTLK;
+package edu.wis.jtlv.lib.mc.RTCTLstarK;
 
 import edu.wis.jtlv.env.Env;
 import edu.wis.jtlv.env.core.smv.SMVParseException;
@@ -9,7 +9,6 @@ import edu.wis.jtlv.env.module.ModuleBDDField;
 import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.SMVModule;
 import edu.wis.jtlv.env.spec.*;
-import edu.wis.jtlv.lib.mc.LTL.LTLTester;
 import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDException;
@@ -17,13 +16,12 @@ import net.sf.javabdd.BDDVarSet;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
 
-public class RTLTLKTester  {
+public class RTCTLstarKTester {
     private static int tester_id = 0;
     private static int field_id = 0;
 
-    private  Module design;
+    private Module design;
     private Spec root;
     private SMVModule tester;
     private HashMap<SpecExp, ModuleBDDField> spec2field = new HashMap<SpecExp, ModuleBDDField>();
@@ -40,15 +38,15 @@ public class RTLTLKTester  {
 //        super(root_spec, isWeak);
 //    }
 
-    public RTLTLKTester(Module design,Spec root_spec, boolean isWeak)
+    public RTCTLstarKTester(Module design,Spec root_spec, boolean isWeak)
             throws ModelCheckAlgException {
         //super(root_spec, isWeak);
         this.design=design;
         this.root = root_spec;
-        if ((root == null) || (!root.isRealTimeLTLKSpec()))
+        if ((root == null) || (!root.isCTLStarSpec()))
             throw new ModelCheckAlgException("Cannot construct a tester for"
                     + "specification: " + root);
-        this.tester = new SMVModule("RTLTLKTester_" + (++tester_id));
+        this.tester = new SMVModule("RTCTLstarKTester_" + (++tester_id));
         createAuxVariable(root);
         constructModule(root, isWeak);
     }
@@ -159,7 +157,7 @@ public class RTLTLKTester  {
             BDD left=getSpec2BDD(child[1]);
             return nknow(agentName, left);
         }
-        if (op.isRealTimeLTLOp()||op.isLTLOp()) {
+        if (op.isRealTimeLTLOp()||op.isLTLOp()||op.isCTLOp()) {
             ModuleBDDField f = spec2field.get(root);
             if ((f != null) && (f.getDomain().size().intValue() == 2))
                 return f.getDomain().ithVar(1);
@@ -174,7 +172,7 @@ public class RTLTLKTester  {
             return;
         // else
         SpecExp se = (SpecExp) s;
-        if (se.getOperator().isLTLOp()||se.getOperator().isRealTimeLTLOp()||se.getOperator().isEpistemicOp()) {
+        if (se.getOperator().isLTLOp()||se.getOperator().isRealTimeLTLOp()||se.getOperator().isEpistemicOp()||se.isCTLStarSpec()) {
             try {
                 // String name = se.getOperator().toString() + "_"
                 // + (++field_id);
@@ -186,6 +184,7 @@ public class RTLTLKTester  {
                         + "auxiliary fields");
             }
         }
+
         Spec[] children = se.getChildren();
         for (int i = 0; i < children.length; i++) {
             createAuxVariable(children[i]);
@@ -223,9 +222,9 @@ public class RTLTLKTester  {
                 else if (!(child[0] instanceof SpecAgentIdentifier))
                     c1 = (noo > 0) ? getSpec2BDD(child[0]) : null;
 
-                   BDD c2 = (noo > 1) ? getSpec2BDD(child[1]) : null;
-                   BDD c3 = (noo > 2) ? getSpec2BDD(child[2]) : null;
-                    //System.out.println("c1-"+c1+" c2-"+c2+" c3-"+c3);
+                BDD c2 = (noo > 1) ? getSpec2BDD(child[1]) : null;
+                BDD c3 = (noo > 2) ? getSpec2BDD(child[2]) : null;
+                //System.out.println("c1-"+c1+" c2-"+c2+" c3-"+c3);
 
                 switch (op) {
                     case NEXT:

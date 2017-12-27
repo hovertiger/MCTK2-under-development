@@ -156,7 +156,6 @@ public class LTLTester {
                 BDD aux = getSpec2BDD(spec);
                 int noo = op.numOfOperands();
 
-              //System.out.println("op-"+op+" 0-"+child[0]+" 1-"+child[1]+" 2-"+child[2]);
                 SpecRange range = null;
                 BDD c1 = null;
                 if (child[0] instanceof SpecRange)
@@ -164,8 +163,7 @@ public class LTLTester {
                 else
                     c1 = (noo > 0) ? getSpec2BDD(child[0]) : null;
                 BDD c2 = (noo > 1) ? getSpec2BDD(child[1]) : null;
-                BDD c3 = (noo > 2) ? getSpec2BDD(child[2]) : null;
-
+                //BDD c3 = (noo > 2) ? getSpec2BDD(child[2]) : null;
 
                 switch (op) {
                     case NEXT:
@@ -242,168 +240,6 @@ public class LTLTester {
                         tester.conjunctTrans(p_aux.biimp(p_c2.or(p_c1.and(aux))));
                         break;
                     // NOT_PREV_NOT,
-                    case B_FINALLY:
-                        tester.conjunctTrans(aux.biimp(c2));//translation algorithm
-                        break;
-                    case B_GLOBALLY:
-                        tester.conjunctTrans(aux.biimp(c2));//translation algorithm
-                        break;
-                    //Uppdate on : 2017/12/13
-                    case B_UNTIL:{
-                        int width = range.getTo() - range.getFrom(),fieldId=(++field_id);
-                        SMVModule main = (SMVModule) Env.getModule("main");
-                        ModuleBDDField x = main.addVar("x["+ fieldId + "]");
-                        ModuleBDDField l = main.addVar("l["+ fieldId + "]", 0, range.getFrom());
-
-                        //-- positive tester for f U [a,a+width] g where a>0 and width>0
-                        if (range.getFrom()>0&&width>0)
-                        {       ModuleBDDField w = main.addVar("w["+ fieldId + "]", 0, width);
-                            try {
-                                BDD lGT0=new StmtOperator(tester, new OpGT(new ValueDomStmt(tester, l),
-                                         new ValueConsStrStmt(tester, new String[]{ "0"}))).eval_stmt().toBDD(); //l>0
-                                BDD wGT0=new StmtOperator(tester, new OpGT(new ValueDomStmt(tester, w),
-                                         new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//w>0
-                                BDD NxE1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, x)), //next(x)
-                                        new ValueConsStrStmt(tester, new String[]{"1"}))).eval_stmt().toBDD();
-                                BDD NlElM1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, l)),//next(l)=l-1
-                                             new OpMinus(new ValueDomStmt(tester, l), new ValueConsStrStmt(tester, new String[]{"1"})))).eval_stmt().toBDD();
-                                BDD NwEw = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, w)), //next(w)=w)
-                                           new ValueConsStrStmt(tester, new String[]{w+""}))).eval_stmt().toBDD();
-                                BDD lE0 = new StmtOperator(tester, new OpEqual(new ValueDomStmt(tester, l),
-                                          new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//l=0
-                                BDD N1E0= new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, l)), //next(l)=0)
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();
-                                BDD NwEwM1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, w)),//next(w)=w-1
-                                        new OpMinus(new ValueDomStmt(tester, w), new ValueConsStrStmt(tester, new String[]{"1"})))).eval_stmt().toBDD();
-                                BDD wE0 = new StmtOperator(tester, new OpEqual(new ValueDomStmt(tester, w),
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//w=0
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lGT0).and(wGT0).imp(c2.and(NxE1).and(NlElM1).and(NwEw)));
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lE0).and(wGT0).imp(c3.or(c2.and(NxE1).and(N1E0).and(NwEwM1))));
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lE0).and(wE0).imp(c3));
-                            } catch (SMVParseException e) {
-                                e.printStackTrace();
-                            }
-                            tester.conjunctTrans(aux.biimp(x.getDomain().ithVar(1)));
-                           // System.out.println("Uaw-"+" op-"+op+" c1-"+c1+" c2-"+c2+" c3-"+c3);
-                        }
-
-                        //-- positive tester for f U [a,a] g where a>0
-                        if (range.getTo()==range.getFrom()){
-                            try {
-                                BDD lGT0=new StmtOperator(tester, new OpGT(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{ "0"}))).eval_stmt().toBDD(); //l>0
-                                BDD NxE1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, x)), //next(x)
-                                        new ValueConsStrStmt(tester, new String[]{"1"}))).eval_stmt().toBDD();
-                                BDD NlElM1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, l)),//next(l)=l-1
-                                        new OpMinus(new ValueDomStmt(tester, l), new ValueConsStrStmt(tester, new String[]{"1"})))).eval_stmt().toBDD();
-                                BDD lE0 = new StmtOperator(tester, new OpEqual(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//l=0
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lGT0).imp(c2.and(NxE1).and(NlElM1)));
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lE0).imp(c3));
-                            } catch (SMVParseException e) {
-                                e.printStackTrace();
-                            }
-                            tester.conjunctTrans(aux.biimp(x.getDomain().ithVar(1)));
-                        }
-
-                        //-- positive tester for f U [0,a] g where a>0
-                        if (range.getFrom()==0 &&range.getTo()>0)
-                        {
-                            try {
-                                BDD lGT0=new StmtOperator(tester, new OpGT(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{ "0"}))).eval_stmt().toBDD(); //l>0
-                                BDD NxE1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, x)), //next(x)
-                                        new ValueConsStrStmt(tester, new String[]{"1"}))).eval_stmt().toBDD();
-                                BDD NlElM1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, l)),//next(l)=l-1
-                                        new OpMinus(new ValueDomStmt(tester, l), new ValueConsStrStmt(tester, new String[]{"1"})))).eval_stmt().toBDD();
-                                BDD lE0 = new StmtOperator(tester, new OpEqual(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//l=0
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lGT0).imp(c3.or(c2.and(NxE1).and(NlElM1))));
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lE0).imp(c3));
-                            } catch (SMVParseException e) {
-                                e.printStackTrace();
-                            }
-                            tester.conjunctTrans(aux.biimp(x.getDomain().ithVar(1)));
-                        }
-                        break;
-                    }
-                    //Uppdate by LS on : 2017/12/16
-                    case B_RELEASE:{
-                        int width = range.getTo() - range.getFrom(),fieldId=(++field_id);
-                        SMVModule main = (SMVModule) Env.getModule("main");
-                        ModuleBDDField x = main.addVar("x["+ fieldId + "]");
-                        ModuleBDDField l = main.addVar("l["+ fieldId + "]", 0, range.getFrom());
-                        //-- positive tester for f R [a,a+width] g where a>0 and width>0
-                        if (range.getFrom()>0&&width>0)
-                        {       ModuleBDDField w = main.addVar("w["+ fieldId + "]", 0, width);
-                            try {
-                                BDD lGT0=new StmtOperator(tester, new OpGT(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{ "0"}))).eval_stmt().toBDD(); //l>0
-                                BDD wGT0=new StmtOperator(tester, new OpGT(new ValueDomStmt(tester, w),
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//w>0
-                                BDD NxE1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, x)), //next(x)
-                                        new ValueConsStrStmt(tester, new String[]{"1"}))).eval_stmt().toBDD();
-                                BDD NlElM1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, l)),//next(l)=l-1
-                                        new OpMinus(new ValueDomStmt(tester, l), new ValueConsStrStmt(tester, new String[]{"1"})))).eval_stmt().toBDD();
-                                BDD NwEw = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, w)), //next(w)=w)
-                                        new ValueConsStrStmt(tester, new String[]{w+""}))).eval_stmt().toBDD();
-                                BDD lE0 = new StmtOperator(tester, new OpEqual(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//l=0
-                                BDD N1E0= new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, l)), //next(l)=0)
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();
-                                BDD NwEwM1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, w)),//next(w)=w-1
-                                        new OpMinus(new ValueDomStmt(tester, w), new ValueConsStrStmt(tester, new String[]{"1"})))).eval_stmt().toBDD();
-                                BDD wE0 = new StmtOperator(tester, new OpEqual(new ValueDomStmt(tester, w),
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//w=0
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lGT0).and(wGT0).imp(c2.or(NxE1.and(NlElM1).and(NwEw))));
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lE0).and(wGT0).imp(c3.and(c2.or(NxE1.and(N1E0).and(NwEwM1)))));
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lE0).and(wE0).imp(c3));
-                            } catch (SMVParseException e) {
-                                e.printStackTrace();
-                            }
-                            tester.conjunctTrans(aux.biimp(x.getDomain().ithVar(1)));
-                            // System.out.println("Raw-"+" op-"+op+" c1-"+c1+" c2-"+c2+" c3-"+c3);
-                        }
-                        //-- positive tester for f R [a,a] g where a>0
-                        if (range.getTo()==range.getFrom()){
-                            try {
-                                BDD lGT0=new StmtOperator(tester, new OpGT(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{ "0"}))).eval_stmt().toBDD(); //l>0
-                                BDD NxE1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, x)), //next(x)
-                                        new ValueConsStrStmt(tester, new String[]{"1"}))).eval_stmt().toBDD();
-                                BDD NlElM1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, l)),//next(l)=l-1
-                                        new OpMinus(new ValueDomStmt(tester, l), new ValueConsStrStmt(tester, new String[]{"1"})))).eval_stmt().toBDD();
-                                BDD lE0 = new StmtOperator(tester, new OpEqual(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//l=0
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lGT0).imp(c2.or(NxE1.and(NlElM1))));
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lE0).imp(c3));
-                            } catch (SMVParseException e) {
-                                e.printStackTrace();
-                            }
-                            tester.conjunctTrans(aux.biimp(x.getDomain().ithVar(1)));
-                        }
-
-                        //-- positive tester for f R [0,a] g where a>0
-                        if (range.getFrom()==0 &&range.getTo()>0)
-                        {
-                            try {
-                                BDD lGT0=new StmtOperator(tester, new OpGT(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{ "0"}))).eval_stmt().toBDD(); //l>0
-                                BDD NxE1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, x)), //next(x)
-                                        new ValueConsStrStmt(tester, new String[]{"1"}))).eval_stmt().toBDD();
-                                BDD NlElM1 = new StmtOperator(tester, new OpEqual(new OpNext(new ValueDomStmt(tester, l)),//next(l)=l-1
-                                        new OpMinus(new ValueDomStmt(tester, l), new ValueConsStrStmt(tester, new String[]{"1"})))).eval_stmt().toBDD();
-                                BDD lE0 = new StmtOperator(tester, new OpEqual(new ValueDomStmt(tester, l),
-                                        new ValueConsStrStmt(tester, new String[]{"0"}))).eval_stmt().toBDD();//l=0
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lGT0).imp(c3.and(c2.or(NxE1.and(NlElM1)))));
-                                main.conjunctTrans(x.getDomain().ithVar(1).and(lE0).imp(c3));
-                            } catch (SMVParseException e) {
-                                e.printStackTrace();
-                            }
-                            tester.conjunctTrans(aux.biimp(x.getDomain().ithVar(1)));
-                        }
-                        break;
-                    }
                     default:
                         break;
                 }

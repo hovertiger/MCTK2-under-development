@@ -89,16 +89,11 @@ public class LTLModelCheckAlg extends ModelCheckAlgI {
 	public AlgResultI preAlgorithm() throws AlgExceptionI {
 		if (mk_tester) {
 		System.out.println("model checking property: -------" + property);
-			//Get the NNF formula of property
-		    property=GetNNF(property);
-			System.out.println("NNF------"+property);
-			//Spec negp = new SpecExp(Operator.NOT, property);
-			LTLTester builder = new LTLTester(property, true);
+			Spec negp = new SpecExp(Operator.NOT, property);
+			LTLTester builder = new LTLTester(negp, true);
 			visibleVars = this.getRelevantVars(getDesign(), property);
 			tester = builder.getTester();
-
-			//tester_initials = builder.getSpec2BDD(property).not();
-			tester_initials = builder.getSpec2BDD(property);
+			tester_initials = builder.getSpec2BDD(property).not();
 		} else {
 //			System.out.println("model checking property user tester "
 //					+ tester.getFullInstName());
@@ -113,52 +108,6 @@ public class LTLModelCheckAlg extends ModelCheckAlgI {
 		return null;
 	}
 
-	public Spec GetNNF(Spec spec)  {
-		if (! (spec instanceof SpecExp))
-        	return  spec;
-		SpecExp propExp = (SpecExp) spec;
-		Operator op = propExp.getOperator();
-		Spec[] child = propExp.getChildren();
-		  if (op.equals(Operator.NOT)) {
-			  if (! (child[0] instanceof SpecExp))//---!f
-				  return  spec;
-			  SpecExp prop = (SpecExp) child[0];
-			  Operator ops = prop.getOperator();
-			  Spec[] childs = prop.getChildren();
-             // System.out.println("ops-"+ops+" 0-"+childs[0]+" 1-"+childs[1]+" 2-"+childs[2]);
-			  if (ops.equals(Operator.NOT)) {
-				  spec = GetNNF(childs[0]);
-			  }
-			  if (ops.equals(Operator.NEXT)) {
-				  spec = new SpecExp(ops, new SpecExp(op, GetNNF(childs[0])));
-			  }
-			  if (ops.equals(Operator.RELEASES)) {
-			  	  spec = new SpecExp(Operator.UNTIL, GetNNF(new SpecExp(op, childs[0])),GetNNF(new SpecExp(op, childs[1]))   );
-			  }
-              // !(f R a..b g)
-			  if (ops.equals(Operator.B_RELEASE)) {
-				  SpecRange range=(SpecRange)childs[0];
-				  SpecExp p1 = new SpecExp(op, childs[1]);
-				  SpecExp p2 = new SpecExp(op, childs[2]);
-				  range.setOriginLeftSpec(p1);
-				  range.setOriginSpec(p2);
-				  spec = new SpecExp(Operator.B_UNTIL, range,GetNNF(p1),GetNNF(p2));
-			  }
-			  if (ops.equals(Operator.UNTIL)) {
-				  spec = new SpecExp(Operator.RELEASES, GetNNF(new SpecExp(op, childs[0])),GetNNF(new SpecExp(op, childs[1]))   );
-			  }
-			  // !(f U a..b g)
-			  if (ops.equals(Operator.B_UNTIL)) {
-				  SpecRange range=(SpecRange)childs[0];
-				  SpecExp p1 = new SpecExp(op, childs[1]);
-				  SpecExp p2 = new SpecExp(op, childs[2]);
-				  range.setOriginLeftSpec(p1);
-				  range.setOriginSpec(p2);
-				  spec = new SpecExp(Operator.B_RELEASE, range,GetNNF(p1),GetNNF(p2));
-			  }
-		  }
-		return spec;
-	}
 	/**
 	 * <p>
 	 * Compose the design with the tester (user's or the one built from the LTL
