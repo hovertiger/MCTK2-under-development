@@ -4,6 +4,8 @@ import java.util.Vector;
 
 import edu.wis.jtlv.env.Env;
 import edu.wis.jtlv.lib.FixPoint;
+import edu.wis.jtlv.lib.mc.ATLsK.ATLsK_ModelCheckAlg;
+import edu.wis.jtlv.lib.mc.ModelCheckAlgException;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 
@@ -318,4 +320,273 @@ public abstract class ModuleWithStrongFairness extends ModuleWithWeakFairness {
 
 		return res;
 	}
+
+	/**
+	 * <p>
+	 * This is an variant of the algorithm "FEASIBLE", from the article: <br>
+	 * Yonit Ketsen, Amir Pnueli, Li-on Raviv, Elad Shahar, "Model checking with
+	 * strong fairness".
+	 * </p>
+	 * <p>
+	 * The line numbers are the line numbers of that algorithm. Read the article
+	 * for further details.
+	 * </p>
+	 *
+	 *
+	 * @return Return a set of states, from each of them the agents in agentList can enforce the system to reach to
+	 *         the fair SCS's.
+	 *
+	 * @see edu.wis.jtlv.env.module.Module#feasible()
+	 * @see edu.wis.jtlv.env.module.ModuleWithWeakFairness#feasible()
+	 */
+	public BDD ATL_canEnforce_feasible(Vector<String> agentList) throws ModelCheckAlgException {
+		// saving the previous restriction state.
+		Vector<BDD> old_trans_restriction = this.getAllTransRestrictions();
+
+		// Line 2
+		BDD res = this.allSucc(this.initial());
+		BDD reachable = res.id();
+
+		// Determine whether fairness conditions refer to primed variables.
+		// If so, they are treated differently.
+		boolean[] has_primed_j = new boolean[this.justiceNum()];
+		boolean[] has_primed_cp = new boolean[this.compassionNum()];
+		boolean[] has_primed_cq = new boolean[this.compassionNum()];
+		BDDVarSet primes = Env.globalPrimeVars();
+		for (int i = 0; i < has_primed_j.length; i++) {
+			has_primed_j[i] = !this.justiceAt(i).biimp(
+					this.justiceAt(i).exist(primes)).isUniverse();
+		}
+		for (int i = 0; i < has_primed_cp.length; i++) {
+			has_primed_cp[i] = !this.pCompassionAt(i).biimp(
+					this.pCompassionAt(i).exist(primes)).isUniverse();
+			has_primed_cq[i] = !this.qCompassionAt(i).biimp(
+					this.qCompassionAt(i).exist(primes)).isUniverse();
+		}
+
+		// Line 3
+		this.restrictTrans(res.id());
+
+		// Lines 4-11
+		for (FixPoint<BDD> ires = new FixPoint<BDD>(); ires.advance(res);) {
+			// Lines 6-7
+			// Eliminate states from res which have no successors within res.
+			res = this.ATL_canEnforce_elimSuccChains(agentList, res);
+			this.restrictTrans(res.id());
+
+			// Lines 8-9
+			// Ensure fulfillment of justice requirements.
+			// Remove from "res" all states which are not R^*-successors
+			// of some justice state.
+			for (int i = this.justiceNum() - 1; i >= 0; i--) {
+				BDD localj = has_primed_j[i] ? this.ATL_canEnforce_hasSuccessorsTo(agentList, this
+						.justiceAt(i), res) : this.justiceAt(i);
+
+				// res = this.allPred(res.and(localj));
+                res = ATLsK_ModelCheckAlg.ATL_canEnforce_allPred(agentList, this.trans(), res.and(localj));
+
+				this.restrictTrans(res.id());
+			}
+
+			// Lines 10-11
+			// Ensure fulfillment of compassion requirements:
+			// Remove from "res" all p-states which are not R^*-successors
+			// of some q-state for some (p,q) \in C.
+			for (int i = 0; i < this.compassionNum(); i++) {
+				BDD localcp = has_primed_cp[i] ? this.ATL_canEnforce_hasSuccessorsTo(agentList, this
+						.pCompassionAt(i), res) : this.pCompassionAt(i);
+				BDD localcq = has_primed_cq[i] ? this.ATL_canEnforce_hasSuccessorsTo(agentList, this
+						.qCompassionAt(i), res) : this.qCompassionAt(i);
+
+				// res = res.and(localcp.not()).or(this.allPred(res.and(localcq)));
+				res = res.and(localcp.not()).or(ATLsK_ModelCheckAlg.ATL_canEnforce_allPred(agentList, this.trans(), res.and(localcq)));
+				this.restrictTrans(res.id());
+			}
+		}
+		this.removeAllTransRestrictions();
+
+		// Line 12
+		this.restrictTrans(reachable);
+		// res = this.allPred(res);
+        res = ATLsK_ModelCheckAlg.ATL_canEnforce_allPred(agentList, this.trans(), res);
+		this.removeAllTransRestrictions();
+
+		// returning to the previous restriction state.
+		this.setAllTransRestrictions(old_trans_restriction);
+
+		// Line 13
+		return res;
+	}
+
+    /**
+     * <p>
+     * Eliminate states from scc which have no ATL successors within scc. scc is
+     * supposed to be a strongly connected component, however, it also contains
+     * chains of states which exit the scc, but are not in it. This procedure
+     * eliminates these chains.
+     * </p>
+     *
+     * @param scc
+     *            The set of states to find scc for.
+     * @return The scc of the given set of states.
+     */
+    public BDD ATL_canEnforce_elimSuccChains(Vector<String> agentList, BDD scc) throws ModelCheckAlgException {
+        BDD res = scc.id();
+        for (FixPoint<BDD> iscc = new FixPoint<BDD>(); iscc.advance(res);) {
+            res = res.and(ATLsK_ModelCheckAlg.ATL_canEnforce_pred(agentList, this.trans(), res, Env.globalPrimeVars()));
+        }
+        return res;
+    }
+
+    /**
+     * <p>
+     * Get the subset of states which has ATL successor to the other given set of
+     * states.
+     * </p>
+     *
+     * @param state
+     *            The first set of states.
+     * @param to
+     *            The second set of states.
+     * @return the subset of "state" which has ATL successors to "to".
+     */
+    public BDD ATL_canEnforce_hasSuccessorsTo(Vector<String> agentList, BDD state, BDD to) throws ModelCheckAlgException {
+//        return state.and(Env.prime(to)).and(this.trans()).exist(Env.globalPrimeVars());
+        return ATLsK_ModelCheckAlg.ATL_canEnforce_pred(agentList, this.trans(), to, Env.globalPrimeVars()).and(state);
+    }
+
+	/**
+	 * <p>
+	 * This is an variant of the algorithm "FEASIBLE", from the article: <br>
+	 * Yonit Ketsen, Amir Pnueli, Li-on Raviv, Elad Shahar, "Model checking with
+	 * strong fairness".
+	 * </p>
+	 * <p>
+	 * The line numbers are the line numbers of that algorithm. Read the article
+	 * for further details.
+	 * </p>
+	 *
+	 *
+	 * @return Return a set of states, from each of them the agents in agentList cannot avoid the system reaching to
+	 *         the fair SCS's.
+	 *
+	 * @see edu.wis.jtlv.env.module.Module#feasible()
+	 * @see edu.wis.jtlv.env.module.ModuleWithWeakFairness#feasible()
+	 */
+	public BDD ATL_cannotAvoid_feasible(Vector<String> agentList) throws ModelCheckAlgException {
+		// saving the previous restriction state.
+		Vector<BDD> old_trans_restriction = this.getAllTransRestrictions();
+
+		// Line 2
+		BDD res = this.allSucc(this.initial());
+		BDD reachable = res.id();
+
+		// Determine whether fairness conditions refer to primed variables.
+		// If so, they are treated differently.
+		boolean[] has_primed_j = new boolean[this.justiceNum()];
+		boolean[] has_primed_cp = new boolean[this.compassionNum()];
+		boolean[] has_primed_cq = new boolean[this.compassionNum()];
+		BDDVarSet primes = Env.globalPrimeVars();
+		for (int i = 0; i < has_primed_j.length; i++) {
+			has_primed_j[i] = !this.justiceAt(i).biimp(
+					this.justiceAt(i).exist(primes)).isUniverse();
+		}
+		for (int i = 0; i < has_primed_cp.length; i++) {
+			has_primed_cp[i] = !this.pCompassionAt(i).biimp(
+					this.pCompassionAt(i).exist(primes)).isUniverse();
+			has_primed_cq[i] = !this.qCompassionAt(i).biimp(
+					this.qCompassionAt(i).exist(primes)).isUniverse();
+		}
+
+		// Line 3
+		this.restrictTrans(res.id());
+
+		// Lines 4-11
+		for (FixPoint<BDD> ires = new FixPoint<BDD>(); ires.advance(res);) {
+			// Lines 6-7
+			// Eliminate states from res which have no successors within res.
+			res = this.ATL_cannotAvoid_elimSuccChains(agentList, res);
+			this.restrictTrans(res.id());
+
+			// Lines 8-9
+			// Ensure fulfillment of justice requirements.
+			// Remove from "res" all states which are not R^*-successors
+			// of some justice state.
+			for (int i = this.justiceNum() - 1; i >= 0; i--) {
+				BDD localj = has_primed_j[i] ? this.ATL_cannotAvoid_hasSuccessorsTo(agentList, this
+						.justiceAt(i), res) : this.justiceAt(i);
+
+				// res = this.allPred(res.and(localj));
+				res = ATLsK_ModelCheckAlg.ATL_cannotAvoid_allPred(agentList, this.trans(), res.and(localj));
+
+				this.restrictTrans(res.id());
+			}
+
+			// Lines 10-11
+			// Ensure fulfillment of compassion requirements:
+			// Remove from "res" all p-states which are not R^*-successors
+			// of some q-state for some (p,q) \in C.
+			for (int i = 0; i < this.compassionNum(); i++) {
+				BDD localcp = has_primed_cp[i] ? this.ATL_cannotAvoid_hasSuccessorsTo(agentList, this
+						.pCompassionAt(i), res) : this.pCompassionAt(i);
+				BDD localcq = has_primed_cq[i] ? this.ATL_cannotAvoid_hasSuccessorsTo(agentList, this
+						.qCompassionAt(i), res) : this.qCompassionAt(i);
+
+				// res = res.and(localcp.not()).or(this.allPred(res.and(localcq)));
+				res = res.and(localcp.not()).or(ATLsK_ModelCheckAlg.ATL_cannotAvoid_allPred(agentList, this.trans(), res.and(localcq)));
+				this.restrictTrans(res.id());
+			}
+		}
+		this.removeAllTransRestrictions();
+
+		// Line 12
+		this.restrictTrans(reachable);
+		// res = this.allPred(res);
+		res = ATLsK_ModelCheckAlg.ATL_cannotAvoid_allPred(agentList, this.trans(), res);
+		this.removeAllTransRestrictions();
+
+		// returning to the previous restriction state.
+		this.setAllTransRestrictions(old_trans_restriction);
+
+		// Line 13
+		return res;
+	}
+
+	/**
+	 * <p>
+	 * Eliminate states from scc which have no ATL successors within scc. scc is
+	 * supposed to be a strongly connected component, however, it also contains
+	 * chains of states which exit the scc, but are not in it. This procedure
+	 * eliminates these chains.
+	 * </p>
+	 *
+	 * @param scc
+	 *            The set of states to find scc for.
+	 * @return The scc of the given set of states.
+	 */
+	public BDD ATL_cannotAvoid_elimSuccChains(Vector<String> agentList, BDD scc) throws ModelCheckAlgException {
+		BDD res = scc.id();
+		for (FixPoint<BDD> iscc = new FixPoint<BDD>(); iscc.advance(res);) {
+			res = res.and(ATLsK_ModelCheckAlg.ATL_cannotAvoid_pred(agentList, this.trans(), res, Env.globalPrimeVars()));
+		}
+		return res;
+	}
+
+	/**
+	 * <p>
+	 * Get the subset of states which has ATL successor to the other given set of
+	 * states.
+	 * </p>
+	 *
+	 * @param state
+	 *            The first set of states.
+	 * @param to
+	 *            The second set of states.
+	 * @return the subset of "state" which has ATL successors to "to".
+	 */
+	public BDD ATL_cannotAvoid_hasSuccessorsTo(Vector<String> agentList, BDD state, BDD to) throws ModelCheckAlgException {
+//        return state.and(Env.prime(to)).and(this.trans()).exist(Env.globalPrimeVars());
+		return ATLsK_ModelCheckAlg.ATL_cannotAvoid_pred(agentList, this.trans(), to, Env.globalPrimeVars()).and(state);
+	}
+	
 }

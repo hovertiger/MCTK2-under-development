@@ -42,10 +42,6 @@ public class ModuleBDDField extends ModuleEntity {
 	 */
 	protected ModuleBDDField pair;
 
-	//LXY: for MAS
-	// ObsAgents is the set of the agent modules that can observe this BDD field
-	//protected Vector<String> ObsAgents;
-
 	/**
 	 * <p>
 	 * The main public constructor for JTLVBDDField. Given a path, a name, a
@@ -89,9 +85,7 @@ public class ModuleBDDField extends ModuleEntity {
 	 *            A path to the field.
 	 * @param name
 	 *            A name for this field.
-	 * 
-	 * @see edu.wis.jtlv.env.module.ModuleBDDField#JTLVBDDField(BDDDomain,
-	 *      BDDDomain, String, String)
+	 *
 	 */
 	private ModuleBDDField(BDDDomain prime, ModuleBDDField main_pair,
 			String a_path, String name) {
@@ -101,6 +95,16 @@ public class ModuleBDDField extends ModuleEntity {
 		this.name = name;
 		this.is_prime = true;
 		this.pair = main_pair;
+	}
+
+	//LXY: for creating unprime only variables, including input and action variables
+	public ModuleBDDField(BDDDomain unprime_only, String a_path, String name) {
+		this.main = unprime_only;
+		this.main.setName(name);
+		this.path = a_path;
+		this.name = name;
+		this.is_prime = false;
+		this.pair = null;
 	}
 
 	/**
@@ -134,6 +138,9 @@ public class ModuleBDDField extends ModuleEntity {
 		if (is_prime) {
 			throw new BDDException("Cannot prime primed variables.");
 		}
+		if (this.other()==null)
+			throw new BDDException(this.getPath()+"."+this.getName()+" is an input or action variable that without prime version.");
+
 		return this.other();
 	}
 
@@ -202,6 +209,9 @@ public class ModuleBDDField extends ModuleEntity {
 	 * @see edu.wis.jtlv.env.module.ModuleBDDField#getDomain()
 	 */
 	public BDDDomain getOtherDomain() {
+		if (this.other()==null) { //by LXY
+			throw new BDDException("The other domain of variable "+this.path+"."+this.name + " is null.");
+		}
 		return this.other().getDomain();
 	}
 

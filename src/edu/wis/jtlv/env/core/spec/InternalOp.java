@@ -4,6 +4,8 @@ public enum InternalOp {
 	// UNARY............
 	// Prop
 	NOT,
+	AA, // all path
+	EE, // some path
 	// LTL
 	FINALLY, GLOBALLY, HISTORICALLY, NEXT, NOT_PREV_NOT, ONCE, PREV,
 
@@ -18,15 +20,21 @@ public enum InternalOp {
 	// CTL
 	ABF, ABG, EBF, EBG, AU, EU,
 	// RTLTL
-	B_FINALLY, B_GLOBALLY, B_UNTIL,B_RELEASE,
+	B_FINALLY, B_GLOBALLY, B_UNTIL,
 	//Knowledge
-	KNOW, SKNOW,
+	KNOW, SKNOW, NKNOW, NSKNOW,
+	//ATL*
+	CAN_ENFORCE, // ATL* can enforce
+	CANNOT_AVOID, // ATL* cannot avoid
 
 	// TRIPLET............
 	// Prop
 	// LTL
 	// CTL
-	ABU, EBU;
+	ABU, EBU,
+	//RTLTL
+	B_RELEASES;
+
 
 	// Extra Prop - Binary
 	// EQ, NEQ, LT, GT, LE, GE, SETIN, UNION, LSHIFT, RSHIFT, MOD, PLUS, MINUS,
@@ -38,21 +46,21 @@ public enum InternalOp {
 	public static final InternalOp[] unaryOp = { NOT, FINALLY, GLOBALLY, HISTORICALLY,
 			NEXT, NOT_PREV_NOT, ONCE, PREV, EX, EF, EG, AX, AF, AG };
 	public static final InternalOp[] binaryOp = { AND, OR, XOR, XNOR, IFF, IMPLIES,
-			RELEASES, SINCE, TRIGGERED, UNTIL, ABF, ABG, EBF, EBG, AU, EU, B_FINALLY, B_GLOBALLY, KNOW, SKNOW };
-	public static final InternalOp[] tripletOp = { ABU, EBU, B_UNTIL,B_RELEASE };
+			RELEASES, SINCE, TRIGGERED, UNTIL, ABF, ABG, EBF, EBG, AU, EU, B_FINALLY, B_GLOBALLY, KNOW, SKNOW, NKNOW, NSKNOW, CAN_ENFORCE, CANNOT_AVOID};
+	public static final InternalOp[] tripletOp = { ABU, EBU, B_UNTIL, B_RELEASES};
 
 	// is it propositional, or TL operator.
 	public static final InternalOp[] propOp = { NOT, AND, OR, XOR, XNOR, IFF, IMPLIES };
 	public static final InternalOp[] FutureLTLOp = { FINALLY, GLOBALLY, NEXT, RELEASES,
-			UNTIL, B_FINALLY, B_GLOBALLY, B_UNTIL,B_RELEASE  };
+			UNTIL, B_FINALLY, B_GLOBALLY, B_UNTIL, B_RELEASES};
 	public static final InternalOp[] PastLTLOp = { HISTORICALLY, NOT_PREV_NOT, ONCE,
 			PREV, SINCE, TRIGGERED };
 	public static final InternalOp[] CTLOp = { EX, EF, EG, AX, AF, AG, ABF, ABG, EBF,
 			EBG, AU, EU, ABU, EBU };
 	public static final InternalOp[] RealTimeCTLOp = { ABF, ABG, EBF, EBG, ABU, EBU };
-	public static final InternalOp[] RealTimeLTLOp = { B_FINALLY, B_GLOBALLY, B_UNTIL,B_RELEASE  };
-	public static final InternalOp[] EpistemicOp = { KNOW, SKNOW };
-	public static final InternalOp[] SynEpistemicOp = { SKNOW };
+	public static final InternalOp[] RealTimeLTLOp = { B_FINALLY, B_GLOBALLY, B_UNTIL, B_RELEASES};
+	public static final InternalOp[] EpistemicOp = { KNOW, SKNOW, NKNOW, NSKNOW };
+	public static final InternalOp[] SynEpistemicOp = { SKNOW, NSKNOW };
 
 	private boolean in(InternalOp[] set) {
 		for (InternalOp op : set)

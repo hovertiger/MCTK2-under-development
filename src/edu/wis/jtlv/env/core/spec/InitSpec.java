@@ -3,6 +3,9 @@ package edu.wis.jtlv.env.core.spec;
 import org.antlr.runtime.Token;
 import org.antlr.runtime.TokenStream;
 
+import java.util.HashSet;
+import java.util.Vector;
+
 
 public class InitSpec {
 	// change the assert to SpecParseInternalException....
@@ -194,25 +197,104 @@ public class InitSpec {
 	/**
 	 * RTLTL BF
 	 */
-	public static InternalSpec mk_bound_finally(TokenStream input, Token start, String exp_str, InternalSpecRange l, InternalSpec v)
+	public static InternalSpec mk_bfinally(TokenStream input, Token start, String exp_str, InternalSpecRange range, InternalSpec l)
 			throws SpecParseException {
-		return mk_binary_temporal_op(input, start, exp_str, InternalOp.B_FINALLY, l, v);
+		return mk_binary_temporal_op(input, start, exp_str, InternalOp.B_FINALLY, range, l);
 	}
 
 	/**
 	 * RTLTL BG
 	 */
-	public static InternalSpec mk_bound_globally(TokenStream input, Token start, String exp_str, InternalSpecRange l, InternalSpec v)
+	public static InternalSpec mk_bglobally(TokenStream input, Token start, String exp_str, InternalSpecRange range, InternalSpec l)
 			throws SpecParseException {
-		return mk_binary_temporal_op(input, start, exp_str, InternalOp.B_GLOBALLY, l, v);
+		return mk_binary_temporal_op(input, start, exp_str, InternalOp.B_GLOBALLY, range, l);
 	}
 
 	/**
 	 * RTLTL BU
 	 */
-	public static InternalSpec mk_bound_until(TokenStream input, Token start, String exp_str, InternalSpecRange range, InternalSpec l, InternalSpec r)
+	public static InternalSpec mk_buntil(TokenStream input, Token start, String exp_str, InternalSpec l, InternalSpecRange range, InternalSpec r)
 			throws SpecParseException {
-		return mk_triplet_temporal_op(input, start, exp_str, InternalOp.B_UNTIL, range, l, r);
+		return mk_triplet_temporal_op(input, start, exp_str, InternalOp.B_UNTIL, l, range, r);
+	}
+
+	public static InternalSpec mk_brelease(TokenStream input, Token start, String exp_str, InternalSpec l, InternalSpecRange range, InternalSpec r)
+			throws SpecParseException {
+		return mk_triplet_temporal_op(input, start, exp_str, InternalOp.B_RELEASES, l, range, r);
+	}
+
+	public static InternalSpec mk_allpath(TokenStream input, Token start, String exp_str, InternalSpec l)
+			throws SpecParseException {
+		return new InternalSpecExp(exp_str, InternalOp.AA, l, start);
+	}
+
+	public static InternalSpec mk_somepath(TokenStream input, Token start, String exp_str, InternalSpec l)
+			throws SpecParseException {
+		return new InternalSpecExp(exp_str, InternalOp.EE, l, start);
+	}
+
+	public static InternalSpec mk_atls_canEnforce(TokenStream input, Token start, String exp_str, WAArrayOfSpec agent_list, InternalSpec l)
+			throws SpecParseException {
+		Vector<InternalSpecAgentIdentifier> agents = new Vector<InternalSpecAgentIdentifier>();
+		HashSet<String> agts_set = new HashSet<String>();
+		for (InternalSpec spec: agent_list.specs ) { // eliminate duplicate agent names
+			InternalSpecAgentIdentifier agt = (InternalSpecAgentIdentifier) spec;
+			if(agts_set.add(agt.getAgentName())) // agt is not duplicate agent name
+				agents.add(agt);
+			else
+				throw new SpecParseException("The ATL* formula \'" + exp_str + "\' has a duplicate agent name \'" + agt.getAgentName() + "\'.",
+						input, start, null );
+		}
+
+		InternalSpec[] elements = new InternalSpec[agents.size()+1];
+		for (int i = 0; i < agents.size(); i++) {
+			elements[i] = agents.elementAt(i);
+		}
+		elements[elements.length-1] = l; // the last element is the subformula l
+
+		return new InternalSpecExp(exp_str, InternalOp.CAN_ENFORCE, elements, start);
+	}
+
+	public static InternalSpec mk_atls_cannotAvoid(TokenStream input, Token start, String exp_str, WAArrayOfSpec agent_list, InternalSpec l)
+			throws SpecParseException {
+		Vector<InternalSpecAgentIdentifier> agents = new Vector<InternalSpecAgentIdentifier>();
+		HashSet<String> agts_set = new HashSet<String>();
+		for (InternalSpec spec: agent_list.specs ) { // eliminate duplicate agent names
+			InternalSpecAgentIdentifier agt = (InternalSpecAgentIdentifier) spec;
+			if(agts_set.add(agt.getAgentName())) // agt is not duplicate agent name
+				agents.add(agt);
+			else
+				throw new SpecParseException("The ATL* formula \'" + exp_str + "\' has a duplicate agent name \'" + agt.getAgentName() + "\'.",
+						input, start, null );
+		}
+
+		InternalSpec[] elements = new InternalSpec[agents.size()+1];
+		for (int i = 0; i < agents.size(); i++) {
+			elements[i] = agents.elementAt(i);
+		}
+		elements[elements.length-1] = l; // the last element is the subformula l
+
+		return new InternalSpecExp(exp_str, InternalOp.CANNOT_AVOID, elements, start);
+	}
+
+	public static InternalSpec mk_atls_know(TokenStream input, Token start, String exp_str, InternalSpec l, InternalSpec r)
+			throws SpecParseException {
+
+		if(l.toString().equals(""))
+			throw new SpecParseException("The knowledge formula " + exp_str + " has a NULL agent name.",
+					input, start, null );
+
+		return new InternalSpecExp(exp_str, InternalOp.KNOW, l, r, start);
+	}
+
+	public static InternalSpec mk_atls_sknow(TokenStream input, Token start, String exp_str, InternalSpec l, InternalSpec r)
+			throws SpecParseException {
+
+		if(l.toString().equals(""))
+			throw new SpecParseException("The knowledge formula " + exp_str + " has a NULL agent name.",
+					input, start, null );
+
+		return new InternalSpecExp(exp_str, InternalOp.SKNOW, l, r, start);
 	}
 	public static InternalSpec mk_bound_release(TokenStream input, Token start, String exp_str, InternalSpecRange range, InternalSpec l, InternalSpec r)
 			throws SpecParseException {

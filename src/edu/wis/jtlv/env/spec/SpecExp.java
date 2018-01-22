@@ -1,6 +1,7 @@
 package edu.wis.jtlv.env.spec;
 
 import edu.wis.jtlv.env.Env;
+import edu.wis.jtlv.env.core.spec.InternalSpecLanguage;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 
@@ -16,6 +17,7 @@ import net.sf.javabdd.BDDVarSet;
 public class SpecExp implements Spec {
 	private Operator theOp;
 	private Spec[] elements;
+	private InternalSpecLanguage language=InternalSpecLanguage.UNDEF;
 
 	/**
 	 * <p>
@@ -28,7 +30,10 @@ public class SpecExp implements Spec {
 	 *            An array of children specification
 	 */
 	public SpecExp(Operator op, Spec[] el) throws SpecException {
-		if (op.numOfOperands() != el.length)
+		if(op == Operator.CAN_ENFORCE || op == Operator.CANNOT_AVOID) {
+			if(el.length<1)
+				throw new SpecException("Cannot instantiate operator " + op + " without operand.");
+		} else if (op.numOfOperands() != el.length)
 			throw new SpecException("Cannot instantiate operator " + op
 					+ " with " + el.length + " operands.");
 		this.theOp = op;
@@ -119,7 +124,8 @@ public class SpecExp implements Spec {
 			if (!s.isCTLSpec())
 				return false;
 		// checking that I'm prop or CTL
-		return this.getOperator().isProp() | this.getOperator().isCTLOp();
+		return this.getOperator().isPropOp()
+				| this.getOperator().isCTLOp();
 	}
 
 	public boolean isCTLKSpec() {
@@ -128,59 +134,66 @@ public class SpecExp implements Spec {
 			if (!s.isCTLKSpec())
 				return false;
 		// checking that I'm prop or CTL
-		return this.getOperator().isProp() | this.getOperator().isCTLOp() | this.getOperator().isEpistemicOp();
+		return this.getOperator().isPropOp()
+				| this.getOperator().isCTLOp()
+				| this.getOperator().isEpistemicOp();
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see edu.wis.jtlv.env.spec.Spec#isRealTimeCTLSpec()
+	 * @see edu.wis.jtlv.env.spec.Spec#isRTCTLSpec()
 	 */
-	public boolean isRealTimeCTLSpec() {
+	public boolean isRTCTLSpec() {
 		// checking that all children are prop.
 		for (Spec s : this.getChildren())
-			if (!s.isRealTimeCTLSpec())
+			if (!s.isRTCTLSpec())
 				return false;
 		// checking that I'm prop, CTL or RealTimeCTL
-		return this.getOperator().isProp() | this.getOperator().isCTLOp()
-				| this.getOperator().isRealTimeCTLOp();
+		return this.getOperator().isPropOp()
+				| this.getOperator().isCTLOp()
+				| this.getOperator().isRTCTLOp();
 	}
 
-	public boolean isRealTimeCTLKSpec() {
+	public boolean isRTCTLKSpec() {
 		// checking that all children are prop.
 		for (Spec s : this.getChildren())
-			if (!s.isRealTimeCTLKSpec())
+			if (!s.isRTCTLKSpec())
 				return false;
 		// checking that I'm prop, CTL or RealTimeCTL
-		return this.getOperator().isProp() | this.getOperator().isCTLOp()
-				| this.getOperator().isRealTimeCTLOp()
+		return this.getOperator().isPropOp()
+				| this.getOperator().isCTLOp()
+				| this.getOperator().isRTCTLOp()
 				| this.getOperator().isEpistemicOp();
 	}
 
 	/*
  * (non-Javadoc)
  *
- * @see edu.wis.jtlv.env.spec.Spec#isRealTimeLTLSpec()
+ * @see edu.wis.jtlv.env.spec.Spec#isRTLTLSpec()
  */
-	public boolean isRealTimeLTLSpec() {
+	public boolean isRTLTLSpec() {
 		// checking that all children are prop.
 		for (Spec s : this.getChildren())
-			if (!s.isRealTimeLTLSpec())
+			if (!s.isRTLTLSpec())
 				return false;
 		// checking that I'm prop, LTL or RealTimeLTL
-		return this.getOperator().isProp() | this.getOperator().isLTLOp()
-				| this.getOperator().isRealTimeLTLOp();
+		return this.getOperator().isPropOp()
+				| this.getOperator().isLTLOp()
+				| this.getOperator().isRTLTLOp();
 	}
 
 	@Override
-	public boolean isRealTimeLTLKSpec() {
+	public boolean isRTLTLKSpec() {
 		// checking that all children are prop.
 		for (Spec s : this.getChildren())
-			if (!s.isRealTimeLTLKSpec())
+			if (!s.isRTLTLKSpec())
 				return false;
-		// checking that I'm prop, LTL or RealTimeLTL
-		return this.getOperator().isProp() | this.getOperator().isLTLOp()
-				| this.getOperator().isRealTimeLTLOp() | this.getOperator().isEpistemicOp();
+		// checking that I'm prop, LTL, RealTimeLTL or epistemic logic
+		return this.getOperator().isPropOp()
+				| this.getOperator().isLTLOp()
+				| this.getOperator().isRTLTLOp()
+				| this.getOperator().isEpistemicOp();
 	}
 
 	/*
@@ -194,8 +207,8 @@ public class SpecExp implements Spec {
 			if (!s.isLTLSpec())
 				return false;
 		// checking that I'm prop, FutureLTL or PastLTL
-		return this.getOperator().isProp() | this.getOperator().isFutureLTLOp()
-				| this.getOperator().isPastLTLOp();
+		return this.getOperator().isPropOp()
+				| this.getOperator().isLTLOp();
 	}
 
 	/*
@@ -209,7 +222,8 @@ public class SpecExp implements Spec {
 			if (!s.isFutureLTLSpec())
 				return false;
 		// checking that I'm prop or FutureLTL
-		return this.getOperator().isProp() | this.getOperator().isFutureLTLOp();
+		return this.getOperator().isPropOp()
+				| this.getOperator().isFutureLTLOp();
 	}
 
 	/*
@@ -223,7 +237,8 @@ public class SpecExp implements Spec {
 			if (!s.isPastLTLSpec())
 				return false;
 		// checking that I'm prop or pastLTL
-		return this.getOperator().isProp() | this.getOperator().isPastLTLOp();
+		return this.getOperator().isPropOp()
+				| this.getOperator().isPastLTLOp();
 	}
 
 	/*
@@ -239,10 +254,51 @@ public class SpecExp implements Spec {
 			if (!s.isCTLStarSpec())
 				return false;
 		// checking that I'm prop, LTL, CTL or RealTimeCTL
-		return this.getOperator().isProp() | this.getOperator().isFutureLTLOp()
-				| this.getOperator().isPastLTLOp()
-				| this.getOperator().isCTLOp()
-				| this.getOperator().isRealTimeCTLOp();
+		return this.getOperator().isPropOp()
+				| this.getOperator().isLTLOp()
+				| this.getOperator().isRTLTLOp()
+				| this.getOperator().isCTLsPathOp();
+	}
+
+	public boolean isATLsKSpec() { // RTATL*K
+		// this is a bit redundant... it suppose to always return true...
+		// return true;
+		// checking that all children are prop.
+		for (Spec s : this.getChildren())
+			if (!s.isATLsKSpec())
+				return false;
+		Operator op = this.getOperator();
+		return op.isPropOp()
+				| op.isLTLOp()
+				| op.isRTLTLOp()
+				| op.isCTLsPathOp()
+				| op.isATLsPathOp()
+				| op.isEpistemicOp();
+	}
+
+	// return true if this is a state formula
+	// return false if there exists temporal operators that are not restricted by path quantifiers
+	public boolean isStateSpec() {
+		Operator op = this.getOperator();
+		if(op.isPropOp()){
+			for (Spec s : this.getChildren())
+				if(!s.isStateSpec()) return false;
+			return true;
+		}else if (op.isLTLOp() || op.isRTLTLOp()) // temporal operators
+			return false;
+		else { // other operators, including path quantifiers and epistemic modalities
+			return true;
+		}
+	}
+
+	@Override
+	public InternalSpecLanguage getLanguage() {
+		return language;
+	}
+
+	@Override
+	public void setLanguage(InternalSpecLanguage language) {
+		this.language = language;
 	}
 
 	/*
@@ -256,7 +312,7 @@ public class SpecExp implements Spec {
 			if (!s.isPropSpec())
 				return false;
 		// checking that I'm prop
-		return this.getOperator().isProp();
+		return this.getOperator().isPropOp();
 	}
 
 	/*
@@ -282,6 +338,15 @@ public class SpecExp implements Spec {
 		return this.theOp.isEpistemicOp();
 	}
 
+	public boolean hasObsEpistemicOperators() {
+		// if one of my elements is syn epistemic.
+		for (Spec s : this.getChildren())
+			if (s.hasObsEpistemicOperators())
+				return true;
+		// or I'm syn epistemic.
+		return this.theOp.isObsEpistemicOp();
+	}
+
 	public boolean hasSynEpistemicOperators() {
 		// if one of my elements is syn epistemic.
 		for (Spec s : this.getChildren())
@@ -289,6 +354,27 @@ public class SpecExp implements Spec {
 				return true;
 		// or I'm syn epistemic.
 		return this.theOp.isSynEpistemicOp();
+	}
+
+	@Override
+	public boolean hasPathOperators() {
+		return hasCTLsPathOperators() | hasATLsPathOperators();
+	}
+
+	@Override
+	public boolean hasCTLsPathOperators() {
+		for (Spec s : this.getChildren())
+			if (s.hasCTLsPathOperators())
+				return true;
+		return this.theOp.isCTLsPathOp();
+	}
+
+	@Override
+	public boolean hasATLsPathOperators() {
+		for (Spec s : this.getChildren())
+			if (s.hasATLsPathOperators())
+				return true;
+		return this.theOp.isATLsPathOp();
 	}
 
 	/*
@@ -299,6 +385,7 @@ public class SpecExp implements Spec {
 	public String toString() {
 		Operator op = this.getOperator();
 		Spec[] ch = this.getChildren();
+
 		// special cases
 		if (op == Operator.AU)
 			return "(A[" + ch[0] + " UNTIL " + ch[1] + ")";
@@ -317,19 +404,52 @@ public class SpecExp implements Spec {
 		if (op == Operator.EBU)
 			return "E[" + ch[0] + " BUNTIL " + ch[1] + " " + ch[2] + "]";
 
+		//special cases of path quantifiers of ATL* and CTL*
+		if (op == Operator.EE)
+			return "(E " + ch[0] + ")";
+		if (op == Operator.AA)
+			return "(A " + ch[0] + ")";
+		if (op == Operator.CAN_ENFORCE) {
+			String agt_list = "";
+			if(ch.length>1) {
+				agt_list+=ch[0];
+				for (int i = 1; i < ch.length-1; i++)
+					agt_list+=","+ch[i];
+			}
+			return "(<" + agt_list + "> " + ch[ch.length - 1] + ")";
+		}
+		if (op == Operator.CANNOT_AVOID) {
+			String agt_list = "";
+			if(ch.length>1) {
+				agt_list+=ch[0];
+				for (int i = 1; i < ch.length-1; i++)
+					agt_list+=","+ch[i];
+			}
+			return "([" + agt_list + "] " + ch[ch.length - 1] + ")";
+		}
+
 		// epistemic
 		if (op == Operator.KNOW)
 			return "(" + ch[0] + " KNOW " + ch[1] + ")";
+		if (op == Operator.NKNOW)
+			return "(" + ch[0] + " NKNOW " + ch[1] + ")";
+		if (op == Operator.SKNOW)
+			return "(" + ch[0] + " SKNOW " + ch[1] + ")";
+		if (op == Operator.NSKNOW)
+			return "(" + ch[0] + " NSKNOW " + ch[1] + ")";
 
 		//special cases of RTLTL
 		if (op == Operator.B_FINALLY)
-			return "(BF " + ch[0] + " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
+//			return "(BF " + ch[0] + " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
+			return "(BF " + ch[0] + " " + ch[1] + ")";
 		if (op == Operator.B_GLOBALLY)
-			return "(BG " + ch[0] + " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
+//			return "(BG " + ch[0] + " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
+			return "(BG " + ch[0] + " " + ch[1] + ")";
 		if (op == Operator.B_UNTIL)
-			return "("+((SpecRange)ch[0]).getOriginLeftSpec()+" BU " +ch[0]+ " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
-		if (op == Operator.B_RELEASE)
-			return "("+((SpecRange)ch[0]).getOriginLeftSpec()+" BR " +ch[0]+ " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
+//			return "("+((SpecRange)ch[0]).getOriginLeftSpec()+" BU " +ch[0]+ " " + ((SpecRange)ch[0]).getOriginSpec() + ")";
+			return "(" + ch[0] + " BUNTIL " + ch[1] + " " + ch[2] + ")";
+		if (op == Operator.B_RELEASES)
+			return "(" + ch[0] + " BRELEASE " + ch[1] + " " + ch[2] + ")";
 
 		// simple unary
 		if (op.isUnary())
@@ -384,7 +504,7 @@ public class SpecExp implements Spec {
 	 * @see edu.wis.jtlv.env.spec.Spec#toBDD()
 	 */
 	public BDD toBDD() throws SpecException {
-		if (!this.getOperator().isProp())
+		if (!this.getOperator().isPropOp())
 			throw new SpecException("Cannot convert temporal expression into"
 					+ " BDD in specification: " + this.toString());
 		// else building the BDD.

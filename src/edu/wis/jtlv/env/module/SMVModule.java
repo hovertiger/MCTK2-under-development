@@ -1,5 +1,6 @@
 package edu.wis.jtlv.env.module;
 
+import java.util.HashMap;
 import java.util.Vector;
 
 import net.sf.javabdd.BDD;
@@ -21,8 +22,34 @@ import edu.wis.jtlv.env.core.smv.schema.SMVModuleInfo;
  */
 public class SMVModule extends ModuleWithStrongFairness {
 	private String player_name;
+
+	public Vector<ModuleBDDField> getAll_couples() {
+		return all_couples;
+	}
+
 	private Vector<ModuleBDDField> all_couples;
-	private Vector<ModuleBDDDefine> all_defines;
+
+	public ModuleBDDField getAction_variable() {
+		return action_variable;
+	}
+
+	public void setAction_variable(ModuleBDDField action_variable) {
+		this.action_variable = action_variable;
+	}
+
+	private ModuleBDDField action_variable; //LXY
+
+	public Vector<ModuleBDDField> getAll_input_variables() {
+		return all_input_variables;
+	}
+
+	public void setAll_input_variables(Vector<ModuleBDDField> all_input_variables) {
+		this.all_input_variables = all_input_variables;
+	}
+
+	private Vector<ModuleBDDField> all_input_variables; //LXY
+
+    private Vector<ModuleBDDDefine> all_defines;
 	private ModuleParamHolder[] params_holders;
 	private SMVModule holder;
 	private SyncStatus is_sync_with_holder;
@@ -168,6 +195,10 @@ public class SMVModule extends ModuleWithStrongFairness {
 		this.player_name = player_name;
 		this.module_info = a_module_info;
 		this.all_couples = new Vector<ModuleBDDField>(20);
+
+		this.all_input_variables = new Vector<>();
+		this.action_variable = null;
+
 		this.all_defines = new Vector<ModuleBDDDefine>(20);
 		this.params_holders = new ModuleParamHolder[an_args.length];
 		for (int i = 0; i < an_args.length; i++) {
@@ -248,6 +279,11 @@ public class SMVModule extends ModuleWithStrongFairness {
 		return addVar(new_var, 2, null, -1);
 	}
 
+	//LXY
+	public ModuleBDDField addVar_unprime_only(String new_var) throws ModuleException,
+			ModuleVariableException {
+		return addVar_unprime_only(new_var, 2, null, -1);
+	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -1045,6 +1081,66 @@ public class SMVModule extends ModuleWithStrongFairness {
 		} // for two or 1 I'm leaving it as is handled with boolean.
 
 		this.all_couples.add(bdd_var);
+		return bdd_var;
+	}
+
+	// LXY: for MAS
+	public ModuleBDDField addVar_unprime_only(String new_var, String[] val_names)
+			throws ModuleException {
+		return addVar_unprime_only(new_var, val_names.length, val_names, -1);
+	}
+
+	// LXY: for MAS
+	public ModuleBDDField addVar_unprime_only(String new_var, int range_start, int range_end)
+			throws ModuleException {
+		return addVar_unprime_only(new_var, (range_end - range_start + 1), null, range_start);
+	}
+
+	// LXY: for MAS
+	// add new BDD variables for unprime variables of types INPUT_VAR and ACTION_VAR
+	private ModuleBDDField addVar_unprime_only(String new_var, int values_size,
+								  String[] val_names, int range_start) throws ModuleException {
+		if (new_var == null || new_var.equals(""))
+			throw new ModuleException("Couldn't declare a variable with no name.");
+
+		// 1. if it was found since it is a param, then defining this define at
+		// the above holder...
+		if (this.hasVar(new_var, true) | this.hasDefine(new_var, true)) {
+			if (this.hasParam(new_var, true)) {
+				ModuleParamHolder par = getParam(new_var, true);
+				SMVModule holder = par.getForInstance().getHolder();
+				return holder.addVar_unprime_only(par.getInitString());
+			}
+			throw new ModuleException("Variable " + new_var	+ " already declared.");
+		}
+
+		// 2. if it is a simple define...
+		int idx = new_var.lastIndexOf('.');
+		if (idx != -1) {
+			throw new ModuleException("Couldn't declare a variable with dot product.");
+		}
+
+		// if it is a pointer, then just assigning the reference.
+		ModuleBDDField bdd_var = Env.newVar_unprime_only(this.getFullInstName(), new_var, values_size);
+		// register value names
+		if (val_names != null) {
+			if (values_size != val_names.length)
+				throw new ModuleException("Internal error: values list do not match the size");
+			Env.stringer.register_domain_module_values(this, bdd_var.getDomain(), val_names);
+		} else if (values_size > 2) {
+			// it is a range, only registering the beginning and the length
+			Env.stringer.register_domain_module_values(this, bdd_var.getDomain(), range_start, values_size);
+		} // for two or 1 I'm leaving it as is handled with boolean.
+
+		this.all_couples.add(bdd_var);
+
+		if(new_var.equals("ACT")) { // this is an action variable
+			if(this.action_variable!=null)
+				throw new ModuleException("Cannot repeatly create action variable in a module.");
+			this.action_variable = bdd_var;
+		}else{ // this is an input variable
+			this.all_input_variables.add(bdd_var);
+		}
 		return bdd_var;
 	}
 

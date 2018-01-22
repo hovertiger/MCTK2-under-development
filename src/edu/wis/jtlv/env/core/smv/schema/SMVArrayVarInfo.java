@@ -9,16 +9,16 @@ public class SMVArrayVarInfo extends SMVContainerElementInfo {
 	public SMVAbstractElementInfo proto;
 	public SMVAbstractElementInfo[] real_list;
 
-	public SMVArrayVarInfo(Boolean visible, String a_name, SMVParsingInfo an_info,
+	public SMVArrayVarInfo(SMVElementCategory category, boolean visible, String a_name, SMVParsingInfo an_info,
 			SMVAbstractElementInfo a_proto, int a_size)
 			throws SMVParseException {
-		this(visible, a_name, an_info, a_proto, 0, a_size);
+		this(category, visible, a_name, an_info, a_proto, 0, a_size);
 	}
 
-	public SMVArrayVarInfo(Boolean visible, String a_name, SMVParsingInfo an_info,
+	public SMVArrayVarInfo(SMVElementCategory category, boolean visible, String a_name, SMVParsingInfo an_info,
 			SMVAbstractElementInfo a_proto, int a_from, int a_to)
 			throws SMVParseException {
-		super(visible, a_name, an_info);
+		super(category, visible, a_name, an_info);
 		if (a_from > a_to) {
 			throw new SMVParseException("Cannot initiate array " + this.name
 					+ " with range " + a_from + ".." + a_to + ".", an_info
@@ -37,7 +37,7 @@ public class SMVArrayVarInfo extends SMVContainerElementInfo {
 
 	@Override
 	public SMVAbstractElementInfo clone_element() throws SMVParseException {
-		return new SMVArrayVarInfo(this.visible, this.name, this.parse_info, this.proto,
+		return new SMVArrayVarInfo(this.category, this.visible, this.name, this.parse_info, this.proto,
 				this.from, this.to);
 	}
 

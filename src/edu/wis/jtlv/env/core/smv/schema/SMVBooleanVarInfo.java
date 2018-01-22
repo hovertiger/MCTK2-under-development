@@ -5,14 +5,14 @@ import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.SMVModule;
 
 public class SMVBooleanVarInfo extends SMVVarInfo {
-	public SMVBooleanVarInfo(Boolean visible, String a_name, SMVParsingInfo an_info)
+	public SMVBooleanVarInfo(SMVElementCategory category, boolean visible, String a_name, SMVParsingInfo an_info)
 			throws SMVParseException {
-		super(visible, a_name, an_info);
+		super(category, visible, a_name, an_info);
 	}
 
 	@Override
 	public SMVAbstractElementInfo clone_element() throws SMVParseException {
-		return new SMVBooleanVarInfo(this.visible, this.name, this.parse_info);
+		return new SMVBooleanVarInfo(this.category, this.visible, this.name, this.parse_info);
 	}
 
 	@Override
@@ -24,7 +24,10 @@ public class SMVBooleanVarInfo extends SMVVarInfo {
 	public void mk_variables(SMVModule instance_holder)
 			throws SMVParseException {
 		try {
-			instance_holder.addVar(this.name);
+			if (this.category == SMVElementCategory.INPUT_VAR || this.category == SMVElementCategory.ACTION_VAR)
+				instance_holder.addVar_unprime_only(this.name);
+			else // category == STATE_VAR
+				instance_holder.addVar(this.name);
 		} catch (ModuleException me) {
 			throw new SMVParseException(me.getMessage(), parse_info);
 		}

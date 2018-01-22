@@ -4,20 +4,24 @@ import edu.wis.jtlv.env.core.smv.SMVParseException;
 import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.SMVModule;
 
+import static edu.wis.jtlv.env.core.smv.schema.SMVAbstractElementInfo.SMVElementCategory.ACTION_VAR;
+import static edu.wis.jtlv.env.core.smv.schema.SMVAbstractElementInfo.SMVElementCategory.INPUT_VAR;
+import static edu.wis.jtlv.env.core.smv.schema.SMVAbstractElementInfo.SMVElementCategory.STATE_VAR;
+
 public class SMVRangeVarInfo extends SMVVarInfo {
 	public int from;
 	public int to;
 
-	public SMVRangeVarInfo(Boolean visible, String a_name, SMVParsingInfo an_info, int from,
+	public SMVRangeVarInfo(SMVElementCategory category, boolean visible, String a_name, SMVParsingInfo an_info, int from,
 			int to) throws SMVParseException {
-		super(visible, a_name, an_info);
+		super(category, visible, a_name, an_info);
 		this.from = from;
 		this.to = to;
 	}
 
 	@Override
 	public SMVAbstractElementInfo clone_element() throws SMVParseException {
-		return new SMVRangeVarInfo(this.visible, this.name, this.parse_info, this.from,
+		return new SMVRangeVarInfo(this.category, this.visible, this.name, this.parse_info, this.from,
 				this.to);
 	}
 
@@ -26,6 +30,9 @@ public class SMVRangeVarInfo extends SMVVarInfo {
 		return "[" + this.from + ".." + this.to + "]";
 	}
 
+
+	// LXY: for MAS
+	// currently, action variable supports the following two types: RangeVar and ValueVar
 	@Override
 	public void mk_variables(SMVModule instance_holder)
 			throws SMVParseException {
@@ -36,7 +43,13 @@ public class SMVRangeVarInfo extends SMVVarInfo {
 			names[i] += val;
 		}
 		try {
-			instance_holder.addVar(this.name, this.from, this.to);
+			if (this.category == STATE_VAR) //LXY
+				instance_holder.addVar(this.name, this.from, this.to); //JTLV
+			else if (this.category == INPUT_VAR || this.category == ACTION_VAR){ // LXY: this.category == INPUT_VAR
+				instance_holder.addVar_unprime_only(this.name, this.from, this.to);
+			} else { //LXY: this.category == NULL
+				throw new SMVParseException("The category of this range variable is NULL.", parse_info);
+			}
 		} catch (ModuleException me) {
 			throw new SMVParseException(me.getMessage(), parse_info);
 		}

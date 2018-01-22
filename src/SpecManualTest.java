@@ -212,8 +212,8 @@ public class SpecManualTest {
 				System.out.println(s.isPropSpec());
 				System.out.print("isCTLSpec ---------------- ");
 				System.out.println(s.isCTLSpec());
-				System.out.print("isRealTimeCTLSpec -------- ");
-				System.out.println(s.isRealTimeCTLSpec());
+				System.out.print("isRTCTLSpec -------- ");
+				System.out.println(s.isRTCTLSpec());
 				System.out.print("isLTLSpec ---------------- ");
 				System.out.println(s.isLTLSpec());
 				System.out.print("isFutureLTLSpec ---------- ");

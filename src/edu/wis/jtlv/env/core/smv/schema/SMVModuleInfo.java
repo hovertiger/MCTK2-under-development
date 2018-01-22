@@ -5,38 +5,24 @@ import java.util.Vector;
 
 import edu.wis.jtlv.env.core.smv.SMVParseException;
 import edu.wis.jtlv.env.module.SMVModule;
+
+import static edu.wis.jtlv.env.core.smv.schema.SMVAbstractElementInfo.SMVElementCategory.NULL;
+import static edu.wis.jtlv.env.core.smv.schema.SMVAbstractElementInfo.SMVElementCategory.STATE_VAR;
+
 public class SMVModuleInfo extends SMVContainerElementInfo {
 	// not to confuse!!! if declared "p : process some_module();"
 	// this.module_name is the module name "some_module" and not "p".
 	public String[] arg_list;								//the inputted argument list: {"arg1","arg2",...}
-	public Boolean[] arg_visible_list;
+	public boolean[] arg_visible_list;
 	public SMVAbstractElementInfo[] arg_elememts;			//the reformatted inputted argument list: {arg1,arg2,...}
 	private Vector<SMVAbstractElementInfo> sub_elements;	//the final argument list exactly used after then
 
 	//LXY: for MAS
-	public Boolean isAgent;				// True: this module is an agent; False: this module is a normal module
+	public boolean isAgent;				// True: this module is an agent; False: this module is a normal module
 
-/*
-	public SMVModuleInfo(Boolean isAgent, String a_module_name, SMVParsingInfo an_info,
-			String[] an_arg_list) throws SMVParseException {
-		super(a_module_name, an_info);
-		this.sub_elements = new Vector<SMVAbstractElementInfo>(20);
-
-		this.arg_list = an_arg_list;
-
-		//LXY: for MAS
-		this.isAgent = isAgent;
-
-		this.arg_elememts = new SMVAbstractElementInfo[this.arg_list.length];
-		for (int i = 0; i < this.arg_elememts.length; i++) {
-			this.arg_elememts[i] = null;
-		}
-	}
-*/
-
-	public SMVModuleInfo(Boolean isAgent, String a_module_name, SMVParsingInfo an_info,
-						 String[] an_arg_list, Boolean[] an_arg_visible_list) throws SMVParseException {
-		super(false, a_module_name, an_info);
+	public SMVModuleInfo(boolean isAgent, String a_module_name, SMVParsingInfo an_info,
+						 String[] an_arg_list, boolean[] an_arg_visible_list) throws SMVParseException {
+		super(NULL,false, a_module_name, an_info);
 		this.sub_elements = new Vector<SMVAbstractElementInfo>(20);
 
 		this.arg_list = an_arg_list;
@@ -159,6 +145,14 @@ public class SMVModuleInfo extends SMVContainerElementInfo {
 		for (Iterator<SMVAbstractElementInfo> iter_elem = this.sub_elements
 				.iterator(); iter_elem.hasNext();) {
 			SMVAbstractElementInfo elem = iter_elem.next();
+
+			//LXY: for MAS
+			// cannot declare ACT or ACTION within VAR declaration
+			if (elem.category==STATE_VAR) {
+				if (elem.name.equals("ACT"))
+					throw new SMVParseException("Cannot take \'ACT\' as the name of a state variable, because it is " +
+							"preserved as the action variable name of an agent.");
+			}
 			elem.mk_variables(self);
 		}
 	}

@@ -21,7 +21,7 @@ public class OpLTLRelease extends AbstractBinaryOperator implements
 
 	@Override
 	public String elemToString() {
-		return "RELEASE";
+		return "RELEASES";
 	}
 	
 	@Override

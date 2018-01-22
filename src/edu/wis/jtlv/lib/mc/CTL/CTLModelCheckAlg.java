@@ -104,7 +104,7 @@ public class CTLModelCheckAlg extends ModelCheckAlgI {
 	/* (non-Javadoc)
 	 * @see edu.wis.jtlv.lib.mc.ModelCheckAlgI#getDesign()
 	 */
-	protected ModuleWithStrongFairness getDesign() {
+	public ModuleWithStrongFairness getDesign() {
 		return (ModuleWithStrongFairness) super.getDesign();
 	}
 

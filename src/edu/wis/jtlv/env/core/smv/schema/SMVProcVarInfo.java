@@ -5,15 +5,17 @@ import edu.wis.jtlv.env.core.smv.SMVParseException;
 import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.SMVModule;
 
+import static edu.wis.jtlv.env.core.smv.schema.SMVAbstractElementInfo.SMVElementCategory.NULL;
+
 public class SMVProcVarInfo extends SMVContainerElementInfo {
 	public boolean is_sync;
 	public SMVModuleInfo proc_desc;
 	public String[] params;
 
-	public SMVProcVarInfo(Boolean visible, String a_name, SMVParsingInfo an_info,
+	public SMVProcVarInfo(boolean visible, String a_name, SMVParsingInfo an_info,
 			SMVModuleInfo proc_desc, boolean is_sync, String[] a_param_list)
 			throws SMVParseException {
-		super(visible, a_name, an_info);
+		super(NULL, visible, a_name, an_info);
 		this.proc_desc = proc_desc;
 		this.is_sync = is_sync;
 		// TODO: I still don't know how to work with expressions as a

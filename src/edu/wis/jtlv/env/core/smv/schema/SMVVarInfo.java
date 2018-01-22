@@ -5,8 +5,8 @@ import edu.wis.jtlv.env.module.SMVModule;
 
 public abstract class SMVVarInfo extends SMVAbstractElementInfo {
 
-	public SMVVarInfo(Boolean visible, String a_name, SMVParsingInfo a_parse_info) throws SMVParseException {
-		super(visible, a_name, a_parse_info);
+	public SMVVarInfo(SMVElementCategory category, boolean visible, String a_name, SMVParsingInfo a_parse_info) throws SMVParseException {
+		super(category, visible, a_name, a_parse_info);
 	}
 
 	@Override

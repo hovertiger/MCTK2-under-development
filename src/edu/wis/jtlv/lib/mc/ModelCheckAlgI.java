@@ -28,7 +28,7 @@ public abstract class ModelCheckAlgI implements AlgI {
 	 * 
 	 * @return The design to perform model checking for.
 	 */
-	protected Module getDesign() {
+	public Module getDesign() {
 		return this.design;
 	}
 

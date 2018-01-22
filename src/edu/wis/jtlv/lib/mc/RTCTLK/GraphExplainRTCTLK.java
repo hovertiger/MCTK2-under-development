@@ -37,7 +37,7 @@ public class GraphExplainRTCTLK extends MultiGraph {
         sman = new SpriteManager(this);
     }
 
-    public Node addStateNode(int pathNo, int stateNo, BDD stateBDD, Spec satSpec) {
+    public Node addStateNode(int pathNo, int stateNo, BDD stateBDD, Spec satSpec, int layer) {
         String stateId = pathNo+"."+stateNo;
         if(stateId==null || stateId.equals("")) return null;
         Node n = addNode(stateId);
@@ -48,6 +48,7 @@ public class GraphExplainRTCTLK extends MultiGraph {
         n.setAttribute("stateNo", stateNo);
         n.setAttribute("BDD", stateBDD);
         n.setAttribute("note_stateDetails", Env.getOneBDDStateDetails(stateBDD,"\n"));
+        n.setAttribute("layer", layer);
 
         //attach a sprite at this node
         Sprite s = sman.addSprite("nodeSprite-"+pathNo+"-"+stateNo);
@@ -122,4 +123,8 @@ public class GraphExplainRTCTLK extends MultiGraph {
         return n.getAttribute("note_stateDetails");
     }
 
+    public int getNodeLayer(String nodeID) {
+        Node n = getNode(nodeID); if(n==null) return -1;
+        return n.getAttribute("layer");
+    }
 }

@@ -5,8 +5,11 @@ import java.util.Stack;
 import java.util.Vector;
 import java.util.Map.Entry;
 
+import edu.wis.jtlv.env.core.smv.schema.*;
 import net.sf.javabdd.BDD;
 
+import net.sf.javabdd.BDDDomain;
+import net.sf.javabdd.BDDVarSet;
 import org.antlr.runtime.IntStream;
 import org.antlr.runtime.RecognitionException;
 
@@ -77,24 +80,15 @@ import edu.wis.jtlv.env.core.smv.eval.temporals.OpLTLRelease;
 import edu.wis.jtlv.env.core.smv.eval.temporals.OpLTLSince;
 import edu.wis.jtlv.env.core.smv.eval.temporals.OpLTLTriggered;
 import edu.wis.jtlv.env.core.smv.eval.temporals.OpLTLUntil;
-import edu.wis.jtlv.env.core.smv.schema.SMVAbstractElementInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVArrayVarInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVBooleanVarInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVDefineVarInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVDependentRangeVarInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVMainProcVarInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVModuleInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVParsingInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVProcVarInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVRangeVarInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVValueVarInfo;
-import edu.wis.jtlv.env.core.smv.schema.SMVWordVarInfo;
 import edu.wis.jtlv.env.module.Module;
 import edu.wis.jtlv.env.module.ModuleBDDDefine;
 import edu.wis.jtlv.env.module.ModuleBDDField;
 import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.ModuleParamHolder;
 import edu.wis.jtlv.env.module.SMVModule;
+
+import static edu.wis.jtlv.env.Env.containPrimeVars;
+import static edu.wis.jtlv.env.core.smv.SMVStmtWalker.intr;
 
 public class Initiator {
 	// ////////////////////////////////////////////////////////////////////////
@@ -272,28 +266,28 @@ public class Initiator {
 	// //////////////////////////////////////////////////////////////////////////////
 
 	// make boolean !!
-	public SMVAbstractElementInfo mk_boolean_var(Boolean visible, StringArrayWA var_name,
-			IntStream input) throws SMVParseException {
+	public SMVAbstractElementInfo mk_boolean_var(SMVAbstractElementInfo.SMVElementCategory category, boolean visible, StringArrayWA var_name,
+												 IntStream input) throws SMVParseException {
 		if (!isVarDeclPhase())
 			return null;
 
-		return new SMVBooleanVarInfo(visible, var_name.arr[0], new SMVParsingInfo(input));
+		return new SMVBooleanVarInfo(category, visible, var_name.arr[0], new SMVParsingInfo(input));
 	}
 
 	// make word !!
-	public SMVAbstractElementInfo mk_word_var(Boolean visible, StringArrayWA var_name,
-			String base, String width, IntStream input)
+	public SMVAbstractElementInfo mk_word_var(SMVAbstractElementInfo.SMVElementCategory category, boolean visible, StringArrayWA var_name,
+											  String base, String width, IntStream input)
 			throws SMVParseException {
 		if (!isVarDeclPhase())
 			return null;
 
-		return new SMVWordVarInfo(visible, var_name.arr[0], new SMVParsingInfo(input),
+		return new SMVWordVarInfo(category, visible, var_name.arr[0], new SMVParsingInfo(input),
 				Integer.parseInt(base), Integer.parseInt(width));
 	}
 
 	// make values !!
-	public SMVAbstractElementInfo mk_values_var(Boolean visible, StringArrayWA var_name,
-			Vector<String> type_values, IntStream input)
+	public SMVAbstractElementInfo mk_values_var(SMVAbstractElementInfo.SMVElementCategory category, boolean visible, StringArrayWA var_name,
+												Vector<String> type_values, IntStream input)
 			throws SMVParseException {
 		if (!isVarDeclPhase())
 			return null;
@@ -301,13 +295,13 @@ public class Initiator {
 		String[] types_arr = new String[type_values.size()];
 		type_values.toArray(types_arr);
 		// TODO: throw a warning if there is a duplicate value
-		return new SMVValueVarInfo(visible, var_name.arr[0], new SMVParsingInfo(input),
+		return new SMVValueVarInfo(category, visible, var_name.arr[0], new SMVParsingInfo(input),
 				types_arr);
 	}
 
 	// make range !!
-	public SMVAbstractElementInfo mk_range_var(Boolean visible, StringArrayWA var_name,
-			String from, String to, IntStream input) throws SMVParseException {
+	public SMVAbstractElementInfo mk_range_var(SMVAbstractElementInfo.SMVElementCategory category, boolean visible, StringArrayWA var_name,
+											   String from, String to, IntStream input) throws SMVParseException {
 		if (!isVarDeclPhase())
 			return null;
 
@@ -317,15 +311,15 @@ public class Initiator {
 						+ ".." + to, input);
 			}
 		} catch (NumberFormatException nfe) {
-			return new SMVDependentRangeVarInfo(visible, var_name.arr[0],
+			return new SMVDependentRangeVarInfo(category, visible, var_name.arr[0],
 					new SMVParsingInfo(input), from, to);
 		}
-		return new SMVRangeVarInfo(visible, var_name.arr[0], new SMVParsingInfo(input),
+		return new SMVRangeVarInfo(category, visible, var_name.arr[0], new SMVParsingInfo(input),
 				Integer.parseInt(from), Integer.parseInt(to));
 	}
 
 	// make process !!
-	public SMVAbstractElementInfo mk_process_var(Boolean visible, StringArrayWA var_name,
+	public SMVAbstractElementInfo mk_process_var(boolean visible, StringArrayWA var_name,
 			String proc_module_name, boolean is_sync,
 			Vector<String> inst_vec_str, Vector<StmtValueArrayWA> inst_vec,
 			IntStream input) throws SMVParseException {
@@ -341,9 +335,11 @@ public class Initiator {
 	}
 
 	// make array[from..to] !!
-	public SMVAbstractElementInfo mk_range_array_var(Boolean visible, StringArrayWA var_name,
-			SMVAbstractElementInfo proto, String from, String to,
-			IntStream input) throws SMVParseException {
+	public SMVAbstractElementInfo mk_range_array_var(SMVAbstractElementInfo.SMVElementCategory category,
+													 boolean visible,
+													 StringArrayWA var_name,
+													 SMVAbstractElementInfo proto, String from, String to,
+													 IntStream input) throws SMVParseException {
 		if (!isVarDeclPhase())
 			return null;
 
@@ -351,7 +347,7 @@ public class Initiator {
 			throw new SMVParseException("Invalid array range " + from + ".."
 					+ to, input);
 		}
-		return new SMVArrayVarInfo(visible, var_name.arr[0], new SMVParsingInfo(input),
+		return new SMVArrayVarInfo(category, visible, var_name.arr[0], new SMVParsingInfo(input),
 				proto, Integer.parseInt(from), Integer.parseInt(to));
 	}
 
@@ -365,9 +361,10 @@ public class Initiator {
 	}
 
 	// make adding the var !!
-	public void add_element(String module_name, SMVAbstractElementInfo var,
-							Boolean visible, // the visibility of the variable var for the agent module_name
-			IntStream input) throws SMVParseException {
+	public void add_element(String module_name,
+							SMVAbstractElementInfo var,
+//							boolean visible, // the visibility of the variable var for the agent module_name
+							IntStream input) throws SMVParseException {
 		if (!isVarDeclPhase())
 			return;
 
@@ -376,7 +373,7 @@ public class Initiator {
 		SMVModuleInfo m = get_module(module_name, input);
 
 		//LXY: for MAS
-		var.visible = visible;
+//		var.visible = visible;
 
 		m.add_element(var, new SMVParsingInfo(input));
 	}
@@ -406,7 +403,7 @@ public class Initiator {
 		main_proc_info.mk_fix_names();
 		main_proc_info.mk_modules_skel(null);
 		main_proc_info.mk_defines(null);
-		main_proc_info.mk_variables(null);
+		main_proc_info.mk_variables(null); //LXY: input and action variables are also created here
 		main_proc_info.mk_module_args(null);
 
 		//LXY: for MAS
@@ -415,6 +412,7 @@ public class Initiator {
 		// Env.do_error(e);
 		// }
 
+		//main_proc_info.walkthrough_module_structure((SMVModule) Env.getModule("main"), null);
 	}
 
 	private class DependencyEntry {
@@ -1023,6 +1021,60 @@ public class Initiator {
 		}
 	}
 
+	public void attachPROT(StmtValueArrayWA val)
+			throws SMVParseException {
+		if (isVarDeclPhase()) // var declare phase
+			return;
+		if (!this.init_trans_phase)
+			return;
+
+		StringArrayWA avar_name = new StringArrayWA(intr, "ACT", "", null, "");
+		String[] arrayed_avar_names = replaceAllForScopeArrayes(avar_name);
+		for (int i = 0; i < this.module_pool.length; i++) {
+			ModuleBDDField coup = this.module_pool[i].getVar(
+					arrayed_avar_names[i], true);
+			ValueDomStmt to_assign = new ValueDomStmt(this.module_pool[i], coup);
+			ValueStmt single_val = new StmtOperator(this.module_pool[i],
+					new OpEqual(to_assign, val.arr[i])).eval_stmt();
+
+			// most be conjunct at the end...
+			BDD toAdd = single_val.toBDD(); // toAdd is the BDD representing the protocol
+
+			// 1. check prime variables
+			String module_fullname = this.module_pool[i].getPath()+"."+this.module_pool[i].getName();
+			if (Env.containPrimeVars(toAdd)) {
+				throw new SMVParseException("The protocol of "+ module_fullname
+					+" cannot contain any prime variable.");
+			}
+
+			// 2. check whether toAdd contains any invisible variables
+			SMVAgentInfo agent_info = Env.getAll_agent_modules().get(module_fullname);
+			if (agent_info==null)
+				throw new SMVParseException("Cannot find the agent "+ module_fullname);
+			// BDDVarSet visVars = agent_info.getVisVars_BDDVarSet();
+			// V - agentName's visible variables
+			BDDVarSet allInvisVars = Env.globalUnprimeVarsMinus(agent_info.getVisVars_BDDVarSet());
+			BDDVarSet bddSet = toAdd.support().id().intersect(allInvisVars);
+			if (!bddSet.isEmpty()) { // there exist invisible variable in the protocol
+				String msg = "The protocol of "+module_fullname+" cannot contain the following invisible variables : ";
+				BDDDomain[] bddDoms = bddSet.getDomains();
+				for(BDDDomain d : bddDoms) {
+					ModuleBDDField f = Env.getVarForDomain(d);
+					msg += f.getPath()+"."+f.getName()+", ";
+				}
+				int idx = msg.lastIndexOf(", ");
+				if(idx!=-1) msg = msg.substring(0, idx);
+				msg += ".";
+				throw new SMVParseException(msg);
+			}
+
+			if (this.TRANSConjunct[i] == null)
+				this.TRANSConjunct[i] = toAdd;
+			else
+				this.TRANSConjunct[i] = this.TRANSConjunct[i].id().and(toAdd);
+		}
+	}
+
 	// ////////////////////////////////////////////////////////////////////////
 	// ////////////////////// making of leaf elements /////////////////////////
 	// ////////////////////////////////////////////////////////////////////////
@@ -1174,6 +1226,27 @@ public class Initiator {
 					| (this.module_pool[i].hasInstanceArray(look_for[i], true))) {
 				// do nothing... cannot do operations on such kind of ref
 				res.arr[i] = null;
+			} // LXY: added for allowing action variables of all agents can be in the basic expression of the smv file
+			else if (look_for[i].lastIndexOf(".ACT")!=-1 &&
+					look_for[i].lastIndexOf(".ACT")==look_for[i].length()-4) {
+				int idx_dot = look_for[i].lastIndexOf(".ACT");
+				// look_for[i] is an action variable, check if it is holden by an agent
+				String holder_name = look_for[i].substring(0, idx_dot+1); // including "."
+				if(!holder_name.equals("main.")
+						|| holder_name.length()<5
+						|| !holder_name.substring(0,5).equals("main."))
+					holder_name = "main."+holder_name.substring(0, holder_name.length()-1);
+				else
+					holder_name = holder_name.substring(0, holder_name.length()-1);
+				SMVModule m = (SMVModule) Env.getModule(holder_name);
+				if(m!=null && m.hasVar("ACT", false)) {
+					ModuleBDDField coup = m.getVar("ACT",false);
+					res.arr[i] = new ValueDomStmt(m, coup);
+				}else{
+					SMVParseException spe = new SMVParseException(
+							"Couldn't find the action variable " + look_for[i] + ".", input);
+					throw spe;
+				}
 			} else if (this.module_pool[i].hasValue(look_for[i])) {
 				// the following to has bad performance, this is why
 				// I'm doing them as a last option...
@@ -1198,6 +1271,24 @@ public class Initiator {
 			StringArrayWA addr_from_self, IntStream input)
 			throws SMVParseException {
 		return mk_ref_val(module_name, "self", addr_from_self, input);
+	}
+
+	public StmtValueArrayWA mk_prot(String module_name,
+										Vector<CaseElement> elems, IntStream input)
+			throws SMVParseException {
+		StmtValueArrayWA res = new StmtValueArrayWA(this.module_pool.length);
+		for (int i = 0; i < this.module_pool.length; i++) {
+			if (!calcStmt(i))
+				continue;
+			AbstractElement[] cond_elem = new AbstractElement[elems.size()];
+			AbstractElement[] then_elem = new AbstractElement[elems.size()];
+			for (int j = 0; j < cond_elem.length; j++) {
+				cond_elem[j] = elems.elementAt(j).if_bdd.arr[i];
+				then_elem[j] = elems.elementAt(j).then_bdd.arr[i];
+			}
+			res.arr[i] = new OpCond(cond_elem, then_elem);
+		}
+		return res;
 	}
 
 	// public void do_phase3() throws SMVParseException {

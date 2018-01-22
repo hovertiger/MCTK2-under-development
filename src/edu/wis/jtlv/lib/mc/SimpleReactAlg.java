@@ -60,7 +60,7 @@ public class SimpleReactAlg extends SimpleTempEntailAlg {
 	 * 
 	 * @see edu.wis.jtlv.lib.mc.ModelCheckAlgI#getDesign()
 	 */
-	protected ModuleWithWeakFairness getDesign() {
+	public ModuleWithWeakFairness getDesign() {
 		return (ModuleWithWeakFairness) super.getDesign();
 	}
 

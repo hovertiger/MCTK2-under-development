@@ -1,5 +1,10 @@
 package edu.wis.jtlv.lib;
 
+import edu.wis.jtlv.env.core.smv.SMVParseException;
+import edu.wis.jtlv.env.module.ModuleException;
+import edu.wis.jtlv.env.spec.SpecException;
+import edu.wis.jtlv.old_lib.mc.ModelCheckException;
+
 /**
  * <p>
  * A runner thread to execute any kind of algorithm, which implemented the AlgI
@@ -46,12 +51,26 @@ public class AlgRunnerThread extends Thread {
 			preResult = algo.preAlgorithm();
 		} catch (AlgExceptionI e) {
 			preException = e;
+		} catch (SMVParseException e) {
+			e.printStackTrace();
+		} catch (ModelCheckException e) {
+			e.printStackTrace();
+		} catch (ModuleException e) {
+			e.printStackTrace();
 		}
 		doException = null;
 		try {
 			doResult = algo.doAlgorithm();
 		} catch (AlgExceptionI e) {
 			doException = e;
+		} catch (ModelCheckException e) {
+			e.printStackTrace();
+		} catch (ModuleException e) {
+			e.printStackTrace();
+		} catch (SMVParseException e) {
+			e.printStackTrace();
+		} catch (SpecException e) {
+			e.printStackTrace();
 		}
 		postException = null;
 		try {

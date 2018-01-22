@@ -56,6 +56,8 @@ import edu.wis.jtlv.env.module.ModuleBDDField;
 import edu.wis.jtlv.env.module.ModuleException;
 import edu.wis.jtlv.env.module.ModuleVariableException;
 import edu.wis.jtlv.env.module.SMVModule;
+
+
 /**
  * <p>
  * The main JTLV environment Facade, which supplies the API to basic
@@ -134,15 +136,15 @@ public final class Env {
 		return all_agent_modules;
 	}
 
-	public static String[] getAllSpecsString() {
+	public static String getAllSpecsString() {
 		return all_specifications_string;
 	}
 
-	public static void setAllSpecsString(String[] allSpecsString) {
+	public static void setAllSpecsString(String allSpecsString) {
 		Env.all_specifications_string = allSpecsString;
 	}
 
-	private static String[] all_specifications_string;
+	private static String all_specifications_string;
 
 	/**
 	 * <p>
@@ -250,7 +252,7 @@ public final class Env {
 		stringer = new JTLVBDDToString();
 
 		all_agent_modules = new HashMap<String, SMVAgentInfo>(10);
-		//all_specifications_string = "";
+		all_specifications_string = "";
 
 		// /////////////////////////////////
 		// other resets...
@@ -668,6 +670,7 @@ public final class Env {
 		}
 		return null;
 	}
+
 	/**
 	 * <p>
 	 * Load any kind of specification from a file.
@@ -695,6 +698,7 @@ public final class Env {
 		}
 		return null;
 	}
+
 	private static Spec[] convertSpecToAPI(InternalSpec[] orig) {
 		Spec[] res = new Spec[orig.length];
 		for (int i = 0; i < res.length; i++) {
@@ -706,17 +710,24 @@ public final class Env {
 	private static Spec convertSpecToAPIHelper(InternalSpec orig) {
 		if (orig == null)
 			return null;
+
 		if (orig instanceof InternalSpecBDD) {
 			InternalSpecBDD cast_orig = (InternalSpecBDD) orig;
-			return new SpecBDD(cast_orig.getExprStr(), cast_orig.getVal());
+			Spec res = new SpecBDD(cast_orig.getExprStr(), cast_orig.getVal());
+			res.setLanguage(orig.getLanguage());
+			return res;
 		}
 		if (orig instanceof InternalSpecRange) {
 			InternalSpecRange cast_orig = (InternalSpecRange) orig;
-			return new SpecRange(cast_orig.getFrom(), cast_orig.getTo());
+			Spec res = new SpecRange(cast_orig.getFrom(), cast_orig.getTo());
+			res.setLanguage(orig.getLanguage());
+			return res;
 		}
 		if (orig instanceof InternalSpecAgentIdentifier) {
 			InternalSpecAgentIdentifier cast_orig = (InternalSpecAgentIdentifier) orig;
-			return new SpecAgentIdentifier(cast_orig.getAgentName());
+			Spec res = new SpecAgentIdentifier(cast_orig.getAgentName());
+			res.setLanguage(orig.getLanguage());
+			return res;
 		}
 		// if (orig instanceof InternalSpecExp)
 		InternalSpecExp cast_orig = (InternalSpecExp) orig;
@@ -724,7 +735,8 @@ public final class Env {
 		Spec[] children = convertSpecToAPI(cast_orig.getChildren());
 		Spec res = null;
 
-//		//Uppdate by LS on : 2017/12/19
+/*
+		//UPDATING20170428(add supporter for Transfer work)
 		SpecRange range;
 		Spec baseSpec,leftBaseSpec;
 		switch (op){
@@ -732,13 +744,13 @@ public final class Env {
 				range=(SpecRange)children[0];
 				baseSpec=children[1];
                 range.setOriginSpec(baseSpec);
-                //children[1]=transBFToLTLSPec(baseSpec,range.getFrom(),range.getTo()-range.getFrom());
+                children[1]=transBFToLTLSPec(baseSpec,range.getFrom(),range.getTo()-range.getFrom());
 				break;
 			case B_GLOBALLY:
 				range=(SpecRange)children[0];
 				baseSpec=children[1];
 				range.setOriginSpec(baseSpec);
-				//children[1]=transBGToLTLSPec(baseSpec, range.getFrom(), range.getTo() - range.getFrom());
+				children[1]=transBGToLTLSPec(baseSpec, range.getFrom(), range.getTo() - range.getFrom());
 				break;
 			case B_UNTIL:
 				range=(SpecRange)children[0];
@@ -746,20 +758,16 @@ public final class Env {
 				baseSpec=children[2];
 				range.setOriginLeftSpec(leftBaseSpec);
 				range.setOriginSpec(baseSpec);
-				//children[1]=transBUToLTLSPecUsedBU0Op(leftBaseSpec, baseSpec, range.getFrom(), range.getTo() - range.getFrom());
+				children[1]=transBUToLTLSPecUsedBU0Op(leftBaseSpec, baseSpec, range.getFrom(), range.getTo() - range.getFrom());
 				break;
-			case B_RELEASE:
-				range=(SpecRange)children[0];
-				leftBaseSpec=children[1];
-				baseSpec=children[2];
-				range.setOriginLeftSpec(leftBaseSpec);
-				range.setOriginSpec(baseSpec);
-				//children[1]=transBUToLTLSPecUsedBU0Op(leftBaseSpec, baseSpec, range.getFrom(), range.getTo() - range.getFrom());
-				break;
-			//case KNOW: 不需要解析
+			//case KNOW:
+
 		}
+*/
+
 		try {
 			res = new SpecExp(op, children);
+			res.setLanguage(orig.getLanguage());
 		} catch (SpecException e) {
 			// will never happen...
 			e.printStackTrace();
@@ -770,6 +778,7 @@ public final class Env {
 	private static Operator convertOperatorToAPI(InternalOp orig) {
 		return Operator.operatorFromString(orig.toString());
 	}
+
     /**
      * UPDATING20170428(translation algorithm BF)
      */
@@ -788,8 +797,10 @@ public final class Env {
                 return null;
             }
         }
+
         return null;
 	}
+
 	/**
 	 * UPDATING20170428(translation algorithm BG)
 	 */
@@ -808,6 +819,61 @@ public final class Env {
 				return null;
 			}
 		}
+
+		return null;
+	}
+
+	/**
+	 * UPDATING20170429(translation algorithm BU)
+	 */
+	private static Spec transBUToLTLSPec(Spec leftBaseSpec,Spec baseSpec,int a,int b){
+		if(a==0&b==0)
+			return baseSpec;
+
+		if(a>0)
+			try {
+				return new SpecExp(Operator.AND, new Spec[]{leftBaseSpec, new SpecExp(Operator.NEXT,transBUToLTLSPec(leftBaseSpec, baseSpec, a - 1, b))});
+			} catch (SpecException e) {
+				e.printStackTrace();
+				return null;
+			}
+
+		if(b>0) {
+			try {
+				return new SpecExp(Operator.OR, new Spec[]{baseSpec,new SpecExp(Operator.AND,new Spec[]{leftBaseSpec,new SpecExp(Operator.NEXT,transBUToLTLSPec(leftBaseSpec, baseSpec, a, b - 1))})});
+			} catch (SpecException e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * UPDATING20170523(translation algorithm BU used BU0 operator)
+	 */
+	private static Spec transBUToLTLSPecUsedBU0Op(Spec leftBaseSpec,Spec baseSpec,int a,int b){
+		if(a==0&b==0)
+			return baseSpec;
+
+		if(a>0)
+			try {
+				return new SpecExp(Operator.AND, new Spec[]{leftBaseSpec, new SpecExp(Operator.NEXT,transBUToLTLSPecUsedBU0Op(leftBaseSpec, baseSpec, a - 1, b))});
+			} catch (SpecException e) {
+				e.printStackTrace();
+				return null;
+			}
+
+		if(b>0) {
+			try {
+				return new SpecExp(Operator.OR, new Spec[]{baseSpec,new SpecExp(Operator.B_UNTIL0,new Spec[]{new SpecRange(1,b),leftBaseSpec,baseSpec})});
+			} catch (SpecException e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+
 		return null;
 	}
 
@@ -946,11 +1012,9 @@ public final class Env {
 				return loadFDSModule(new ANTLRFileStream(filename), false,
 						false, order);
 			} else if (filename.toLowerCase().endsWith("smv")) {
-				 MCTKANTLRFileStream input_smv = new MCTKANTLRFileStream(filename);
-				 Env.setAllSpecsString(input_smv.seperateSpecsFromModules());
+				MCTKANTLRFileStream input_smv = new MCTKANTLRFileStream(filename);
+				Env.setAllSpecsString(input_smv.seperateSpecsFromModules());
 				return loadSMVModule(input_smv, false,false, order);
-//				return loadSMVModule(new ANTLRFileStream(filename), false,
-//						false, order);
 			}
 		} catch (RecognitionException e) {
 			//Env.doError(e, e.getMessage());
@@ -959,9 +1023,9 @@ public final class Env {
 			//Env.doError(e, e.getMessage());
 			Env.doError(e, e.toString()); //LXY: correct error
 		}
-		throw new IOException("Cannot load module with formats other then"
-				+ " .fds or .smv");
+		throw new IOException("Cannot load module with formats other then .fds or .smv");
 	}
+
 	/**
 	 * <p>
 	 * Parse the given file and add it to the system. Currently two file
@@ -1561,6 +1625,22 @@ public final class Env {
 			throws ModuleVariableException {
 		return newVar(preface, name, 2);
 	}
+
+	//LXY
+    public static ModuleBDDField newVar_unprime_only(String preface, String name,
+                                        int values_size) throws ModuleVariableException {
+		ModuleBDDField res = bdd_namer[0].new_var_unprime_only(0, preface, name, values_size);
+        for (int i = 1; i < bdd_namer.length; i++) {
+            bdd_namer[i].new_var_unprime_only(i, preface, name, values_size);
+        }
+        return res;
+    }
+
+    //LXY
+    public static ModuleBDDField newVar_unprime_only(String preface, String name)
+            throws ModuleVariableException {
+        return newVar_unprime_only(preface, name, 2);
+    }
 
 	/**
 	 * <p>
@@ -2627,7 +2707,7 @@ public final class Env {
 	 * @return The variable corresponding to the given domain.
 	 *
 	 */
-	private static ModuleBDDField getVarForDomain(BDDDomain dom) {
+	public static ModuleBDDField getVarForDomain(BDDDomain dom) {
 		return bdd_namer[Env.getCurrentThreadManagerIdx()].getVarForDomain(dom);
 	}
 
@@ -3378,14 +3458,17 @@ public final class Env {
 		// //////////////////////////////////
 		// the current implementation is to order the bdd as unprime variable
 		// first, and the immediately followed variable is its primed version.
-		private Vector<ModuleBDDField> all_couples;
+		private Vector<ModuleBDDField> all_couples; // holds the BDD pairs (unprime and prime versions) for STATE_VARs
+
+		private HashMap<String, BDDDomain> all_unprime_only_variables; // holds the BDDs for ACTION_VARs and INPUT_VARs
 
 		private JTLVBDDManagerPairing() {
-			all_couples = new Vector<ModuleBDDField>(100);
+			all_couples = new Vector<ModuleBDDField>(20);
+			all_unprime_only_variables = new HashMap<>(10);
 		}
 
 		/**
-		 * The main implementation for creating a variable.
+		 * The main implementation for creating a variable with both unprime and prime versions.
 		 *
 		 * @param preface
 		 *            module name.
@@ -3426,12 +3509,53 @@ public final class Env {
 			return new_pair;
 		}
 
+		/** LXY
+		 * The main implementation for creating a variable without prime version.
+		 *
+		 * @param preface
+		 *            module name.
+		 * @param varName
+		 *            variable name, can also be in prime notation (e.g. x').
+		 * @param values_size
+		 * @return the unprime bdd created for this name.
+		 * @throws ModuleVariableException
+		 *             if the name already exists.
+		 */
+		private ModuleBDDField new_var_unprime_only(int thread_idx, String preface,
+									   String varName, int values_size)
+				throws ModuleVariableException {
+			// preparing a proper name.
+			if (is_prime_name(varName)) {
+				throw new ModuleVariableException(
+						"Cannot declare a variable with \'.");
+			}
+			String name = this.to_simple_name(varName);
+
+			// preparing the actual bdds.
+			if (search_couple(preface, this.to_simple_name(name)) != null) {
+				throw new ModuleVariableException("variable \"" + "<" + preface
+						+ ">." + name + "\" already exists.");
+			}
+
+			BDDDomain varBDD = Env.allocBDD(thread_idx, values_size);
+
+			// making the pair
+			ModuleBDDField new_pair = new ModuleBDDField(varBDD, preface, name);
+			all_couples.add(new_pair);
+
+			all_unprime_only_variables.put(preface+"."+name, varBDD);
+
+			// returning the pair
+			return new_pair;
+		}
+
 		private ModuleBDDField getVarForDomain(BDDDomain dom) {
 			for (ModuleBDDField coup : this.all_couples) {
 				if (dom.getIndex() == coup.getDomain().getIndex())
 					return coup;
-				if (dom.getIndex() == coup.other().getDomain().getIndex())
-					return coup.other();
+				if(coup.other()!=null) //LXY
+					if (dom.getIndex() == coup.other().getDomain().getIndex())
+						return coup.other();
 			}
 			return null;
 		}
@@ -3663,10 +3787,12 @@ public final class Env {
 			for (int j = 0; j < pairs.length; j++) {
 				ModuleBDDField p = pairs[j].isPrime() ? pairs[j] : pairs[j]
 						.other();
-				int[] vars = p.getDomain().vars();
-				for (int i = 0; i < vars.length; i++)
-					if (var_prof[vars[i]] > 0)
-						return true;
+				if (p!=null) { //LXY: jump over input or action variables that without prime version
+					int[] vars = p.getDomain().vars();
+					for (int i = 0; i < vars.length; i++)
+						if (var_prof[vars[i]] > 0)
+							return true;
+				}
 			}
 			return false;
 		}
@@ -3692,9 +3818,14 @@ public final class Env {
 		private BDDVarSet get_prime_vars(ModuleBDDField[] pairs) {
 			BDDVarSet res = Env.getEmptySet();
 			for (int j = 0; j < pairs.length; j++) {
-				BDDVarSet p_var = pairs[j].isPrime() ? pairs[j].support()
-						: pairs[j].prime().support();
-				res = res.id().union(p_var);
+				//BDDVarSet p_var = pairs[j].isPrime() ? pairs[j].support() : pairs[j].prime().support(); //deleted by LXY
+				//res = res.id().union(p_var); //deleted by LXY
+				//LXY begin
+				if (pairs[j].isPrime())
+					res = res.id().union(pairs[j].support());
+				else if (!pairs[j].isPrime() && pairs[j].other()!=null)
+					res = res.id().union(pairs[j].prime().support());
+				//LXY end
 			}
 			return res;
 		}
@@ -3742,8 +3873,9 @@ public final class Env {
 		private BDD mk_buddy_pairs(ModuleBDDField[] all_couples) {
 			BDD res = Env.TRUE();
 			for (int i = 0; i < all_couples.length; i++) {
-				res = res.id().and(
-						all_couples[i].getDomain().buildEquals(
+				if (all_couples[i].other()!=null) //LXY
+					res = res.id().and(
+							all_couples[i].getDomain().buildEquals(
 								all_couples[i].getOtherDomain()));
 			}
 			return res;
@@ -3753,10 +3885,12 @@ public final class Env {
 			BDDPairing res = Env.makePair();
 			res.reset();
 			for (int i = 0; i < all_couples.length; i++) {
-				res.set(all_couples[i].getDomain().vars(), all_couples[i]
-						.getOtherDomain().vars());
-				res.set(all_couples[i].getOtherDomain().vars(), all_couples[i]
-						.getDomain().vars());
+				if (all_couples[i].other()!=null) { //LXY
+					res.set(all_couples[i].getDomain().vars(), all_couples[i]
+							.getOtherDomain().vars());
+					res.set(all_couples[i].getOtherDomain().vars(), all_couples[i]
+							.getDomain().vars());
+				}
 			}
 			return res;
 		}

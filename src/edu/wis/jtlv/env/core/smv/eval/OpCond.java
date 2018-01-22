@@ -42,6 +42,8 @@ public class OpCond extends AbstractElement implements IBoolOperator {
 
 	// //////////////
 	// mostly do nothing except conditional stmt.
+	// grand : the father of par
+	// par : the father of this case expression
 	@Override
 	protected void evalCaseMacro(SMVModule a_context, AbstractElement grand,
 			AbstractElement par) {

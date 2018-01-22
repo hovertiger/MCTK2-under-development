@@ -328,8 +328,8 @@ public class ModelCheckingTest {
 			System.out.println(s.isPropSpec());
 			System.out.print("isCTLSpec ---------------- ");
 			System.out.println(s.isCTLSpec());
-			System.out.print("isRealTimeCTLSpec -------- ");
-			System.out.println(s.isRealTimeCTLSpec());
+			System.out.print("isRTCTLSpec -------- ");
+			System.out.println(s.isRTCTLSpec());
 			System.out.print("isLTLSpec ---------------- ");
 			System.out.println(s.isLTLSpec());
 			System.out.print("isFutureLTLSpec ---------- ");
@@ -338,8 +338,8 @@ public class ModelCheckingTest {
 			System.out.println(s.isPastLTLSpec());
 			System.out.print("isCTLStarSpec ------------ ");
 			System.out.println(s.isCTLStarSpec());
-			System.out.print("isRealTimeLTLKSpec ------------ ");
-			System.out.println(s.isRealTimeLTLKSpec());
+			System.out.print("isRTLTLKSpec ------------ ");
+			System.out.println(s.isRTLTLKSpec());
 			System.out.print("hasTemporalOperators ----- ");
 			System.out.println(s.hasTemporalOperators());
 		}

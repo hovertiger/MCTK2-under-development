@@ -1,5 +1,6 @@
 package edu.wis.jtlv.env.spec;
 
+import edu.wis.jtlv.env.core.spec.InternalSpecLanguage;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 
@@ -16,8 +17,10 @@ import net.sf.javabdd.BDDVarSet;
  * @see edu.wis.jtlv.env.Env#loadSpecInputStream(java.io.InputStream)
  */
 public interface Spec {
+    public abstract InternalSpecLanguage getLanguage();
+    public abstract void setLanguage(InternalSpecLanguage language);
 
-	// ///////////////////////////////////////////////////////
+ 	// ///////////////////////////////////////////////////////
 	// Queries.
 	/**
 	 * <p>
@@ -46,9 +49,9 @@ public interface Spec {
 	 * 
 	 * @return true, if this a Real Time CTL specification.
 	 */
-	public abstract boolean isRealTimeCTLSpec();
+	public abstract boolean isRTCTLSpec();
 
-	public abstract boolean isRealTimeCTLKSpec();
+	public abstract boolean isRTCTLKSpec();
 
 	/**
 	 * <p>
@@ -57,9 +60,9 @@ public interface Spec {
 	 *
 	 * @return true, if this a Real Time LTL specification.
 	 */
-	public abstract boolean isRealTimeLTLSpec();
+	public abstract boolean isRTLTLSpec();
 
-	public abstract boolean isRealTimeLTLKSpec();
+	public abstract boolean isRTLTLKSpec();
 
 	/**
 	 * <p>
@@ -106,6 +109,10 @@ public interface Spec {
 	 */
 	public abstract boolean isCTLStarSpec();
 
+	public abstract boolean isATLsKSpec();
+
+	public abstract boolean isStateSpec();
+
 	/**
 	 * <p>
 	 * Does this specification has a temporal operator.
@@ -116,8 +123,13 @@ public interface Spec {
 	public abstract boolean hasTemporalOperators();
 
 	public abstract boolean hasEpistemicOperators();
-
+	public abstract boolean hasObsEpistemicOperators();
 	public abstract boolean hasSynEpistemicOperators();
+
+	public abstract boolean hasPathOperators();
+	public abstract boolean hasCTLsPathOperators();
+	public abstract boolean hasATLsPathOperators();
+
 
 	/**
 	 * <p>

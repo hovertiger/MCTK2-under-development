@@ -9,16 +9,16 @@ public class SMVDependentRangeVarInfo extends SMVVarInfo {
 	public String from;
 	public String to;
 
-	public SMVDependentRangeVarInfo(Boolean visible, String a_name, SMVParsingInfo an_info,
+	public SMVDependentRangeVarInfo(SMVElementCategory category, boolean visible, String a_name, SMVParsingInfo an_info,
 			String from, String to) throws SMVParseException {
-		super(visible, a_name, an_info);
+		super(category, visible, a_name, an_info);
 		this.from = from;
 		this.to = to;
 	}
 
 	@Override
 	public SMVAbstractElementInfo clone_element() throws SMVParseException {
-		return new SMVDependentRangeVarInfo(this.visible, this.name, this.parse_info,
+		return new SMVDependentRangeVarInfo(this.category, this.visible, this.name, this.parse_info,
 				this.from, this.to);
 	}
 

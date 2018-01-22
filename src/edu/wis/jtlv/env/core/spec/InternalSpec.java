@@ -4,6 +4,15 @@ import org.antlr.runtime.Token;
 import org.antlr.runtime.TokenStream;
 
 public abstract class InternalSpec {
+	public InternalSpecLanguage getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(InternalSpecLanguage language) {
+		this.language = language;
+	}
+
+	private InternalSpecLanguage language; //LXY: the logic language the spec use
 	protected String exp_str;
 	
 	public Token tstart;
@@ -11,6 +20,8 @@ public abstract class InternalSpec {
 	public InternalSpec(String exp_str, Token start) {
 		this.exp_str = exp_str;
 		this.tstart = start;
+
+		this.language = InternalSpecLanguage.UNDEF;
 	}
 	
 	public void setEndToken(Token end) {

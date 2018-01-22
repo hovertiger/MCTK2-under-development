@@ -125,18 +125,20 @@ public class ValueDomStmt extends ValueStmt {
 	public BDD biimpDomain(ValueDomStmt other) {
 		BDD res = Env.TRUE();
 		// performance improvement in cases where this is the same domain.
-		if (this.getBDDCouple().other().equals(other.getBDDCouple())) {
-			if (this.equals_other_varsion == null)
-				this.equals_other_varsion = this.getBDDCouple().getDomain()
-						.buildEquals(other.getBDDCouple().getDomain());
-			return this.equals_other_varsion.id();
-		}
+		if(this.getBDDCouple().other()!=null) //LXY
+			if (this.getBDDCouple().other().equals(other.getBDDCouple())) {
+				if (this.equals_other_varsion == null)
+					this.equals_other_varsion = this.getBDDCouple().getDomain()
+							.buildEquals(other.getBDDCouple().getDomain());
+				return this.equals_other_varsion.id();
+			}
 		// another try to a performance improvement.
 		// although this I think is not 100% safe...
-		if (this.getBDDCouple().other().comparable(other.getBDDCouple())) {
-			return this.getBDDCouple().getDomain().buildEquals(
-					other.getBDDCouple().getDomain());
-		}
+		if(this.getBDDCouple().other()!=null) //LXY
+			if (this.getBDDCouple().other().comparable(other.getBDDCouple())) {
+				return this.getBDDCouple().getDomain().buildEquals(
+						other.getBDDCouple().getDomain());
+			}
 
 		// otherwise this are just string values, and a name by name biimp
 		// is a must.

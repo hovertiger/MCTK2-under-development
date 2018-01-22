@@ -1,5 +1,6 @@
 package edu.wis.jtlv.env.spec;
 
+import edu.wis.jtlv.env.core.spec.InternalSpecLanguage;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 import edu.wis.jtlv.env.Env;
@@ -16,6 +17,7 @@ import edu.wis.jtlv.env.Env;
 public class SpecBDD implements Spec {
 	private BDD val = null;
 	private String identifying_expr = "";
+	private InternalSpecLanguage language=InternalSpecLanguage.UNDEF;
 
 	/**
 	 * <p>
@@ -75,28 +77,28 @@ public class SpecBDD implements Spec {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see edu.wis.jtlv.env.spec.Spec#isRealTimeCTLSpec()
+	 * @see edu.wis.jtlv.env.spec.Spec#isRTCTLSpec()
 	 */
-	public boolean isRealTimeCTLSpec() {
+	public boolean isRTCTLSpec() {
 		return true;
 	}
 
 	@Override
-	public boolean isRealTimeCTLKSpec() {
+	public boolean isRTCTLKSpec() {
 		return true;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 *
-	 * @see edu.wis.jtlv.env.spec.Spec#isRealTimeLTLSpec()
+	 * @see edu.wis.jtlv.env.spec.Spec#isRTLTLSpec()
 	 */
-	public boolean isRealTimeLTLSpec() {
+	public boolean isRTLTLSpec() {
 		return true;
 	}
 
 	@Override
-	public boolean isRealTimeLTLKSpec() {
+	public boolean isRTLTLKSpec() {
 		return true;
 	}
 
@@ -109,6 +111,9 @@ public class SpecBDD implements Spec {
 		return true;
 	}
 
+	public boolean isATLsKSpec() {
+		return true;
+	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -136,6 +141,16 @@ public class SpecBDD implements Spec {
 		return true;
 	}
 
+	@Override
+	public InternalSpecLanguage getLanguage() {
+		return language;
+	}
+
+	@Override
+	public void setLanguage(InternalSpecLanguage language) {
+		this.language = language;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -144,6 +159,8 @@ public class SpecBDD implements Spec {
 	public boolean isPropSpec() {
 		return true;
 	}
+
+	public boolean isStateSpec() { return true; }
 
 	/*
 	 * (non-Javadoc)
@@ -157,8 +174,21 @@ public class SpecBDD implements Spec {
 	public boolean hasEpistemicOperators() {
 		return false;
 	}
+	public boolean hasObsEpistemicOperators() { return false; }
+	public boolean hasSynEpistemicOperators() { return false; }
 
-	public boolean hasSynEpistemicOperators() {
+	@Override
+	public boolean hasPathOperators() {
+		return false;
+	}
+
+	@Override
+	public boolean hasCTLsPathOperators() {
+		return false;
+	}
+
+	@Override
+	public boolean hasATLsPathOperators() {
 		return false;
 	}
 

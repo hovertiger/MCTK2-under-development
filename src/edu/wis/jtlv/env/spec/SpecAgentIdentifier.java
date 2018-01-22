@@ -1,6 +1,7 @@
 package edu.wis.jtlv.env.spec;
 
 import edu.wis.jtlv.env.Env;
+import edu.wis.jtlv.env.core.spec.InternalSpecLanguage;
 import net.sf.javabdd.BDD;
 import net.sf.javabdd.BDDVarSet;
 
@@ -8,13 +9,23 @@ public class SpecAgentIdentifier implements Spec {
 	private String agentName;
 	private Spec originSpec;//the spec without translating
 	private Spec originLeftSpec;//the spec without translating
-
+	private InternalSpecLanguage language=InternalSpecLanguage.UNDEF;
 
 	public SpecAgentIdentifier(String agentName) {
 		this.agentName = agentName;
 	}
 
 	public String getAgentName() { return this.agentName; }
+
+	@Override
+	public InternalSpecLanguage getLanguage() {
+		return language;
+	}
+
+	@Override
+	public void setLanguage(InternalSpecLanguage language) {
+		this.language = language;
+	}
 
 	/* (non-Javadoc)
 	 * @see edu.wis.jtlv.env.spec.Spec#isPropSpec()
@@ -36,26 +47,26 @@ public class SpecAgentIdentifier implements Spec {
 	}
 
 	/* (non-Javadoc)
-	 * @see edu.wis.jtlv.env.spec.Spec#isRealTimeCTLSpec()
+	 * @see edu.wis.jtlv.env.spec.Spec#isRTCTLSpec()
 	 */
-	public boolean isRealTimeCTLSpec() {
+	public boolean isRTCTLSpec() {
 		return true;
 	}
 
 	@Override
-	public boolean isRealTimeCTLKSpec() {
+	public boolean isRTCTLKSpec() {
 		return true;
 	}
 
 	/* (non-Javadoc)
-	 * @see edu.wis.jtlv.env.spec.Spec#isRealTimeLTLSpec()
+	 * @see edu.wis.jtlv.env.spec.Spec#isRTLTLSpec()
 	 */
-	public boolean isRealTimeLTLSpec() {
-		return true;
+	public boolean isRTLTLSpec() {
+		return false;
 	}
 
 	@Override
-	public boolean isRealTimeLTLKSpec() {
+	public boolean isRTLTLKSpec() {
 		return true;
 	}
 
@@ -63,7 +74,7 @@ public class SpecAgentIdentifier implements Spec {
 	 * @see edu.wis.jtlv.env.spec.Spec#isLTLSpec()
 	 */
 	public boolean isLTLSpec() {
-		return true;
+		return false;
 	}
 
 	/* (non-Javadoc)
@@ -87,6 +98,15 @@ public class SpecAgentIdentifier implements Spec {
 		return true;
 	}
 
+	public boolean isATLsKSpec() {
+		return true;
+	}
+
+	@Override
+	public boolean isStateSpec() {
+		return true;
+	}
+
 	/* (non-Javadoc)
 	 * @see edu.wis.jtlv.env.spec.Spec#hasTemporalOperators()
 	 */
@@ -98,7 +118,21 @@ public class SpecAgentIdentifier implements Spec {
 		return false;
 	}
 
-	public boolean hasSynEpistemicOperators() {
+	public boolean hasObsEpistemicOperators() { return false; }
+	public boolean hasSynEpistemicOperators() { return false; }
+
+	@Override
+	public boolean hasPathOperators() {
+		return false;
+	}
+
+	@Override
+	public boolean hasCTLsPathOperators() {
+		return false;
+	}
+
+	@Override
+	public boolean hasATLsPathOperators() {
 		return false;
 	}
 

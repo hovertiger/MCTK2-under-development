@@ -7,7 +7,7 @@ public class InternalSpecExp extends InternalSpec {
 	private InternalOp theOp;
 	private InternalSpec[] elements;
 
-	private InternalSpecExp(String exp_str, InternalOp op, InternalSpec[] el,
+	public InternalSpecExp(String exp_str, InternalOp op, InternalSpec[] el,
 			Token start) {
 		super(exp_str, start);
 		assert (op != null);

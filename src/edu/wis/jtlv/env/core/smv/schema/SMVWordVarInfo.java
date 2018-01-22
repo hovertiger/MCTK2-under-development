@@ -8,22 +8,22 @@ public class SMVWordVarInfo extends SMVContainerElementInfo {
 	public int base;
 	private SMVArrayVarInfo arr_instance;
 
-	public SMVWordVarInfo(Boolean visible, String a_name, SMVParsingInfo an_info, int a_base,
+	public SMVWordVarInfo(SMVElementCategory category, boolean visible, String a_name, SMVParsingInfo an_info, int a_base,
 			int a_width) throws SMVParseException {
-		super(visible, a_name, an_info);
+		super(category, visible, a_name, an_info);
 		this.base = a_base;
 		this.width = a_width;
 		if (this.base != 2) {
 			throw new SMVParseException(
 					"Currentlly only binary word (e.g. base of 2) are supported.");
 		}
-		this.arr_instance = new SMVArrayVarInfo(this.visible, this.name, this.parse_info,
-				new SMVBooleanVarInfo(this.visible, this.name, this.parse_info), this.width);
+		this.arr_instance = new SMVArrayVarInfo(this.category, this.visible, this.name, this.parse_info,
+				new SMVBooleanVarInfo(this.category, this.visible, this.name, this.parse_info), this.width);
 	}
 
 	@Override
 	public SMVAbstractElementInfo clone_element() throws SMVParseException {
-		return new SMVWordVarInfo(this.visible, this.name, this.parse_info, this.base,
+		return new SMVWordVarInfo(this.category, this.visible, this.name, this.parse_info, this.base,
 				this.width);
 	}
 

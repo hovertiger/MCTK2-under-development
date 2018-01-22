@@ -43,7 +43,7 @@ public class StructuralInit {
 	// phase 1 - MODULES!!
 	public SMVAbstractElementInfo add_module(Boolean isAgent, String a_name,
 											 String[] args, // args[]={"arg1","arg2",...}
-											 Boolean[] args_visible,
+											 boolean[] args_visible,
 											 IntStream input) throws SMVParseException {
 		SMVModuleInfo m = all_modules.get(a_name);
 		if (m != null) {
@@ -87,7 +87,7 @@ public class StructuralInit {
 		String module_name = "";
 		String module_isAgent = "";
 		String[] module_arg_list = new String[(name_plus_args.size() - 2)/2];
-		Boolean[] module_arg_visible_list = new Boolean[(name_plus_args.size() - 2)/2];
+		boolean[] module_arg_visible_list = new boolean[(name_plus_args.size() - 2)/2];
 		int module_arg_index = 0;
 
 		Boolean isAgent;
